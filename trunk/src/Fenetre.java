@@ -2,13 +2,13 @@ import java.awt.*;
 import javax.swing.*;
 
 public class Fenetre extends JFrame implements Runnable {
-    SimCity s;
+    OudiCity s;
     JPanel accueil;
     int plateau[][];
     JLabel bienvenue;
     JButton nouveau;
     
-    public Fenetre (SimCity s){
+    public Fenetre (OudiCity s){
         this.s = s;
         plateau = s.aire.plateau;
     }
