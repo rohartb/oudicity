@@ -4,7 +4,7 @@ import javax.swing.*;
 public class PlateauGraphique extends JComponent {
     AireDeJeu aire;
     
-    public PlateauGraphique(AireDeJeu a){
+    PlateauGraphique(AireDeJeu a){
         aire = a;
     }
  
