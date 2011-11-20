@@ -1,6 +1,4 @@
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.FlowLayout;
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -16,15 +14,16 @@ import java.awt.event.*;
 class EcouteurDeBouton implements ActionListener{
     Fenetre fenetre;
     JPanel pane = new JPanel();
-    AireDeJeu jeu;
+    Ville ville;
     PlateauGraphique graphe;
 
     public EcouteurDeBouton(Fenetre f, OudiCity s) {
         this.fenetre = f;
-        this.jeu = s.aire;
-        this.graphe = new PlateauGraphique(this.jeu);
+        this.ville = s.ville;
+        this.graphe = new PlateauGraphique(this.ville);
     }
 
+    @Override
     public void actionPerformed(ActionEvent e) {
     if (e.getActionCommand().equals("nouveau")) {
 

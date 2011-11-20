@@ -1,5 +1,4 @@
-import java.util.Observable;
-import java.util.Observer;
+import java.util.*;
 
 
 public class Impot implements Observer {

@@ -2,11 +2,11 @@ import java.awt.*;
 import javax.swing.*;
 
 public class PlateauGraphique extends JComponent {
-    AireDeJeu aire;
+    Ville ville;
     int N=60;
     
-    PlateauGraphique(AireDeJeu a){
-        this.aire = a;
+    PlateauGraphique(Ville v){
+        this.ville = v;
     }
  
     @Override
