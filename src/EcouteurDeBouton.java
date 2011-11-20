@@ -1,3 +1,6 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.FlowLayout;
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -12,20 +15,24 @@ import java.awt.event.*;
  */
 class EcouteurDeBouton implements ActionListener{
     Fenetre fenetre;
-    OudiCity oudi;
+    JPanel pane = new JPanel();
+    AireDeJeu jeu;
+    PlateauGraphique graphe;
 
     public EcouteurDeBouton(Fenetre f, OudiCity s) {
-        fenetre = f;
-        oudi = s;
+        this.fenetre = f;
+        this.jeu = s.aire;
+        this.graphe = new PlateauGraphique(this.jeu);
     }
 
     public void actionPerformed(ActionEvent e) {
     if (e.getActionCommand().equals("nouveau")) {
-        PlateauGraphique dessin = new PlateauGraphique(oudi.aire);
-        fenetre.removeAll();
-        fenetre.add(dessin);
-        fenetre.add(oudi.plateauGraph);
-        dessin.setVisible(true);
+
+        pane.setLayout(new BorderLayout());
+        pane.add(graphe, BorderLayout.CENTER);
+        fenetre.setContentPane(pane);
+        fenetre.validate();
+        
     }else if(e.getActionCommand().equals("quitter")){
         System.exit(0);
     }
