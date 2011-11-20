@@ -1,3 +1,4 @@
+import Batiments.Batiment;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import javax.swing.*;
@@ -5,13 +6,11 @@ import javax.swing.*;
 public class Fenetre extends JFrame implements Runnable {
     OudiCity s;
     JPanel accueil;
-    int plateau[][];
     JLabel bienvenue;
     JButton nouveau;
     
     public Fenetre (OudiCity s){
         this.s = s;
-        plateau = s.aire.plateau;
     }
     
     @Override
