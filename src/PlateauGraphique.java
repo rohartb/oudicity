@@ -16,15 +16,15 @@ public class PlateauGraphique extends JComponent {
         int width = getSize().width;
         int height = getSize().height;
         int xM = (width*20)/100;
-
+        int xCase = (width-xM)/N;
        
 
         drawable.setPaint(Color.white);
-        drawable.fillRect(0, 0, width, height);
+        drawable.fillRect(xM, 0, width, height);
         drawable.setPaint(Color.black);
 
         for(int i=0; i<=N; i++){
-            drawable.drawLine(i*((width-xM)/N)+xM, 0, i*((width-xM)/N), height);
+            drawable.drawLine(i*xCase+xM, 0, i*xCase+xM, height);
             drawable.drawLine(xM, i*(height/N), width, i*(height/N));
         }
 

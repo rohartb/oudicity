@@ -29,6 +29,8 @@ class EcouteurDeBouton implements ActionListener{
     if (e.getActionCommand().equals("nouveau")) {
 
         pane.setLayout(new BorderLayout());
+        JPanel coteGauche = new JPanel();
+        pane.add(coteGauche, BorderLayout.WEST);
         pane.add(graphe, BorderLayout.CENTER);
         fenetre.setContentPane(pane);
         fenetre.validate();
