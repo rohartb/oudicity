@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class Fenetre extends JFrame implements Runnable {
@@ -39,21 +40,23 @@ public class Fenetre extends JFrame implements Runnable {
         
         nouveau = new JButton("nouvelle partie");
         nouveau.setAlignmentX(CENTER_ALIGNMENT);
+        nouveau.addActionListener(new EcouteurDeBouton(this, s));
+        nouveau.setActionCommand("nouveau");
         
         JButton continuer = new JButton("continuer partie");
         continuer.setAlignmentX(CENTER_ALIGNMENT);
 
         JButton quitter = new JButton("quitter");
         quitter.setAlignmentX(CENTER_ALIGNMENT);
+        quitter.addActionListener(new EcouteurDeBouton(this, s));
+        quitter.setActionCommand("quitter");
 
         p.add(nouveau);
         p.add(continuer);
         p.add(quitter);
         
         accueil.add(bienvenue);
-        //accueil.add(nouveau);
-        //accueil.add(continuer);
-        //accueil.add(quitter);
+        
         accueil.add(p);
         accueil.setVisible(true);
         

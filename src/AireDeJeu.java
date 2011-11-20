@@ -7,6 +7,10 @@ class AireDeJeu {
     AireDeJeu(String n){
         nomVille = n;
     }
+
+    AireDeJeu() {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
     
     void init(){
         plateau = new int[LARGEUR][HAUTEUR];
