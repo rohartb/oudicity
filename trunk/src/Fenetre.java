@@ -1,13 +1,18 @@
-import Batiments.Batiment;
 import java.awt.*;
-import java.awt.event.ActionListener;
 import javax.swing.*;
 
-public class Fenetre extends JFrame implements Runnable {
+public class Fenetre extends JFrame implements Runnable{
     OudiCity s;
     JPanel accueil;
+    JPanel panelBouton;
+    JPanel barreLaterale;
+    
     JLabel bienvenue;
+    
     JButton nouveau;
+    JButton continuer;
+    JButton quitter;
+
     
     public Fenetre (OudiCity s){
         this.s = s;
@@ -26,44 +31,64 @@ public class Fenetre extends JFrame implements Runnable {
             System.out.println("Error setting native LAF: " + e);
         }
 
+        
+        
+        ////////////////////////////////////
+        //        Barre latérale          //
+        ////////////////////////////////////
+        
+        barreLaterale = new JPanel();
+        JLabel nomMaire = new JLabel(s.ville.nomMaire);
+        JLabel nbHabitant = new JLabel("" +s.ville.nbHabitant);
+        barreLaterale.add(nomMaire);
+        barreLaterale.add(nbHabitant);
+        
+        
+        //////////////////////////////////////
+        //          Page d'accueil          //
+        //////////////////////////////////////
+        
         accueil = new JPanel(new GridLayout(2,1));
         accueil.setSize(800,700);
         accueil.setBackground(Color.WHITE);
 
         bienvenue = new JLabel(new ImageIcon("Image/Bienvenue.png"));
         
-       
-        JPanel p = new JPanel();
-        p.setBackground(Color.WHITE);
-        p.setLayout(new BoxLayout(p,BoxLayout.Y_AXIS));
+        // Boutons de l'ecran d'accueil
+        panelBouton = new JPanel();
+        panelBouton.setBackground(Color.WHITE);
+        panelBouton.setLayout(new BoxLayout(panelBouton,BoxLayout.Y_AXIS));
         
+        // Nouvelle Partie
         nouveau = new JButton("nouvelle partie");
         nouveau.setAlignmentX(CENTER_ALIGNMENT);
-        nouveau.addActionListener(new EcouteurDeBouton(this, s));
+        nouveau.addActionListener(new EcouteurDeBouton(this, s, barreLaterale));
         nouveau.setActionCommand("nouveau");
         
-        JButton continuer = new JButton("continuer partie");
+        // Continuer Partie
+        continuer = new JButton("continuer partie");
         continuer.setAlignmentX(CENTER_ALIGNMENT);
 
-        JButton quitter = new JButton("quitter");
+        // Quitter Partie
+        quitter = new JButton("quitter");
         quitter.setAlignmentX(CENTER_ALIGNMENT);
-        quitter.addActionListener(new EcouteurDeBouton(this, s));
+        quitter.addActionListener(new EcouteurDeBouton(this, s, barreLaterale));
         quitter.setActionCommand("quitter");
 
-        p.add(nouveau);
-        p.add(continuer);
-        p.add(quitter);
+        // Ajout des boutons au panel
+        panelBouton.add(nouveau);
+        panelBouton.add(continuer);
+        panelBouton.add(quitter);
         
         accueil.add(bienvenue);
-        
-        accueil.add(p);
+        accueil.add(panelBouton);
         accueil.setVisible(true);
         
         this.add(accueil);
-
         this.add(s.plateauGraph);
+ 
+        this.setTitle("OudiCity");
         
-        this.setTitle("SimCity");
         //Fenetre du jeu
         this.setSize(800,700);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

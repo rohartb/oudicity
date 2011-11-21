@@ -8,7 +8,7 @@ public class OudiCity{
     Thread thTemps;
    
     public static void main(String[] args){
-        OudiCity OudiCity = new OudiCity();
+        OudiCity oudiCity = new OudiCity();
     }
 
     public OudiCity(){
