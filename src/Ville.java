@@ -4,6 +4,10 @@ import java.util.*;
 public class Ville extends Observable{
     Temps t;
     
+    Ville(Temps t){
+        this.t = t;
+    }
+    
     Batiment plateau[][];
     
     String nomVille;
@@ -19,5 +23,7 @@ public class Ville extends Observable{
         nbHabitant = 0;
         indiceAttraction = 50;
     }
+    
+    Habitant h = new Habitant(indiceAttraction,nbHabitant);
     
 }

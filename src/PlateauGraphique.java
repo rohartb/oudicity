@@ -10,6 +10,7 @@ public class PlateauGraphique extends JComponent {
         this.ville = v;
     }
 
+    @Override
      public void paintComponent(Graphics g) {
         Graphics2D drawable = (Graphics2D) g;
 

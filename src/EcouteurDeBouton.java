@@ -16,11 +16,13 @@ class EcouteurDeBouton implements ActionListener{
     JPanel pane = new JPanel();
     Ville ville;
     PlateauGraphique graphe;
+    JPanel barreLaterale;
 
-    public EcouteurDeBouton(Fenetre f, OudiCity s) {
+    public EcouteurDeBouton(Fenetre f, OudiCity s, JPanel b) {
         this.fenetre = f;
         this.ville = s.ville;
         this.graphe = new PlateauGraphique(this.ville);
+        this.barreLaterale = b;
     }
 
     @Override
@@ -28,8 +30,7 @@ class EcouteurDeBouton implements ActionListener{
     if (e.getActionCommand().equals("nouveau")) {
 
         pane.setLayout(new BorderLayout());
-        JPanel coteGauche = new JPanel();
-        pane.add(coteGauche, BorderLayout.WEST);
+        pane.add(barreLaterale, BorderLayout.WEST);
         pane.add(graphe, BorderLayout.CENTER);
         fenetre.setContentPane(pane);
         fenetre.validate();
