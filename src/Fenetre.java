@@ -5,7 +5,7 @@ public class Fenetre extends JFrame implements Runnable{
     OudiCity s;
     JPanel accueil;
     JPanel panelBouton;
-    JPanel barreLaterale;
+    BarreLaterale barreL;
     
     JLabel bienvenue;
     
@@ -37,11 +37,14 @@ public class Fenetre extends JFrame implements Runnable{
         //        Barre latérale          //
         ////////////////////////////////////
         
-        barreLaterale = new JPanel();
-        JLabel nomMaire = new JLabel(s.ville.nomMaire);
-        JLabel nbHabitant = new JLabel("" +s.ville.nbHabitant);
-        barreLaterale.add(nomMaire);
-        barreLaterale.add(nbHabitant);
+        BarreLaterale barreL = new BarreLaterale(s.ville,s.t);
+        barreL.nomMaire = new JLabel(s.ville.nomMaire);
+        barreL.nbHab = new JLabel("" +s.ville.nbHabitant);
+        barreL.date = new JLabel(s.t.c.afficherDate());
+
+        barreL.add(barreL.nomMaire);
+        barreL.add(barreL.nbHab);
+        barreL.add(barreL.date);
         
         
         //////////////////////////////////////
@@ -62,7 +65,7 @@ public class Fenetre extends JFrame implements Runnable{
         // Nouvelle Partie
         nouveau = new JButton("nouvelle partie");
         nouveau.setAlignmentX(CENTER_ALIGNMENT);
-        nouveau.addActionListener(new EcouteurDeBouton(this, s, barreLaterale));
+        nouveau.addActionListener(new EcouteurDeBouton(this, s, barreL));
         nouveau.setActionCommand("nouveau");
         
         // Continuer Partie
@@ -72,7 +75,7 @@ public class Fenetre extends JFrame implements Runnable{
         // Quitter Partie
         quitter = new JButton("quitter");
         quitter.setAlignmentX(CENTER_ALIGNMENT);
-        quitter.addActionListener(new EcouteurDeBouton(this, s, barreLaterale));
+        quitter.addActionListener(new EcouteurDeBouton(this, s, barreL));
         quitter.setActionCommand("quitter");
 
         // Ajout des boutons au panel
