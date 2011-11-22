@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Habitant implements Observer {
+public class Habitant {
     int annee = 1970;
     int jour = 1;
     int indiceAttirance;
@@ -10,15 +10,8 @@ public class Habitant implements Observer {
         indiceAttirance = i;
         nbHab = n;
     }
-    
-    @Override
-    public void update(Observable o, Object arg) {
-        Calendrier c = (Calendrier) arg;
-        if(annee != c.annee){
-            if(jour != c.jour){ 
-                nbHab++;
-            }
-        }
+
+    void augmentetHabitant(int indiceAttraction) {
+        //TODO
     }
-    
 }
