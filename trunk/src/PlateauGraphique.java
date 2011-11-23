@@ -4,7 +4,8 @@ import javax.swing.*;
 
 public class PlateauGraphique extends JComponent {
     Ville ville;
-    int N=60;
+    int N=4, width, height;
+    float xM, xCase;
 
     PlateauGraphique(Ville v){
         this.ville = v;
@@ -14,10 +15,9 @@ public class PlateauGraphique extends JComponent {
      public void paintComponent(Graphics g) {
         Graphics2D drawable = (Graphics2D) g;
 
-        int width = getSize().width;
-        int height = getSize().height;
-        float xM = (width*20)/100;
-        float xCase = (width-xM)/N;
+        width = getSize().width;
+        height = getSize().height;
+        xCase = (width)/N;
        
 
         drawable.setPaint(Color.white);
