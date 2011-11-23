@@ -42,7 +42,9 @@ public class Ville extends Observable implements Observer{
             c = (Calendrier) o;
             if(jour != c.jour){
                 jour = c.jour;
-                h.augmentetHabitant(indiceAttraction);
+                nbHabitant=h.augmentetHabitant(indiceAttraction);
+                setChanged();
+                notifyObservers();
             }
         }
     }

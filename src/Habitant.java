@@ -11,7 +11,7 @@ public class Habitant {
         nbHab = n;
     }
 
-    void augmentetHabitant(int indiceAttraction) {
-        //TODO
+    int augmentetHabitant(int indiceAttraction) {
+        return nbHab++;
     }
 }

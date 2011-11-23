@@ -21,12 +21,12 @@ public class PlateauGraphique extends JComponent {
        
 
         drawable.setPaint(Color.white);
-        drawable.fillRect((int) xM, 0, width, height);
+        drawable.fillRect((int) 0, 0, width, height);
         drawable.setPaint(Color.black);
 
         for(int i=0; i<=N; i++){
-            drawable.draw(new Line2D.Float(i*xCase+xM, 0, i*xCase+xM, height));
-            drawable.draw(new Line2D.Float(xM, i*(height/N), width, i*(height/N)));
+            drawable.draw(new Line2D.Float(i*xCase, 0, i*xCase, height));
+            drawable.draw(new Line2D.Float(0, i*(height/N), width, i*(height/N)));
         }
 
     }
