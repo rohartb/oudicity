@@ -8,6 +8,7 @@ public class BarreLaterale extends JPanel implements Observer {
     JLabel nomMaire;
     JLabel nbHab;
     JLabel date;
+    JButton boutonL = new JButton("Logement");
    
     int annee = 1970;
     int jour = 1;
@@ -19,6 +20,7 @@ public class BarreLaterale extends JPanel implements Observer {
         ville = v;
         this.t = t;
         t.c.addObserver(this);
+        ville.addObserver(this);
     }
   
     

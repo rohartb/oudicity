@@ -38,6 +38,7 @@ public class Fenetre extends JFrame implements Runnable{
         ////////////////////////////////////
         
         BarreLaterale barreL = new BarreLaterale(s.ville,s.t);
+        barreL.setMaximumSize(new Dimension(700,60));
         barreL.nomMaire = new JLabel(s.ville.nomMaire);
         barreL.nbHab = new JLabel("" +s.ville.nbHabitant);
         barreL.date = new JLabel(s.t.c.afficherDate());
