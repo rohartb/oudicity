@@ -23,7 +23,7 @@ class EcouteurDeBarreLateral implements ActionListener,
     }
     @Override
     public void actionPerformed(ActionEvent e) { 
-        if (e.getActionCommand().equals("logement")){
+        if(e.getActionCommand().equals("logement")){
             courant = maison;
             nom = "logement";
         }else if (e.getActionCommand().equals("industrie")){
@@ -50,27 +50,22 @@ class EcouteurDeBarreLateral implements ActionListener,
 
     @Override
     public void mousePressed(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public void mouseDragged(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
@@ -79,6 +74,7 @@ class EcouteurDeBarreLateral implements ActionListener,
             xSouris = e.getX();
             ySouris = e.getY();
         }
+        System.out.println("mouved");
         graphe.drawable.drawImage(courant, xSouris, ySouris, xcase, ycase,
                 null);
     }
