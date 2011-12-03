@@ -1,5 +1,5 @@
 
-import java.awt.Image;
+import java.awt.*;
 import java.awt.event.*;
 
 /*
@@ -15,8 +15,11 @@ class EcouteurDeBarreLateral implements ActionListener,
                                          MouseListener,
                                   MouseMotionListener {
     
-    Image maison, immeuble, mairie, hopital;
+    Image maison, immeuble, mairie, hopital, courant;
     PlateauGraphique graphe;
+    int xSouris, ySouris, xcase, ycase;
+    boolean click = false;
+    String nom;
 
     public EcouteurDeBarreLateral(PlateauGraphique g){
         graphe = g;
@@ -24,15 +27,14 @@ class EcouteurDeBarreLateral implements ActionListener,
         immeuble = graphe.getToolkit().getImage("Image/immeuble.gif");
         mairie = graphe.getToolkit().getImage("Image/mairie.gif");
         hopital = graphe.getToolkit().getImage("Image/hospital.gif");
+        xcase = (graphe.width/graphe.N);
+        ycase = (graphe.height/graphe.N);
     }
     @Override
-    public void actionPerformed(ActionEvent e) {
-        int xcase = (graphe.width/graphe.N);
-        int ycase = (graphe.height/graphe.N);
-
+    public void actionPerformed(ActionEvent e) { 
         if (e.getActionCommand().equals("logement")){
-            //graphe.getGraphics().drawImage(maison,i*(width/N), j*(height/N),width/N,
-              //          height/N, null);
+            courant = maison;
+            nom = "logement";
         }else if (e.getActionCommand().equals("industrie")){
 
         }else if (e.getActionCommand().equals("commerce")){
@@ -42,11 +44,17 @@ class EcouteurDeBarreLateral implements ActionListener,
         }else if (e.getActionCommand().equals("route")){
             
         }
+        click = true;
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        xSouris = e.getX();
+        ySouris = e.getY();
+        if(click == true){
+            Point p = graphe.Case(xSouris, ySouris);
+            //graphe.nouveauBatiment(p, nom);
+        }
     }
 
     @Override
@@ -76,7 +84,12 @@ class EcouteurDeBarreLateral implements ActionListener,
 
     @Override
     public void mouseMoved(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(xSouris != e.getX() || ySouris != e.getY()){
+            xSouris = e.getX();
+            ySouris = e.getY();
+        }
+        graphe.drawable.drawImage(courant, xSouris, ySouris, xcase, ycase,
+                null);
     }
 
 }
