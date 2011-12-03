@@ -3,6 +3,7 @@ package Batiments;
 public abstract class ServicePublic extends Batiment {
     private int zoneInfluence;
     private int nb_employe;
+    private int nb_employe_MAX;
 
     /*GETTERS*/
     public int getNb_employe() {
@@ -13,6 +14,10 @@ public abstract class ServicePublic extends Batiment {
         return zoneInfluence;
     }
     
+    public int getNb_employe_MAX() {
+        return nb_employe_MAX;
+    }
+    
     /*SETTERS*/
 
     public void setNb_employe(int nb_employe) {
@@ -21,5 +26,9 @@ public abstract class ServicePublic extends Batiment {
 
     public void setZoneInfluence(int zoneInfluence) {
         this.zoneInfluence = zoneInfluence;
-    }   
+    }
+    
+    public void setNb_employe_MAX(int nb_employe_MAX) {
+        this.nb_employe_MAX = nb_employe_MAX;
+    }
 }

@@ -7,6 +7,7 @@ public class Bus extends Infrastructure{
         this.setPrixDestr(5);
         this.setTaille(1);
         this.setType("bus");
-        this.setNb_employe(1);
+        this.setNb_employe(0);
+        this.setNb_employe_MAX(1);                
     }
 }

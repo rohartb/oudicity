@@ -4,6 +4,7 @@ package Batiments;
 public abstract class Loisir extends Batiment{
     private int attraction;
     private int nb_employe;
+    private int nb_employe_MAX;
 
     /*GETTERS*/
     public int getAttraction() {
@@ -12,6 +13,10 @@ public abstract class Loisir extends Batiment{
 
     public int getNb_employe() {
         return nb_employe;
+    }
+    
+    public int getNb_employe_MAX() {
+        return nb_employe_MAX;
     }
 
     /*SETTERS*/
@@ -23,7 +28,9 @@ public abstract class Loisir extends Batiment{
         this.nb_employe = nb_employe;
     }
     
-    
+    public void setNb_employe_MAX(int nb_employe_MAX) {
+        this.nb_employe_MAX = nb_employe_MAX;
+    }
     
     
 }
