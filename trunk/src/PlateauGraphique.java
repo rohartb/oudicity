@@ -1,15 +1,20 @@
 import java.awt.*;
 import java.awt.geom.Line2D;
 import javax.swing.*;
+import Batiments.Batiment;
+import Batiments.Logement;
 
 public class PlateauGraphique extends JComponent {
     Ville ville;
+    Batiment batiment;
+    Batiment plateau[][];
     Graphics2D drawable;
     int N=4, width, height;
     float xM, xCase;
 
     PlateauGraphique(Ville v){
         this.ville = v;
+        
     }
 
     @Override
@@ -51,6 +56,11 @@ public class PlateauGraphique extends JComponent {
             p = new Point(xc, yc);
             return p;
     }
-}
     
- 
+    public void nouveauBatiment(Point p, String type){
+        
+        if(type.equals("logement")){
+            plateau[(int)p.getX()][(int)p.getY()] = new Logement(); 
+        }
+    }
+}  

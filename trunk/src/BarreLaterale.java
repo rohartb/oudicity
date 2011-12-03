@@ -92,26 +92,38 @@ public class BarreLaterale extends JPanel implements Observer {
         bLog = new JButton(new ImageIcon("Image/maison.png"));
         bLog.setPreferredSize(new Dimension(30,30));
         bLog.addActionListener(new EcouteurDeBarreLateral(p));
+        bLog.addMouseListener(new EcouteurDeBarreLateral(p));
+        bLog.addMouseMotionListener(new EcouteurDeBarreLateral(p));
         bLog.setActionCommand("logement");
         
         bIndus = new JButton(new ImageIcon("Image/usine.png"));
         bIndus.addActionListener(new EcouteurDeBarreLateral(p));
+        bIndus.addMouseListener(new EcouteurDeBarreLateral(p));
+        bIndus.addMouseMotionListener(new EcouteurDeBarreLateral(p));
         bIndus.setActionCommand("industrie");
         
         bCommerce = new JButton(new ImageIcon("Image/commerce.png"));
         bCommerce.addActionListener(new EcouteurDeBarreLateral(p));
+        bCommerce.addMouseListener(new EcouteurDeBarreLateral(p));
+        bCommerce.addMouseMotionListener(new EcouteurDeBarreLateral(p));
         bCommerce.setActionCommand("commerce");
         
         bLoisir = new JButton(new ImageIcon("Image/loisir.png"));
         bLoisir.addActionListener(new EcouteurDeBarreLateral(p));
+        bLoisir.addMouseListener(new EcouteurDeBarreLateral(p));
+        bLoisir.addMouseMotionListener(new EcouteurDeBarreLateral(p));
         bLoisir.setActionCommand("loisir");
         
         bFerme = new JButton(new ImageIcon("Image/ferme.png"));
         bFerme.addActionListener(new EcouteurDeBarreLateral(p));
+        bFerme.addMouseListener(new EcouteurDeBarreLateral(p));
+        bFerme.addMouseMotionListener(new EcouteurDeBarreLateral(p));
         bFerme.setActionCommand("ferme");
         
         bRoute = new JButton(new ImageIcon("Image/route.png"));
         bRoute.addActionListener(new EcouteurDeBarreLateral(p));
+        bRoute.addMouseListener(new EcouteurDeBarreLateral(p));
+        bRoute.addMouseMotionListener(new EcouteurDeBarreLateral(p));
         bRoute.setActionCommand("route");
         
         batiments.add(bLog);
