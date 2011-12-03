@@ -74,7 +74,7 @@ class EcouteurDeBarreLateral implements ActionListener,
             xSouris = e.getX();
             ySouris = e.getY();
         }
-        System.out.println("mouved");
+        //System.out.println("mouved " + courant);
         graphe.drawable.drawImage(courant, xSouris, ySouris, xcase, ycase,
                 null);
     }
