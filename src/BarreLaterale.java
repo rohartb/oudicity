@@ -121,7 +121,6 @@ public class BarreLaterale extends JPanel implements Observer {
         batiments.add(bFerme);
         batiments.add(bRoute);
         
-        
         //Panel des conseils
         conseils = new JPanel();
         conseils.setBackground(new Color(255,153,51));
