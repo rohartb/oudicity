@@ -1,5 +1,6 @@
 package Batiments;
 
-public class Logement {
+public class Logement extends Batiment{
    String type;
+   int nb_hab;
 }
