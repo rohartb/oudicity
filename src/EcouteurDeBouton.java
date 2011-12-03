@@ -1,5 +1,4 @@
 import java.awt.BorderLayout;
-import java.awt.Image;
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -35,7 +34,6 @@ class EcouteurDeBouton implements ActionListener{
         pane.add(graphe, BorderLayout.CENTER);
         fenetre.setContentPane(pane);
         fenetre.validate();
-        
     }else if(e.getActionCommand().equals("quitter")){
         System.exit(0);
     }
