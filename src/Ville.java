@@ -16,8 +16,6 @@ public class Ville extends Observable implements Observer{
         
     }
     
-    Batiment plateau[][];
-    
     String nomVille;
     String nomMaire;
     int nbHabitant;

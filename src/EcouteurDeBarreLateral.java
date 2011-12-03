@@ -2,15 +2,6 @@
 import java.awt.*;
 import java.awt.event.*;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author bastien
- */
 class EcouteurDeBarreLateral implements ActionListener,
                                          MouseListener,
                                   MouseMotionListener {
