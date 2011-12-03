@@ -9,7 +9,10 @@ public abstract class  Batiment {
     private int prixDestr;
     //boolean accesRoute;
     // int nbOccupant;
-    
+
+    public Batiment(){
+        
+    }
     
     /*SETTERS*/
     public void setCoutEntretien(int coutEntretien) {

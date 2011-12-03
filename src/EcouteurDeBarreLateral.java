@@ -6,30 +6,22 @@ class EcouteurDeBarreLateral implements ActionListener,
                                          MouseListener,
                                   MouseMotionListener {
     
-    Image maison, immeuble, mairie, hopital, courant;
     PlateauGraphique graphe;
     int xSouris, ySouris, xcase, ycase;
-    boolean click = false;
+    int click = 0;
     String nom;
 
     public EcouteurDeBarreLateral(PlateauGraphique g){
         graphe = g;
-        maison = graphe.getToolkit().getImage("Image/maison.gif");
-        immeuble = graphe.getToolkit().getImage("Image/immeuble.gif");
-        mairie = graphe.getToolkit().getImage("Image/mairie.gif");
-        hopital = graphe.getToolkit().getImage("Image/hospital.gif");
-        xcase = (graphe.width/graphe.N);
-        ycase = (graphe.height/graphe.N);
     }
     
     @Override
-    public void actionPerformed(ActionEvent e) { 
+    public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("logement")){
-            courant = maison;
             nom = "logement";
-            click = true;
+            click++;
         }else if (e.getActionCommand().equals("industrie")){
-            click = false;
+            click = 0;
 
         }else if (e.getActionCommand().equals("commerce")){
 
@@ -44,14 +36,16 @@ class EcouteurDeBarreLateral implements ActionListener,
     public void mouseClicked(MouseEvent e) {
         xSouris = e.getX();
         ySouris = e.getY();
-        System.out.println("clic  "+click);
-        if(click == true){
-            Point p = graphe.Case(xSouris, ySouris);
-            System.out.println("click : "+xcase + "  "+ ycase);
-            graphe.drawable.drawImage(maison,200, 200, 100, 100 ,
-                    null);
-            graphe.repaint();
+        if(xSouris >= 200){
+            xSouris -= 200;
+            if(click > 1){
+               Point p = graphe.Case(xSouris, ySouris);
+              graphe.nouveauBatiment(p, nom);
+              graphe.repaint();
+            }
         }
+        click ++;
+
     }
 
     @Override
