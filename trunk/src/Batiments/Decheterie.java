@@ -1,0 +1,15 @@
+package Batiments;
+
+public class Decheterie extends ServicePublic{
+    Decheterie(){
+        this.setCoutEntretien(10);
+        this.setNb_employe(10);
+        this.setPrixAchat(10);
+        this.setPrixDestr(5);
+        this.setTaille(1);
+        this.setType("decheterie");
+        this.setZoneInfluence(12); 
+        
+    }
+    
+}
