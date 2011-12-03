@@ -18,10 +18,10 @@ class EcouteurDeBarreLateral implements ActionListener{
 
     public EcouteurDeBarreLateral(PlateauGraphique g){
         graphe = g;
-        maison = graphe.getToolkit().getImage("Image/maison.jpg");
-        immeuble = graphe.getToolkit().getImage("Image/immeuble.gif");
-        mairie = graphe.getToolkit().getImage("Image/mairie.png");
-        hopital = graphe.getToolkit().getImage("Image/hopital.jpg");
+        //maison = graphe.getToolkit().getImage("Image/maison.jpg");
+        //immeuble = graphe.getToolkit().getImage("Image/immeuble.gif");
+        //mairie = graphe.getToolkit().getImage("Image/mairie.png");
+        //hopital = graphe.getToolkit().getImage("Image/hopital.jpg");
     }
     @Override
     public void actionPerformed(ActionEvent e) {

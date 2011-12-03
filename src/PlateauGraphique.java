@@ -15,7 +15,7 @@ public class PlateauGraphique extends JComponent {
     @Override
      public void paintComponent(Graphics g) {
         drawable = (Graphics2D) g;
-        Image image = this.getToolkit().getImage("Image/herbe.jpg");
+        //Image image = this.getToolkit().getImage("Image/herbe.gif");
 
         width = getSize().width;
         height = getSize().height;
@@ -31,8 +31,9 @@ public class PlateauGraphique extends JComponent {
             drawable.draw(new Line2D.Float(0, i*(height/N), width,
                     i*(height/N)));
             for(int j=0; i<=N; j++){
-            drawable.drawImage(image, i*(width/N), j*(height/N), width/N,
-                    height/N, null);
+                drawable.setPaint(Color.green);
+                drawable.fillRect(i*(width)/N,j*(height/N) , (width)/N,(height/N));
+                drawable.setPaint(Color.black);
             }
         }
     }
