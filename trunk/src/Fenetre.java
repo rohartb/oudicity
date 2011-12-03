@@ -37,7 +37,7 @@ public class Fenetre extends JFrame implements Runnable{
         //        Barre latérale          //
         ////////////////////////////////////
         
-        BarreLaterale barreL = new BarreLaterale(s.ville,s.t);
+        BarreLaterale barreL = new BarreLaterale(s.ville,s.t,s.plateauGraph);
         
         
         //////////////////////////////////////
