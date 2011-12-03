@@ -29,7 +29,7 @@ class EcouteurDeBouton implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
     if (e.getActionCommand().equals("nouveau")){
-        graphe.addMouseListener(new EcouteurDeSouris(graphe));
+        //graphe.addMouseListener(new EcouteurDeSouris(graphe));
         pane.setLayout(new BorderLayout());
         pane.add(barreL, BorderLayout.WEST);
         pane.add(graphe, BorderLayout.CENTER);
