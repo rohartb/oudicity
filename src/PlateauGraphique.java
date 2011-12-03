@@ -30,8 +30,8 @@ public class PlateauGraphique extends JComponent {
             drawable.draw(new Line2D.Float(i*xCase, 0, i*xCase, height));
             drawable.draw(new Line2D.Float(0, i*(height/N), width,
                     i*(height/N)));
-            for(int j=0; i<=N; j++){
-                drawable.setPaint(Color.green);
+            for(int j=0; j<=N; j++){
+                drawable.setPaint(new Color(119,221,68));
                 drawable.fillRect(i*(width)/N,j*(height/N) , (width)/N,(height/N));
                 drawable.setPaint(Color.black);
             }

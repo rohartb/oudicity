@@ -82,13 +82,31 @@ public class BarreLaterale extends JPanel implements Observer {
         
         //Panel des batiments
         batiments = new JPanel();
-        batiments.setLayout(new GridLayout());
+        batiments.setLayout(new GridLayout(3,3));
         batiments.setBackground(new Color(204,255,102));
         batiments.setPreferredSize(new Dimension(200,300));
         
         //Ajout des bouton qui symbolisent les batiments 
-        bLog = new JButton(new ImageIcon());
+        bLog = new JButton(new ImageIcon("Image/maison.png"));
         bLog.setPreferredSize(new Dimension(30,30));
+        
+        bIndus = new JButton(new ImageIcon("Image/usine.png"));
+        
+        bCommerce = new JButton(new ImageIcon("Image/commerce.png"));
+        
+        bLoisir = new JButton(new ImageIcon("Image/loisir.png"));
+        
+        bFerme = new JButton(new ImageIcon("Image/ferme.png"));
+        
+        bRoute = new JButton(new ImageIcon("Image/route.png"));
+        
+        batiments.add(bLog);
+        batiments.add(bIndus);
+        batiments.add(bCommerce);
+        batiments.add(bLoisir);
+        batiments.add(bFerme);
+        batiments.add(bRoute);
+        
         
         //Panel des conseils
         conseils = new JPanel();
