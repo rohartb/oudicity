@@ -8,6 +8,7 @@ public class Stade extends Loisir{
         this.setCoutEntretien(10);
         this.setTaille(1);
         this.setAttraction(12);
-        this.setNb_employe(6);
+        this.setNb_employe(0);
+        this.setNb_employe_MAX(10);
     }
 }
