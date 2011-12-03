@@ -4,6 +4,7 @@ import javax.swing.*;
 
 public class PlateauGraphique extends JComponent {
     Ville ville;
+    Graphics2D drawable;
     int N=4, width, height;
     float xM, xCase;
 
@@ -13,7 +14,8 @@ public class PlateauGraphique extends JComponent {
 
     @Override
      public void paintComponent(Graphics g) {
-        Graphics2D drawable = (Graphics2D) g;
+        drawable = (Graphics2D) g;
+        Image image = this.getToolkit().getImage("Image/herbe.jpg");
 
         width = getSize().width;
         height = getSize().height;
@@ -27,6 +29,8 @@ public class PlateauGraphique extends JComponent {
         for(int i=0; i<=N; i++){
             drawable.draw(new Line2D.Float(i*xCase, 0, i*xCase, height));
             drawable.draw(new Line2D.Float(0, i*(height/N), width, i*(height/N)));
+            //drawable.drawImage(image, i*xCase, i*(height/N), xCase, height/N, null);
+            //drawable.draw(new Image)
         }
 
     }
