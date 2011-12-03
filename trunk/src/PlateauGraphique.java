@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.geom.Line2D;
+import java.util.LinkedList;
 import javax.swing.*;
 import Batiments.Batiment;
 import Batiments.Logement;
@@ -86,5 +87,9 @@ public class PlateauGraphique extends JComponent {
         if(type.equals("logement")){
             plateau[(int)p.getX()][(int)p.getY()] = new Logement();
         }
+    }
+
+    LinkedList<Points> plateauContient(String string) {
+        throw new UnsupportedOperationException("Not yet implemented");
     }
 }  

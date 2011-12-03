@@ -3,6 +3,14 @@ import java.util.*;
 
 public class Ville extends Observable implements Observer{
     Temps t;
+    PlateauGraphique p;
+    
+    int indiceA[][];
+    String nomVille;
+    String nomMaire;
+    int nbHabitant;
+    int argent;
+    int indiceAttraction;
     
     int annee = 1970;
     int mois = 1;
@@ -16,12 +24,6 @@ public class Ville extends Observable implements Observer{
         
     }
     
-    String nomVille;
-    String nomMaire;
-    int nbHabitant;
-    int argent;
-    int indiceAttraction;
-    
     Ville(String v, String m, Temps t){
         nomVille = v;
         nomMaire = m;
@@ -31,7 +33,7 @@ public class Ville extends Observable implements Observer{
         t.c.addObserver(this);
     }
     
-    Habitant h = new Habitant(indiceAttraction,nbHabitant);
+    Habitant h = new Habitant(this,p);
 
     @Override
     public void update(Observable o, Object arg) {
@@ -45,5 +47,11 @@ public class Ville extends Observable implements Observer{
                 notifyObservers();
             }
         }
+    }
+    
+    public void initTab(int t[][]){
+        //for(int i=0;i<t.length;i++){
+        //    for(int j;j<)
+        //}
     }
 }
