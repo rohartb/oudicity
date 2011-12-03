@@ -28,11 +28,13 @@ public class PlateauGraphique extends JComponent {
 
         for(int i=0; i<=N; i++){
             drawable.draw(new Line2D.Float(i*xCase, 0, i*xCase, height));
-            drawable.draw(new Line2D.Float(0, i*(height/N), width, i*(height/N)));
-            //drawable.drawImage(image, i*xCase, i*(height/N), xCase, height/N, null);
-            //drawable.draw(new Image)
+            drawable.draw(new Line2D.Float(0, i*(height/N), width,
+                    i*(height/N)));
+            for(int j=0; i<=N; j++){
+            drawable.drawImage(image, i*(width/N), j*(height/N), width/N,
+                    height/N, null);
+            }
         }
-
     }
 }
     
