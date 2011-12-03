@@ -38,6 +38,19 @@ public class PlateauGraphique extends JComponent {
                     i*(height/N)));
         }
     }
+
+    public Point Case(int x, int y){
+            Point p;
+            int xc = 0, yc = 0;
+                while((xc*(width/N))<=x){
+                    xc++;
+                }
+                while(yc*(height/N)<=y){
+                    yc++;
+                }
+            p = new Point(xc, yc);
+            return p;
+    }
 }
     
  
