@@ -6,6 +6,7 @@ import javax.swing.*;
 public class BarreLaterale extends JPanel implements Observer {
     Ville ville;
     Temps t;
+    PlateauGraphique p;
     
     // panels 
     JPanel info;
@@ -35,9 +36,10 @@ public class BarreLaterale extends JPanel implements Observer {
     int nbHabitant = 0;
     int argent = 20000;   
     
-    public BarreLaterale(Ville v,Temps t){
+    public BarreLaterale(Ville v,Temps t,PlateauGraphique p){
         ville = v;
         this.t = t;
+        this.p = p;
         t.c.addObserver(this);
         ville.addObserver(this);
         
@@ -82,23 +84,35 @@ public class BarreLaterale extends JPanel implements Observer {
         
         //Panel des batiments
         batiments = new JPanel();
-        batiments.setLayout(new GridLayout(3,3));
+        batiments.setLayout(new GridLayout(3,2));
         batiments.setBackground(new Color(204,255,102));
-        batiments.setPreferredSize(new Dimension(200,300));
+        batiments.setPreferredSize(new Dimension(100,200));
         
         //Ajout des bouton qui symbolisent les batiments 
         bLog = new JButton(new ImageIcon("Image/maison.png"));
         bLog.setPreferredSize(new Dimension(30,30));
+        bLog.addActionListener(new EcouteurDeBarreLateral(p));
+        bLog.setActionCommand("logement");
         
         bIndus = new JButton(new ImageIcon("Image/usine.png"));
+        bIndus.addActionListener(new EcouteurDeBarreLateral(p));
+        bIndus.setActionCommand("industrie");
         
         bCommerce = new JButton(new ImageIcon("Image/commerce.png"));
+        bCommerce.addActionListener(new EcouteurDeBarreLateral(p));
+        bCommerce.setActionCommand("commerce");
         
         bLoisir = new JButton(new ImageIcon("Image/loisir.png"));
+        bLoisir.addActionListener(new EcouteurDeBarreLateral(p));
+        bLoisir.setActionCommand("loisir");
         
         bFerme = new JButton(new ImageIcon("Image/ferme.png"));
+        bFerme.addActionListener(new EcouteurDeBarreLateral(p));
+        bFerme.setActionCommand("ferme");
         
         bRoute = new JButton(new ImageIcon("Image/route.png"));
+        bRoute.addActionListener(new EcouteurDeBarreLateral(p));
+        bRoute.setActionCommand("route");
         
         batiments.add(bLog);
         batiments.add(bIndus);
