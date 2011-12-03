@@ -16,7 +16,6 @@ public class OudiCity{
         thTemps = new Thread(t);
         thTemps.start();
         ville = new Ville("lala","margaux",t);
-        plateauGraph = new PlateauGraphique(ville);
         SwingUtilities.invokeLater(new Fenetre(this));
     }
 }
