@@ -7,6 +7,7 @@ public class BarreLaterale extends JPanel implements Observer {
     Ville ville;
     Temps t;
     PlateauGraphique p;
+    EcouteurDeBarreLateral souris;
     
     // panels 
     JPanel info;
@@ -36,12 +37,14 @@ public class BarreLaterale extends JPanel implements Observer {
     int nbHabitant = 0;
     int argent = 20000;   
     
-    public BarreLaterale(Ville v,Temps t,PlateauGraphique p){
+    public BarreLaterale(Ville v,Temps t,PlateauGraphique p,
+            EcouteurDeBarreLateral e){
         ville = v;
         this.t = t;
         this.p = p;
         t.c.addObserver(this);
         ville.addObserver(this);
+        souris = e;
         
         
         this.setLayout(new BorderLayout());
@@ -87,43 +90,44 @@ public class BarreLaterale extends JPanel implements Observer {
         batiments.setLayout(new GridLayout(3,2));
         batiments.setBackground(new Color(204,255,102));
         batiments.setPreferredSize(new Dimension(100,200));
+
         
         //Ajout des bouton qui symbolisent les batiments 
         bLog = new JButton(new ImageIcon("Image/maison.png"));
         bLog.setPreferredSize(new Dimension(30,30));
-        bLog.addActionListener(new EcouteurDeBarreLateral(p));
-        bLog.addMouseListener(new EcouteurDeBarreLateral(p));
-        bLog.addMouseMotionListener(new EcouteurDeBarreLateral(p));
+        bLog.addActionListener(souris);
+        bLog.addMouseListener(souris);
+        bLog.addMouseMotionListener(souris);
         bLog.setActionCommand("logement");
         
         bIndus = new JButton(new ImageIcon("Image/usine.png"));
-        bIndus.addActionListener(new EcouteurDeBarreLateral(p));
-        bIndus.addMouseListener(new EcouteurDeBarreLateral(p));
-        bIndus.addMouseMotionListener(new EcouteurDeBarreLateral(p));
+        bIndus.addActionListener(souris);
+        bIndus.addMouseListener(souris);
+        bIndus.addMouseMotionListener(souris);
         bIndus.setActionCommand("industrie");
         
         bCommerce = new JButton(new ImageIcon("Image/commerce.png"));
-        bCommerce.addActionListener(new EcouteurDeBarreLateral(p));
-        bCommerce.addMouseListener(new EcouteurDeBarreLateral(p));
-        bCommerce.addMouseMotionListener(new EcouteurDeBarreLateral(p));
+        bCommerce.addActionListener(souris);
+        bCommerce.addMouseListener(souris);
+        bCommerce.addMouseMotionListener(souris);
         bCommerce.setActionCommand("commerce");
         
         bLoisir = new JButton(new ImageIcon("Image/loisir.png"));
-        bLoisir.addActionListener(new EcouteurDeBarreLateral(p));
-        bLoisir.addMouseListener(new EcouteurDeBarreLateral(p));
-        bLoisir.addMouseMotionListener(new EcouteurDeBarreLateral(p));
+        bLoisir.addActionListener(souris);
+        bLoisir.addMouseListener(souris);
+        bLoisir.addMouseMotionListener(souris);
         bLoisir.setActionCommand("loisir");
         
         bFerme = new JButton(new ImageIcon("Image/ferme.png"));
-        bFerme.addActionListener(new EcouteurDeBarreLateral(p));
-        bFerme.addMouseListener(new EcouteurDeBarreLateral(p));
-        bFerme.addMouseMotionListener(new EcouteurDeBarreLateral(p));
+        bFerme.addActionListener(souris);
+        bFerme.addMouseListener(souris);
+        bFerme.addMouseMotionListener(souris);
         bFerme.setActionCommand("ferme");
         
         bRoute = new JButton(new ImageIcon("Image/route.png"));
-        bRoute.addActionListener(new EcouteurDeBarreLateral(p));
-        bRoute.addMouseListener(new EcouteurDeBarreLateral(p));
-        bRoute.addMouseMotionListener(new EcouteurDeBarreLateral(p));
+        bRoute.addActionListener(souris);
+        bRoute.addMouseListener(souris);
+        bRoute.addMouseMotionListener(souris);
         bRoute.setActionCommand("route");
         
         batiments.add(bLog);

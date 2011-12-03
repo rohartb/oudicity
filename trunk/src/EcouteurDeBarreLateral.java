@@ -21,12 +21,15 @@ class EcouteurDeBarreLateral implements ActionListener,
         xcase = (graphe.width/graphe.N);
         ycase = (graphe.height/graphe.N);
     }
+    
     @Override
     public void actionPerformed(ActionEvent e) { 
         if(e.getActionCommand().equals("logement")){
             courant = maison;
             nom = "logement";
+            click = true;
         }else if (e.getActionCommand().equals("industrie")){
+            click = false;
 
         }else if (e.getActionCommand().equals("commerce")){
 
@@ -35,16 +38,19 @@ class EcouteurDeBarreLateral implements ActionListener,
         }else if (e.getActionCommand().equals("route")){
             
         }
-        click = true;
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
         xSouris = e.getX();
         ySouris = e.getY();
+        System.out.println("clic  "+click);
         if(click == true){
             Point p = graphe.Case(xSouris, ySouris);
-            //graphe.nouveauBatiment(p, nom);
+            System.out.println("click : "+xcase + "  "+ ycase);
+            graphe.drawable.drawImage(maison,200, 200, 100, 100 ,
+                    null);
+            graphe.repaint();
         }
     }
 
@@ -74,9 +80,6 @@ class EcouteurDeBarreLateral implements ActionListener,
             xSouris = e.getX();
             ySouris = e.getY();
         }
-        //System.out.println("mouved " + courant);
-        graphe.drawable.drawImage(courant, xSouris, ySouris, xcase, ycase,
-                null);
     }
 
 }

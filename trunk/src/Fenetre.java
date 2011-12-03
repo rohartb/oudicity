@@ -13,9 +13,15 @@ public class Fenetre extends JFrame implements Runnable{
     JButton continuer;
     JButton quitter;
 
+    PlateauGraphique plateau;
+    EcouteurDeBarreLateral souris;
     
     public Fenetre (OudiCity s){
         this.s = s;
+        plateau = new PlateauGraphique(s.ville);
+        souris = new EcouteurDeBarreLateral(plateau);
+        this.addMouseListener(souris);
+        this.addMouseMotionListener(souris);
     }
     
     @Override
@@ -37,7 +43,7 @@ public class Fenetre extends JFrame implements Runnable{
         //        Barre latérale          //
         ////////////////////////////////////
         
-        BarreLaterale barreL = new BarreLaterale(s.ville,s.t,s.plateauGraph);
+        BarreLaterale barreL = new BarreLaterale(s.ville,s.t,plateau, souris);
         
         
         //////////////////////////////////////
@@ -81,7 +87,7 @@ public class Fenetre extends JFrame implements Runnable{
         accueil.setVisible(true);
         
         this.add(accueil);
-        this.add(s.plateauGraph);
+        this.add(plateau);
  
         this.setTitle("OudiCity");
         
