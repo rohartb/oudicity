@@ -111,7 +111,8 @@ public class Fenetre extends JFrame implements Runnable{
         pg = new PlateauGraphique(s);
         pg.addMouseListener(souris);
         pg.addMouseMotionListener(souris);
-        s.initVille();
+        s.v = new Ville(s.nomVille,s.nomMaire,s);
+        s.thTemps.start();
         barreL = new BarreLaterale(s);
 
         this.accueil.setVisible(false);

@@ -5,6 +5,7 @@ public class Ville extends Observable implements Observer{
     Temps t;
     Plateau p;
     OudiCity o;
+    int jourDebut = 2;
     
     int indiceA[][];
     String nomVille;
@@ -35,16 +36,16 @@ public class Ville extends Observable implements Observer{
         o.t.c.addObserver(this);
     }
     
-    //Habitant h = new Habitant(this,p);
+    Habitant h = new Habitant(o);
 
     @Override
     public void update(Observable o, Object arg) {
         Calendrier c = new Calendrier();
         if(o.getClass()==c.getClass()){
             c = (Calendrier) o;
-            if(jour != c.jour){
+            if(jour != c.jour && c.jour > jourDebut){
                 jour = c.jour;
-                //nbHabitant=h.augmentetHabitant(indiceAttraction);
+                //nbHabitant+=p.augmentetHabitant(indiceAttraction);
                 setChanged();
                 notifyObservers();
             }
