@@ -6,8 +6,8 @@ public class Route extends Infrastructure{
        this.setPrixAchat(10);
        this.setPrixDestr(5);
        this.setTaille(1);
-       this.setType("route"); 
-       this.setNb_employe(0);
-       this.setNb_employe_MAX(1);              
+       this.setType("route");
+       this.setNb_employe_MAX(1);  
+       this.setNb_employe(0);             
     }         
 }
