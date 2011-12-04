@@ -63,7 +63,7 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
 
     @Override
     public void mouseMoved(MouseEvent e) {
-       /* if (x != e.getX() || y != e.getY()){
+       /*if (x != e.getX() || y != e.getY()){
             x = e.getX();
             y = e.getY();
 
@@ -81,7 +81,7 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
                     }
                 }
             }
-        }
-        o.f.pg.repaint();*/
+        }*/
+        o.f.pg.repaint();
     }
 }
