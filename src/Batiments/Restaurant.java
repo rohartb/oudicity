@@ -1,7 +1,11 @@
 package Batiments;
 
+import Oudicity.*;
+
 public class Restaurant extends Loisir {
-    public Restaurant(){
+    
+    public Restaurant(OudiCity o){
+        super(o);
          this.type="restaurant";
          this.prixAchat=10;
          this.prixDestr=5;

@@ -1,7 +1,10 @@
 package Batiments;
 
+import Oudicity.*;
+
 public class Ecole extends ServicePublic{
-    public Ecole(){
+    public Ecole(OudiCity o){
+        super(o);
         this.coutEntretien=10;
         this.nb_employe_MAX=10;
         this.nb_employe=0;

@@ -1,7 +1,11 @@
 package Batiments;
 
+import Oudicity.*;
+
 public class Route extends Infrastructure{
-    public Route(){
+    
+    public Route(OudiCity o){
+        super(o);
         this.coutEntretien=10;
         this.prixAchat=10;
         this.prixDestr=5;

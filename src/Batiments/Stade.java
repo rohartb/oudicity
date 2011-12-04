@@ -1,7 +1,10 @@
 package Batiments;
 
+import Oudicity.*;
+
 public class Stade extends Loisir{
-    public Stade(){
+    public Stade(OudiCity o){
+        super(o);
          this.type="stade";
          this.prixAchat=10;
          this.prixDestr=5;

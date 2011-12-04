@@ -1,10 +1,15 @@
 package Batiments;
 
-public class Ferme extends BatimentArgent{
+import Oudicity.*;
+import java.util.*;
+
+public class Ferme extends BatimentArgent implements Observer{
     private int besoin;
     private int production;
     private int ressource_nourriture;
-    public Ferme(){
+    
+    public Ferme(OudiCity o){
+        super(o);
         this.coutEntretien=10;
         this.nb_employe_MAX=10;
         this.nb_employe=0;          
@@ -15,6 +20,7 @@ public class Ferme extends BatimentArgent{
         this.ressource_nourriture=0;
         this.besoin=100;
         this.production=0;
+        
     }
 
     /*GETTERS*/
@@ -43,6 +49,11 @@ public class Ferme extends BatimentArgent{
     public void setNb_employe(int nb_e) {
         this.nb_employe += nb_e;
         this.production=(this.besoin/10)*this.nb_employe;
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
     
 }

@@ -1,7 +1,10 @@
 package Batiments;
 
+import Oudicity.*;
+
 public class Bus extends Infrastructure{
-    public Bus(){
+    public Bus(OudiCity o){
+        super(o);
         this.coutEntretien=10;
         this.prixAchat=10;
         this.prixDestr=5;

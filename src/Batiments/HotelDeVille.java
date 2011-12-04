@@ -1,7 +1,10 @@
 package Batiments;
 
+import Oudicity.*;
+
 public class HotelDeVille extends ServicePublic{
-    public HotelDeVille(){
+    public HotelDeVille(OudiCity o){
+        super(o);
         this.coutEntretien=10;
         this.nb_employe_MAX=10;
         this.nb_employe=0;

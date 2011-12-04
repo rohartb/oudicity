@@ -1,9 +1,15 @@
 package Batiments;
 
+import Oudicity.*;
+
 public abstract class ServicePublic extends Batiment {
     protected int zoneInfluence;
     protected int nb_employe;
     protected int nb_employe_MAX;
+    
+    public ServicePublic(OudiCity o){
+        super(o);
+    }
 
     /*GETTERS*/
     public int getNb_employe() {
