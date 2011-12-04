@@ -4,6 +4,8 @@ import javax.swing.*;
 public class Fenetre extends JFrame implements Runnable{
     OudiCity s;
     PlateauGraphique pg;
+    EcouteurDeGraphique souris;
+    private boolean click = false;
     
     // Panel page d'accueil
     JPanel accueil;
@@ -19,6 +21,14 @@ public class Fenetre extends JFrame implements Runnable{
     
     public Fenetre (OudiCity s){
         this.s = s;
+    }
+
+    public boolean getClick(){
+        return click;
+    }
+
+    public void setClick(boolean b){
+        click = b;
     }
     
     @Override
@@ -86,18 +96,20 @@ public class Fenetre extends JFrame implements Runnable{
     }
     
     public void init_partie(){
-        System.out.println("init");
-        System.out.println("BarreLateral Fenetre");
+        System.out.println("init Partie");
+        souris = new EcouteurDeGraphique(s);
+
         pg = new PlateauGraphique(s);
+        pg.addMouseListener(souris);
+        pg.addMouseMotionListener(souris);
         s.initVille();
         barreL = new BarreLaterale(s);
-        System.out.println("PlateauGraph fenetre");
-        aireDeJeu = new JPanel();
-        aireDeJeu.add(pg);
-        
+
+        this.accueil.setVisible(false);
+        this.pg.setVisible(true);
         this.setLayout(new BorderLayout());
         this.add(barreL, BorderLayout.WEST);
-        this.add(aireDeJeu, BorderLayout.CENTER);
+        this.add(pg, BorderLayout.CENTER);
         this.validate();
     }
 }
