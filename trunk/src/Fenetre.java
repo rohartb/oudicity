@@ -3,25 +3,21 @@ import javax.swing.*;
 
 public class Fenetre extends JFrame implements Runnable{
     OudiCity s;
+    PlateauGraphique pg;
+    
+    // Panel page d'accueil
     JPanel accueil;
     JPanel panelBouton;
     BarreLaterale barreL;
     
     JLabel bienvenue;
-    
+   
     JButton nouveau;
     JButton continuer;
     JButton quitter;
-
-    PlateauGraphique plateau;
-    EcouteurDeBarreLateral souris;
     
     public Fenetre (OudiCity s){
         this.s = s;
-        plateau = new PlateauGraphique(s.ville);
-        souris = new EcouteurDeBarreLateral(plateau);
-        this.addMouseListener(souris);
-        this.addMouseMotionListener(souris);
     }
     
     @Override
@@ -36,15 +32,6 @@ public class Fenetre extends JFrame implements Runnable{
         } catch(Exception e) {
             System.out.println("Error setting native LAF: " + e);
         }
-
-        
-        
-        ////////////////////////////////////
-        //        Barre latérale          //
-        ////////////////////////////////////
-        
-        BarreLaterale barreL = new BarreLaterale(s.ville,s.t,plateau, souris);
-        
         
         //////////////////////////////////////
         //          Page d'accueil          //
@@ -64,7 +51,7 @@ public class Fenetre extends JFrame implements Runnable{
         // Nouvelle Partie
         nouveau = new JButton("nouvelle partie");
         nouveau.setAlignmentX(CENTER_ALIGNMENT);
-        nouveau.addActionListener(new EcouteurDeBouton(this, s, barreL));
+        nouveau.addActionListener(new EcouteurPageAccueil(this, s, barreL));
         nouveau.setActionCommand("nouveau");
         
         // Continuer Partie
@@ -74,7 +61,7 @@ public class Fenetre extends JFrame implements Runnable{
         // Quitter Partie
         quitter = new JButton("quitter");
         quitter.setAlignmentX(CENTER_ALIGNMENT);
-        quitter.addActionListener(new EcouteurDeBouton(this, s, barreL));
+        quitter.addActionListener(new EcouteurPageAccueil(this, s, barreL));
         quitter.setActionCommand("quitter");
 
         // Ajout des boutons au panel
@@ -87,13 +74,19 @@ public class Fenetre extends JFrame implements Runnable{
         accueil.setVisible(true);
         
         this.add(accueil);
-        this.add(plateau);
  
         this.setTitle("OudiCity");
+        
         
         //Fenetre du jeu
         this.setSize(800,700);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
+    }
+    
+    public void init_partie(){
+        barreL = new BarreLaterale(s);
+        pg = new PlateauGraphique(s);
+        s.initVille();
     }
 }

@@ -2,42 +2,25 @@ import java.awt.*;
 import java.awt.geom.Line2D;
 import java.util.LinkedList;
 import javax.swing.*;
-import Batiments.Batiment;
-import Batiments.Logement;
+import Batiments.*;
 
 public class PlateauGraphique extends JComponent {
-    Ville ville;
-    Batiment batiment;
-    Batiment plateau[][];
-    Graphics2D drawable;
-    Image maison, immeuble, mairie, hopital, courant, herbe;
-    private int N=4, width, height;
+    OudiCity o;
+    Plateau p;
+    int N;
+    
+    private int width, height;
     float xM, xCase;
 
-    PlateauGraphique(Ville v){
-        this.ville = v;
-        maison = this.getToolkit().getImage("Image/maison.gif");
-        immeuble = this.getToolkit().getImage("Image/immeuble.gif");
-        mairie = this.getToolkit().getImage("Image/mairie.gif");
-        hopital = this.getToolkit().getImage("Image/hospital.gif");
-        herbe = this.getToolkit().getImage("Image/herbe.gif");
-
-        plateau = new Batiment[N][N];
-        /*for(int euh=0; euh<N; euh++){
-            for(int e=0; e<N; e++){
-                plateau[euh][e]= new Batiment() {};
-                plateau[euh][e].setType("herbe");
-            }
-        }*/
-    }
-
-    public int getTailleTableau(){
-        return N;
+    PlateauGraphique(OudiCity o){
+        this.o = o;
+        p = new Plateau(o);
+        N = p.getTaille();
     }
 
     @Override
      public void paintComponent(Graphics g) {
-
+        Graphics2D drawable;
         drawable = (Graphics2D) g;
         Image image = herbe;
 
@@ -89,7 +72,27 @@ public class PlateauGraphique extends JComponent {
         }
     }
 
-    LinkedList<Points> plateauContient(String string) {
-        throw new UnsupportedOperationException("Not yet implemented");
+    boolean plateauContient(String string) {
+        boolean estDansPlateau = false;
+        for(int i=0;i<N;i++){
+            for(int j=0;j<N;j++){
+                if(plateau[i][j].getType().equals(string)){
+                    estDansPlateau = true;
+                }
+            }
+        }
+        return estDansPlateau;
+    }
+    
+    LinkedList<Points> plateauListes(String string) {
+        LinkedList<Points> l = null;
+        for(int i=0;i<N;i++){
+            for(int j=0;j<N;j++){
+                if(plateau[i][j].getType().equals(string)){
+                    l.add(new Points(i,j));
+                }
+            }
+        }
+        return l;
     }
 }  

@@ -2,23 +2,14 @@ import java.awt.BorderLayout;
 import javax.swing.*;
 import java.awt.event.*;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author bastien
- */
-class EcouteurDeBouton implements ActionListener{
+class EcouteurPageAccueil implements ActionListener{
     Fenetre fenetre;
     JPanel pane = new JPanel();
     Ville ville;
     PlateauGraphique graphe;
     BarreLaterale barreL;
 
-    public EcouteurDeBouton(Fenetre f, OudiCity s, BarreLaterale b) {
+    public EcouteurPageAccueil(Fenetre f, OudiCity s, BarreLaterale b) {
         this.fenetre = f;
         this.ville = s.ville;
         this.graphe = new PlateauGraphique(this.ville);

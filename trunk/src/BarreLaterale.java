@@ -4,7 +4,7 @@ import javax.swing.*;
 
 
 public class BarreLaterale extends JPanel implements Observer {
-    Ville ville;
+    OudiCity o;
     Temps t;
     PlateauGraphique p;
     EcouteurDeBarreLateral souris;
@@ -145,6 +145,10 @@ public class BarreLaterale extends JPanel implements Observer {
         this.add(info,BorderLayout.NORTH);
         this.add(batiments,BorderLayout.CENTER);
         this.add(conseils,BorderLayout.SOUTH);
+    }
+
+    BarreLaterale(OudiCity s) {
+        this.o =s;
     }
   
     
