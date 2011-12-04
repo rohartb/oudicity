@@ -3,7 +3,7 @@ import java.util.*;
 
 public final class Plateau {
     OudiCity o;
-    private int N = 4;
+    private int N = 10;
     
     Batiment batiment;
     Batiment plateau[][];

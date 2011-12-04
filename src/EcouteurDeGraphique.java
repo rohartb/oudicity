@@ -4,6 +4,9 @@ import java.awt.event.*;
 
 class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
     OudiCity o;
+    int x = 0, y = 0;
+    Points point = new Points(x,y);
+    String s = "herbe";
 
     public EcouteurDeGraphique(OudiCity o){
         this.o = o;
@@ -60,6 +63,25 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
 
     @Override
     public void mouseMoved(MouseEvent e) {
+       /* if (x != e.getX() || y != e.getY()){
+            x = e.getX();
+            y = e.getY();
 
+            if(o.f.getClick()){
+                if(point != o.f.pg.p.Case(x, y)){
+                    if(o.f.pg.p.plateau[o.f.pg.p.Case(x, y).getX()]
+                            [o.f.pg.p.Case(x, y).getY()].equals("herbe")){
+                        o.f.pg.p.nouveauBatiment(point, "herbe");
+                        System.out.println();
+                        point = o.f.pg.p.Case(x, y);
+                        s = o.f.getNomBat();
+                        if(o.f.getNomBat().equals("logement")){
+                            o.f.pg.p.nouveauBatiment(point, s);
+                        }
+                    }
+                }
+            }
+        }
+        o.f.pg.repaint();*/
     }
 }
