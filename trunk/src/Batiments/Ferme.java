@@ -23,6 +23,7 @@ public class Ferme extends BatimentArgent implements Observer{
         this.taille=1;
         this.type="ferme";
         this.persBat="employe";
+        this.groupe="batimentargent";        
         this.stock_nourriture=0;
         this.subvention=10;
         this.production=0;

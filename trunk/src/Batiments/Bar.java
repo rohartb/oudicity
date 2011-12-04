@@ -6,6 +6,8 @@ public class Bar extends Loisir{
     public Bar(OudiCity o){
         super(o);
          this.type="bar";
+         this.persBat="employe";
+         this.groupe="loisir";         
          this.prixAchat=10;
          this.prixDestr=5;
          this.coutEntretien=10;

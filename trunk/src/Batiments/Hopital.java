@@ -13,6 +13,7 @@ public class Hopital extends ServicePublic{
         this.taille=1;
         this.type="hopital";
         this.persBat="employe";
+        this.groupe="servicepublic";
         this.zoneInfluence=50;           
     }
 }

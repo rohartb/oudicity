@@ -13,6 +13,7 @@ public class Decheterie extends ServicePublic{
         this.taille=1;
         this.type="decheterie";
         this.persBat="employe";
+        this.groupe="servicepublic";        
         this.zoneInfluence=50;
     }
     
