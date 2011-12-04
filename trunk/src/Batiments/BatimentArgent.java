@@ -5,7 +5,6 @@ public abstract class BatimentArgent extends Batiment {
        private int nb_employe;
        private int nb_employe_MAX;
        private int besoin;
-       private boolean augmenter_employe;
 
     /*GETTERS*/
     public int getNb_employe() {
@@ -24,8 +23,8 @@ public abstract class BatimentArgent extends Batiment {
         return besoin;
     }
     
-    public boolean getAugmenter_employe() {
-        return augmenter_employe;
+    public int getAugmenter_employe() {
+        return nb_employe_MAX-nb_employe;
     }
     
     /*SETTERS*/
@@ -37,12 +36,6 @@ public abstract class BatimentArgent extends Batiment {
 
     public void setNb_employe(int nb_employe) {
         this.nb_employe = nb_employe;
-        if(this.nb_employe==this.nb_employe_MAX){
-            this.augmenter_employe=false;
-        }
-        else{
-            this.augmenter_employe=true;
-        }
     }
     
     public void setNb_employe_MAX(int nb_employe_MAX) {
@@ -53,10 +46,4 @@ public abstract class BatimentArgent extends Batiment {
         this.besoin = besoin;
         this.ressource= besoin/10;
     }
-    
-    /*public void setAugmenter_employe(boolean augmenter_employe) {
-        this.augmenter_employe = augmenter_employe;
-    }*/
-    //augmenter_employe calculé en fontion des employés
-    //   ->modification seulement dans set_nb_employe
 }
