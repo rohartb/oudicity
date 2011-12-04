@@ -4,7 +4,6 @@ public abstract class ServicePublic extends Batiment {
     private int zoneInfluence;
     private int nb_employe;
     private int nb_employe_MAX;
-    private boolean augmenter_employe;
 
     /*GETTERS*/
     public int getNb_employe() {
@@ -19,20 +18,14 @@ public abstract class ServicePublic extends Batiment {
         return nb_employe_MAX;
     }
     
-    public boolean getAugmenter_employe() {
-        return augmenter_employe;
+    public int getAugmenter_employe() {
+        return nb_employe_MAX-nb_employe;
     }
     
     /*SETTERS*/
 
     public void setNb_employe(int nb_employe) {
         this.nb_employe = nb_employe;
-        if(this.nb_employe==this.nb_employe_MAX){
-            this.augmenter_employe=false;
-        }
-        else{
-            this.augmenter_employe=true;
-        }
     }
 
     public void setZoneInfluence(int zoneInfluence) {
@@ -42,10 +35,4 @@ public abstract class ServicePublic extends Batiment {
     public void setNb_employe_MAX(int nb_employe_MAX) {
         this.nb_employe_MAX = nb_employe_MAX;
     }
-    
-    /*public void setAugmenter_employe(boolean augmenter_employe) {
-        this.augmenter_employe = augmenter_employe;
-    }*/
-    //augmenter_employe calculé en fontion des employe
-    //   ->modification seulement dans set_nb_employe
 }
