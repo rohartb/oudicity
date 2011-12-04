@@ -13,6 +13,7 @@ public class Commissariat extends ServicePublic{
         this.taille=1;
         this.type="commissariat";
         this.persBat="employe";
+        this.groupe="servicepublic";        
         this.zoneInfluence=50;    
     }
 }

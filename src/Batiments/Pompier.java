@@ -13,6 +13,7 @@ public class Pompier extends ServicePublic{
         this.taille=1;
         this.type="pompier";
         this.persBat="employe";
+        this.groupe="servicepublic";
         this.zoneInfluence=50;       
     }
 }

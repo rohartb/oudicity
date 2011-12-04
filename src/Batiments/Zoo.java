@@ -7,6 +7,7 @@ public class Zoo extends Loisir{
          super(o);
          this.type="zoo";
          this.persBat="employe";
+         this.groupe="loisir";         
          this.prixAchat=10;
          this.prixDestr=5;
          this.coutEntretien=10;

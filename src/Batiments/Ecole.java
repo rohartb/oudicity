@@ -13,6 +13,7 @@ public class Ecole extends ServicePublic{
         this.taille=1;
         this.type="ecole";
         this.persBat="employe";
+        this.groupe="servicepublic";        
         this.zoneInfluence=50;        
     }
     

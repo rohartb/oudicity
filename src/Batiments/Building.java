@@ -11,6 +11,7 @@ public class Building extends Logement {
        this.taille=1;
        this.type="building";
        this.persBat="habitant";
+       this.groupe="logement";       
        this.nb_habitant_MAX=100;
        this.nb_habitant=0;
     }

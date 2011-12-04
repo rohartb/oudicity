@@ -6,6 +6,7 @@ public abstract class  Batiment {
     
     protected String type;
     protected String persBat;
+    protected String groupe;
     protected int taille;
     protected int coutEntretien;
     protected int prixAchat;
@@ -40,6 +41,10 @@ public abstract class  Batiment {
     
     public String getPersBat() {
         return persBat;
+    }
+    
+    public String getGroupe(){
+        return groupe;
     }
     
     /*SETTERS*/

@@ -13,6 +13,7 @@ public class HotelDeVille extends ServicePublic{
         this.taille=1;
         this.type="hoteldeville";
         this.persBat="employe";
+        this.groupe="servicepublic";
         this.zoneInfluence=50;        
     }
 }
