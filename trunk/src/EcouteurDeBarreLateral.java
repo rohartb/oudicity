@@ -23,9 +23,20 @@ class EcouteurDeBarreLateral implements ActionListener{
         }else if (e.getActionCommand().equals("commerce")){
 
         }else if (e.getActionCommand().equals("ferme")){
+            if(o.f.getClick() == false || !o.f.getNomBat().equals("ferme")){
+                o.f.setClick(true);
+                o.f.setNomBat("ferme");
+            }else{
+                 o.f.setClick(false);
+            }
 
         }else if (e.getActionCommand().equals("route")){
-            
+            if(o.f.getClick() == false || !o.f.getNomBat().equals("route")){
+                o.f.setClick(true);
+                o.f.setNomBat("route");
+            }else{
+                 o.f.setClick(false);
+            }
         }else if (e.getActionCommand().equals("destroy")){
             if(o.f.getClick() == false || !o.f.getNomBat().equals("herbe")){
                 o.f.setClick(true);

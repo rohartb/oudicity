@@ -9,7 +9,7 @@ public class PlateauGraphique extends JComponent {
 
     Image courant, herbe, maison;
     
-    private int width, height;
+    private float width, height;
     float xM, xCase;
 
     PlateauGraphique(OudiCity o){
@@ -18,6 +18,14 @@ public class PlateauGraphique extends JComponent {
         N = p.getTaille();
         herbe = this.getToolkit().getImage("Image/herbe.gif");
         maison = this.getToolkit().getImage("Image/maison.gif");
+    }
+
+    public float getW(){
+        return width;
+    }
+
+    public float getH(){
+        return height;
     }
 
     @Override
@@ -29,31 +37,36 @@ public class PlateauGraphique extends JComponent {
         xCase = (width)/N;
 
         drawable.setPaint(Color.white);
-        drawable.fillRect((int) 0, 0, width, height);
+        drawable.fillRect(0, 0,(int)width,(int)height);
         drawable.setPaint(Color.black);
 
         for(int i=0; i<N; i++){
             for(int j=0; j<N; j++){
                 if (this.p.plateau[i][j].getType().equals("herbe")){
-                    //drawable.drawImage(herbe, i*(width/N), j*(height/N),
-                    //                   width/N, height/N, null);
                     drawable.setPaint(new Color(153,255,51));
-                    drawable.fillRect(i*(width/N), j*(height/N), width/N,
-                                     height/N);
+                    drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
+                                     (int)height/N);
                     drawable.setPaint(Color.black);
                 }else if(this.p.plateau[i][j].getType().equals("pavillon")){
-                    //drawable.drawImage(maison, i*(width/N), j*(height/N),
-                    //                   width/N, height/N, null);
                     drawable.setPaint(new Color(255,51,51));
-                    drawable.fillRect(i*(width/N), j*(height/N), width/N,
-                                     height/N);
+                    drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
+                                     (int)height/N);
                     drawable.setPaint(Color.black);
                 }else if(this.p.plateau[i][j].getType().equals("industrie")){
-                    //drawable.drawImage(maison, i*(width/N), j*(height/N),
-                    //                   width/N, height/N, null);
                     drawable.setPaint(new Color(51,153,153));
-                    drawable.fillRect(i*(width/N), j*(height/N), width/N,
-                                     height/N);
+                    drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
+                                     (int)height/N);
+                    drawable.setPaint(Color.black);
+                }else if(this.p.plateau[i][j].getType().equals("ferme")){
+                    drawable.setPaint(new Color(139,69,19));
+                    drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
+                                     (int)height/N);
+                    drawable.setPaint(Color.black);
+                }
+                else if(this.p.plateau[i][j].getType().equals("route")){
+                    drawable.setPaint(new Color(148,148,148));
+                    drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
+                                     (int)height/N);
                     drawable.setPaint(Color.black);
                 }
             }
