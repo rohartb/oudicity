@@ -14,12 +14,19 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
     public void mouseClicked(MouseEvent e) {
         Points p;
         p = o.f.pg.p.Case(e.getX(), e.getY());
-        if(o.f.getClick()){
-            o.f.pg.p.nouveauBatiment(p, "logement");
-        }else{
-            o.f.pg.p.nouveauBatiment(p, "herbe");
+        if((o.f.pg.p.plateau[p.getX()][p.getY()].getType().equals("herbe"))){
+            if(o.f.getClick()){
+                if(o.f.getNomBat().equals("logement")){
+                    o.f.pg.p.nouveauBatiment(p, "logement");
+                }
+                if(o.f.getNomBat().equals("industrie")){
+                    o.f.pg.p.nouveauBatiment(p, "industrie");
+                }
+            }else{
+                o.f.pg.p.nouveauBatiment(p, "herbe");
+            }
+            o.f.pg.repaint();
         }
-        o.f.pg.repaint();
     }
 
     @Override

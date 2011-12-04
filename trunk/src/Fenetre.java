@@ -6,6 +6,7 @@ public class Fenetre extends JFrame implements Runnable{
     PlateauGraphique pg;
     EcouteurDeGraphique souris;
     private boolean click = false;
+    private String nomBat; 
     
     // Panel page d'accueil
     JPanel accueil;
@@ -29,6 +30,14 @@ public class Fenetre extends JFrame implements Runnable{
 
     public void setClick(boolean b){
         click = b;
+    }
+    
+    public String getNomBat(){
+        return nomBat;
+    }
+
+    public void setNomBat(String s){
+        nomBat = s;
     }
     
     @Override
@@ -106,10 +115,11 @@ public class Fenetre extends JFrame implements Runnable{
         barreL = new BarreLaterale(s);
 
         this.accueil.setVisible(false);
-        this.pg.setVisible(true);
         this.setLayout(new BorderLayout());
         this.add(barreL, BorderLayout.WEST);
         this.add(pg, BorderLayout.CENTER);
+        
         this.validate();
+        this.pg.setVisible(true);
     }
 }
