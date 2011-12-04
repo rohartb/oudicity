@@ -11,7 +11,7 @@ public class Decheterie extends ServicePublic{
         this.prixAchat=10;
         this.prixDestr=5;
         this.taille=1;
-        this.type="ecole";
+        this.type="decheterie";
         this.zoneInfluence=50;
     }
     

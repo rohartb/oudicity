@@ -15,7 +15,7 @@ public class Industrie extends BatimentArgent{
         this.prixAchat=10;
         this.prixDestr=5;     
         this.taille=1;
-        this.type="commmerce";
+        this.type="industrie";
         this.bien=0;
         this.besoin=100;
         this.production=0;
