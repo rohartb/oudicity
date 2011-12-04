@@ -37,21 +37,21 @@ public class PlateauGraphique extends JComponent {
                 if (this.p.plateau[i][j].getType().equals("herbe")){
                     //drawable.drawImage(herbe, i*(width/N), j*(height/N),
                     //                   width/N, height/N, null);
-                    drawable.setPaint(Color.green);
+                    drawable.setPaint(new Color(153,255,51));
                     drawable.fillRect(i*(width/N), j*(height/N), width/N,
                                      height/N);
                     drawable.setPaint(Color.black);
                 }else if(this.p.plateau[i][j].getType().equals("logement")){
                     //drawable.drawImage(maison, i*(width/N), j*(height/N),
                     //                   width/N, height/N, null);
-                    drawable.setPaint(Color.red);
+                    drawable.setPaint(new Color(255,51,51));
                     drawable.fillRect(i*(width/N), j*(height/N), width/N,
                                      height/N);
                     drawable.setPaint(Color.black);
                 }else if(this.p.plateau[i][j].getType().equals("industrie")){
                     //drawable.drawImage(maison, i*(width/N), j*(height/N),
                     //                   width/N, height/N, null);
-                    drawable.setPaint(Color.blue);
+                    drawable.setPaint(new Color(51,153,153));
                     drawable.fillRect(i*(width/N), j*(height/N), width/N,
                                      height/N);
                     drawable.setPaint(Color.black);
