@@ -12,7 +12,6 @@ class EcouteurDeBarreLateral implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("ecouteur latéral");
         if(e.getActionCommand().equals("logement")){
             if(o.f.getClick() == false){
                 o.f.setClick(true);

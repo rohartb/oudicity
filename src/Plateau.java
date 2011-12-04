@@ -28,7 +28,7 @@ public final class Plateau {
     public Points Case(int x, int y){
             Points p;
             int xc = 0, yc = 0;
-            xc = x/((o.f.pg.getWidth()-200)/N);
+            xc = x/((o.f.pg.getWidth())/N);
             yc = y/(o.f.pg.getHeight()/N);
             p = new Points(xc, yc);
             return p;
@@ -38,6 +38,8 @@ public final class Plateau {
         
         if(type.equals("logement")){
             plateau[p.getX()][p.getY()] = new Logement();
+        }else if(type.equals("herbe")){
+            plateau[p.getX()][p.getY()].setType(type);
         }
     }
 
