@@ -12,14 +12,14 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        System.out.println("click" + o.f.getClick());
+        Points p;
+        p = o.f.pg.p.Case(e.getX(), e.getY());
         if(o.f.getClick()){
-            Points p;
-            p = o.f.pg.p.Case(e.getX(), e.getY());
             o.f.pg.p.nouveauBatiment(p, "logement");
-            o.f.pg.p.afficher();
-            o.f.pg.repaint();
+        }else{
+            o.f.pg.p.nouveauBatiment(p, "herbe");
         }
+        o.f.pg.repaint();
     }
 
     @Override
