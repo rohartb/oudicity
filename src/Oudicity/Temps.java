@@ -2,7 +2,7 @@ package Oudicity;
 
 public class Temps implements Runnable {
     int vitesse;
-    Calendrier c = new Calendrier();
+    public Calendrier c = new Calendrier();
     
     public Temps(int v){
         vitesse = v;

@@ -8,6 +8,11 @@ public class Ferme extends BatimentArgent implements Observer{
     private int production;
     private int ressource_nourriture;
     
+    int annee = 1970;
+    int mois = 1;
+    int jour = 1;
+    int jourDebut = 3;
+    
     public Ferme(OudiCity o){
         super(o);
         this.coutEntretien=10;
@@ -18,9 +23,10 @@ public class Ferme extends BatimentArgent implements Observer{
         this.taille=1;
         this.type="ferme";
         this.ressource_nourriture=0;
-        this.besoin=100;
+        this.besoin=10;
         this.production=0;
         
+        o.t.c.addObserver(this);
     }
 
     /*GETTERS*/
@@ -53,7 +59,20 @@ public class Ferme extends BatimentArgent implements Observer{
 
     @Override
     public void update(Observable o, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Calendrier c = new Calendrier();
+        if(o.getClass()==c.getClass()){
+            c = (Calendrier) o;
+            
+            if(jour != c.jour){
+                jour = c.jour;
+                if(jour > jourDebut){
+                    if(nb_employe > 0 && besoin >0){
+                        setBesoin(besoin);
+                        System.out.println("bouffe :" + production);
+                    }
+                }
+            }
+        }
     }
     
 }
