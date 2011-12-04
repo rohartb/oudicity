@@ -35,12 +35,19 @@ public class PlateauGraphique extends JComponent {
         for(int i=0; i<N; i++){
             for(int j=0; j<N; j++){
                 if (this.p.plateau[i][j].getType().equals("herbe")){
-                    System.out.println("herbe");
-                    drawable.drawImage(herbe, i*(width/N), j*(height/N),
-                                       width/N, height/N, null);
+                    //drawable.drawImage(herbe, i*(width/N), j*(height/N),
+                    //                   width/N, height/N, null);
+                    drawable.setPaint(Color.green);
+                    drawable.fillRect(i*(width/N), j*(height/N), width/N,
+                                     height/N);
+                    drawable.setPaint(Color.black);
                 }else if(this.p.plateau[i][j].getType().equals("logement")){
-                    drawable.drawImage(maison, i*(width/N), j*(height/N),
-                                       width/N, height/N, null);
+                    //drawable.drawImage(maison, i*(width/N), j*(height/N),
+                    //                   width/N, height/N, null);
+                    drawable.setPaint(Color.red);
+                    drawable.fillRect(i*(width/N), j*(height/N), width/N,
+                                     height/N);
+                    drawable.setPaint(Color.black);
                 }
             }
         }

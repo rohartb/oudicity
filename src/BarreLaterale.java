@@ -8,7 +8,6 @@ public class BarreLaterale extends JPanel implements Observer {
     Temps t;
     Ville v;
     PlateauGraphique p;
-    EcouteurDeBarreLateral souris;
     
     // panels 
     JPanel info;
@@ -90,27 +89,27 @@ public class BarreLaterale extends JPanel implements Observer {
         //Ajout des bouton qui symbolisent les batiments 
         bLog = new JButton(new ImageIcon("Image/maison.png"));
         bLog.setPreferredSize(new Dimension(30,30));
-        bLog.addActionListener(souris);
+        bLog.addActionListener(new EcouteurDeBarreLateral(o));
         bLog.setActionCommand("logement");
         
         bIndus = new JButton(new ImageIcon("Image/usine.png"));
-        bIndus.addActionListener(souris);
+        bIndus.addActionListener(new EcouteurDeBarreLateral(o));
         bIndus.setActionCommand("industrie");
         
         bCommerce = new JButton(new ImageIcon("Image/commerce.png"));
-        bCommerce.addActionListener(souris);
+        bCommerce.addActionListener(new EcouteurDeBarreLateral(o));
         bCommerce.setActionCommand("commerce");
         
         bLoisir = new JButton(new ImageIcon("Image/loisir.png"));
-        bLoisir.addActionListener(souris);
+        bLoisir.addActionListener(new EcouteurDeBarreLateral(o));
         bLoisir.setActionCommand("loisir");
         
         bFerme = new JButton(new ImageIcon("Image/ferme.png"));
-        bFerme.addActionListener(souris);
+        bFerme.addActionListener(new EcouteurDeBarreLateral(o));
         bFerme.setActionCommand("ferme");
         
         bRoute = new JButton(new ImageIcon("Image/route.png"));
-        bRoute.addActionListener(souris);
+        bRoute.addActionListener(new EcouteurDeBarreLateral(o));
         bRoute.setActionCommand("route");
         
         batiments.add(bLog);
