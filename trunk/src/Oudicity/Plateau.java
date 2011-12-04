@@ -6,6 +6,7 @@ public final class Plateau {
     private int N = 10;
     Habitant h;
     Ressources r;
+    Employe e;
     
     Batiment batiment;
     Batiment plateau[][];
@@ -15,6 +16,7 @@ public final class Plateau {
         init_plateau();
         this.h = new Habitant(this);
         this.r = new Ressources(this);
+        this.e = new Employe(this);
     }
 
     public int getTaille(){

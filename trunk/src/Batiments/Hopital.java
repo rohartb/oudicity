@@ -12,6 +12,7 @@ public class Hopital extends ServicePublic{
         this.prixDestr=5;
         this.taille=1;
         this.type="hopital";
+        this.persBat="employe";
         this.zoneInfluence=50;           
     }
 }

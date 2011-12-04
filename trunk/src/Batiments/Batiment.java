@@ -5,6 +5,7 @@ public abstract class  Batiment {
     OudiCity o;
     
     protected String type;
+    protected String persBat;
     protected int taille;
     protected int coutEntretien;
     protected int prixAchat;
@@ -12,7 +13,8 @@ public abstract class  Batiment {
 
     public Batiment(OudiCity o){
         this.o =o;
-        this.type="herbe";        
+        this.type="herbe";  
+        this.persBat ="aucun";
     }
     
     /*GETTERS*/
@@ -36,9 +38,14 @@ public abstract class  Batiment {
         return type;
     }
     
+    public String getPersBat() {
+        return persBat;
+    }
+    
     /*SETTERS*/
     public void setType(String type){
         this.type=type;
     }
+
                 
 }
