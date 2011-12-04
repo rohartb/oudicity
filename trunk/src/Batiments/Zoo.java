@@ -2,13 +2,13 @@ package Batiments;
 
 public class Zoo extends Loisir{   
      public Zoo(){
-         this.setType("Zoo");
-         this.setPrixAchat(10);
-         this.setPrixDestr(5);
-         this.setCoutEntretien(10);
-         this.setTaille(1);
-         this.setAttraction(12);
-         this.setNb_employe_MAX(10);           
-         this.setNb_employe(0);       
+         this.type="zoo";
+         this.prixAchat=10;
+         this.prixDestr=5;
+         this.coutEntretien=10;
+         this.taille=1;
+         this.attraction=12;
+         this.nb_employe_MAX=10;           
+         this.nb_employe=0;       
          }
 }

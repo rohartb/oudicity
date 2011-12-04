@@ -4,13 +4,13 @@ public class Commerce extends BatimentArgent{
     private int stock_nourriture;
     private int stock_bien;
     public Commerce(){
-        this.setCoutEntretien(10);
-        this.setNb_employe_MAX(10);
-        this.setNb_employe(0);          
-        this.setPrixAchat(10);
-        this.setPrixDestr(5);     
-        this.setTaille(1);
-        this.setType("commmerce");
+        this.coutEntretien=10;
+        this.nb_employe_MAX=10;
+        this.nb_employe=0;          
+        this.prixAchat=10;
+        this.prixDestr=5;     
+        this.taille=1;
+        this.type="commmerce";
         this.stock_bien=0;
         this.stock_nourriture=0;              
     }
@@ -26,11 +26,11 @@ public class Commerce extends BatimentArgent{
 
     /*SETTERS*/
     public void setStock_nourriture(int stock_nourriture) {
-        this.stock_nourriture = stock_nourriture;
+        this.stock_nourriture += stock_nourriture;
     }
 
-    public void setStock_bien(int stock_autre) {
-        this.stock_bien = stock_autre;
+    public void setStock_bien(int stock_bien) {
+        this.stock_bien += stock_bien;
     }
     
 }
