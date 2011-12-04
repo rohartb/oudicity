@@ -29,6 +29,7 @@ public class BarreLaterale extends JPanel implements Observer {
     JButton bFerme;
     JButton bLoisir;
     JButton bRoute;
+    JButton bDestroy;
     
    
     int annee = 1970;
@@ -111,6 +112,10 @@ public class BarreLaterale extends JPanel implements Observer {
         bRoute = new JButton(new ImageIcon("Image/route.png"));
         bRoute.addActionListener(new EcouteurDeBarreLateral(o));
         bRoute.setActionCommand("route");
+
+        bDestroy = new JButton(new ImageIcon("Image/bulldozer.gif"));
+        bDestroy.addActionListener(new EcouteurDeBarreLateral(o));
+        bDestroy.setActionCommand("destroy");
         
         batiments.add(bLog);
         batiments.add(bIndus);
@@ -118,6 +123,7 @@ public class BarreLaterale extends JPanel implements Observer {
         batiments.add(bLoisir);
         batiments.add(bFerme);
         batiments.add(bRoute);
+        batiments.add(bDestroy);
         
         //Panel des conseils
         conseils = new JPanel();

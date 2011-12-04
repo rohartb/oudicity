@@ -12,14 +12,14 @@ class EcouteurDeBarreLateral implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("logement")){
-            if(o.f.getClick() == false){
+            if(o.f.getClick() == false || !o.f.getNomBat().equals("logement")){
                 o.f.setClick(true);
                 o.f.setNomBat("logement");
             }else{
                  o.f.setClick(false);
             }
         }else if (e.getActionCommand().equals("industrie")){
-             if(o.f.getClick() == false){
+             if(o.f.getClick() == false || !o.f.getNomBat().equals("industrie")){
                 o.f.setClick(true);
                 o.f.setNomBat("industrie");
             }else{
@@ -31,6 +31,13 @@ class EcouteurDeBarreLateral implements ActionListener{
 
         }else if (e.getActionCommand().equals("route")){
             
+        }else if (e.getActionCommand().equals("destroy")){
+            if(o.f.getClick() == false || !o.f.getNomBat().equals("herbe")){
+                o.f.setClick(true);
+                o.f.setNomBat("herbe");
+            }else{
+                 o.f.setClick(false);
+            }
         }
     }
 }
