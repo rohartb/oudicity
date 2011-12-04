@@ -124,7 +124,9 @@ public class BarreLaterale extends JPanel implements Observer {
         bPop.addActionListener(new EcouteurDePopup(o));
         bPop.setActionCommand("1");
 
-        JButton bPop2 = new JButton(new ImageIcon("Image/immeuble gif"));
+        ImageIcon im = new ImageIcon("Image/immeuble gif");
+
+        JButton bPop2 = new JButton(im);
         bPop2.addActionListener(new EcouteurDePopup(o));
         bPop2.setActionCommand("2");
 

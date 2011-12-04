@@ -39,8 +39,8 @@ public final class Plateau {
     
     public void nouveauBatiment(Points p, String type){
         
-        if(type.equals("logement")){
-            plateau[p.getX()][p.getY()] = new Logement();
+        if(type.equals("pavillon")){
+            plateau[p.getX()][p.getY()] = new Pavillon();
         }
         if(type.equals("industrie")){
             plateau[p.getX()][p.getY()] = new Industrie();
