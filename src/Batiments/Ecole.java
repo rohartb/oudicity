@@ -2,14 +2,14 @@ package Batiments;
 
 public class Ecole extends ServicePublic{
     public Ecole(){
-        this.setCoutEntretien(10);
-        this.setNb_employe_MAX(10);
-        this.setNb_employe(0);
-        this.setPrixAchat(10);
-        this.setPrixDestr(5);
-        this.setTaille(1);
-        this.setType("ecole");
-        this.setZoneInfluence(50);        
+        this.coutEntretien=10;
+        this.nb_employe_MAX=10;
+        this.nb_employe=0;
+        this.prixAchat=10;
+        this.prixDestr=5;
+        this.taille=1;
+        this.type="ecole";
+        this.zoneInfluence=50;        
     }
     
 }

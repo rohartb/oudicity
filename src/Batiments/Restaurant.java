@@ -2,14 +2,14 @@ package Batiments;
 
 public class Restaurant extends Loisir {
     public Restaurant(){
-        this.setAttraction(50);
-        this.setCoutEntretien(10);
-        this.setPrixAchat(10);
-        this.setPrixDestr(5);    
-        this.setTaille(1);
-        this.setType("restaurant");
-        this.setNb_employe_MAX(10); 
-        this.setNb_employe(0);               
+         this.type="restaurant";
+         this.prixAchat=10;
+         this.prixDestr=5;
+         this.coutEntretien=10;
+         this.taille=1;
+         this.attraction=12;
+         this.nb_employe_MAX=10;           
+         this.nb_employe=0;                
     }
        
 }

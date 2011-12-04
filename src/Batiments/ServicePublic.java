@@ -1,9 +1,9 @@
 package Batiments;
 
 public abstract class ServicePublic extends Batiment {
-    private int zoneInfluence;
-    private int nb_employe;
-    private int nb_employe_MAX;
+    protected int zoneInfluence;
+    protected int nb_employe;
+    protected int nb_employe_MAX;
 
     /*GETTERS*/
     public int getNb_employe() {
@@ -28,11 +28,11 @@ public abstract class ServicePublic extends Batiment {
         this.nb_employe += nb_employe;
     }
 
-    public void setZoneInfluence(int zoneInfluence) {
+    /*public void setZoneInfluence(int zoneInfluence) {
         this.zoneInfluence = zoneInfluence;
-    }
+    }*/
     
-    public void setNb_employe_MAX(int nb_employe_MAX) {
+    /*public void setNb_employe_MAX(int nb_employe_MAX) {
         this.nb_employe_MAX = nb_employe_MAX;
-    }
+    }*/
 }

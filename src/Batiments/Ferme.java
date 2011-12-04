@@ -5,16 +5,16 @@ public class Ferme extends BatimentArgent{
     private int production;
     private int ressource_nourriture;
     public Ferme(){
-        this.setCoutEntretien(10);
-        this.setNb_employe_MAX(10);
-        this.setNb_employe(0);        
-        this.setPrixAchat(10);
-        this.setPrixDestr(5);
-        this.besoin=100;
-        this.production=(this.besoin/10)*this.getNb_employe();
+        this.coutEntretien=10;
+        this.nb_employe_MAX=10;
+        this.nb_employe=0;          
+        this.prixAchat=10;
+        this.prixDestr=5;     
+        this.taille=1;
+        this.type="commmerce";
         this.ressource_nourriture=0;
-        this.setTaille(1);
-        this.setType("ferme");
+        this.besoin=100;
+        this.production=0;
     }
 
     /*GETTERS*/
@@ -37,6 +37,12 @@ public class Ferme extends BatimentArgent{
     
     public void setRessource_nourriture(int ressource_nourriture) {
         this.ressource_nourriture += ressource_nourriture;
-    }  
+    }
+    
+    @Override
+    public void setNb_employe(int nb_e) {
+        this.nb_employe += nb_e;
+        this.production=(this.besoin/10)*this.nb_employe;
+    }
     
 }

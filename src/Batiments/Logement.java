@@ -1,8 +1,8 @@
 package Batiments;
 
 public class Logement extends Batiment{
-   private int nb_habitant;
-   private int nb_habitant_MAX;
+   protected int nb_habitant;
+   protected int nb_habitant_MAX;
    
    public Logement(){
        
@@ -26,8 +26,8 @@ public class Logement extends Batiment{
         this.nb_habitant += nb_habitant;
     }
     
-    public void setNb_habitant_MAX(int nb_habitant_MAX) {
+    /*public void setNb_habitant_MAX(int nb_habitant_MAX) {
         this.nb_habitant_MAX = nb_habitant_MAX;
-    }
+    }*/
     
 }
