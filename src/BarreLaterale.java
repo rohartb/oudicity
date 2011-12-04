@@ -41,6 +41,8 @@ public class BarreLaterale extends JPanel implements Observer {
     public BarreLaterale(OudiCity o){
         this.o =o;
         v = o.v;
+        o.t.c.addObserver(this);
+        o.v.addObserver(this);
         
         this.setLayout(new BorderLayout());
         this.setPreferredSize(new Dimension(200,700));

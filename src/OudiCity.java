@@ -20,8 +20,4 @@ public class OudiCity{
         SwingUtilities.invokeLater(f);
     }
     
-    public void initVille(){
-        thTemps.start();
-        v = new Ville(nomVille,nomMaire,this);
-    }
 }
