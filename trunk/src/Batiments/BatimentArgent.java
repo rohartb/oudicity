@@ -35,7 +35,7 @@ public abstract class BatimentArgent extends Batiment {
     //   ->modification seulement dans set_besoin
 
     public void setNb_employe(int nb_employe) {
-        this.nb_employe = nb_employe;
+        this.nb_employe += nb_employe;
     }
     
     public void setNb_employe_MAX(int nb_employe_MAX) {

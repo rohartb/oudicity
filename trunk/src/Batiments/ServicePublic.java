@@ -25,7 +25,7 @@ public abstract class ServicePublic extends Batiment {
     /*SETTERS*/
 
     public void setNb_employe(int nb_employe) {
-        this.nb_employe = nb_employe;
+        this.nb_employe += nb_employe;
     }
 
     public void setZoneInfluence(int zoneInfluence) {
