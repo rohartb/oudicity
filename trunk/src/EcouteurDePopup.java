@@ -12,9 +12,9 @@ class EcouteurDePopup implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("1")){
-            if(o.f.getClick() == false || !o.f.getNomBat().equals("logement")){
+            if(o.f.getClick() == false || !o.f.getNomBat().equals("pavillon")){
                 o.f.setClick(true);
-                o.f.setNomBat("logement");
+                o.f.setNomBat("pavillon");
             }else{
                  o.f.setClick(false);
             }
