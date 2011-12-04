@@ -23,7 +23,7 @@ public class Logement extends Batiment{
     
     /*SETTERS*/
     public void setNb_habitant(int nb_habitant) {
-        this.nb_habitant = nb_habitant;
+        this.nb_habitant += nb_habitant;
     }
     
     public void setNb_habitant_MAX(int nb_habitant_MAX) {
