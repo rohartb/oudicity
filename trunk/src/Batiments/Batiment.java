@@ -16,6 +16,7 @@ public abstract class  Batiment {
         this.o =o;
         this.type="herbe";  
         this.persBat ="aucun";
+        this.groupe = "batiment";
     }
     
     /*GETTERS*/
