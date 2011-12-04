@@ -1,11 +1,11 @@
 package Oudicity;
 import Batiments.*;
-import java.util.*;
 
 public final class Plateau {
     OudiCity o;
     private int N = 10;
     Habitant h;
+    Ressources r;
     
     Batiment batiment;
     Batiment plateau[][];
@@ -14,6 +14,7 @@ public final class Plateau {
         this.o = o;
         init_plateau();
         this.h = new Habitant(this);
+        this.r = new Ressources(this);
     }
 
     public int getTaille(){
@@ -24,7 +25,7 @@ public final class Plateau {
         plateau = new Batiment[N][N];
         for(int i=0; i<N; i++){
             for(int j=0; j<N; j++){
-                plateau[i][j] = new Batiment(){};
+                plateau[i][j] = new Batiment(o){};
             }
         }
     }
@@ -41,19 +42,19 @@ public final class Plateau {
     public void nouveauBatiment(Points p, String type){
         
         if(type.equals("pavillon")){
-            plateau[p.getX()][p.getY()] = new Pavillon();
+            plateau[p.getX()][p.getY()] = new Pavillon(o);
         }
         if(type.equals("industrie")){
-            plateau[p.getX()][p.getY()] = new Industrie();
+            plateau[p.getX()][p.getY()] = new Industrie(o);
         }
         if(type.equals("herbe")){
             plateau[p.getX()][p.getY()].setType(type);
         }
         if(type.equals("ferme")){
-            plateau[p.getX()][p.getY()] = new Ferme();
+            plateau[p.getX()][p.getY()] = new Ferme(o);
         }
         if(type.equals("route")){
-            plateau[p.getX()][p.getY()] = new Route();
+            plateau[p.getX()][p.getY()] = new Route(o);
         }
         
     }

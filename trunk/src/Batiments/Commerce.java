@@ -1,9 +1,13 @@
 package Batiments;
 
+import Oudicity.*;
+
 public class Commerce extends BatimentArgent{
     private int stock_nourriture;
     private int stock_bien;
-    public Commerce(){
+    
+    public Commerce(OudiCity o){
+        super(o);
         this.coutEntretien=10;
         this.nb_employe_MAX=10;
         this.nb_employe=0;          

@@ -1,7 +1,10 @@
 package Batiments;
 
+import Oudicity.*;
+
 public class Zoo extends Loisir{   
-     public Zoo(){
+     public Zoo(OudiCity o){
+         super(o);
          this.type="zoo";
          this.prixAchat=10;
          this.prixDestr=5;

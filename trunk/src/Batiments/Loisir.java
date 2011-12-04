@@ -1,11 +1,17 @@
 
 package Batiments;
 
+import Oudicity.*;
+
 public abstract class Loisir extends Batiment{
     protected int attraction;
     protected int nb_employe;
     protected int nb_employe_MAX;
 
+    public Loisir(OudiCity o){
+        super(o);
+    }
+    
     /*GETTERS*/
     public int getAttraction() {
         return attraction;

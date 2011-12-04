@@ -1,10 +1,14 @@
 package Batiments;
 
+import Oudicity.*;
+
 public class Industrie extends BatimentArgent{
     private int besoin;
     private int production;
     private int bien;
-    public Industrie(){
+    
+    public Industrie(OudiCity o){
+        super(o);
         this.coutEntretien=10;
         this.nb_employe_MAX=10;
         this.nb_employe=0;          

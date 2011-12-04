@@ -1,7 +1,9 @@
 package Batiments;
+import Oudicity.*;
 
 public class Cinema extends Loisir {
-    public Cinema(){
+    public Cinema(OudiCity o){
+        super(o);
          this.type="cinema";
          this.prixAchat=10;
          this.prixDestr=5;

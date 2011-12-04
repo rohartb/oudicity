@@ -1,11 +1,13 @@
 package Batiments;
 
+import Oudicity.*;
+
 public class Logement extends Batiment{
    protected int nb_habitant;
    protected int nb_habitant_MAX;
    
-   public Logement(){
-       
+   public Logement(OudiCity o){
+       super(o);
    }
 
    /*GETTERS*/

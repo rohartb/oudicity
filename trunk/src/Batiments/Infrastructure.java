@@ -1,6 +1,13 @@
 package Batiments;
 
+import Oudicity.*;
+
 public class Infrastructure extends Batiment{
+   
+    public Infrastructure(OudiCity o){
+        super(o);
+    }
+    
     protected int nb_employe;
     protected int nb_employe_MAX;
 

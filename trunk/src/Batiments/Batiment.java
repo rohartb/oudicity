@@ -1,15 +1,18 @@
 package Batiments;
+import Oudicity.*;
 
 public abstract class  Batiment {
-
+    OudiCity o;
+    
     protected String type;
     protected int taille;
     protected int coutEntretien;
     protected int prixAchat;
     protected int prixDestr;
 
-    public Batiment(){
-           this.type="herbe";        
+    public Batiment(OudiCity o){
+        this.o =o;
+        this.type="herbe";        
     }
     
     /*GETTERS*/

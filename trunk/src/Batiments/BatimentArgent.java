@@ -1,9 +1,16 @@
 package Batiments;
 
-public abstract class BatimentArgent extends Batiment {
-       protected int nb_employe;
-       protected int nb_employe_MAX;
+import Oudicity.*;
 
+public abstract class BatimentArgent extends Batiment {
+    protected int nb_employe;
+    protected int nb_employe_MAX;
+    
+    public BatimentArgent(OudiCity o){
+        super(o);
+    }
+            
+    
     /*GETTERS*/
     public int getNb_employe() {
         return nb_employe;
