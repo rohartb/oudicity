@@ -29,7 +29,7 @@ public abstract class Loisir extends Batiment{
     }
 
     public void setNb_employe(int nb_employe) {
-        this.nb_employe = nb_employe;
+        this.nb_employe += nb_employe;
     }
     
     public void setNb_employe_MAX(int nb_employe_MAX) {
