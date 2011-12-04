@@ -1,10 +1,8 @@
 package Batiments;
 
 public abstract class BatimentArgent extends Batiment {
-       private int ressource;
        private int nb_employe;
        private int nb_employe_MAX;
-       private int besoin;
 
     /*GETTERS*/
     public int getNb_employe() {
@@ -13,14 +11,6 @@ public abstract class BatimentArgent extends Batiment {
     
     public int getNb_employe_MAX() {
         return nb_employe_MAX;
-    }
-
-    public int getRessource() {
-        return ressource;
-    }
-    
-    public int getBesoin() {
-        return besoin;
     }
     
     public int getAugmenter_employe() {
@@ -40,10 +30,5 @@ public abstract class BatimentArgent extends Batiment {
     
     public void setNb_employe_MAX(int nb_employe_MAX) {
         this.nb_employe_MAX = nb_employe_MAX;
-    }
-    
-    public void setBesoin(int besoin) {
-        this.besoin = besoin;
-        this.ressource= besoin/10;
     }
 }
