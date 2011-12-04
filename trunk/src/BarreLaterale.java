@@ -39,7 +39,6 @@ public class BarreLaterale extends JPanel implements Observer {
     int argent = 20000;   
     
     public BarreLaterale(OudiCity o){
-        System.out.println("BarreLateral");
         this.o =o;
         v = o.v;
         

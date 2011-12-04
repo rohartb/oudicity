@@ -4,7 +4,6 @@ class EcouteurDeBarreLateral implements ActionListener{
     
     OudiCity o;
     int xSouris, ySouris, xcase, ycase;
-    int click = 0;
     String nom;
 
     public EcouteurDeBarreLateral(OudiCity o){
@@ -14,10 +13,14 @@ class EcouteurDeBarreLateral implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("logement")){
-            nom = "logement";
-            click++;
+            if(o.f.getClick() == false){
+                o.f.setClick(true);
+                nom = "logement";
+            }else{
+                 o.f.setClick(false);
+                nom = "herbe";
+            }
         }else if (e.getActionCommand().equals("industrie")){
-            click = 0;
 
         }else if (e.getActionCommand().equals("commerce")){
 
