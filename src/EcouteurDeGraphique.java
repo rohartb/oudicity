@@ -22,11 +22,15 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
                 if(o.f.getNomBat().equals("industrie")){
                     o.f.pg.p.nouveauBatiment(p, "industrie");
                 }
+                
             }else{
                 o.f.pg.p.nouveauBatiment(p, "herbe");
             }
-            o.f.pg.repaint();
         }
+        if(o.f.getNomBat().equals("herbe")){
+            o.f.pg.p.nouveauBatiment(p, "herbe");
+        }
+        o.f.pg.repaint();
     }
 
     @Override
