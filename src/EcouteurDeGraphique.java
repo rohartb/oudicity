@@ -4,8 +4,8 @@ import java.awt.event.*;
 
 class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
     OudiCity o;
-    int x = 0, y = 0;
-    Points point = new Points(x,y);
+    int x = -1, y = -1;
+    Points point = new Points(x,y), p2 = new Points(-1,-1);
     String s = "herbe";
 
     public EcouteurDeGraphique(OudiCity o){
@@ -24,6 +24,12 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
                 }
                 if(o.f.getNomBat().equals("industrie")){
                     o.f.pg.p.nouveauBatiment(p, "industrie");
+                }
+                if(o.f.getNomBat().equals("ferme")){
+                    o.f.pg.p.nouveauBatiment(p, "ferme");
+                }
+                if(o.f.getNomBat().equals("route")){
+                    o.f.pg.p.nouveauBatiment(p, "route");
                 }
                 
             }else{
@@ -63,23 +69,33 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
 
     @Override
     public void mouseMoved(MouseEvent e) {
-       /*if (x != e.getX() || y != e.getY()){
+       /*String scourant;
+       Points pcourant;
+       if (x != e.getX() || y != e.getY()){
+           if(e.getX() < o.f.pg.getW() && e.getY() < o.f.pg.getH())
             x = e.getX();
             y = e.getY();
 
             if(o.f.getClick()){
-                if(point != o.f.pg.p.Case(x, y)){
+                pcourant = o.f.pg.p.Case(x, y);
+                scourant = o.f.pg.p.plateau[pcourant.getX()]
+                            [pcourant.getY()].getType();
+                System.out.println("tree");
+                if(point != o.f.pg.p.Case(x, y) && point.getX() != -1){
+                    System.out.println("rentrer"+point.getX()+"  "+point.getY());
+                    o.f.pg.p.nouveauBatiment(point, s);
+                    s = o.f.pg.p.plateau[point.getX()]
+                            [point.getY()].getType();
+                    point = o.f.pg.p.Case(x, y);
                     if(o.f.pg.p.plateau[o.f.pg.p.Case(x, y).getX()]
                             [o.f.pg.p.Case(x, y).getY()].equals("herbe")){
-                        o.f.pg.p.nouveauBatiment(point, "herbe");
-                        System.out.println();
-                        point = o.f.pg.p.Case(x, y);
-                        s = o.f.getNomBat();
-                        if(o.f.getNomBat().equals("logement")){
-                            o.f.pg.p.nouveauBatiment(point, s);
+                        if(o.f.getNomBat().equals("pavillon")){
+                            o.f.pg.p.nouveauBatiment(point, o.f.getNomBat());
                         }
                     }
                 }
+                point = pcourant;
+                s = scourant;
             }
         }
         o.f.pg.repaint();*/

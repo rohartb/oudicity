@@ -48,6 +48,12 @@ public final class Plateau {
         if(type.equals("herbe")){
             plateau[p.getX()][p.getY()].setType(type);
         }
+        if(type.equals("ferme")){
+            plateau[p.getX()][p.getY()] = new Ferme();
+        }
+        if(type.equals("route")){
+            plateau[p.getX()][p.getY()] = new Route();
+        }
         
     }
 
