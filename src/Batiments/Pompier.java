@@ -12,6 +12,7 @@ public class Pompier extends ServicePublic{
         this.prixDestr=5;
         this.taille=1;
         this.type="pompier";
+        this.persBat="employe";
         this.zoneInfluence=50;       
     }
 }

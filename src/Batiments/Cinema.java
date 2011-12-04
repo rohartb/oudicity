@@ -5,6 +5,7 @@ public class Cinema extends Loisir {
     public Cinema(OudiCity o){
         super(o);
          this.type="cinema";
+         this.persBat="employe";
          this.prixAchat=10;
          this.prixDestr=5;
          this.coutEntretien=10;

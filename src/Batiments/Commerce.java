@@ -15,6 +15,7 @@ public class Commerce extends BatimentArgent{
         this.prixDestr=5;     
         this.taille=1;
         this.type="commmerce";
+        this.persBat="employe";
         this.stock_bien=0;
         this.stock_nourriture=0;              
     }

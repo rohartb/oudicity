@@ -6,6 +6,7 @@ public class Stade extends Loisir{
     public Stade(OudiCity o){
         super(o);
          this.type="stade";
+         this.persBat="employe";
          this.prixAchat=10;
          this.prixDestr=5;
          this.coutEntretien=10;

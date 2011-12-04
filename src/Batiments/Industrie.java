@@ -22,6 +22,7 @@ public class Industrie extends BatimentArgent implements Observer{
         this.prixDestr=5;     
         this.taille=1;
         this.type="industrie";
+        this.persBat="employe";
         this.stock_bien=0;
         this.subvention=10;
         this.production=0;
