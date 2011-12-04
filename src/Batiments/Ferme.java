@@ -16,7 +16,7 @@ public class Ferme extends BatimentArgent implements Observer{
         this.prixAchat=10;
         this.prixDestr=5;     
         this.taille=1;
-        this.type="commmerce";
+        this.type="ferme";
         this.ressource_nourriture=0;
         this.besoin=100;
         this.production=0;
