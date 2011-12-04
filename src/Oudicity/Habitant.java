@@ -16,7 +16,7 @@ public class Habitant {
         Logement log;
         for(int i=0; i<p.getTaille(); i++){
             for(int j=0; j<p.getTaille(); j++){
-                if(p.plateau[i][j].getType().equals("pavillon")){
+                if(p.plateau[i][j].getGroupe().equals("logement")){
                     log = (Logement) p.plateau[i][j];
                     b = log.getAugmenter_habitant();
                     if( b > 0){
