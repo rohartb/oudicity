@@ -6,7 +6,7 @@ import java.util.*;
 public class Ville extends Observable implements Observer{
     Temps t;
     Plateau p;
-    OudiCity o;
+    OudiCity s;
     int jourDebut = 2;
     
     int indiceA[][];
@@ -19,6 +19,7 @@ public class Ville extends Observable implements Observer{
     int annee = 1970;
     int mois = 1;
     int jour = 1;
+    int jourAtt = 0;
     
     Ville(Temps t){
         this.t = t;
@@ -30,7 +31,7 @@ public class Ville extends Observable implements Observer{
     Ville(String v, String m, OudiCity o){
         nomVille = v;
         nomMaire = m;
-        this.o = o;
+        this.s = o;
         this.p = o.f.pg.p;
         argent = 20000;
         nbHabitant = 0;
@@ -43,18 +44,21 @@ public class Ville extends Observable implements Observer{
         Calendrier c = new Calendrier();
         if(o.getClass()==c.getClass()){
             c = (Calendrier) o;
-            if(jour != c.jour && c.jour > jourDebut){
-                jour = c.jour;
-                
-                // Augmenter le nombre d'habitant si il ya des palces 
-                //dans des logements
-                if(p.h.logementLibre()){
-                    System.out.println("Logement Libre");
-                    nbHabitant += p.h.augmentetHabitant();
-                    setChanged();
-                    notifyObservers();
+            
+             if(c.jour > jourDebut && jourAtt == 2){
+                    // Augmenter le nombre d'habitant si il ya des palces 
+                    //dans des logements
+                    if(s.f.pg.p.h.logementLibre()){
+                        if(indiceAttraction >= 50){
+                            nbHabitant += p.h.augmentetHabitant();
+                            setChanged();
+                            notifyObservers();
+                        }
+                    }
+                    jourAtt = 0;
+                } else {
+                    jourAtt++;
                 }
-            }
         }
     }
     
