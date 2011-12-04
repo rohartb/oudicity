@@ -4,9 +4,9 @@ import Oudicity.*;
 import java.util.*;
 
 public class Ferme extends BatimentArgent implements Observer{
-    private int besoin;
+    private int subvention;
     private int production;
-    private int ressource_nourriture;
+    private int stock_nourriture;
     
     int annee = 1970;
     int mois = 1;
@@ -22,39 +22,39 @@ public class Ferme extends BatimentArgent implements Observer{
         this.prixDestr=5;     
         this.taille=1;
         this.type="ferme";
-        this.ressource_nourriture=0;
-        this.besoin=10;
+        this.stock_nourriture=0;
+        this.subvention=10;
         this.production=0;
         
         o.t.c.addObserver(this);
     }
 
     /*GETTERS*/
-    public int getBesoin() {
-        return besoin;
+    public int getSubvention() {
+        return subvention;
     }
     
     public int getProduction() {
         return production;
     }
 
-    public int getRessource_nourriture() {
-        return ressource_nourriture;
+    public int getStock_nourriture() {
+        return stock_nourriture;
     }
 
-    public void setBesoin(int besoin) {
-        this.besoin = besoin;
-        this.production=(this.besoin/10)*this.getNb_employe();
+    public void setSubvention(int subvention) {
+        this.subvention = subvention;
+        this.production=(this.subvention/10)*this.getNb_employe();
     }
     
-    public void setRessource_nourriture(int ressource_nourriture) {
-        this.ressource_nourriture += ressource_nourriture;
+    public void setStock_nourriture(int stock_nourriture) {
+        this.stock_nourriture += stock_nourriture;
     }
     
     @Override
     public void setNb_employe(int nb_e) {
         this.nb_employe += nb_e;
-        this.production=(this.besoin/10)*this.nb_employe;
+        this.production=(this.subvention/10)*this.nb_employe;
     }
 
     @Override
@@ -66,9 +66,8 @@ public class Ferme extends BatimentArgent implements Observer{
             if(jour != c.jour){
                 jour = c.jour;
                 if(jour > jourDebut){
-                    if(nb_employe > 0 && besoin >0){
-                        setBesoin(besoin);
-                        System.out.println("bouffe :" + production);
+                    if(nb_employe > 0 && subvention >0){
+                        this.stock_nourriture+=this.production;
                     }
                 }
             }
