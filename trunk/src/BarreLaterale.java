@@ -6,6 +6,7 @@ import javax.swing.*;
 public class BarreLaterale extends JPanel implements Observer {
     OudiCity o;
     Temps t;
+    Ville v;
     PlateauGraphique p;
     EcouteurDeBarreLateral souris;
     
@@ -37,15 +38,10 @@ public class BarreLaterale extends JPanel implements Observer {
     int nbHabitant = 0;
     int argent = 20000;   
     
-    public BarreLaterale(Ville v,Temps t,PlateauGraphique p,
-            EcouteurDeBarreLateral e){
-        ville = v;
-        this.t = t;
-        this.p = p;
-        t.c.addObserver(this);
-        ville.addObserver(this);
-        souris = e;
-        
+    public BarreLaterale(OudiCity o){
+        System.out.println("BarreLateral");
+        this.o =o;
+        v = o.v;
         
         this.setLayout(new BorderLayout());
         this.setPreferredSize(new Dimension(200,700));
@@ -62,7 +58,7 @@ public class BarreLaterale extends JPanel implements Observer {
         nomMaire.setAlignmentX(CENTER_ALIGNMENT);
         nomMaire.setFont(new Font("lala",Font.TYPE1_FONT,20));
         
-        maire = new JLabel(ville.nomMaire);
+        maire = new JLabel(v.nomMaire);
         maire.setAlignmentX(CENTER_ALIGNMENT);
         maire.setFont(new Font("lala",Font.TYPE1_FONT,15));
         
@@ -96,38 +92,26 @@ public class BarreLaterale extends JPanel implements Observer {
         bLog = new JButton(new ImageIcon("Image/maison.png"));
         bLog.setPreferredSize(new Dimension(30,30));
         bLog.addActionListener(souris);
-        bLog.addMouseListener(souris);
-        bLog.addMouseMotionListener(souris);
         bLog.setActionCommand("logement");
         
         bIndus = new JButton(new ImageIcon("Image/usine.png"));
         bIndus.addActionListener(souris);
-        bIndus.addMouseListener(souris);
-        bIndus.addMouseMotionListener(souris);
         bIndus.setActionCommand("industrie");
         
         bCommerce = new JButton(new ImageIcon("Image/commerce.png"));
         bCommerce.addActionListener(souris);
-        bCommerce.addMouseListener(souris);
-        bCommerce.addMouseMotionListener(souris);
         bCommerce.setActionCommand("commerce");
         
         bLoisir = new JButton(new ImageIcon("Image/loisir.png"));
         bLoisir.addActionListener(souris);
-        bLoisir.addMouseListener(souris);
-        bLoisir.addMouseMotionListener(souris);
         bLoisir.setActionCommand("loisir");
         
         bFerme = new JButton(new ImageIcon("Image/ferme.png"));
         bFerme.addActionListener(souris);
-        bFerme.addMouseListener(souris);
-        bFerme.addMouseMotionListener(souris);
         bFerme.setActionCommand("ferme");
         
         bRoute = new JButton(new ImageIcon("Image/route.png"));
         bRoute.addActionListener(souris);
-        bRoute.addMouseListener(souris);
-        bRoute.addMouseMotionListener(souris);
         bRoute.setActionCommand("route");
         
         batiments.add(bLog);
@@ -146,15 +130,10 @@ public class BarreLaterale extends JPanel implements Observer {
         this.add(batiments,BorderLayout.CENTER);
         this.add(conseils,BorderLayout.SOUTH);
     }
-
-    BarreLaterale(OudiCity s) {
-        this.o =s;
-    }
-  
     
     @Override
     public void update(Observable o, Object arg) {
-        Ville v = new Ville();
+        Ville ville = new Ville();
         Calendrier c = new Calendrier();
         
         if(o.getClass() == c.getClass()){
@@ -164,9 +143,9 @@ public class BarreLaterale extends JPanel implements Observer {
                 date.setText(c.afficherDate());
             }
         } else {
-            v  = (Ville) o;
-            if(nbHabitant != v.nbHabitant){
-                nbHabitant = v.nbHabitant;
+            ville  = (Ville) o;
+            if(nbHabitant != ville.nbHabitant){
+                nbHabitant = ville.nbHabitant;
                 nbHab.setText("" + nbHabitant);
             }
         }

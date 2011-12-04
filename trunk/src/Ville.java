@@ -21,6 +21,9 @@ public class Ville extends Observable implements Observer{
         this.t = t;
     }
     
+    Ville(){
+    }
+    
     Ville(String v, String m, OudiCity o){
         nomVille = v;
         nomMaire = m;
@@ -32,7 +35,7 @@ public class Ville extends Observable implements Observer{
         o.t.c.addObserver(this);
     }
     
-    Habitant h = new Habitant(this,p);
+    //Habitant h = new Habitant(this,p);
 
     @Override
     public void update(Observable o, Object arg) {

@@ -13,6 +13,7 @@ public class Temps implements Runnable {
                 try {
                     c.waitTime(vitesse);
                     c.augmenterJour();
+                    System.out.println(c.afficherDate());
                 }catch(InterruptedException e){
                     System.out.println("interrupted exception : "+e.getMessage());
                 } 

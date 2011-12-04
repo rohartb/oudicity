@@ -16,7 +16,8 @@ public class OudiCity{
     public OudiCity(){
         t = new Temps(1);
         thTemps = new Thread(t);
-        SwingUtilities.invokeLater(new Fenetre(this));
+        f = new Fenetre(this);
+        SwingUtilities.invokeLater(f);
     }
     
     public void initVille(){
