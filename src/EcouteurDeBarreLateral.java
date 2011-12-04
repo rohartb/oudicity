@@ -1,18 +1,14 @@
-
-import java.awt.*;
 import java.awt.event.*;
 
-class EcouteurDeBarreLateral implements ActionListener,
-                                         MouseListener,
-                                  MouseMotionListener {
+class EcouteurDeBarreLateral implements ActionListener{
     
-    PlateauGraphique graphe;
+    OudiCity o;
     int xSouris, ySouris, xcase, ycase;
     int click = 0;
     String nom;
 
-    public EcouteurDeBarreLateral(PlateauGraphique g){
-        graphe = g;
+    public EcouteurDeBarreLateral(OudiCity o){
+        this.o = o;
     }
     
     @Override
@@ -31,49 +27,4 @@ class EcouteurDeBarreLateral implements ActionListener,
             
         }
     }
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        xSouris = e.getX();
-        ySouris = e.getY();
-        if(xSouris >= 200){
-            xSouris -= 200;
-            if(click > 1){
-               Point p = graphe.Case(xSouris, ySouris);
-              graphe.nouveauBatiment(p, nom);
-              graphe.repaint();
-            }
-        }
-        click ++;
-
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-    }
-
-    @Override
-    public void mouseDragged(MouseEvent e) {
-    }
-
-    @Override
-    public void mouseMoved(MouseEvent e) {
-        if(xSouris != e.getX() || ySouris != e.getY()){
-            xSouris = e.getX();
-            ySouris = e.getY();
-        }
-    }
-
 }

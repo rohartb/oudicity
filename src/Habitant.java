@@ -13,7 +13,7 @@ public class Habitant {
         this.p = p;
     }
 
-    int augmentetHabitant(int id){
+    /*int augmentetHabitant(int id){
         int nb = 0;
         Points pt;
         Points lf = null;
@@ -49,6 +49,6 @@ public class Habitant {
             }
         }
         return nb;
-    }
+    }*/
     
 }

@@ -9,6 +9,7 @@ public class Fenetre extends JFrame implements Runnable{
     JPanel accueil;
     JPanel panelBouton;
     BarreLaterale barreL;
+    JPanel aireDeJeu;
     
     JLabel bienvenue;
    
@@ -51,7 +52,7 @@ public class Fenetre extends JFrame implements Runnable{
         // Nouvelle Partie
         nouveau = new JButton("nouvelle partie");
         nouveau.setAlignmentX(CENTER_ALIGNMENT);
-        nouveau.addActionListener(new EcouteurPageAccueil(this, s, barreL));
+        nouveau.addActionListener(new EcouteurPageAccueil(s));
         nouveau.setActionCommand("nouveau");
         
         // Continuer Partie
@@ -61,7 +62,7 @@ public class Fenetre extends JFrame implements Runnable{
         // Quitter Partie
         quitter = new JButton("quitter");
         quitter.setAlignmentX(CENTER_ALIGNMENT);
-        quitter.addActionListener(new EcouteurPageAccueil(this, s, barreL));
+        quitter.addActionListener(new EcouteurPageAccueil(s));
         quitter.setActionCommand("quitter");
 
         // Ajout des boutons au panel
@@ -85,8 +86,18 @@ public class Fenetre extends JFrame implements Runnable{
     }
     
     public void init_partie(){
-        barreL = new BarreLaterale(s);
+        System.out.println("init");
+        System.out.println("BarreLateral Fenetre");
         pg = new PlateauGraphique(s);
         s.initVille();
+        barreL = new BarreLaterale(s);
+        System.out.println("PlateauGraph fenetre");
+        aireDeJeu = new JPanel();
+        aireDeJeu.add(pg);
+        
+        this.setLayout(new BorderLayout());
+        this.add(barreL, BorderLayout.WEST);
+        this.add(aireDeJeu, BorderLayout.CENTER);
+        this.validate();
     }
 }
