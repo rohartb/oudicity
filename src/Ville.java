@@ -36,8 +36,6 @@ public class Ville extends Observable implements Observer{
         o.t.c.addObserver(this);
     }
     
-    Habitant h = new Habitant(o);
-
     @Override
     public void update(Observable o, Object arg) {
         Calendrier c = new Calendrier();
@@ -45,9 +43,15 @@ public class Ville extends Observable implements Observer{
             c = (Calendrier) o;
             if(jour != c.jour && c.jour > jourDebut){
                 jour = c.jour;
-                //nbHabitant+=p.augmentetHabitant(indiceAttraction);
-                setChanged();
-                notifyObservers();
+                
+                // Augmenter le nombre d'habitant si il ya des palces 
+                //dans des logements
+                if(p.h.logementLibre()){
+                    System.out.println("Logement Libre");
+                    nbHabitant += p.h.augmentetHabitant();
+                    setChanged();
+                    notifyObservers();
+                }
             }
         }
     }

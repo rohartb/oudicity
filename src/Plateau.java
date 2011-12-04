@@ -4,6 +4,7 @@ import java.util.*;
 public final class Plateau {
     OudiCity o;
     private int N = 10;
+    Habitant h;
     
     Batiment batiment;
     Batiment plateau[][];
@@ -11,6 +12,7 @@ public final class Plateau {
     public Plateau(OudiCity o){
         this.o = o;
         init_plateau();
+        this.h = new Habitant(this);
     }
 
     public int getTaille(){
@@ -55,45 +57,5 @@ public final class Plateau {
                 System.out.println(plateau[a][b].getType());
             }
         }
-    }
-    
-    public Points plateauContientLogementLibre(){
-        Points lala = null;
-        int nbH;
-        int nbHMax;
-        Logement log;
-        
-        for(int i=0; i<N; i++){
-            for(int j=0; j<N; j++){
-                if(plateau[i][j].getType().equals("logement")){
-                    log = (Logement) plateau[i][j];
-                    nbH = log.getNb_habitant();
-                    nbHMax = log.getNb_habitant_MAX();
-                    if(nbH < nbHMax){
-                        lala = new Points(i,j);
-                    }
-                }
-            }
-        }
-        return lala;
-    }
-    
-    int augmentetHabitant(int id){
-        Random rand = new Random();
-        int nb = 0;
-        int i;
-        int nbMax;
-        Points pt = plateauContientLogementLibre();
-        if(pt != null){
-            Logement log = (Logement) plateau[pt.getX()][pt.getY()];
-            nbMax = log.getNb_habitant_MAX() -log.getNb_habitant();
-            if(nbMax <5){
-                nb = nbMax;
-            } else {
-                i = rand.nextInt(nbMax);
-                nb = i;
-            }
-        }
-        return nb;
     }
 }
