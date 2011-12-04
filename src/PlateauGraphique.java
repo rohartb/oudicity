@@ -48,6 +48,13 @@ public class PlateauGraphique extends JComponent {
                     drawable.fillRect(i*(width/N), j*(height/N), width/N,
                                      height/N);
                     drawable.setPaint(Color.black);
+                }else if(this.p.plateau[i][j].getType().equals("industrie")){
+                    //drawable.drawImage(maison, i*(width/N), j*(height/N),
+                    //                   width/N, height/N, null);
+                    drawable.setPaint(Color.blue);
+                    drawable.fillRect(i*(width/N), j*(height/N), width/N,
+                                     height/N);
+                    drawable.setPaint(Color.black);
                 }
             }
         }

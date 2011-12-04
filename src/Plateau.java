@@ -38,9 +38,14 @@ public final class Plateau {
         
         if(type.equals("logement")){
             plateau[p.getX()][p.getY()] = new Logement();
-        }else if(type.equals("herbe")){
+        }
+        if(type.equals("industrie")){
+            plateau[p.getX()][p.getY()] = new Industrie();
+        }
+        if(type.equals("herbe")){
             plateau[p.getX()][p.getY()].setType(type);
         }
+        
     }
 
     public void afficher(){
