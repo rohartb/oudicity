@@ -12,12 +12,13 @@ class EcouteurDeBarreLateral implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("logement")){
-            if(o.f.getClick() == false || !o.f.getNomBat().equals("logement")){
+            /*if(o.f.getClick() == false || !o.f.getNomBat().equals("logement")){
                 o.f.setClick(true);
                 o.f.setNomBat("logement");
             }else{
                  o.f.setClick(false);
-            }
+            }*/
+            o.f.barreL.popup.show(o.f.barreL.bLog, 50, 50);
         }else if (e.getActionCommand().equals("industrie")){
              if(o.f.getClick() == false || !o.f.getNomBat().equals("industrie")){
                 o.f.setClick(true);
