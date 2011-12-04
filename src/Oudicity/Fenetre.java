@@ -1,3 +1,6 @@
+package Oudicity;
+
+
 import java.awt.*;
 import javax.swing.*;
 
@@ -120,7 +123,6 @@ public class Fenetre extends JFrame implements Runnable{
         this.add(barreL, BorderLayout.WEST);
         this.add(pg, BorderLayout.CENTER);
         
-        this.setTitle(s.nomVille);
         this.validate();
         this.pg.setVisible(true);
     }

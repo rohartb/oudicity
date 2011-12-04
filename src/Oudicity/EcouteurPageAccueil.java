@@ -1,3 +1,5 @@
+package Oudicity;
+
 import java.awt.event.*;
 
 class EcouteurPageAccueil implements ActionListener{

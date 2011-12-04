@@ -1,6 +1,9 @@
+package Oudicity;
+
 import java.awt.*;
 import java.util.*;
 import javax.swing.*;
+
 
 
 public class BarreLaterale extends JPanel implements Observer {
@@ -23,14 +26,32 @@ public class BarreLaterale extends JPanel implements Observer {
     JLabel date;
     
     // Boutons du panel batiments
+    //boutton pour les logements
     JButton bLog;
+    JButton bPavillon;
+    JButton bHLM;
+    JButton bBuilding;
+
+    //boutons pour les batiments d'argent
+    JButton bBatimentArgent;
     JButton bCommerce;
     JButton bIndus;
     JButton bFerme;
+
     JButton bLoisir;
+
+    //boutons pour les infrastructures
+    JButton bInfra;
     JButton bRoute;
+
+    //boutons pour la destruction
     JButton bDestroy;
-    JPopupMenu popup;
+
+    //Différents popup
+    JPopupMenu popupLog = new JPopupMenu("Logements");
+    JPopupMenu popupBatArg= new JPopupMenu("Batiments Argent");
+    JPopupMenu popupInfra= new JPopupMenu("Infrastructure");
+    JPopupMenu popupLoisir= new JPopupMenu("Loisir");
     
    
     int annee = 1970;
@@ -90,63 +111,98 @@ public class BarreLaterale extends JPanel implements Observer {
         batiments.setPreferredSize(new Dimension(100,200));
 
         
-        //Ajout des bouton qui symbolisent les batiments 
+        //Ajout des bouton qui symbolisent les batiments
+        //////////////////////////////////////////////////
+        //                                              //
+        //      Bouton et Popup pour les logements      //
+        //                                              //
+        //////////////////////////////////////////////////
         bLog = new JButton(new ImageIcon("Image/maison.png"));
         bLog.setPreferredSize(new Dimension(30,30));
         bLog.addActionListener(new EcouteurDeBarreLateral(o));
         bLog.setActionCommand("logement");
-        
+
+        bPavillon = new JButton(new ImageIcon("Image/maison.png"));
+        bPavillon.addActionListener(new EcouteurDePopup(o));
+        bPavillon.setActionCommand("pavillon");
+
+
+        bHLM = new JButton(new ImageIcon("Image/maison.png"));
+        bHLM.addActionListener(new EcouteurDePopup(o));
+        bHLM.setActionCommand("HLM");
+
+        bBuilding = new JButton(new ImageIcon("Image/maison.png"));
+        bBuilding.addActionListener(new EcouteurDePopup(o));
+        bBuilding.setActionCommand("Buildings");
+
+        //////////////////////////////////////////////////
+        //                                              //
+        //      Bouton et Popup pour les batiments      //
+        //                    argent                    //
+        //////////////////////////////////////////////////
+        bBatimentArgent = new JButton(new ImageIcon("Image/usine.png"));
+        bBatimentArgent.addActionListener(new EcouteurDeBarreLateral(o));
+        bBatimentArgent.setActionCommand("BatimentArgent");
+
         bIndus = new JButton(new ImageIcon("Image/usine.png"));
-        bIndus.addActionListener(new EcouteurDeBarreLateral(o));
+        bIndus.addActionListener(new EcouteurDePopup(o));
         bIndus.setActionCommand("industrie");
         
         bCommerce = new JButton(new ImageIcon("Image/commerce.png"));
-        bCommerce.addActionListener(new EcouteurDeBarreLateral(o));
+        bCommerce.addActionListener(new EcouteurDePopup(o));
         bCommerce.setActionCommand("commerce");
-        
+
+        bFerme = new JButton(new ImageIcon("Image/ferme.png"));
+        bFerme.addActionListener(new EcouteurDePopup(o));
+        bFerme.setActionCommand("ferme");
+
+        //////////////////////////////////////////////////
+        //                                              //
+        //      Bouton et Popup pour les Loisirs        //
+        //                                              //
+        //////////////////////////////////////////////////
         bLoisir = new JButton(new ImageIcon("Image/loisir.png"));
         bLoisir.addActionListener(new EcouteurDeBarreLateral(o));
         bLoisir.setActionCommand("loisir");
-        
-        bFerme = new JButton(new ImageIcon("Image/ferme.png"));
-        bFerme.addActionListener(new EcouteurDeBarreLateral(o));
-        bFerme.setActionCommand("ferme");
-        
+
+        //////////////////////////////////////////////////
+        //                                              //
+        //   Bouton et Popup pour les infrastrcutures   //
+        //                                              //
+        //////////////////////////////////////////////////
+        bInfra = new JButton(new ImageIcon("Image/route.png"));
+        bInfra.addActionListener(new EcouteurDeBarreLateral(o));
+        bInfra.setActionCommand("infra");
+
         bRoute = new JButton(new ImageIcon("Image/route.png"));
-        bRoute.addActionListener(new EcouteurDeBarreLateral(o));
+        bRoute.addActionListener(new EcouteurDePopup(o));
         bRoute.setActionCommand("route");
 
         bDestroy = new JButton(new ImageIcon("Image/bulldozer.gif"));
         bDestroy.addActionListener(new EcouteurDeBarreLateral(o));
         bDestroy.setActionCommand("destroy");
 
-        JButton bPop = new JButton(new ImageIcon("Image/maison.png"));
-        bPop.addActionListener(new EcouteurDePopup(o));
-        bPop.setActionCommand("pavillon");
+        
 
-        ImageIcon im = new ImageIcon("Image/immeuble gif");
-
-        JButton bPop2 = new JButton(im);
-        bPop2.addActionListener(new EcouteurDePopup(o));
-        bPop2.setActionCommand("HLM");
-
-        JButton bPop3 = new JButton(new ImageIcon("Image/ferme.png"));
-        bPop3.addActionListener(new EcouteurDePopup(o));
-        bPop3.setActionCommand("Buildings");
-
-        popup = new JPopupMenu("Logements");
         
         batiments.add(bLog);
-        batiments.add(bIndus);
-        batiments.add(bCommerce);
+        batiments.add(bBatimentArgent);
         batiments.add(bLoisir);
-        batiments.add(bFerme);
-        batiments.add(bRoute);
+        batiments.add(bInfra);
         batiments.add(bDestroy);
-        popup.setLayout(new GridLayout(1,3));
-        popup.add(bPop);
-        popup.add(bPop2);
-        popup.add(bPop3);
+
+        popupLog.setLayout(new GridLayout(1,3));
+        popupLog.add(bPavillon);
+        popupLog.add(bHLM);
+        popupLog.add(bBuilding);
+
+        popupBatArg.setLayout(new GridLayout(1,3));
+        popupBatArg.add(bIndus);
+        popupBatArg.add(bFerme);
+        popupBatArg.add(bCommerce);
+
+        popupInfra.setLayout(new GridLayout(1,1));
+        popupInfra.add(bRoute);
         
         //Panel des conseils
         conseils = new JPanel();
