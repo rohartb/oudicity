@@ -81,7 +81,7 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
                     }
                 }
             }
-        }*/
-        o.f.pg.repaint();
+        }
+        o.f.pg.repaint();*/
     }
 }
