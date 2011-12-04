@@ -120,11 +120,11 @@ public class BarreLaterale extends JPanel implements Observer {
         bDestroy.addActionListener(new EcouteurDeBarreLateral(o));
         bDestroy.setActionCommand("destroy");
 
-        JButton bPop = new JButton(new ImageIcon("Image/usine.png"));
+        JButton bPop = new JButton(new ImageIcon("Image/maison.png"));
         bPop.addActionListener(new EcouteurDePopup(o));
         bPop.setActionCommand("1");
 
-        JButton bPop2 = new JButton(new ImageIcon("Image/route.png"));
+        JButton bPop2 = new JButton(new ImageIcon("Image/immeuble gif"));
         bPop2.addActionListener(new EcouteurDePopup(o));
         bPop2.setActionCommand("2");
 
