@@ -3,7 +3,8 @@ import java.util.*;
 
 public class Ville extends Observable implements Observer{
     Temps t;
-    PlateauGraphique p;
+    Plateau p;
+    OudiCity o;
     
     int indiceA[][];
     String nomVille;
@@ -20,17 +21,15 @@ public class Ville extends Observable implements Observer{
         this.t = t;
     }
     
-    Ville (){
-        
-    }
-    
-    Ville(String v, String m, Temps t){
+    Ville(String v, String m, OudiCity o){
         nomVille = v;
         nomMaire = m;
+        this.o = o;
+        this.p = o.f.pg.p;
         argent = 20000;
         nbHabitant = 0;
         indiceAttraction = 50;
-        t.c.addObserver(this);
+        o.t.c.addObserver(this);
     }
     
     Habitant h = new Habitant(this,p);
@@ -42,7 +41,7 @@ public class Ville extends Observable implements Observer{
             c = (Calendrier) o;
             if(jour != c.jour){
                 jour = c.jour;
-                nbHabitant=h.augmentetHabitant(indiceAttraction);
+                //nbHabitant=h.augmentetHabitant(indiceAttraction);
                 setChanged();
                 notifyObservers();
             }
