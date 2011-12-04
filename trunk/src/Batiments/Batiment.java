@@ -11,7 +11,7 @@ public abstract class  Batiment {
     // int nbOccupant;
 
     public Batiment(){
-        
+           this.type="herbe";        
     }
     
     /*SETTERS*/
