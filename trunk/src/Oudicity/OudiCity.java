@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public class OudiCity{
     Ville v;
-    Temps t;
+    public Temps t;
     Thread thTemps;
     Fenetre f;
     

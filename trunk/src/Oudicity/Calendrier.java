@@ -2,9 +2,9 @@ package Oudicity;
 import java.util.Observable;
 
 public class Calendrier extends Observable{
-    int jour;
-    int mois;
-    int annee;
+    public int jour;
+    public int mois;
+    public int annee;
     
     public Calendrier(){
         jour = 1;
