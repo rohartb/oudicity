@@ -1,3 +1,5 @@
+package Oudicity;
+
 import javax.swing.*;
 
 public class OudiCity{

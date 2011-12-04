@@ -1,3 +1,4 @@
+package Oudicity;
 import Batiments.*;
 import java.util.*;
 
@@ -8,30 +9,32 @@ public class Habitant {
         this.p = p;
     }
     
-    public LinkedList<Points> plateauContientLogementLibre(){
-        LinkedList<Points> l = new LinkedList<Points>();
+    public Points [] plateauContientLogementLibre(){
+        Points tab[] = new Points[p.getTaille()];
+        int idTab = 0;
         int b;
         
         Logement log;
+        
         for(int i=0; i<p.getTaille(); i++){
             for(int j=0; j<p.getTaille(); j++){
-                if(p.plateau[i][j].getType().equals("pavillon")){
+                if(p.plateau[i][j].getType().equals("logement")){
                     log = (Logement) p.plateau[i][j];
                     b = log.getAugmenter_habitant();
-                    if( b > 0){
-                        l.add(new Points(i,j));
+                    if( b != 0){
+                        tab[i] = new Points(i,j);
                     }
                 }
             }
         }
-        return l;
+        return tab;
     }
     
     boolean logementLibre(){
         boolean estLibre = false;
-        LinkedList<Points> l = plateauContientLogementLibre();
+        Points t[] = plateauContientLogementLibre();
         
-        if(l.size() != 0){
+        if(t[0] != null){
             estLibre = true;
         }
         return estLibre;
@@ -46,22 +49,19 @@ public class Habitant {
         Points pt;
         Logement log;
        
-        LinkedList<Points> l = plateauContientLogementLibre();
-        i = rand.nextInt(l.size());
-        pt = l.get(i);
+        Points t[] = plateauContientLogementLibre();
+        i = rand.nextInt(t.length);
+        pt = t[i];
         log = (Logement) p.plateau[pt.getX()][pt.getY()];
         nbMax = log.getAugmenter_habitant();
         
         if(nbMax <5){
             nb = nbMax;
-            log.setNb_habitant(nb);
+            log.setNb_habitant(nbMax+nb);
         } else {
             r = rand.nextInt(nbMax);
-            while(r == 0){
-                r = rand.nextInt(nbMax);
-            }
             nb = r;
-            log.setNb_habitant(r);
+            log.setNb_habitant(nbMax + r);
         }
         p.plateau[pt.getX()][pt.getY()] = (Batiment) log;
         return nb;

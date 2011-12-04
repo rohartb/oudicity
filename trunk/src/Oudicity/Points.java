@@ -1,3 +1,5 @@
+package Oudicity;
+
 public class Points {
     int x;
     int y;
