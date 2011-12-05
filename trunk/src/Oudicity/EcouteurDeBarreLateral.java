@@ -31,8 +31,9 @@ class EcouteurDeBarreLateral implements ActionListener{
             }else{
                  o.f.setClick(false);
             }
+        }else{
+            o.f.setNomBat("herbe");
         }
-        o.f.setNomBat("herbe");
     }
        
 }

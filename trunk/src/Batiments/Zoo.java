@@ -8,12 +8,12 @@ public class Zoo extends Loisir{
          this.type="zoo";
          this.persBat="employe";
          this.groupe="loisir";         
-         this.prixAchat=10;
-         this.prixDestr=5;
-         this.coutEntretien=10;
+         this.prixAchat=2000;
+         this.prixDestr=1000;
+         this.coutEntretien=200;
          this.taille=1;
-         this.attraction=12;
-         this.nb_employe_MAX=10;           
+         this.attraction=200;
+         this.nb_employe_MAX=20;           
          this.nb_employe=0;
      }
 }

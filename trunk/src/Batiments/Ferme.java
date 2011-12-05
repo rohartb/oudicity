@@ -16,19 +16,19 @@ public class Ferme extends BatimentArgent implements Observer{
     
     public Ferme(OudiCity o){
         super(o);
-        this.coutEntretien=10;
+        this.coutEntretien=50;
         this.nb_employe_MAX=10;
         this.nb_employe=0;          
-        this.prixAchat=10;
-        this.prixDestr=5;     
+        this.prixAchat=500;
+        this.prixDestr=250;     
         this.taille=1;
         this.type="ferme";
         this.persBat="employe";
         this.groupe="batimentargent";        
         this.stock_nourriture=0;
-        this.subvention=10;
+        this.subvention=100;
         this.production=0;
-        this.stock_nourriture_MAX=200;  
+        this.stock_nourriture_MAX=4000;  
         
         o.t.c.addObserver(this);
     }
@@ -53,7 +53,7 @@ public class Ferme extends BatimentArgent implements Observer{
     /*SETTERS*/
     public void setSubvention(int subvention) {
         this.subvention = subvention;
-        this.production=(this.subvention/10)*this.getNb_employe();
+        this.production=(this.subvention/5)*this.getNb_employe();
     }
     
     public void setStock_nourriture(int stock_nourriture) {
@@ -68,7 +68,7 @@ public class Ferme extends BatimentArgent implements Observer{
     @Override
     public void setNb_employe(int nb_e) {
         this.nb_employe += nb_e;
-        this.production=(this.subvention/10)*this.nb_employe;
+        this.production=(this.subvention/5)*this.nb_employe;
     }
 
     @Override

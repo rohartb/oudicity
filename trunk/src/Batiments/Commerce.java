@@ -14,11 +14,11 @@ public class Commerce extends BatimentArgent implements Observer{
     
     public Commerce(OudiCity s){
         super(s);
-        this.coutEntretien=10;
-        this.nb_employe_MAX=10;
+        this.coutEntretien=50;
+        this.nb_employe_MAX=15;
         this.nb_employe=0;          
-        this.prixAchat=10;
-        this.prixDestr=5;     
+        this.prixAchat=500;
+        this.prixDestr=250;     
         this.taille=1;
         this.type="commerce";
         this.persBat="employe";
@@ -57,27 +57,31 @@ public class Commerce extends BatimentArgent implements Observer{
             if(jour != c.jour){
                 jour = c.jour;
                 if(jour > jourDebut){
-                    if(this.stock_bien == 0){
-                        int a = s.getFenetre().getGraphique().getPlateau().getSC().augmenterStockBien(5);
+                    if(this.stock_bien < 100){
+                        int a = s.getFenetre().getGraphique().getPlateau().getSC().augmenterStockBien(100);
                         if(a!=0){
-                            System.out.println("!pas de bien disponible pour commerce!");
+                            //System.out.println("!pas de bien disponible pour commerce!");
                         }
                         else{
-                            System.out.println("assez de bien disponible pour commerce!");
+                           // System.out.println("assez de bien disponible pour commerce!");
                         }
-                        this.stock_bien += 5-a;
-                        System.out.println(this.stock_bien);
+                        //System.out.println("stock bien"+this.stock_bien);
+                        //System.out.println("a"+a);
+                        this.stock_bien += 100-a;
+                        //System.out.println("sb"+this.stock_bien);
+                        
+                        
                     }
-                    if(this.stock_nourriture==0){
-                        int a = s.getFenetre().getGraphique().getPlateau().getSC().augmenterStockNourriture(5);
+                    if(this.stock_nourriture<100){
+                        int a = s.getFenetre().getGraphique().getPlateau().getSC().augmenterStockNourriture(200);
                         if(a!=0){
-                            System.out.println("!pas de nourriture disponible pour commerce!");
+                           // System.out.println("!pas de nourriture disponible pour commerce!");
                         }
                         else{
-                            System.out.println("assez de nourriture disponible pour commerce!");
+                            //System.out.println("assez de nourriture disponible pour commerce!");
                         }
-                        this.stock_nourriture += 5-a;
-                        System.out.println(this.stock_nourriture);
+                        this.stock_nourriture += 200-a;
+                        //System.out.println(this.stock_nourriture);
                     }
                 }
             }

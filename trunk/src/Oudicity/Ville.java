@@ -46,6 +46,14 @@ public class Ville extends Observable implements Observer{
             
             // On chnage de jour
             if(jour < c.jour ){
+                /*int consomme = p.h.consommer();
+                if(consomme>0){
+                    System.out.println("Pas assez de bien pour les hab!");
+                }
+                int nou = p.h.nourrir();
+                if(nou>0){
+                    System.out.println("Pas assez de nourriture pour les hab!");
+                }*/
                 if(c.jour > jourDebut && jourAtt == 2){
                     // Augmenter le nombre d'habitant si il ya des palces 
                     //dans des logements
@@ -53,7 +61,7 @@ public class Ville extends Observable implements Observer{
                         if(indiceAttraction >= 50){
                             nbHabitant += p.h.augmentetHabitant();
                             p.e.AugmenterEmploye();
-                            p.e.afficherEmployer();
+                            //p.e.afficherEmployer();
                             setChanged();
                             notifyObservers();
                         }

@@ -16,7 +16,7 @@ public final class Plateau {
     public Plateau(OudiCity o){
         this.o = o;
         init_plateau();
-        this.h = new Habitant(this);
+        this.h = new Habitant(this,o);
         this.r = new Ressources(this);
         this.e = new Employe(this,o);
         this.sc = new StockCommerce(this);

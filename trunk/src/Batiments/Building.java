@@ -5,9 +5,9 @@ public class Building extends Logement {
     
     public Building(OudiCity o){
        super(o);
-       this.coutEntretien=10;
-       this.prixAchat=10;
-       this.prixDestr=5;
+       this.coutEntretien=150;
+       this.prixAchat=1500;
+       this.prixDestr=750;
        this.taille=1;
        this.type="building";
        this.persBat="habitant";

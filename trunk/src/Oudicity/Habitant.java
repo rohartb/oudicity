@@ -4,9 +4,11 @@ import java.util.*;
 
 public class Habitant {
     Plateau p;
+    OudiCity o;
     
-    public Habitant(Plateau p){
+    public Habitant(Plateau p, OudiCity o){
         this.p = p;
+        this.o = o;
     }
     
     public LinkedList<Points> plateauContientLogementLibre(){
@@ -22,6 +24,20 @@ public class Habitant {
                     if( b > 0){
                         l.add(new Points(i,j));
                     }
+                }
+            }
+        }
+        return l;
+    }
+    
+        public LinkedList<Commerce> plateauCommerce(){
+        LinkedList<Commerce> l = new LinkedList<Commerce>();
+        Commerce c;
+        for(int i=0; i<p.getTaille(); i++){
+            for(int j=0; j<p.getTaille(); j++){
+                if(p.plateau[i][j].getType().equals("commerce")){
+                    c = (Commerce) p.plateau[i][j];
+                    l.add(c);
                 }
             }
         }
@@ -65,6 +81,53 @@ public class Habitant {
             log.setNb_habitant(r);
         }
         p.plateau[pt.getX()][pt.getY()] = (Batiment) log;
+        return nb;
+    }
+    
+    public int consommer(){
+        int nb = o.v.nbHabitant;
+        Commerce c;
+        LinkedList<Commerce> l = plateauCommerce();
+        int i = 0;
+        int taille = l.size();
+        if(taille!=0){
+            while(i<taille && nb!=0){
+                c=l.get(i);
+                if(c.getStock_bien()<nb){
+                    System.out.println("if");
+                    int stock = c.getStock_bien();
+                    nb -= stock;
+                    c.setStock_bien(-stock);
+                }else{
+                    System.out.println("else");
+                    c.setStock_bien(-nb);
+                    nb=0;
+                }
+                i++;
+            }
+        }
+        return nb;
+    }
+    
+    public int nourrir(){
+        int nb = o.v.nbHabitant*2;
+        Commerce c;
+        LinkedList<Commerce> l = plateauCommerce();
+        int i=0;
+        int taille = l.size();
+        if(taille!=0){
+            while(i<taille &&  nb!=0){
+                c=l.get(i);
+                if(c.getStock_nourriture()<nb){
+                    nb -= c.getStock_nourriture();
+                    c.setStock_bien(-c.getStock_nourriture());
+                }else{
+                    c.setStock_nourriture(-nb);
+                    nb=0;
+                }
+                i++;
+            }
+        }
         return nb;
     }
 }
