@@ -58,7 +58,7 @@ public class PlateauGraphique extends JComponent {
                     drawable.setPaint(new Color(255,102,102));
                     drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
                                      (int)height/N);
-                }else if(this.p.plateau[i][j].getType().equals("hlm")){
+                }else if(this.p.plateau[i][j].getType().equals("HLM")){
                     drawable.setPaint(new Color(255,51,51));
                     drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
                                      (int)height/N);
@@ -137,7 +137,7 @@ public class PlateauGraphique extends JComponent {
                     drawable.setPaint(new Color(255,255,255));
                     drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
                                      (int)height/N);
-                }else if(this.p.plateau[i][j].getType().equals("hotel")){
+                }else if(this.p.plateau[i][j].getType().equals("hoteldeville")){
                     drawable.setPaint(new Color(255,153,102));
                     drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
                                      (int)height/N);

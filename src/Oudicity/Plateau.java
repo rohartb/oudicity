@@ -123,7 +123,7 @@ public final class Plateau {
         }
 
         //nouveaux services publiques
-        if(type.equals("commissiariat")){
+        if(type.equals("commissariat")){
             plateau[p.getX()][p.getY()] = new Commissariat(o) {};
         }
         if(type.equals("decheterie")){

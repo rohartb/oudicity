@@ -162,7 +162,7 @@ public class BarreLaterale extends JPanel implements Observer {
 
         bBuilding = new JButton(new ImageIcon("Image/build ing.png"));
         bBuilding.addActionListener(new EcouteurDePopup(o));
-        bBuilding.setActionCommand("Buildings");
+        bBuilding.setActionCommand("building");
 
         //////////////////////////////////////////////////
         //                                              //
