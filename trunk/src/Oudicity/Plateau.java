@@ -50,7 +50,27 @@ public final class Plateau {
             plateau[p.getX()][p.getY()] = new Industrie(o);
         }
         if(type.equals("herbe")){
-            plateau[p.getX()][p.getY()].setType(type);
+            plateau[p.getX()][p.getY()] = new Batiment(o) {};
+        }
+        if(type.equals("ferme")){
+            plateau[p.getX()][p.getY()] = new Ferme(o);
+        }
+        if(type.equals("route")){
+            plateau[p.getX()][p.getY()] = new Route(o);
+        }
+        
+    }
+    
+    public void destructionBatiment(Points p, String type){
+        
+        if(type.equals("pavillon")){
+            plateau[p.getX()][p.getY()] = new Pavillon(o);
+        }
+        if(type.equals("industrie")){
+            plateau[p.getX()][p.getY()] = new Industrie(o);
+        }
+        if(type.equals("herbe")){
+            plateau[p.getX()][p.getY()] = new Batiment(o) {};
         }
         if(type.equals("ferme")){
             plateau[p.getX()][p.getY()] = new Ferme(o);

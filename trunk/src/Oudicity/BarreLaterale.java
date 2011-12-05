@@ -24,6 +24,8 @@ public class BarreLaterale extends JPanel implements Observer {
     JLabel hab;
     JLabel datel;
     JLabel date;
+    JLabel argentl;
+    JLabel argenta;
     
     // Boutons du panel batiments
     //boutton pour les logements
@@ -231,6 +233,8 @@ public class BarreLaterale extends JPanel implements Observer {
                 nbHabitant = ville.nbHabitant;
                 nbHab.setText("" + nbHabitant);
             }
+            
+           
         }
     }
     

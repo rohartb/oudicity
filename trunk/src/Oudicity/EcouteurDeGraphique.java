@@ -21,6 +21,7 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
             if(o.f.getClick()){
                 if(o.f.getNomBat().equals("pavillon")){
                     o.f.pg.p.nouveauBatiment(p, "pavillon");
+                    o.v.payerBatiment("pavillon");
                 }
                 if(o.f.getNomBat().equals("industrie")){
                     o.f.pg.p.nouveauBatiment(p, "industrie");
@@ -31,7 +32,6 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
                 if(o.f.getNomBat().equals("route")){
                     o.f.pg.p.nouveauBatiment(p, "route");
                 }
-                
             }else{
                 o.f.pg.p.nouveauBatiment(p, "herbe");
             }
