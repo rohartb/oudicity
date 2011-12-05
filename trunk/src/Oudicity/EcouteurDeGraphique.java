@@ -34,12 +34,13 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
                     o.f.pg.p.nouveauBatiment(pt, "route");
                     o.v.payerBatiment(pt);
                 }
-                if(o.f.getNomBat().equals("destroy")){
+                
+            }
+        }else{
+            if(o.f.getNomBat().equals("destroy")){
                     o.f.pg.p.destroy(pt);
                     o.v.rembourserBatiment(pt);
                 }
-                
-            }
         }
         if(o.f.getNomBat().equals("herbe")){
             o.f.pg.p.nouveauBatiment(pt, "herbe");
@@ -76,5 +77,11 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
     @Override
     public void mouseMoved(MouseEvent e) {
       
+    }
+
+    public void affichageBarreLat(Points point){
+        /*if(o.f.pg.p.plateau[pt.getX()][pt.getY()].getType().equals("")){
+            
+        }*/
     }
 }
