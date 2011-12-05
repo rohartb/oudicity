@@ -15,6 +15,11 @@ public class OudiCity{
         OudiCity oudiCity = new OudiCity();
     }
 
+    public Fenetre getFenetre(){
+        return f;
+    }
+
+
     public OudiCity(){
         t = new Temps(1);
         thTemps = new Thread(t);
