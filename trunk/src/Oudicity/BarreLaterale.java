@@ -295,7 +295,10 @@ public class BarreLaterale extends JPanel implements Observer {
 
     //Initialisation de la barre des conseils
     void initConseil(Points points){
-        //conseils
+        this.remove(conseils);
+        JPanel conseil = new JPanel();
+        conseil.setBackground(new Color(255,153,51));
+        conseil.setPreferredSize(new Dimension(200,200));
         String scourant = pg.getPlateau().plateau[points.getX()][points.getY()]
                 .getGroupe();
         String nbs= "";
@@ -328,12 +331,12 @@ public class BarreLaterale extends JPanel implements Observer {
         JLabel Cout = new JLabel(""+cout);
         Cout.setAlignmentX(RIGHT_ALIGNMENT);
 
-        conseils.add(snb);
-        conseils.add(nbPers);
-        conseils.add(sCout);
-        conseils.add(Cout);
+        conseil.add(snb);
+        conseil.add(nbPers);
+        conseil.add(sCout);
+        conseil.add(Cout);
 
-        this.add(conseils,BorderLayout.SOUTH);
+        this.add(conseil,BorderLayout.SOUTH);
 
 
     }
