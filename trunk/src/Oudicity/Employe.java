@@ -103,33 +103,36 @@ public final class Employe {
         Random rand = new Random();
         LinkedList<Points> l;
         int nb_chomeur = o.v.nbHabitant - nbTotEmploy();
-        int nb_travail = nb_maxEmpl - nb_EmployTot;
+        int nb_travail = nbTotEmployMax() - nbTotEmploy();
         int i;
         int travail;
         Points pt;
         
+        System.out.println("nb_travail: "+nb_travail+"  nbchomeur:  "+nb_chomeur);       
         if(nb_travail!=0){
             if (nb_travail<nb_chomeur){
                 i = rand.nextInt(nb_travail);
+                System.out.println(i);
             }
             else{
                 i = rand.nextInt(nb_chomeur);
+                System.out.println("i="+i);
             }
 
             for(int j=0; j<i; j++){
                 l = plateauContientTravail();
                 travail=rand.nextInt(l.size());
                 pt = l.get(travail);
-                if(p.plateau[i][j].getGroupe().equals("batimentargent")){
-                    BatimentArgent b = (BatimentArgent) p.plateau[i][j];
+                if(p.plateau[pt.getX()][pt.getY()].getGroupe().equals("batimentargent")){
+                    BatimentArgent b = (BatimentArgent) p.plateau[pt.getX()][pt.getY()];
                     b.setNb_employe(1);
                 }
-                else if(p.plateau[i][j].getGroupe().equals("loisir")){
-                    Loisir b = (Loisir) p.plateau[i][j];
+                else if(p.plateau[pt.getX()][pt.getY()].getGroupe().equals("loisir")){
+                    Loisir b = (Loisir) p.plateau[pt.getX()][pt.getY()];
                     b.setNb_employe(1);
                 }
-                else if(p.plateau[i][j].getGroupe().equals("servicepublic")){
-                    ServicePublic b = (ServicePublic) p.plateau[i][j];
+                else if(p.plateau[pt.getX()][pt.getY()].getGroupe().equals("servicepublic")){
+                    ServicePublic b = (ServicePublic) p.plateau[pt.getX()][pt.getY()];
                     b.setNb_employe(1);
                 }    
             }
