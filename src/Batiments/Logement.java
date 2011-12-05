@@ -2,7 +2,7 @@ package Batiments;
 
 import Oudicity.*;
 
-public class Logement extends Batiment{
+public abstract class Logement extends Batiment{
    protected int nb_habitant;
    protected int nb_habitant_MAX;
    

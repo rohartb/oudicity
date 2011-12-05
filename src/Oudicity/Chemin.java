@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Chemin {
     Plateau p;
-    
+
     LinkedList<Points> batHab =  new LinkedList<Points>();
     LinkedList<Points> batCom =  new LinkedList<Points>(); 
     LinkedList<Points> batLoi =  new LinkedList<Points>(); 
@@ -11,11 +11,12 @@ public class Chemin {
     LinkedList<Points> batInd =  new LinkedList<Points>(); 
     LinkedList<Points> batFerm =  new LinkedList<Points>(); 
     LinkedList<Points> pc =  new LinkedList<Points>(); 
-    int nbBat1;
-    int nbBat2;
+    int nbHabi;
+    int nbEmploy;
     
     public Chemin(Plateau p){
-        nbBat1 = 0;
-        nbBat2 = 0;
+        this.p = p;
+        nbHabi = 0;
+        nbEmploy = 0;
     }
 }

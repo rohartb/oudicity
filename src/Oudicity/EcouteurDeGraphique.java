@@ -50,6 +50,7 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
                 if(o.f.getNomBat().equals("route")){
                     o.f.pg.p.nouveauBatiment(pt, "route");
                     o.v.payerBatiment(pt);
+                    o.f.pg.p.c.actualiserReseauRoutier(pt);
                 }
                 
                 //quand on click sur un loisir
