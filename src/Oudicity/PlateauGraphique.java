@@ -69,9 +69,9 @@ public class PlateauGraphique extends JComponent {
         for(int i=0; i<N; i++){
             for(int j=0; j<N; j++){
                 if (this.p.plateau[i][j].getType().equals("herbe")){
-                    drawable.drawImage(herbe,(int)(i*(width/N)),
-                            (int) (j*(height/N)),(int)width/N,
-                            (int)height/N, null);
+                    drawable.setPaint(new Color(153,255,102));
+                    drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
+                                     (int)height/N);
                 }
 
                 //paint pour les logements
