@@ -8,7 +8,9 @@ public class PlateauGraphique extends JComponent {
     Plateau p;
     int N;
 
-    Image courant, herbe, maison;
+    Image herbe, pavillon, hlm, building, industrie, ferme, commerce,
+          route, bar, cinema, parc, restaurant, stade, zoo, commissariat,
+          decheterie, ecole, hopital, hotel, pompier;
     
     private float width, height;
     float xM, xCase;
@@ -18,7 +20,26 @@ public class PlateauGraphique extends JComponent {
         p = new Plateau(o);
         N = p.getTaille();
         herbe = this.getToolkit().getImage("Image/herbe.gif");
-        maison = this.getToolkit().getImage("Image/maison.gif");
+        pavillon = this.getToolkit().getImage("Image/maison.png");
+        hlm = this.getToolkit().getImage("Image/herbe.gif");
+        building = this.getToolkit().getImage("Image/maison.png");
+        industrie = this.getToolkit().getImage("Image/herbe.gif");
+        ferme = this.getToolkit().getImage("Image/maison.png");
+        commerce = this.getToolkit().getImage("Image/herbe.gif");
+        route = this.getToolkit().getImage("Image/maison.png");
+        bar = this.getToolkit().getImage("Image/herbe.gif");
+        cinema = this.getToolkit().getImage("Image/maison.png");
+        parc = this.getToolkit().getImage("Image/herbe.gif");
+        restaurant = this.getToolkit().getImage("Image/maison.png");
+        stade = this.getToolkit().getImage("Image/herbe.gif");
+        zoo = this.getToolkit().getImage("Image/maison.png");
+        commissariat = this.getToolkit().getImage("Image/herbe.gif");
+        decheterie = this.getToolkit().getImage("Image/maison.png");
+        ecole = this.getToolkit().getImage("Image/herbe.gif");
+        hopital = this.getToolkit().getImage("Image/maison.png");
+        hotel = this.getToolkit().getImage("Image/herbe.gif");
+        pompier = this.getToolkit().getImage("Image/maison.png");
+
     }
 
     public Plateau getPlateau(){
@@ -48,16 +69,16 @@ public class PlateauGraphique extends JComponent {
         for(int i=0; i<N; i++){
             for(int j=0; j<N; j++){
                 if (this.p.plateau[i][j].getType().equals("herbe")){
-                    drawable.setPaint(new Color(153,255,51));
-                    drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
-                                     (int)height/N);
+                    drawable.drawImage(herbe,(int)(i*(width/N)),
+                            (int) (j*(height/N)),(int)width/N,
+                            (int)height/N, null);
                 }
 
                 //paint pour les logements
                 else if(this.p.plateau[i][j].getType().equals("pavillon")){
-                    drawable.setPaint(new Color(255,102,102));
-                    drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
-                                     (int)height/N);
+                    drawable.drawImage(pavillon,(int)(i*(width/N)),
+                            (int) (j*(height/N)),(int)width/N,
+                            (int)height/N, null);
                 }else if(this.p.plateau[i][j].getType().equals("HLM")){
                     drawable.setPaint(new Color(255,51,51));
                     drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
