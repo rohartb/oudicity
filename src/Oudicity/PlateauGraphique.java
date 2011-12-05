@@ -55,15 +55,15 @@ public class PlateauGraphique extends JComponent {
 
                 //paint pour les logements
                 else if(this.p.plateau[i][j].getType().equals("pavillon")){
-                    drawable.setPaint(new Color(255,51,51));
+                    drawable.setPaint(new Color(255,102,102));
                     drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
                                      (int)height/N);
                 }else if(this.p.plateau[i][j].getType().equals("hlm")){
-                    drawable.setPaint(new Color(0,0,0));
+                    drawable.setPaint(new Color(255,51,51));
                     drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
                                      (int)height/N);
                 }else if(this.p.plateau[i][j].getType().equals("building")){
-                    drawable.setPaint(new Color(0,0,0));
+                    drawable.setPaint(new Color(204,0,51));
                     drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
                                      (int)height/N);
                 }
@@ -71,15 +71,15 @@ public class PlateauGraphique extends JComponent {
 
                 // paint pour les batiments argents
                 else if(this.p.plateau[i][j].getType().equals("industrie")){
-                    drawable.setPaint(new Color(51,153,153));
+                    drawable.setPaint(new Color(255,255,102));
                     drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
                                      (int)height/N);
                 }else if(this.p.plateau[i][j].getType().equals("ferme")){
-                    drawable.setPaint(new Color(139,69,19));
+                    drawable.setPaint(new Color(255,255,153));
                     drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
                                      (int)height/N);
                 }else if(this.p.plateau[i][j].getType().equals("commerce")){
-                    drawable.setPaint(new Color(0,0,0));
+                    drawable.setPaint(new Color(255,255,204));
                     drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
                                      (int)height/N);
                 }
@@ -94,27 +94,27 @@ public class PlateauGraphique extends JComponent {
 
                 // paint pour les loisirs
                 else if(this.p.plateau[i][j].getType().equals("bar")){
-                    drawable.setPaint(new Color(0,0,0));
+                    drawable.setPaint(new Color( 153,204,255));
                     drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
                                      (int)height/N);
                 }else if(this.p.plateau[i][j].getType().equals("cinema")){
-                    drawable.setPaint(new Color(0,0,0));
+                    drawable.setPaint(new Color(102,153,255));
                     drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
                                      (int)height/N);
                 }else if(this.p.plateau[i][j].getType().equals("parc")){
-                    drawable.setPaint(new Color(0,0,0));
+                    drawable.setPaint(new Color(102,153,204));
                     drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
                                      (int)height/N);
                 }else if(this.p.plateau[i][j].getType().equals("restaurant")){
-                    drawable.setPaint(new Color(0,0,0));
+                    drawable.setPaint(new Color(51,102,153));
                     drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
                                      (int)height/N);
                 }else if(this.p.plateau[i][j].getType().equals("stade")){
-                    drawable.setPaint(new Color(0,0,0));
+                    drawable.setPaint(new Color(51,102,255));
                     drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
                                      (int)height/N);
                 }else if(this.p.plateau[i][j].getType().equals("zoo")){
-                    drawable.setPaint(new Color(0,0,0));
+                    drawable.setPaint(new Color(17,68,170));
                     drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
                                      (int)height/N);
                 }
@@ -122,27 +122,27 @@ public class PlateauGraphique extends JComponent {
 
                 // paint pour les services publiques
                 else if(this.p.plateau[i][j].getType().equals("commissariat")){
-                    drawable.setPaint(new Color(0,0,0));
+                    drawable.setPaint(new Color(0,0,204));
                     drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
                                      (int)height/N);
                 }else if(this.p.plateau[i][j].getType().equals("decheterie")){
-                    drawable.setPaint(new Color(0,0,0));
+                    drawable.setPaint(new Color(51,153,0));
                     drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
                                      (int)height/N);
                 }else if(this.p.plateau[i][j].getType().equals("ecole")){
-                    drawable.setPaint(new Color(0,0,0));
+                    drawable.setPaint(new Color(255,204,153));
                     drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
                                      (int)height/N);
                 }else if(this.p.plateau[i][j].getType().equals("hopital")){
-                    drawable.setPaint(new Color(0,0,0));
+                    drawable.setPaint(new Color(255,255,255));
                     drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
                                      (int)height/N);
                 }else if(this.p.plateau[i][j].getType().equals("hotel")){
-                    drawable.setPaint(new Color(0,0,0));
+                    drawable.setPaint(new Color(255,153,102));
                     drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
                                      (int)height/N);
                 }else if(this.p.plateau[i][j].getType().equals("pompier")){
-                    drawable.setPaint(new Color(45,112,24));
+                    drawable.setPaint(new Color( 255,0,0));
                     drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
                                      (int)height/N);
                 }

@@ -7,6 +7,7 @@ public final class Plateau {
     Habitant h;
     Ressources r;
     Employe e;
+    Circulation c;
     
     Batiment batiment;
     Batiment plateau[][];
@@ -17,6 +18,7 @@ public final class Plateau {
         this.h = new Habitant(this);
         this.r = new Ressources(this);
         this.e = new Employe(this,o);
+        this.c = new Circulation(this);
     }
 
     public int getTaille(){
