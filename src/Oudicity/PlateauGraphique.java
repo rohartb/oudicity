@@ -21,6 +21,10 @@ public class PlateauGraphique extends JComponent {
         maison = this.getToolkit().getImage("Image/maison.gif");
     }
 
+    public Plateau getPlateau(){
+        return p;
+    }
+
     public float getW(){
         return width;
     }
