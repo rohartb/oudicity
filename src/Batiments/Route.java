@@ -6,7 +6,7 @@ public class Route extends Infrastructure{
     
     public Route(OudiCity o){
         super(o);
-        this.coutEntretien=10;
+        this.coutEntretien=1;
         this.prixAchat=10;
         this.prixDestr=5;
         this.taille=1;

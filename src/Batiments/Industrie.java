@@ -16,19 +16,19 @@ public class Industrie extends BatimentArgent implements Observer{
     
     public Industrie(OudiCity o){
         super(o);
-        this.coutEntretien=10;
-        this.nb_employe_MAX=10;
+        this.coutEntretien=150;
+        this.nb_employe_MAX=70;
         this.nb_employe=0;          
-        this.prixAchat=10;
-        this.prixDestr=5;     
+        this.prixAchat=1500;
+        this.prixDestr=750;     
         this.taille=1;
         this.type="industrie";
         this.persBat="employe";
         this.groupe="batimentargent";
         this.stock_bien=0;
-        this.subvention=10;
+        this.subvention=200;
         this.production=0;
-        this.stock_bien_MAX=200;        
+        this.stock_bien_MAX=2000;        
         
         o.t.c.addObserver(this);
     }
@@ -53,7 +53,7 @@ public class Industrie extends BatimentArgent implements Observer{
     /*SETTERS*/
     public void setSubvention(int besoin) {
         this.subvention = besoin;
-        this.production = (besoin/10)*this.getNb_employe();
+        this.production = (besoin/40)*this.getNb_employe();
     }
     
     public void setStock_Bien(int stock_bien){
@@ -68,7 +68,7 @@ public class Industrie extends BatimentArgent implements Observer{
     @Override
     public void setNb_employe(int nb_e) {
         this.nb_employe += nb_e;
-        this.production=(this.subvention/10)*this.nb_employe;
+        this.production=(this.subvention/40)*this.nb_employe;
     }
     
         @Override
@@ -87,7 +87,6 @@ public class Industrie extends BatimentArgent implements Observer{
                         else{
                             this.stock_bien=this.stock_bien_MAX;
                         }
-                        System.out.println("prod bien"+this.stock_bien);
                     }
                 }
             }

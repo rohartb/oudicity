@@ -9,10 +9,10 @@ public class Parc extends Loisir{
         this.type="parc";
         this.persBat="aucun";
         this.groupe="loisir";
-        this.prixAchat=10;
-        this.prixDestr=5;
-        this.coutEntretien=10;
+        this.prixAchat=600;
+        this.prixDestr=300;
+        this.coutEntretien=60;
         this.taille=1;
-        this.attraction=12;             
+        this.attraction=100;             
     }
 }
