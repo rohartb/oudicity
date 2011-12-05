@@ -35,6 +35,7 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
                 }
                 
             }
+            o.f.barreL.reInit();
         }else{
             if(o.f.getNomBat().equals("destroy")){
                     o.f.pg.p.destroy(pt);
