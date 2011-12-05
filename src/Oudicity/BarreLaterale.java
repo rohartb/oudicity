@@ -295,6 +295,7 @@ public class BarreLaterale extends JPanel implements Observer {
 
     //Initialisation de la barre des conseils
     void initConseil(Points points){
+        //conseils
         String scourant = pg.getPlateau().plateau[points.getX()][points.getY()]
                 .getGroupe();
         String nbs= "";
