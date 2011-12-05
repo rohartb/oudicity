@@ -10,7 +10,7 @@ public class BarreLaterale extends JPanel implements Observer {
     OudiCity o;
     Temps t;
     Ville v;
-    PlateauGraphique p;
+    PlateauGraphique pg;
     
     // panels 
     JPanel info;
@@ -71,6 +71,7 @@ public class BarreLaterale extends JPanel implements Observer {
     public BarreLaterale(OudiCity o){
         this.o =o;
         v = o.v;
+        pg = o.f.pg;
         o.t.c.addObserver(this);
         o.v.addObserver(this);
         
@@ -261,6 +262,7 @@ public class BarreLaterale extends JPanel implements Observer {
         conseils.setBackground(new Color(255,153,51));
         conseils.setPreferredSize(new Dimension(200,200));
         
+        
         this.add(info,BorderLayout.NORTH);
         this.add(batiments,BorderLayout.CENTER);
         this.add(conseils,BorderLayout.SOUTH);
@@ -288,6 +290,26 @@ public class BarreLaterale extends JPanel implements Observer {
                 argenta.setText(argent + " Ƶ");
             }
         }
+    }
+
+    //Initialisation de la barre des conseils
+    void initConseil(Points points){
+        String scourant = pg.getPlateau().plateau[points.getX()][points.getY()]
+                .getGroupe();
+        String nb;
+        if (scourant.equals("logement")){
+            nb = "Nombre Habitants";
+
+        }else if (scourant.equals("batimentargent")){
+            nb = "Nombre d'Employés";
+
+        }else if (scourant.equals("loisir")){
+
+        }else if (scourant.equals("infrastructure")){
+
+        }
+        JLabel nbhabL = new JLabel("Nombre Habitants");
+        nbhabL.setAlignmentX(CENTER_ALIGNMENT);
     }
     
 }

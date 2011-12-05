@@ -4,8 +4,6 @@ import java.awt.event.*;
 
 class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
     OudiCity o;
-    int x = -1, y = -1;
-    Points point = new Points(x,y), p2 = new Points(-1,-1);
     String s = "herbe";
 
     public EcouteurDeGraphique(OudiCity o){
