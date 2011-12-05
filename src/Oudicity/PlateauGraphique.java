@@ -69,7 +69,7 @@ public class PlateauGraphique extends JComponent {
                     drawable.setPaint(Color.black);
                 }
                 else if(this.p.plateau[i][j].getType().equals("route")){
-                    drawable.setPaint(new Color(148,148,148));
+                    drawable.setPaint(new Color(51,51,51));
                     drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
                                      (int)height/N);
                     drawable.setPaint(Color.black);
