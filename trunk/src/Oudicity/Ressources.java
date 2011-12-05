@@ -12,4 +12,8 @@ public class Ressources {
         
         return aManger;
     }
+    
+    public int coutBatiment(Points pt){
+        return p.plateau[pt.getX()][pt.getY()].getPrixAchat();
+    }
 }

@@ -32,7 +32,7 @@ public class Ville extends Observable implements Observer{
         nomVille = v;
         nomMaire = m;
         this.s = o;
-        this.p = o.f.pg.p;
+        this.p = o.f.pg.getPlateau();
         argent = 20000;
         nbHabitant = 0;
         indiceAttraction = 50;
@@ -53,6 +53,8 @@ public class Ville extends Observable implements Observer{
                     if(s.f.pg.p.h.logementLibre()){
                         if(indiceAttraction >= 50){
                             nbHabitant += p.h.augmentetHabitant();
+                            p.e.AugmenterEmploye();
+                            p.e.afficherEmployer();
                             setChanged();
                             notifyObservers();
                         }
@@ -82,7 +84,7 @@ public class Ville extends Observable implements Observer{
         //}
     }
     
-    public void payerBatiment(String s){
-        
+    public void payerBatiment(Points pt){
+        argent -= p.r.coutBatiment(pt);
     }
 }

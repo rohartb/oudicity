@@ -13,31 +13,31 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        Points p;
-        p = o.f.pg.p.cases(e.getX(), e.getY());
-        if((o.f.pg.p.plateau[p.getX()][p.getY()].getType().equals("herbe"))){
+        Points pt;
+        pt = o.f.pg.p.cases(e.getX(), e.getY());
+         if((o.f.pg.p.plateau[pt.getX()][pt.getY()].getType().equals("herbe"))){
             if(o.f.getClick()){
                 if(o.f.getNomBat().equals("pavillon")){
-                    o.f.pg.p.nouveauBatiment(p, "pavillon");
-                    o.v.payerBatiment("pavillon");
+                    o.f.pg.p.nouveauBatiment(pt, "pavillon");
+                    o.v.payerBatiment(pt);
                 }
                 if(o.f.getNomBat().equals("industrie")){
-                    o.f.pg.p.nouveauBatiment(p, "industrie");
+                    o.f.pg.p.nouveauBatiment(pt, "industrie");
                 }
                 if(o.f.getNomBat().equals("ferme")){
-                    o.f.pg.p.nouveauBatiment(p, "ferme");
+                    o.f.pg.p.nouveauBatiment(pt, "ferme");
                 }
                 if(o.f.getNomBat().equals("route")){
-                    o.f.pg.p.nouveauBatiment(p, "route");
+                    o.f.pg.p.nouveauBatiment(pt, "route");
                 }
                 if(o.f.getNomBat().equals("destroy")){
-                    o.f.pg.p.destroy(p);
+                    o.f.pg.p.destroy(pt);
                 }
                 
             }
         }
         if(o.f.getNomBat().equals("herbe")){
-            o.f.pg.p.nouveauBatiment(p, "herbe");
+            o.f.pg.p.nouveauBatiment(pt, "herbe");
         }
         o.f.pg.repaint();
     }
