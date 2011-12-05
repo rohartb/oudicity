@@ -21,12 +21,7 @@ class EcouteurDeBarreLateral implements ActionListener{
         }else if (e.getActionCommand().equals("infra")){
             o.f.barreL.popupInfra.show(o.f.barreL.bInfra, 50, 50);
         }else if (e.getActionCommand().equals("loisir")){
-            if(o.f.getClick() == false || !o.f.getNomBat().equals("loisir")){
-                o.f.setClick(true);
-                o.f.setNomBat("loisir");
-            }else{
-                 o.f.setClick(false);
-            }
+            o.f.barreL.popupLoisir.show(o.f.barreL.bLoisir, 50, 50);
         }else if (e.getActionCommand().equals("destroy")){
             if(o.f.getClick() == false || !o.f.getNomBat().equals("herbe")){
                 o.f.setClick(true);
