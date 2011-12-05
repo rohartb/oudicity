@@ -104,6 +104,12 @@ public class BarreLaterale extends JPanel implements Observer {
         
         date = new JLabel("1/1/1970");
         date.setAlignmentX(CENTER_ALIGNMENT);
+        
+        argentl = new JLabel("OudiZ");
+        argentl.setAlignmentX(CENTER_ALIGNMENT);
+        
+        argenta = new JLabel("20000 Ƶ");
+        argenta.setAlignmentX(CENTER_ALIGNMENT);
        
         info.add(nomMaire);
         info.add(maire);
@@ -111,6 +117,8 @@ public class BarreLaterale extends JPanel implements Observer {
         info.add(nbHab);
         info.add(datel);
         info.add(date); 
+        info.add(argentl);
+        info.add(argenta); 
         
         //Panel des batiments
         batiments = new JPanel();
@@ -275,8 +283,10 @@ public class BarreLaterale extends JPanel implements Observer {
                 nbHabitant = ville.nbHabitant;
                 nbHab.setText("" + nbHabitant);
             }
-            
-           
+            if(argent != ville.argent ){
+                argent = ville.argent;
+                argenta.setText(argent + " Ƶ");
+            }
         }
     }
     
