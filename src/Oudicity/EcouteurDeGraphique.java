@@ -20,7 +20,6 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
                 if(o.f.getNomBat().equals("pavillon")){
                     o.f.pg.p.nouveauBatiment(pt, "pavillon");
                     o.v.payerBatiment(pt);
-                    o.f.barreL.initConseil(pt);
                 }
                 if(o.f.getNomBat().equals("industrie")){
                     o.f.pg.p.nouveauBatiment(pt, "industrie");
@@ -40,7 +39,9 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
             if(o.f.getNomBat().equals("destroy")){
                     o.f.pg.p.destroy(pt);
                     o.v.rembourserBatiment(pt);
-                }
+            }else{
+                o.f.barreL.initConseil(pt);
+            }
         }
         if(o.f.getNomBat().equals("herbe")){
             o.f.pg.p.nouveauBatiment(pt, "herbe");
@@ -79,9 +80,4 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
       
     }
 
-    public void affichageBarreLat(Points point){
-        /*if(o.f.pg.p.plateau[pt.getX()][pt.getY()].getType().equals("")){
-            
-        }*/
-    }
 }
