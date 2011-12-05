@@ -54,6 +54,15 @@ public class BarreLaterale extends JPanel implements Observer {
     JButton bInfra;
     JButton bRoute;
 
+    //boutons pour les services publiques
+    JButton bPublique;
+    JButton bCommissariat;
+    JButton bDecheterie;
+    JButton bEcole;
+    JButton bHopital;
+    JButton bHotelDeVille;
+    JButton bPompier;
+
     //boutons pour la destruction
     JButton bDestroy;
 
@@ -62,6 +71,7 @@ public class BarreLaterale extends JPanel implements Observer {
     JPopupMenu popupBatArg= new JPopupMenu("Batiments Argent");
     JPopupMenu popupInfra= new JPopupMenu("Infrastructure");
     JPopupMenu popupLoisir= new JPopupMenu("Loisir");
+    JPopupMenu popupPublique = new JPopupMenu("Publique");
     
    
     int annee = 1970;
@@ -184,27 +194,27 @@ public class BarreLaterale extends JPanel implements Observer {
         bLoisir.addActionListener(new EcouteurDeBarreLateral(o));
         bLoisir.setActionCommand("loisir");
 
-        bBar = new JButton(new ImageIcon("Image/ba r.png"));
+        bBar = new JButton("Bar");
         bBar.addActionListener(new EcouteurDePopup(o));
         bBar.setActionCommand("bar");
 
-        bCine = new JButton(new ImageIcon("Image/cine ma.png"));
+        bCine = new JButton("Cinema");
         bCine.addActionListener(new EcouteurDePopup(o));
         bCine.setActionCommand("cinema");
 
-        bParc = new JButton(new ImageIcon("Image/pa rc.png"));
+        bParc = new JButton("Parc");
         bParc.addActionListener(new EcouteurDePopup(o));
         bParc.setActionCommand("parc");
 
-        bResto = new JButton(new ImageIcon("Image/restau rant.png"));
+        bResto = new JButton("Restaurant");
         bResto.addActionListener(new EcouteurDePopup(o));
         bResto.setActionCommand("restaurant");
 
-        bStade = new JButton(new ImageIcon("Image/sta de.png"));
+        bStade = new JButton("Stade");
         bStade.addActionListener(new EcouteurDePopup(o));
         bStade.setActionCommand("stade");
 
-        bZoo = new JButton(new ImageIcon("Image/zoo .png"));
+        bZoo = new JButton("Zoo");
         bZoo.addActionListener(new EcouteurDePopup(o));
         bZoo.setActionCommand("zoo");
 
@@ -221,12 +231,46 @@ public class BarreLaterale extends JPanel implements Observer {
         bRoute.addActionListener(new EcouteurDePopup(o));
         bRoute.setActionCommand("route");
 
-        ImageIcon im = new ImageIcon("Image/bulldozer.png");
+        //////////////////////////////////////////////////
+        //                                              //
+        //      Bouton et Popup pour les services       //
+        //                  Publiques                   //
+        //////////////////////////////////////////////////
+        bPublique = new JButton("Publique");
+        bPublique.addActionListener(new EcouteurDeBarreLateral(o));
+        bPublique.setActionCommand("publique");
+        
 
-        Image image = im.getImage();
-        image.getScaledInstance(50, 50, 0);
-        //im = image
-        bDestroy = new JButton();
+        bCommissariat = new JButton("Commissariat");
+        bCommissariat.addActionListener(new EcouteurDePopup(o));
+        bCommissariat.setActionCommand("commissariat");
+
+        bDecheterie = new JButton("Decheterie");
+        bDecheterie.addActionListener(new EcouteurDePopup(o));
+        bDecheterie.setActionCommand("decheterie");
+
+        bEcole = new JButton("Ecole");
+        bEcole.addActionListener(new EcouteurDePopup(o));
+        bEcole.setActionCommand("ecole");
+
+        bHopital = new JButton("Hopital");
+        bHopital.addActionListener(new EcouteurDePopup(o));
+        bHopital.setActionCommand("hopital");
+
+        bHotelDeVille = new JButton("Hotel de Ville");
+        bHotelDeVille.addActionListener(new EcouteurDePopup(o));
+        bHotelDeVille.setActionCommand("hotel");
+
+        bPompier = new JButton("Pompier");
+        bPompier.addActionListener(new EcouteurDePopup(o));
+        bPompier.setActionCommand("pompier");
+
+        //////////////////////////////////////////////////
+        //                                              //
+        //          Bouton pour la destruction          //
+        //                                              //
+        //////////////////////////////////////////////////
+        bDestroy = new JButton(new ImageIcon("Image/bulldozer.png"));
         bDestroy.addActionListener(new EcouteurDeBarreLateral(o));
         bDestroy.setActionCommand("destroy");
 
@@ -237,6 +281,7 @@ public class BarreLaterale extends JPanel implements Observer {
         batiments.add(bBatimentArgent);
         batiments.add(bLoisir);
         batiments.add(bInfra);
+        batiments.add(bPublique);
         batiments.add(bDestroy);
 
         popupLog.setLayout(new GridLayout(1,3));
@@ -259,6 +304,14 @@ public class BarreLaterale extends JPanel implements Observer {
         popupLoisir.add(bResto);
         popupLoisir.add(bStade);
         popupLoisir.add(bZoo);
+
+        popupPublique.setLayout(new GridLayout(2,3));
+        popupPublique.add(bCommissariat);
+        popupPublique.add(bDecheterie);
+        popupPublique.add(bEcole);
+        popupPublique.add(bHopital);
+        popupPublique.add(bHotelDeVille);
+        popupPublique.add(bPompier);
 
         
         //Panel des conseils

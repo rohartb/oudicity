@@ -60,23 +60,78 @@ public final class Plateau {
         }
         nouveauBatiment(p, "herbe");
     }
-    
+
+
     public void nouveauBatiment(Points p, String type){
         
+        if(type.equals("herbe")){
+            plateau[p.getX()][p.getY()] = new Batiment(o) {};
+        }
+        //nouveaux logements
         if(type.equals("pavillon")){
             plateau[p.getX()][p.getY()] = new Pavillon(o);
         }
+        if(type.equals("hlm")){
+            plateau[p.getX()][p.getY()] = new HLM(o);
+        }
+        if(type.equals("building")){
+            plateau[p.getX()][p.getY()] = new Building(o);
+        }
+
+        //nouveaux batiments argent
         if(type.equals("industrie")){
             plateau[p.getX()][p.getY()] = new Industrie(o);
-        }
-        if(type.equals("herbe")){
-            plateau[p.getX()][p.getY()] = new Batiment(o) {};
         }
         if(type.equals("ferme")){
             plateau[p.getX()][p.getY()] = new Ferme(o);
         }
+        if(type.equals("commerce")){
+            plateau[p.getX()][p.getY()] = new Commerce(o) {};
+        }
+
+        //nouvelles infrastructures
         if(type.equals("route")){
             plateau[p.getX()][p.getY()] = new Route(o);
+        }
+
+        //nouveaux loisirs
+        if(type.equals("bar")){
+            plateau[p.getX()][p.getY()] = new Bar(o) {};
+        }
+        if(type.equals("cinema")){
+            plateau[p.getX()][p.getY()] = new Cinema(o) {};
+        }
+        if(type.equals("parc")){
+            plateau[p.getX()][p.getY()] = new Parc(o) {};
+        }
+        if(type.equals("restaurant")){
+            plateau[p.getX()][p.getY()] = new Restaurant(o) {};
+        }
+        if(type.equals("stade")){
+            plateau[p.getX()][p.getY()] = new Stade(o) {};
+        }
+        if(type.equals("zoo")){
+            plateau[p.getX()][p.getY()] = new Zoo(o) {};
+        }
+
+        //nouveaux services publiques
+        if(type.equals("commissiariat")){
+            plateau[p.getX()][p.getY()] = new Commissariat(o) {};
+        }
+        if(type.equals("decheterie")){
+            plateau[p.getX()][p.getY()] = new Decheterie(o) {};
+        }
+        if(type.equals("ecole")){
+            plateau[p.getX()][p.getY()] = new Ecole(o) {};
+        }
+        if(type.equals("hopital")){
+            plateau[p.getX()][p.getY()] = new Hopital(o) {};
+        }
+        if(type.equals("hotel")){
+            plateau[p.getX()][p.getY()] = new HotelDeVille(o) {};
+        }
+        if(type.equals("pompier")){
+            plateau[p.getX()][p.getY()] = new Pompier(o) {};
         }
         
     }

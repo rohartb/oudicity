@@ -3,7 +3,7 @@ package Batiments;
 import Oudicity.*;
 
 public class Decheterie extends ServicePublic{
-    Decheterie(OudiCity o){
+    public Decheterie(OudiCity o){
         super(o);
         this.coutEntretien=10;
         this.nb_employe_MAX=10;
