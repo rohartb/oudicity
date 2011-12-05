@@ -332,9 +332,9 @@ public class BarreLaterale extends JPanel implements Observer {
         snb.setAlignmentX(LEFT_ALIGNMENT);
 
         if(nb >= 0){
-            inter = "";
-        }else{
             inter = ""+nb;
+        }else{
+            inter = "";
         }
         JLabel nbPers = new JLabel("");
         nbPers.setAlignmentX(RIGHT_ALIGNMENT);
