@@ -7,6 +7,7 @@ public final class Plateau {
     Habitant h;
     Ressources r;
     Employe e;
+    StockCommerce sc;
     Circulation c;
     
     Batiment batiment;
@@ -18,6 +19,7 @@ public final class Plateau {
         this.h = new Habitant(this);
         this.r = new Ressources(this);
         this.e = new Employe(this,o);
+        this.sc = new StockCommerce(this);
         this.c = new Circulation(this);
     }
 
@@ -27,6 +29,10 @@ public final class Plateau {
     
     public Batiment[][] getTab(){
         return plateau;
+    }
+    
+    public StockCommerce getSC(){
+        return sc;
     }
     
     void init_plateau() {
