@@ -86,5 +86,13 @@ public class Ville extends Observable implements Observer{
     
     public void payerBatiment(Points pt){
         argent -= p.r.coutBatiment(pt);
+        setChanged();
+        notifyObservers();
+    }
+    
+    public void rembourserBatiment(Points pt){
+        argent += p.r.remboursementBatiment(pt);
+        setChanged();
+        notifyObservers();
     }
 }

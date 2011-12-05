@@ -16,4 +16,8 @@ public class Ressources {
     public int coutBatiment(Points pt){
         return p.plateau[pt.getX()][pt.getY()].getPrixAchat();
     }
+    
+    public int remboursementBatiment(Points pt){
+        return p.plateau[pt.getX()][pt.getY()].getPrixDestr();
+    }
 }
