@@ -45,7 +45,9 @@ public class Ville extends Observable implements Observer{
         if(o.getClass()==c.getClass()){
             c = (Calendrier) o;
             
-             if(c.jour > jourDebut && jourAtt == 2){
+            // On chnage de jour
+            if(jour < c.jour ){
+                if(c.jour > jourDebut && jourAtt == 2){
                     // Augmenter le nombre d'habitant si il ya des palces 
                     //dans des logements
                     if(s.f.pg.p.h.logementLibre()){
@@ -56,9 +58,21 @@ public class Ville extends Observable implements Observer{
                         }
                     }
                     jourAtt = 0;
-                } else {
+                 } else {
                     jourAtt++;
-                }
+                 }
+            }
+             if(c.mois > mois){
+                 mois = c.mois;
+                 jour = 1;
+             }
+             
+             if(c.annee > annee){
+                 System.out.println("Bonne année");
+                 annee = c.annee;
+                 mois = 1;
+                 jour = 1;
+             }
         }
     }
     
@@ -66,5 +80,9 @@ public class Ville extends Observable implements Observer{
         //for(int i=0;i<t.length;i++){
         //    for(int j;j<)
         //}
+    }
+    
+    public void payerBatiment(String s){
+        
     }
 }
