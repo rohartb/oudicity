@@ -139,17 +139,13 @@ public final class Employe {
         int nb_travail = nbTotEmployMax() - nbTotEmploy();
         int i;
         int travail;
-        Points pt;
-        
-        System.out.println("nb_travail: "+nb_travail+"  nbchomeur:  "+nb_chomeur);       
+        Points pt;       
         if(nb_travail!=0){
             if (nb_travail<nb_chomeur){
                 i = rand.nextInt(nb_travail);
-                System.out.println(i);
             }
             else{
                 i = rand.nextInt(nb_chomeur);
-                System.out.println("i="+i);
             }
 
             for(int j=0; j<i; j++){
