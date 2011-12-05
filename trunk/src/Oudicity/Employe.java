@@ -97,6 +97,39 @@ public final class Employe {
         return l;
     }
     
+    public LinkedList<Points> plateauContientEmploye(){
+        LinkedList<Points> l = new LinkedList<Points>();
+        int nb_employe;
+        for(int i=0; i<p.getTaille(); i++){
+            for(int j=0; j<p.getTaille(); j++){
+                if(p.plateau[i][j].getPersBat().equals("employe")){
+                    if(p.plateau[i][j].getGroupe().equals("batimentargent")){
+                        BatimentArgent b = (BatimentArgent) p.plateau[i][j];
+                        nb_employe = b.getNb_employe();
+                        if( nb_employe > 0){
+                            l.add(new Points(i,j));
+                        }
+                    }
+                    else if(p.plateau[i][j].getGroupe().equals("loisir")){
+                        Loisir b = (Loisir) p.plateau[i][j];
+                        nb_employe = b.getNb_employe();
+                        if( nb_employe > 0){
+                            l.add(new Points(i,j));
+                        }
+                    }
+                    else if(p.plateau[i][j].getGroupe().equals("servicepublic")){
+                        ServicePublic b = (ServicePublic) p.plateau[i][j];
+                        nb_employe = b.getNb_employe();
+                        if( nb_employe > 0){
+                            l.add(new Points(i,j));
+                        }
+                    }
+                }
+            }
+        }
+        return l;
+    }
+    
     
     
     void AugmenterEmploye(){
@@ -135,6 +168,37 @@ public final class Employe {
                     ServicePublic b = (ServicePublic) p.plateau[pt.getX()][pt.getY()];
                     b.setNb_employe(1);
                 }    
+            }
+        }
+    }
+    
+    void diminuerEmploye(){
+        Random rand = new Random();
+        LinkedList<Points> l;
+        int nb_habitant = o.v.nbHabitant;
+        int nb_travailleur = nbTotEmploy();
+        int diff = nb_travailleur-nb_habitant;
+        int enlever_employe;
+        int i;
+        Points pt;
+        
+        if(diff>0){ //plus de travailleur que d'habitant!!
+            for(i=0;i<diff;i++){
+                l = plateauContientEmploye();
+                enlever_employe=rand.nextInt(l.size());
+                pt = l.get(enlever_employe);
+                if(p.plateau[pt.getX()][pt.getY()].getGroupe().equals("batimentargent")){
+                    BatimentArgent b = (BatimentArgent) p.plateau[pt.getX()][pt.getY()];
+                    b.setNb_employe(-1);
+                }
+                else if(p.plateau[pt.getX()][pt.getY()].getGroupe().equals("loisir")){
+                    Loisir b = (Loisir) p.plateau[pt.getX()][pt.getY()];
+                    b.setNb_employe(-1);
+                }
+                else if(p.plateau[pt.getX()][pt.getY()].getGroupe().equals("servicepublic")){
+                    ServicePublic b = (ServicePublic) p.plateau[pt.getX()][pt.getY()];
+                    b.setNb_employe(-1);
+                }
             }
         }
     }
