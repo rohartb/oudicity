@@ -81,7 +81,12 @@ public class Ferme extends BatimentArgent implements Observer{
                 jour = c.jour;
                 if(jour > jourDebut){
                     if(nb_employe > 0 && subvention >0){
-                        this.stock_nourriture+=this.production;
+                        if(this.stock_nourriture+this.production<this.stock_nourriture_MAX){
+                            this.stock_nourriture += this.production;
+                        }
+                        else{
+                            this.stock_nourriture=this.stock_nourriture_MAX;
+                        }
                     }
                 }
             }

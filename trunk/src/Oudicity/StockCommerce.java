@@ -28,7 +28,7 @@ public class StockCommerce {
         LinkedList<Points> l = new LinkedList<Points>();
         for(int i=0; i<p.getTaille(); i++){
             for(int j=0; j<p.getTaille(); j++){
-                if(p.plateau[i][j].getType().equals("inductrie")){
+                if(p.plateau[i][j].getType().equals("industrie")){
                     Industrie ind = (Industrie) p.plateau[i][j];
                     if(ind.getStock_Bien()>0){
                         l.add(new Points(i,j));  
@@ -41,54 +41,59 @@ public class StockCommerce {
     
     public int augmenterStockBien(int a){//a est ce qu'on veut prendre
         LinkedList<Points> l = plateauContientIndustrie();
-        int i =1;
+        Industrie ind;
+        int i =0;
         int b=a;
-        if(l.size()==0){
+        Points pt;
+        int taille=l.size();
+        if(taille==0){
             return b;
         }
-        Points pt = l.get(i);
-        while(b!=0 && pt!=null){
-            Industrie ind = (Industrie) p.plateau[pt.getX()][pt.getY()];
-            if(ind.getStock_Bien()<b ){                
-                b -= ind.getStock_Bien();
-                ind.setStock_Bien(-ind.getStock_Bien());//on prend tout ce qui reste
+        else{
+            while(b!=0 && i<taille){
+                pt=l.get(i);
+                i++;
+                ind = (Industrie) p.plateau[pt.getX()][pt.getY()];
+                if(ind.getStock_Bien()<b ){                
+                    b -= ind.getStock_Bien();
+                    ind.setStock_Bien(-ind.getStock_Bien());//on prend tout ce qui reste
+                }
+                else{
+                    ind.setStock_Bien(-b);
+                    b=0;        
+                }
             }
-            else{
-                ind.setStock_Bien(-b);
-                b=0;        
-            }
-            i++;
-            pt = l.get(i);
+            return b;
+            //b est ce qu'on a pas pu prendre, plus de stock dans les industries
         }
-        return b;
-        //b est ce qu'on a pas pu prendre, plus de stock dans les industries
     }
     
     public int augmenterStockNourriture(int a){//a est ce qu'on veut prendre
         LinkedList<Points> l = plateauContientFerme();
         Ferme f;
-        int i =1;
+        int i =0;
         int b=a;
-        if(l.size()==0){
+        Points pt;
+        int taille=l.size();
+        if(taille==0){
             return b;
         }
-        Points pt = l.get(i);
-        while(b!=0 && pt!=null){
-             f = (Ferme) p.plateau[pt.getX()][pt.getY()];
-            if(f.getStock_nourriture()<b ){                
-                b -= f.getStock_nourriture();
-                f.setStock_nourriture(-f.getStock_nourriture());//on prend tout ce qui reste
+        else{
+            while(b!=0 && i<taille){
+                pt = l.get(i);
+                i++;
+                 f = (Ferme) p.plateau[pt.getX()][pt.getY()];
+                if(f.getStock_nourriture()<b ){                
+                    b -= f.getStock_nourriture();
+                    f.setStock_nourriture(-f.getStock_nourriture());//on prend tout ce qui reste
+                }
+                else{
+                    f.setStock_nourriture(-b);
+                    b=0;        
+                }
             }
-            else{
-                f.setStock_nourriture(-b);
-                b=0;        
-            }
-            i++;
-            pt = l.get(i);
+            return b;
+            //b est ce qu'on a pas pu prendre, plus de stock dans les fermes
         }
-        return b;
-        //b est ce qu'on a pas pu prendre, plus de stock dans les industries
-    }
-    
-    
+    } 
 }

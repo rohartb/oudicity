@@ -81,7 +81,13 @@ public class Industrie extends BatimentArgent implements Observer{
                 jour = c.jour;
                 if(jour > jourDebut){
                     if(nb_employe > 0 && subvention >0){
-                        this.stock_bien+=this.production;                                
+                        if(this.stock_bien+this.production<this.stock_bien_MAX){
+                            this.stock_bien += this.production;
+                        }
+                        else{
+                            this.stock_bien=this.stock_bien_MAX;
+                        }
+                        System.out.println("prod bien"+this.stock_bien);
                     }
                 }
             }
