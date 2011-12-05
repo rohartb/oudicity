@@ -70,10 +70,20 @@ public class Ville extends Observable implements Observer{
              
              if(c.annee > annee){
                  System.out.println("Bonne année");
+                 payerImpot();
                  annee = c.annee;
                  mois = 1;
                  jour = 1;
              }
+        }
+    }
+
+    public void payerImpot(){
+        Impot impot = new Impot(s);
+        int imp = 0;
+        imp = impot.preleverImpot();
+        if(argent-imp < 0){
+            System.out.println("Attention tu es en négatif");
         }
     }
     

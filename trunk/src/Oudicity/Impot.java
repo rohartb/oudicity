@@ -1,29 +1,47 @@
 package Oudicity;
+import Batiments.*;
 import java.util.*;
 
 
-public class Impot implements Observer {
+public class Impot{
     int annee;
-    int argent;
+    OudiCity o;
     
-    Impot(int a){
-        argent = a;
+    public Impot(OudiCity o){
         annee =1970;
+        this.o = o;
     }
     
-    
-    @Override
-    public void update(Observable o, Object arg) {
-        Calendrier c = (Calendrier) arg;
-        if(annee != c.annee){
-            preleverImpot();
-            annee = c.annee;
-        }
-        
+
+
+    public int preleverImpot() {
+       int n = 2*o.v.nbHabitant;
+       
+       return n;
     }
 
-    private void preleverImpot() {
-       //TODO
+    public int preleverTaxes() {
+       int taxe=0;
+       LinkedList<Batiment> bat = null;
+       for(int i=0; i<o.f.pg.p.getTaille(); i++){
+           for(int j=0; j<o.f.pg.p.getTaille(); j++){
+               if(o.f.pg.p.plateau[i][j].getGroupe().equals("batimentargent")
+                  || o.f.pg.p.plateau[i][j].getGroupe().equals("servicepublic")
+                  || o.f.pg.p.plateau[i][j].getGroupe().equals("loisir")){
+                   
+                   bat.add(o.f.pg.p.plateau[i][j]);
+               }
+           }
+       }
+
+       Iterator iterator = bat.iterator();
+
+       while(iterator.hasNext()){
+           taxe+=5;
+           iterator.next();
+       }
+
+       return taxe;
     }
     
 }
