@@ -23,7 +23,7 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
                     o.f.pg.p.nouveauBatiment(pt, "pavillon");
                     o.v.payerBatiment(pt);
                 }
-                if(o.f.getNomBat().equals("hlm")){
+                if(o.f.getNomBat().equals("HLM")){
                     o.f.pg.p.nouveauBatiment(pt, "hlm");
                     o.v.payerBatiment(pt);
                 }
