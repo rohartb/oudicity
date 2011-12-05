@@ -376,10 +376,10 @@ public class BarreLaterale extends JPanel implements Observer {
 
         }else if (scourant.equals("infrastructure")){
             nbs = "";
-            BatimentArgent arg = (BatimentArgent) o.f.pg.getPlateau().
+            Infrastructure infra = (Infrastructure) o.f.pg.getPlateau().
                     plateau[points.getX()][points.getY()];
             nb = -1;
-            cout = arg.getPrixDestr();
+            cout = infra.getPrixDestr();
 
         }
 
