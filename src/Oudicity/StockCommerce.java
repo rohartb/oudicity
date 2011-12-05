@@ -43,6 +43,9 @@ public class StockCommerce {
         LinkedList<Points> l = plateauContientIndustrie();
         int i =1;
         int b=a;
+        if(l.size()==0){
+            return b;
+        }
         Points pt = l.get(i);
         while(b!=0 && pt!=null){
             Industrie ind = (Industrie) p.plateau[pt.getX()][pt.getY()];
@@ -66,6 +69,9 @@ public class StockCommerce {
         Ferme f;
         int i =1;
         int b=a;
+        if(l.size()==0){
+            return b;
+        }
         Points pt = l.get(i);
         while(b!=0 && pt!=null){
              f = (Ferme) p.plateau[pt.getX()][pt.getY()];
