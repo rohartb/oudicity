@@ -102,27 +102,37 @@ public final class Employe {
     void AugmenterEmploye(){
         Random rand = new Random();
         LinkedList<Points> l;
-        int nb_chomeur= o.v.nbHabitant - nbTotEmploy();
-        int i = rand.nextInt(nb_chomeur);
+        int nb_chomeur = o.v.nbHabitant - nbTotEmploy();
+        int nb_travail = nb_maxEmpl - nb_EmployTot;
+        int i;
+        int travail;
         Points pt;
         
-        for(int j=0; j<i; j++){
-            l = plateauContientTravail();
-            int travail=rand.nextInt(l.size());
-            pt = l.get(travail);
-            if(p.plateau[i][j].getGroupe().equals("batimentargent")){
-                BatimentArgent b = (BatimentArgent) p.plateau[i][j];
-                b.setNb_employe(1);
+        if(nb_travail!=0){
+            if (nb_travail<nb_chomeur){
+                i = rand.nextInt(nb_travail);
             }
-            else if(p.plateau[i][j].getGroupe().equals("loisir")){
-                Loisir b = (Loisir) p.plateau[i][j];
-                b.setNb_employe(1);
+            else{
+                i = rand.nextInt(nb_chomeur);
             }
-            else if(p.plateau[i][j].getGroupe().equals("servicepublic")){
-                ServicePublic b = (ServicePublic) p.plateau[i][j];
-                b.setNb_employe(1);
-            }    
+
+            for(int j=0; j<i; j++){
+                l = plateauContientTravail();
+                travail=rand.nextInt(l.size());
+                pt = l.get(travail);
+                if(p.plateau[i][j].getGroupe().equals("batimentargent")){
+                    BatimentArgent b = (BatimentArgent) p.plateau[i][j];
+                    b.setNb_employe(1);
+                }
+                else if(p.plateau[i][j].getGroupe().equals("loisir")){
+                    Loisir b = (Loisir) p.plateau[i][j];
+                    b.setNb_employe(1);
+                }
+                else if(p.plateau[i][j].getGroupe().equals("servicepublic")){
+                    ServicePublic b = (ServicePublic) p.plateau[i][j];
+                    b.setNb_employe(1);
+                }    
+            }
         }
-        
     }
 }
