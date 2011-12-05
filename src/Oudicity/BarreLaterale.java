@@ -17,6 +17,7 @@ public class BarreLaterale extends JPanel implements Observer {
     JPanel info;
     JPanel batiments;
     JPanel conseils;
+    JPanel conseil = new JPanel();
     
     // Jlabel du panel info
     JLabel nomMaire;
@@ -296,12 +297,13 @@ public class BarreLaterale extends JPanel implements Observer {
     //Initialisation de la barre des conseils
     void initConseil(Points points){
         this.remove(conseils);
-        JPanel conseil = new JPanel();
+        this.remove(conseil);
+        conseil = new JPanel();
         conseil.setBackground(new Color(255,153,51));
         conseil.setPreferredSize(new Dimension(200,200));
         String scourant = pg.getPlateau().plateau[points.getX()][points.getY()]
                 .getGroupe();
-        String nbs= "";
+        String nbs= "", inter;
         int nb = 0, cout = 0;
         if (scourant.equals("logement")){
             nbs = "Nombre Habitants = ";
@@ -317,12 +319,24 @@ public class BarreLaterale extends JPanel implements Observer {
             nb = arg.getNb_employe();
             cout = arg.getPrixDestr();
 
+        }else if (scourant.equals("infrastructure")){
+            nbs = "";
+            BatimentArgent arg = (BatimentArgent) o.f.pg.getPlateau().
+                    plateau[points.getX()][points.getY()];
+            nb = -1;
+            cout = arg.getPrixDestr();
+
         }
 
         JLabel snb = new JLabel(nbs);
         snb.setAlignmentX(LEFT_ALIGNMENT);
-        
-        JLabel nbPers = new JLabel(""+nb);
+
+        if(nb >= 0){
+            inter = "";
+        }else{
+            inter = ""+nb;
+        }
+        JLabel nbPers = new JLabel("");
         nbPers.setAlignmentX(RIGHT_ALIGNMENT);
 
         JLabel sCout = new JLabel("Coût de destruction");
@@ -337,8 +351,14 @@ public class BarreLaterale extends JPanel implements Observer {
         conseil.add(Cout);
 
         this.add(conseil,BorderLayout.SOUTH);
+    }
 
-
+    public void reInit(){
+        this.remove(conseil);
+        conseils = new JPanel();
+        conseils.setBackground(new Color(255,153,51));
+        conseils.setPreferredSize(new Dimension(200,200));
+        this.add(conseils, BorderLayout.SOUTH);
     }
     
 }
