@@ -7,6 +7,7 @@ public class Ferme extends BatimentArgent implements Observer{
     private int subvention;
     private int production;
     private int stock_nourriture;
+    private int stock_nourriture_MAX;
     
     int annee = 1970;
     int mois = 1;
@@ -27,6 +28,7 @@ public class Ferme extends BatimentArgent implements Observer{
         this.stock_nourriture=0;
         this.subvention=10;
         this.production=0;
+        this.stock_nourriture_MAX=200;  
         
         o.t.c.addObserver(this);
     }
@@ -43,14 +45,24 @@ public class Ferme extends BatimentArgent implements Observer{
     public int getStock_nourriture() {
         return stock_nourriture;
     }
+    
+    public int getStock_nourriture_MAX() {
+        return stock_nourriture_MAX;
+    }
 
+    /*SETTERS*/
     public void setSubvention(int subvention) {
         this.subvention = subvention;
         this.production=(this.subvention/10)*this.getNb_employe();
     }
     
     public void setStock_nourriture(int stock_nourriture) {
-        this.stock_nourriture += stock_nourriture;
+        if(this.stock_nourriture+stock_nourriture<this.stock_nourriture_MAX){
+            this.stock_nourriture += stock_nourriture;
+        }
+        else{
+            this.stock_nourriture = this.stock_nourriture_MAX;          
+        }
     }
     
     @Override

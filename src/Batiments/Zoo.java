@@ -14,6 +14,6 @@ public class Zoo extends Loisir{
          this.taille=1;
          this.attraction=12;
          this.nb_employe_MAX=10;           
-         this.nb_employe=0;       
-         }
+         this.nb_employe=0;
+     }
 }

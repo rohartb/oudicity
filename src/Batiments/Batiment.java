@@ -2,7 +2,7 @@ package Batiments;
 import Oudicity.*;
 
 public abstract class  Batiment {
-    OudiCity o;
+    OudiCity s;
     
     protected String type;
     protected String persBat;
@@ -11,12 +11,14 @@ public abstract class  Batiment {
     protected int coutEntretien;
     protected int prixAchat;
     protected int prixDestr;
+    protected boolean acces_route;
 
-    public Batiment(OudiCity o){
-        this.o =o;
+    public Batiment(OudiCity s){
+        this.s = s;
         this.type="herbe";  
         this.persBat ="aucun";
         this.groupe = "batiment";
+        this.acces_route=false;
     }
     
     /*GETTERS*/
