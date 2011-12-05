@@ -32,13 +32,29 @@ public final class Plateau {
         }
     }
     
-    public Points Case(int x, int y){
+    public Points cases(int x, int y){
             Points p;
             int xc = 0, yc = 0;
             xc = x/((o.f.pg.getWidth())/N);
             yc = y/(o.f.pg.getHeight()/N);
             p = new Points(xc, yc);
             return p;
+    }
+
+    public void destroy(Points p){
+        if (this.plateau[p.getX()][p.getY()].getGroupe().equals("logement")){
+            
+        }else if (this.plateau[p.getX()][p.getY()].getGroupe().
+                equals("batimentargent")){
+
+        }else if (this.plateau[p.getX()][p.getY()].getGroupe().
+                equals("loisir")){
+
+        }else if (this.plateau[p.getX()][p.getY()].getGroupe().
+                equals("infrastructure")){
+
+        }
+        nouveauBatiment(p, "herbe");
     }
     
     public void nouveauBatiment(Points p, String type){

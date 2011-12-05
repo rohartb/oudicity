@@ -69,6 +69,21 @@ class EcouteurDePopup implements ActionListener{
             }
             o.f.barreL.popupBatArg.setVisible(false);
         }
+        if (e.getActionCommand().equals("route")){
+            if(o.f.getClick() == false || !o.f.getNomBat().equals("route")){
+                o.f.setClick(true);
+                o.f.setNomBat("route");
+            }else{
+                 o.f.setClick(false);
+            }
+            o.f.barreL.popupInfra.setVisible(false);
+        }
+        if(o.f.getClick() == false || !o.f.getNomBat().equals("loisir")){
+                o.f.setClick(true);
+                o.f.setNomBat("loisir");
+        }else{
+                o.f.setClick(false);
+        }
     }
 
 }

@@ -16,7 +16,7 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
     @Override
     public void mouseClicked(MouseEvent e) {
         Points p;
-        p = o.f.pg.p.Case(e.getX(), e.getY());
+        p = o.f.pg.p.cases(e.getX(), e.getY());
         if((o.f.pg.p.plateau[p.getX()][p.getY()].getType().equals("herbe"))){
             if(o.f.getClick()){
                 if(o.f.getNomBat().equals("pavillon")){
@@ -32,8 +32,10 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
                 if(o.f.getNomBat().equals("route")){
                     o.f.pg.p.nouveauBatiment(p, "route");
                 }
-            }else{
-                o.f.pg.p.nouveauBatiment(p, "herbe");
+                if(o.f.getNomBat().equals("destroy")){
+                    o.f.pg.p.destroy(p);
+                }
+                
             }
         }
         if(o.f.getNomBat().equals("herbe")){
@@ -69,35 +71,6 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
 
     @Override
     public void mouseMoved(MouseEvent e) {
-       /*String scourant;
-       Points pcourant;
-       if (x != e.getX() || y != e.getY()){
-           if(e.getX() < o.f.pg.getW() && e.getY() < o.f.pg.getH())
-            x = e.getX();
-            y = e.getY();
-
-            if(o.f.getClick()){
-                pcourant = o.f.pg.p.Case(x, y);
-                scourant = o.f.pg.p.plateau[pcourant.getX()]
-                            [pcourant.getY()].getType();
-                System.out.println("tree");
-                if(point != o.f.pg.p.Case(x, y) && point.getX() != -1){
-                    System.out.println("rentrer"+point.getX()+"  "+point.getY());
-                    o.f.pg.p.nouveauBatiment(point, s);
-                    s = o.f.pg.p.plateau[point.getX()]
-                            [point.getY()].getType();
-                    point = o.f.pg.p.Case(x, y);
-                    if(o.f.pg.p.plateau[o.f.pg.p.Case(x, y).getX()]
-                            [o.f.pg.p.Case(x, y).getY()].equals("herbe")){
-                        if(o.f.getNomBat().equals("pavillon")){
-                            o.f.pg.p.nouveauBatiment(point, o.f.getNomBat());
-                        }
-                    }
-                }
-                point = pcourant;
-                s = scourant;
-            }
-        }
-        o.f.pg.repaint();*/
+      
     }
 }
