@@ -18,6 +18,7 @@ public class Ressources {
     }
     
     public int remboursementBatiment(Points pt){
+        System.out.println("" + p.plateau[pt.getX()][pt.getY()].getPrixDestr());
         return p.plateau[pt.getX()][pt.getY()].getPrixDestr();
     }
 }

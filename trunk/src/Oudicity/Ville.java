@@ -9,7 +9,6 @@ public class Ville extends Observable implements Observer{
     OudiCity s;
     int jourDebut = 2;
     
-    int indiceA[][];
     String nomVille;
     String nomMaire;
     int nbHabitant;
@@ -76,12 +75,6 @@ public class Ville extends Observable implements Observer{
                  jour = 1;
              }
         }
-    }
-    
-    public void initTab(int t[][]){
-        //for(int i=0;i<t.length;i++){
-        //    for(int j;j<)
-        //}
     }
     
     public void payerBatiment(Points pt){
