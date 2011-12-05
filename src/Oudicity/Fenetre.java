@@ -27,6 +27,10 @@ public class Fenetre extends JFrame implements Runnable{
         this.s = s;
     }
 
+    public PlateauGraphique getGraphique(){
+        return pg;
+    }
+
     public boolean getClick(){
         return click;
     }
