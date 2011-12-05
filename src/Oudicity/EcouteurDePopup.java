@@ -22,8 +22,7 @@ class EcouteurDePopup implements ActionListener{
                  o.f.setClick(false);
             }
             o.f.barreL.popupLog.setVisible(false);
-        }else
-        if (e.getActionCommand().equals("HLM")){
+        }else  if (e.getActionCommand().equals("HLM")){
             if(o.f.getClick() == false || !o.f.getNomBat().equals("HLM")){
                 o.f.setClick(true);
                 o.f.setNomBat("HLM");
@@ -31,8 +30,7 @@ class EcouteurDePopup implements ActionListener{
                  o.f.setClick(false);
             }
             o.f.barreL.popupLog.setVisible(false);
-        }else
-        if (e.getActionCommand().equals("building")){
+        }else if (e.getActionCommand().equals("building")){
             if(o.f.getClick() == false || !o.f.getNomBat().equals("building")){
                 o.f.setClick(true);
                 o.f.setNomBat("building");
@@ -40,10 +38,7 @@ class EcouteurDePopup implements ActionListener{
                  o.f.setClick(false);
             }
             o.f.barreL.popupLog.setVisible(false);
-        }else
-
-        //Popup des batiments d'argent
-        if (e.getActionCommand().equals("industrie")){
+        }else if (e.getActionCommand().equals("industrie")){
             if(o.f.getClick() == false || !o.f.getNomBat().equals("industrie")){
                 o.f.setClick(true);
                 o.f.setNomBat("industrie");
@@ -51,8 +46,7 @@ class EcouteurDePopup implements ActionListener{
                  o.f.setClick(false);
             }
             o.f.barreL.popupBatArg.setVisible(false);
-        }else
-        if (e.getActionCommand().equals("commerce")){
+        }else if (e.getActionCommand().equals("commerce")){
             if(o.f.getClick() == false || !o.f.getNomBat().equals("commerce")){
                 o.f.setClick(true);
                 o.f.setNomBat("commerce");
@@ -60,8 +54,7 @@ class EcouteurDePopup implements ActionListener{
                  o.f.setClick(false);
             }
             o.f.barreL.popupBatArg.setVisible(false);
-        }else
-        if (e.getActionCommand().equals("ferme")){
+        }else if (e.getActionCommand().equals("ferme")){
             if(o.f.getClick() == false || !o.f.getNomBat().equals("ferme")){
                 o.f.setClick(true);
                 o.f.setNomBat("ferme");
@@ -69,8 +62,7 @@ class EcouteurDePopup implements ActionListener{
                  o.f.setClick(false);
             }
             o.f.barreL.popupBatArg.setVisible(false);
-        }else
-        if (e.getActionCommand().equals("route")){
+        }else if (e.getActionCommand().equals("route")){
             if(o.f.getClick() == false || !o.f.getNomBat().equals("route")){
                 o.f.setClick(true);
                 o.f.setNomBat("route");
@@ -78,13 +70,18 @@ class EcouteurDePopup implements ActionListener{
                  o.f.setClick(false);
             }
             o.f.barreL.popupInfra.setVisible(false);
-        }else
-        if(o.f.getClick() == false || !o.f.getNomBat().equals("loisir")){
+        }else if (e.getActionCommand().equals("loisir")){
+            if(o.f.getClick() == false || !o.f.getNomBat().equals("loisir")){
                 o.f.setClick(true);
                 o.f.setNomBat("loisir");
-        }else{
+            }else{
                 o.f.setClick(false);
+            }
+        } else {
+            o.f.setClick(false);
+            o.f.setNomBat("herbe");
         }
+        
     }
 
 }

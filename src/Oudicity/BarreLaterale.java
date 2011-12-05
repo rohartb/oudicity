@@ -224,7 +224,9 @@ public class BarreLaterale extends JPanel implements Observer {
         ImageIcon im = new ImageIcon("Image/bulldozer.png");
 
         Image image = im.getImage();
-        bDestroy = new JButton(new ImageIcon());
+        image.getScaledInstance(50, 50, 0);
+        //im = image
+        bDestroy = new JButton();
         bDestroy.addActionListener(new EcouteurDeBarreLateral(o));
         bDestroy.setActionCommand("destroy");
 
