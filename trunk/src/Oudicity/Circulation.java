@@ -27,57 +27,61 @@ public final class Circulation {
     public void actualiserReseauRoutier(Points pt){
         int y = pt.getX();
         int x = pt.getY();
+        Chemin ch = new Chemin(p);
         LinkedList<Points> pchemin = new LinkedList<Points>();
         
         reseauRoutier[x][y] = 1;
-        Chemin ch = new Chemin(p);
-        ch.pc.add(new Points(x, y));
-        mettreAJour(ch);
-        
-        
+        ch = mettreAJour(new Points(pt.getX(), pt.getY()));
+        ch.pc.add(new Points( pt.getX(), pt.getY()));
+
         if(x >0 && (reseauRoutier[x-1][y] == 1 
                 || reseauRoutier[x-1][y] == 2)){
             reseauRoutier[x-1][y] = 2;
             reseauRoutier[x][y] = 2;
-            pchemin.add(new Points(x-1,y));
+            pchemin.add(new Points(y,x-1));
         }
         if(x < p.getTaille()-1 && (reseauRoutier[x+1][y] == 1 
                 || reseauRoutier[x+1][y] == 2)){
             reseauRoutier[x+1][y] = 2;
             reseauRoutier[x][y] = 2;
-            pchemin.add(new Points(x+1,y));
+            pchemin.add(new Points(y,x+1));
         }
         if(y > 0 &&(reseauRoutier[x][y-1] == 1 
                     || reseauRoutier[x][y-1] == 2)){
             reseauRoutier[x][y-1] = 2;
             reseauRoutier[x][y] = 2;
-            pchemin.add(new Points(x,y-1));
+            pchemin.add(new Points(y-1,x));
         }
         if( y < p.getTaille()-1 && (reseauRoutier[x][y+1] == 1 
             || reseauRoutier[x][y+1] == 2)){
             reseauRoutier[x][y+1] = 2;
             reseauRoutier[x][y] = 2;
-            pchemin.add(new Points(x,y+1));
+            pchemin.add(new Points(y+1,x));
         }
         
         if(reseauRoutier[x][y] == 1){
             lc.add(ch);
+            
             System.out.println(" lc " + lc.size());
+            
             System.out.println("com " + ch.batCom.size());
             System.out.println(" ferm " + ch.batFerm.size());
             System.out.println("hab " + ch.batHab.size());
             System.out.println(" ind " + ch.batInd.size());
             System.out.println(" bat" + ch.batSerPu.size());
+            System.out.println(" loi" + ch.batLoi.size());
         } else {
             Chemin li = new Chemin(p);
             li = fusionner(ch,pchemin);
             lc.add(li);
             System.out.println(" lc " + lc.size());
+            
             System.out.println("com " + li.batCom.size());
             System.out.println(" ferm " + li.batFerm.size());
             System.out.println("hab " + li.batHab.size());
             System.out.println(" ind " + li.batInd.size());
             System.out.println(" bat" + li.batSerPu.size());
+            System.out.println(" loi" + li.batLoi.size());
         }
     }
     
@@ -98,8 +102,10 @@ public final class Circulation {
         
         for(int j=0;j<lp.size();j++){
             lala =lp.get(j);
+            System.out.println(" point lala" + lala.getX() + " " + lala.getY());
             for(int i=0;i<lc.size();i++){
                 chem = lc.get(i);
+                System.out.println("chem points ; " + chem.pc);
                 if(contientPoint(lala,chem)){
                     lc.remove(i);
                     lchem.add(chem);
@@ -222,30 +228,32 @@ public final class Circulation {
         return cheminf;
     }
 
-    private void mettreAJour(Chemin ch) {
+    private Chemin mettreAJour(Points pet) {
         Points pt;
         Batiment a;
+        Chemin ch = new Chemin(p);
         int x;
         int y;
         
-        for(int i =0; i<ch.pc.size(); i++){
-            pt = ch.pc.get(i);
-            x = pt.getX();
-            y = pt.getY();
-            a = p.plateau[x][y];
+        x = pet.getX();
+        y = pet.getY();
 
             if(x >0 && (!p.plateau[x-1][y].getGroupe().equals("infrastructure")
                     || !p.plateau[x-1][y].getGroupe().equals("batiment"))){
-                
                 a = p.plateau[x-1][y];
                 if(a.getGroupe().equals("batimentargent")){
+                    System.out.println("batArgent");
                     BatimentArgent b = (BatimentArgent) p.plateau[x-1][y];
                     if(b.getType().equals("commerce")){
+                        ch.batCom.add(new Points(x-1,y));
+                        System.out.println("commmerc");
                     } else {
                         if(b.getType().equals("industrie")){
                             ch.batInd.add(new Points(x-1,y));
+                            System.out.println("indus");
                         } else {
                             ch.batFerm.add(new Points(x-1,y));
+                            System.out.println("ferme");
                         }
                     }
                     
@@ -263,7 +271,6 @@ public final class Circulation {
             }
             if(x <p.getTaille()-1 && (!p.plateau[x+1][y].getGroupe().equals("infrastrucure")
                 || !p.plateau[x+1][y].getGroupe().equals("batiment"))){
-                
                 a = p.plateau[x+1][y];
                 if(a.getGroupe().equals("batimentargent")){
                     BatimentArgent b = (BatimentArgent) p.plateau[x-1][y];
@@ -291,7 +298,6 @@ public final class Circulation {
             }
             if(y > 0 && (!p.plateau[x][y-1].getGroupe().equals("infrastructure")
                 || !p.plateau[x][y-1].getGroupe().equals("batiment"))){
-                
                 a = p.plateau[x][y-1];
                 if(a.getGroupe().equals("batimentargent")){
                     BatimentArgent b = (BatimentArgent) p.plateau[x][y-1];
@@ -321,7 +327,6 @@ public final class Circulation {
             }
             if( y < p.getTaille()-1 && (!p.plateau[x][y+1].getGroupe().equals("infrastructure")
                 || !p.plateau[x][y+1].getGroupe().equals("batiment"))){
-                
                 a = p.plateau[x][y+1];
                 if(a.getGroupe().equals("batimentargent")){
                     BatimentArgent b = (BatimentArgent) p.plateau[x][y+1];
@@ -347,10 +352,11 @@ public final class Circulation {
                     }
                 }
             }
-        }
         
         ch.nbHabi = calculerHab(ch);
         ch.nbEmploy = calulerEmploy(ch);
+        
+        return ch;
     }
 
     private int calculerHab(Chemin ch) {
