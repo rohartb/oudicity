@@ -16,7 +16,7 @@ public final class Plateau {
         init_plateau();
         this.h = new Habitant(this);
         this.r = new Ressources(this);
-        this.e = new Employe(this);
+        this.e = new Employe(this,o);
     }
 
     public int getTaille(){
