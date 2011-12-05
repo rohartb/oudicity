@@ -23,6 +23,10 @@ public final class Plateau {
         return N;
     }
     
+    public Batiment[][] getTab(){
+        return plateau;
+    }
+    
     void init_plateau() {
         plateau = new Batiment[N][N];
         for(int i=0; i<N; i++){

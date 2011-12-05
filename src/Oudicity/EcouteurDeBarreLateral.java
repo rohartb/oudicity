@@ -31,4 +31,5 @@ class EcouteurDeBarreLateral implements ActionListener{
             }
         }
     }
+       
 }

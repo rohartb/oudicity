@@ -135,4 +135,23 @@ public final class Employe {
             }
         }
     }
+    
+    void afficherEmployer(){
+        for(int i=0; i<p.getTaille(); i++){
+            for(int j=0; j<p.getTaille(); j++){
+                if(p.plateau[i][j].getGroupe().equals("batimentargent")){
+                    BatimentArgent b = (BatimentArgent) p.plateau[i][j];
+                    System.out.println(p.plateau[i][j].getType() + b.getNb_employe());
+                }
+                else if(p.plateau[i][j].getGroupe().equals("loisir")){
+                    Loisir b = (Loisir) p.plateau[i][j];
+                    System.out.println(p.plateau[i][j].getType() + b.getNb_employe());
+                }
+                else if(p.plateau[i][j].getGroupe().equals("servicepublic")){
+                    ServicePublic b = (ServicePublic) p.plateau[i][j];
+                    System.out.println(p.plateau[i][j].getType() + b.getNb_employe());
+                }
+            }
+        }
+    }
 }
