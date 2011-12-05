@@ -1,5 +1,6 @@
 package Oudicity;
 
+import Batiments.*;
 import java.awt.*;
 import java.util.*;
 import javax.swing.*;
@@ -296,20 +297,44 @@ public class BarreLaterale extends JPanel implements Observer {
     void initConseil(Points points){
         String scourant = pg.getPlateau().plateau[points.getX()][points.getY()]
                 .getGroupe();
-        String nb;
+        String nbs= "";
+        int nb = 0, cout = 0;
         if (scourant.equals("logement")){
-            nb = "Nombre Habitants";
+            nbs = "Nombre Habitants = ";
+            Logement log = (Logement)o.f.pg.getPlateau().
+                    plateau[points.getX()][points.getY()];
+            nb = log.getNb_habitant();
+            cout = log.getPrixDestr();
 
         }else if (scourant.equals("batimentargent")){
-            nb = "Nombre d'Employés";
-
-        }else if (scourant.equals("loisir")){
-
-        }else if (scourant.equals("infrastructure")){
+            nbs = "Nombre d'Employés = ";
+            BatimentArgent arg = (BatimentArgent) o.f.pg.getPlateau().
+                    plateau[points.getX()][points.getY()];
+            nb = arg.getNb_employe();
+            cout = arg.getPrixDestr();
 
         }
-        JLabel nbhabL = new JLabel("Nombre Habitants");
-        nbhabL.setAlignmentX(CENTER_ALIGNMENT);
+
+        JLabel snb = new JLabel(nbs);
+        snb.setAlignmentX(LEFT_ALIGNMENT);
+        
+        JLabel nbPers = new JLabel(""+nb);
+        nbPers.setAlignmentX(RIGHT_ALIGNMENT);
+
+        JLabel sCout = new JLabel("Coût de destruction");
+        sCout.setAlignmentX(LEFT_ALIGNMENT);
+
+        JLabel Cout = new JLabel(""+cout);
+        Cout.setAlignmentX(RIGHT_ALIGNMENT);
+
+        conseils.add(snb);
+        conseils.add(nbPers);
+        conseils.add(sCout);
+        conseils.add(Cout);
+
+        this.add(conseils,BorderLayout.SOUTH);
+
+
     }
     
 }
