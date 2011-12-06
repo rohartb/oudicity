@@ -16,7 +16,7 @@ public class Objectifs {
          *  score += 8;
          * }        
          */
-        if((v.p.e.nb_EmployTot/v.nbHabitant)*100<10){
+        if(((v.nbHabitant-v.p.e.nb_EmployTot)/v.nbHabitant)*100<10){
             score += 8;
         }
         return score;

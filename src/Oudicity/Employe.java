@@ -154,8 +154,6 @@ public final class Employe {
         Random rand = new Random();
         int nb_chomeur = c.nbHabi - c.nbEmploy;
         int nb_travail = c.nbEmployMax - c.nbEmploy;
-        System.out.println("emax = "+c.nbEmployMax);
-        System.out.println("e = "+c.nbEmploy);
         int i=0;
         int travail;
         Points pt;   
@@ -167,7 +165,6 @@ public final class Employe {
             else{
                 i = rand.nextInt(nb_chomeur);
             }
-            System.out.println("i = "+i);
 
             for(int j=0; j<i; j++){
                 conca = listeContientTravail(conca);
@@ -176,18 +173,14 @@ public final class Employe {
                 if(p.plateau[pt.getX()][pt.getY()].getGroupe().equals("batimentargent")){
                     BatimentArgent b = (BatimentArgent) p.plateau[pt.getX()][pt.getY()];
                     b.setNb_employe(1);
-                    System.out.println("employe ajoute bat argent");
-
                 }
                 else if(p.plateau[pt.getX()][pt.getY()].getGroupe().equals("loisir")){
                     Loisir b = (Loisir) p.plateau[pt.getX()][pt.getY()];
                     b.setNb_employe(1);
-                    System.out.println("employe ajoute loisir");
                 }
                 else if(p.plateau[pt.getX()][pt.getY()].getGroupe().equals("servicepublic")){
                     ServicePublic b = (ServicePublic) p.plateau[pt.getX()][pt.getY()];
                     b.setNb_employe(1);
-                    System.out.println("employe ajoute serPu");
                 }
             }
         }
