@@ -397,7 +397,7 @@ public class BarreLaterale extends JPanel implements Observer {
         }else{
             inter = "";
         }
-        JLabel nbPers = new JLabel("");
+        JLabel nbPers = new JLabel(inter);
         nbPers.setAlignmentX(RIGHT_ALIGNMENT);
 
         JLabel sCout = new JLabel("Coût de destruction");
