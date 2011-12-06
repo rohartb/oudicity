@@ -2,6 +2,7 @@ package Oudicity;
 
 import Batiments.Batiment;
 import java.util.*;
+import java.util.LinkedList;
 
 public class Ville extends Observable implements Observer{
     Temps t;
@@ -44,6 +45,7 @@ public class Ville extends Observable implements Observer{
         if(o.getClass()==c.getClass()){
             c = (Calendrier) o;
             
+            Chemin ch = new Chemin(p);
             // On change de jour
             if(jour < c.jour ){
             	if((annee==1970 && mois>2) || annee>1970){
@@ -62,10 +64,11 @@ public class Ville extends Observable implements Observer{
                     if(s.f.pg.p.h.logementLibre()){
                         if(indiceAttraction >= 50){
                             nbHabitant += p.h.augmentetHabitant();
-                            p.e.AugmenterEmploye();
-                            //p.e.afficherEmployer();
-                            setChanged();
-                            notifyObservers();
+                            for(int i=0;i<p.c.lc.size();i++){
+                               // p.e.AugmenterEmploye(p.c.lc.get(i));
+                                setChanged();
+                                notifyObservers();
+                            }
                         }
                     }
                     jourAtt = 0;

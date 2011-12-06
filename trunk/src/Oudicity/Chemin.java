@@ -13,6 +13,7 @@ public class Chemin {
     LinkedList<Points> pc =  new LinkedList<Points>(); 
     int nbHabi;
     int nbEmploy;
+    int nbEmployMax;
     
     public Chemin(Plateau p){
         this.p = p;

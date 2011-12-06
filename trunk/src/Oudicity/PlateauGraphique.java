@@ -1,6 +1,7 @@
 package Oudicity;
 import java.awt.*;
 import java.awt.geom.Line2D;
+import java.awt.image.*;
 import javax.swing.*;
 
 public class PlateauGraphique extends JComponent {
@@ -10,9 +11,10 @@ public class PlateauGraphique extends JComponent {
     Points deplacer;
     int N;
 
-    Image herbe, pavillon, hlm, building, industrie, ferme, commerce,
+    Image herbe, pavillon,hlm, building, industrie, ferme, commerce,
           route, bar, cinema, parc, restaurant, stade, zoo, commissariat,
           decheterie, ecole, hopital, hotel, pompier;
+
     
     private float width, height;
     float xM, xCase;
@@ -21,13 +23,13 @@ public class PlateauGraphique extends JComponent {
         this.o = o;
         p = new Plateau(o);
         N = p.getTaille();
-        herbe = this.getToolkit().getImage("Image/herbe.gif");
+        herbe = this.getToolkit().getImage("Image/herbe.png");
         pavillon = this.getToolkit().getImage("Image/maison.png");
-        hlm = this.getToolkit().getImage("Image/herbe.gif");
-        building = this.getToolkit().getImage("Image/maison.png");
-        industrie = this.getToolkit().getImage("Image/herbe.gif");
-        ferme = this.getToolkit().getImage("Image/maison.png");
-        commerce = this.getToolkit().getImage("Image/herbe.gif");
+        hlm = this.getToolkit().getImage("Image/hlm.gif");
+        building = this.getToolkit().getImage("Image/building.png");
+        industrie = this.getToolkit().getImage("Image/industrie.gif");
+        ferme = this.getToolkit().getImage("Image/ferme.png");
+        commerce = this.getToolkit().getImage("Image/commerce.gif");
         route = this.getToolkit().getImage("Image/maison.png");
         bar = this.getToolkit().getImage("Image/herbe.gif");
         cinema = this.getToolkit().getImage("Image/maison.png");
@@ -87,9 +89,9 @@ public class PlateauGraphique extends JComponent {
         for(int i=0; i<N; i++){
             for(int j=0; j<N; j++){
                 if (this.p.plateau[i][j].getType().equals("herbe")){
-                    drawable.setPaint(new Color(153,255,102));
-                    drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
-                                     (int)height/N);
+                    drawable.drawImage(herbe,(int)(i*(width/N)),
+                            (int) (j*(height/N)),(int)width/N,
+                            (int)height/N, null);
                 }
 
                 //paint pour les logements
