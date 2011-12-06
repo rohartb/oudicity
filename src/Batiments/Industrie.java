@@ -8,6 +8,7 @@ public class Industrie extends BatimentArgent implements Observer{
     private int production;
     private int stock_bien;
     private int stock_bien_MAX;
+    private int subvention_MAX;
     
     int annee = 1970;
     int mois = 1;
@@ -27,6 +28,7 @@ public class Industrie extends BatimentArgent implements Observer{
         this.groupe="batimentargent";
         this.stock_bien=0;
         this.subvention=200;
+        this.subvention_MAX=600;
         this.production=0;
         this.stock_bien_MAX=2000;        
         
@@ -51,9 +53,9 @@ public class Industrie extends BatimentArgent implements Observer{
     }
 
     /*SETTERS*/
-    public void setSubvention(int besoin) {
-        this.subvention = besoin;
-        this.production = (besoin/40)*this.getNb_employe();
+    public void setSubvention(int subvention) {
+        this.subvention = subvention;
+        this.production = (subvention/40)*this.getNb_employe();
     }
     
     public void setStock_Bien(int stock_bien){
@@ -93,4 +95,15 @@ public class Industrie extends BatimentArgent implements Observer{
         }
     }
     
+    public void augmenterSubvention(){
+        if(this.subvention+40<=this.subvention_MAX){
+            setSubvention(40);
+        }
+    }
+    
+    public void diminuerSubvention(){
+        if(this.subvention-40>=0){
+            setSubvention(-40);
+        }
+    }   
 }
