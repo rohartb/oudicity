@@ -137,9 +137,10 @@ public final class Employe {
         LinkedList<Points> l;
         int nb_chomeur = o.v.nbHabitant - nbTotEmploy();
         int nb_travail = nbTotEmployMax() - nbTotEmploy();
-        int i;
+        int i=0;
         int travail;
-        Points pt;       
+        Points pt; 
+                    
         if(nb_travail!=0){
             if (nb_travail<nb_chomeur){
                 i = rand.nextInt(nb_travail);
@@ -165,6 +166,9 @@ public final class Employe {
                     b.setNb_employe(1);
                 }    
             }
+        }
+        if(((nb_chomeur-i)/o.v.nbHabitant)*10>1){
+        	//System.out.println("trop de chomeurs!");
         }
     }
     

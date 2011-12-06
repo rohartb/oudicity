@@ -39,7 +39,7 @@ public class StockCommerce {
         return l;
     }
     
-    public int augmenterStockBien(int a){//a est ce qu'on veut prendre
+    public int augmenterReservBien(int a){//a est ce qu'on veut prendre
         LinkedList<Points> l = plateauContientIndustrie();
         Industrie ind;
         int i =0;
@@ -68,7 +68,7 @@ public class StockCommerce {
         }
     }
     
-    public int augmenterStockNourriture(int a){//a est ce qu'on veut prendre
+    public int augmenterReservNourriture(int a){//a est ce qu'on veut prendre
         LinkedList<Points> l = plateauContientFerme();
         Ferme f;
         int i =0;
