@@ -166,15 +166,17 @@ public class BarreLaterale extends JPanel implements Observer {
         bPavillon = new JButton(new ImageIcon("Image/maison.png"));
         bPavillon.addActionListener(new EcouteurDePopup(o));
         bPavillon.setActionCommand("pavillon");
-
+        bPavillon.setToolTipText("Pavillon");
 
         bHLM = new JButton(new ImageIcon("Image/hlm.png"));
         bHLM.addActionListener(new EcouteurDePopup(o));
         bHLM.setActionCommand("HLM");
+        bHLM.setToolTipText("HLM");
 
         bBuilding = new JButton(new ImageIcon("Image/building.png"));
         bBuilding.addActionListener(new EcouteurDePopup(o));
         bBuilding.setActionCommand("building");
+        bBuilding.setToolTipText("Building");
 
         //////////////////////////////////////////////////
         //                                              //
@@ -189,15 +191,18 @@ public class BarreLaterale extends JPanel implements Observer {
 
         bIndus = new JButton(new ImageIcon("Image/industrie.png"));
         bIndus.addActionListener(new EcouteurDePopup(o));
-        bIndus.setActionCommand("industrie");
+        bIndus.setActionCommand("industrine");
+        bIndus.setToolTipText("industrie");
         
         bCommerce = new JButton(new ImageIcon("Image/commerce.png"));
         bCommerce.addActionListener(new EcouteurDePopup(o));
         bCommerce.setActionCommand("commerce");
+        bCommerce.setToolTipText("Commerce");
 
         bFerme = new JButton(new ImageIcon("Image/ferme.png"));
         bFerme.addActionListener(new EcouteurDePopup(o));
         bFerme.setActionCommand("ferme");
+        bFerme.setToolTipText("Ferme");
 
         //////////////////////////////////////////////////
         //                                              //
@@ -212,26 +217,32 @@ public class BarreLaterale extends JPanel implements Observer {
         bBar = new JButton(new ImageIcon("Image/bar.png"));
         bBar.addActionListener(new EcouteurDePopup(o));
         bBar.setActionCommand("bar");
+        bBar.setToolTipText("pavillon");
 
         bCine = new JButton(new ImageIcon("Image/cinema.png"));
         bCine.addActionListener(new EcouteurDePopup(o));
         bCine.setActionCommand("cinema");
+        bCine.setToolTipText("pavillon");
 
         bParc = new JButton(new ImageIcon("Image/parc.png"));
         bParc.addActionListener(new EcouteurDePopup(o));
         bParc.setActionCommand("parc");
+        bParc.setToolTipText("pavillon");
 
         bResto = new JButton(new ImageIcon("Image/restaurent.png"));
         bResto.addActionListener(new EcouteurDePopup(o));
         bResto.setActionCommand("restaurant");
+        bResto.setToolTipText("pavillon");
 
         bStade = new JButton(new ImageIcon("Image/stade.png"));
         bStade.addActionListener(new EcouteurDePopup(o));
         bStade.setActionCommand("stade");
+        bStade.setToolTipText("pavillon");
 
         bZoo = new JButton(new ImageIcon("Image/zoo.png"));
         bZoo.addActionListener(new EcouteurDePopup(o));
         bZoo.setActionCommand("zoo");
+        bZoo.setToolTipText("pavillon");
 
         //////////////////////////////////////////////////
         //                                              //

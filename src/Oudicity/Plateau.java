@@ -65,9 +65,6 @@ public final class Plateau {
         }else if (this.plateau[p.getX()][p.getY()].getGroupe().
                 equals("infrastructure")){
 
-        }else if (this.plateau[p.getX()][p.getY()].getGroupe().
-                equals("infrastructure")){
-
         }
         nouveauBatiment(p, "herbe");
     }
