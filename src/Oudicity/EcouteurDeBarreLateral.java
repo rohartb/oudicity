@@ -14,7 +14,7 @@ class EcouteurDeBarreLateral implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        o.f.pg.fin = false;
+        o.f.pg.setFin(false);
         if(e.getActionCommand().equals("logement")){
             o.f.barreL.popupLog.show(o.f.barreL.bLog, 50, 50);
         }else if (e.getActionCommand().equals("BatimentArgent")){
