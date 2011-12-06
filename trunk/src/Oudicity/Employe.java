@@ -168,6 +168,9 @@ public final class Employe {
 
             for(int j=0; j<i; j++){
                 conca = listeContientTravail(conca);
+                if(conca.size()==0){
+                    break;
+                }
                 travail=rand.nextInt(conca.size());
                 pt = conca.get(travail);
                 if(p.plateau[pt.getX()][pt.getY()].getGroupe().equals("batimentargent")){
@@ -211,6 +214,9 @@ public final class Employe {
         if(diff>0){ //plus de travailleur que d'habitant!!
             for(i=0;i<diff;i++){
                 conca = listeContientEmploye(conca);
+                if(conca.size()==0){
+                    break;
+                }
                 enlever_employe=rand.nextInt(conca.size());
                 pt = conca.get(enlever_employe);
                 if(p.plateau[pt.getX()][pt.getY()].getGroupe().equals("batimentargent")){
