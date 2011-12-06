@@ -24,7 +24,8 @@ public class BarreLaterale extends JPanel implements Observer {
     JButton moins;
     JButton plus;
     EcouteurDeBarreLateral ec;
-     JLabel labSub;
+     JLabel labSub = new JLabel();
+     
     
     // Panel affichage
     JPanel maire;
@@ -485,6 +486,10 @@ public class BarreLaterale extends JPanel implements Observer {
         plus.setActionCommand("plus");
         sub.add(subvention);
         sub.add(plus);
+    }
+
+    public void afficheConseil(String s){
+        
     }
     
 }
