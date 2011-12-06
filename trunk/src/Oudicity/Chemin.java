@@ -19,5 +19,6 @@ public class Chemin {
         this.p = p;
         nbHabi = 0;
         nbEmploy = 0;
+        nbEmployMax = 0;
     }
 }
