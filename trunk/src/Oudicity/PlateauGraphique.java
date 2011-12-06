@@ -6,7 +6,7 @@ import javax.swing.*;
 public class PlateauGraphique extends JComponent {
     OudiCity o;
     Plateau p;
-    boolean deplace = false, fin = false;
+    private boolean deplace = false, fin = false;
     Points deplacer;
     int N;
 
@@ -54,6 +54,22 @@ public class PlateauGraphique extends JComponent {
 
     public float getH(){
         return height;
+    }
+
+    public boolean getDeplace(){
+        return deplace;
+    }
+
+    public boolean getFin(){
+        return fin;
+    }
+
+    public void setDeplace(boolean b){
+        this.deplace = b;
+    }
+
+    public void setFin(boolean b){
+        this.fin = b;
     }
 
     @Override

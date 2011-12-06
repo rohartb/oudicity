@@ -16,11 +16,11 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
         Points pt;
         pt = o.f.pg.p.cases(e.getX(), e.getY());
          if(o.f.pg.p.plateau[pt.getX()][pt.getY()].getType().equals("herbe")){
-            if(o.f.pg.fin == true){
+            if(o.f.pg.getFin() == true){
                 System.out.println("deplace "+ courant + "point à détruire: "+o.f.pg.deplacer);
                 o.f.pg.p.nouveauBatiment(pt, courant);
                 o.f.pg.p.destroy(o.f.pg.deplacer);
-                o.f.pg.fin = false;
+                o.f.pg.setFin(false);
             }
             if(o.f.getClick()){
                 //quand on click sur un logement
@@ -116,11 +116,11 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
             if(o.f.getNomBat().equals("destroy")){
                 o.v.rembourserBatiment(pt);
                 o.f.pg.p.destroy(pt);
-            }else if(o.f.getNomBat().equals("deplace") && o.f.pg.fin == false){
-                o.f.pg.deplace = true;
+            }else if(o.f.getNomBat().equals("deplace") && o.f.pg.getFin() == false){
+                o.f.pg.setDeplace(true);
                 o.f.pg.deplacer = pt;
                 courant = o.f.pg.p.plateau[pt.getX()][pt.getY()].getType();
-                o.f.pg.fin = true;
+                o.f.pg.setFin(true);
                 
             }else {
                 o.f.barreL.initConseil(pt);
