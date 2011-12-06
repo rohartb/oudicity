@@ -1,4 +1,5 @@
 package Oudicity;
+import Batiments.*;
 import java.awt.event.*;
 import java.util.*;
 
@@ -68,6 +69,8 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
                         for(int k=0;k<lpet.size();k++){
                            Chemin chelou = o.f.pg.p.c.trouverChemin(lpet.get(k));
                            chelou.batInd.add(pt);
+                           BatimentArgent i = (BatimentArgent) o.f.pg.p.plateau[pt.getX()][pt.getY()];
+                           chelou.nbEmployMax += i.getNb_employe_MAX();
                         }
                     }
                 }
@@ -78,6 +81,8 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
                         for(int k=0;k<lpet.size();k++){
                            Chemin chelou = o.f.pg.p.c.trouverChemin(lpet.get(k));
                            chelou.batFerm.add(pt);
+                           BatimentArgent i = (BatimentArgent) o.f.pg.p.plateau[pt.getX()][pt.getY()];
+                           chelou.nbEmployMax += i.getNb_employe_MAX();
                         }
                     }
                 }
@@ -88,6 +93,8 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
                         for(int k=0;k<lpet.size();k++){
                            Chemin chelou = o.f.pg.p.c.trouverChemin(lpet.get(k));
                            chelou.batCom.add(pt);
+                           BatimentArgent i = (BatimentArgent) o.f.pg.p.plateau[pt.getX()][pt.getY()];
+                           chelou.nbEmployMax += i.getNb_employe_MAX();
                         }
                     }
                 }
@@ -107,6 +114,8 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
                         for(int k=0;k<lpet.size();k++){
                            Chemin chelou = o.f.pg.p.c.trouverChemin(lpet.get(k));
                            chelou.batLoi.add(pt);
+                           Loisir i = (Loisir) o.f.pg.p.plateau[pt.getX()][pt.getY()];
+                           chelou.nbEmployMax += i.getNb_employe_MAX();
                         }
                     }
                 }
@@ -117,6 +126,8 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
                         for(int k=0;k<lpet.size();k++){
                            Chemin chelou = o.f.pg.p.c.trouverChemin(lpet.get(k));
                            chelou.batLoi.add(pt);
+                           Loisir i = (Loisir) o.f.pg.p.plateau[pt.getX()][pt.getY()];
+                           chelou.nbEmployMax += i.getNb_employe_MAX();
                         }
                     }
                 }
@@ -127,6 +138,8 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
                         for(int k=0;k<lpet.size();k++){
                            Chemin chelou = o.f.pg.p.c.trouverChemin(lpet.get(k));
                            chelou.batLoi.add(pt);
+                           Loisir i = (Loisir) o.f.pg.p.plateau[pt.getX()][pt.getY()];
+                           chelou.nbEmployMax += i.getNb_employe_MAX();
                         }
                     }
                 }
@@ -137,6 +150,8 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
                         for(int k=0;k<lpet.size();k++){
                            Chemin chelou = o.f.pg.p.c.trouverChemin(lpet.get(k));
                            chelou.batLoi.add(pt);
+                           Loisir i = (Loisir) o.f.pg.p.plateau[pt.getX()][pt.getY()];
+                           chelou.nbEmployMax += i.getNb_employe_MAX();
                         }
                     }
                 }
@@ -147,6 +162,8 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
                         for(int k=0;k<lpet.size();k++){
                            Chemin chelou = o.f.pg.p.c.trouverChemin(lpet.get(k));
                            chelou.batLoi.add(pt);
+                           Loisir i = (Loisir) o.f.pg.p.plateau[pt.getX()][pt.getY()];
+                           chelou.nbEmployMax += i.getNb_employe_MAX();
                         }
                     }
                 }
@@ -157,6 +174,8 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
                         for(int k=0;k<lpet.size();k++){
                            Chemin chelou = o.f.pg.p.c.trouverChemin(lpet.get(k));
                            chelou.batLoi.add(pt);
+                           Loisir i = (Loisir) o.f.pg.p.plateau[pt.getX()][pt.getY()];
+                           chelou.nbEmployMax += i.getNb_employe_MAX();
                         }
                     }
                 }
@@ -169,6 +188,8 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
                         for(int k=0;k<lpet.size();k++){
                            Chemin chelou = o.f.pg.p.c.trouverChemin(lpet.get(k));
                            chelou.batSerPu.add(pt);
+                           ServicePublic i = (ServicePublic) o.f.pg.p.plateau[pt.getX()][pt.getY()];
+                           chelou.nbEmployMax += i.getNb_employe_MAX();
                         }
                     }
                 }
@@ -179,6 +200,8 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
                         for(int k=0;k<lpet.size();k++){
                            Chemin chelou = o.f.pg.p.c.trouverChemin(lpet.get(k));
                            chelou.batSerPu.add(pt);
+                           ServicePublic i = (ServicePublic) o.f.pg.p.plateau[pt.getX()][pt.getY()];
+                           chelou.nbEmployMax += i.getNb_employe_MAX();
                         }
                     }
                 }
@@ -189,6 +212,8 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
                         for(int k=0;k<lpet.size();k++){
                            Chemin chelou = o.f.pg.p.c.trouverChemin(lpet.get(k));
                            chelou.batSerPu.add(pt);
+                           ServicePublic i = (ServicePublic) o.f.pg.p.plateau[pt.getX()][pt.getY()];
+                           chelou.nbEmployMax += i.getNb_employe_MAX();
                         }
                     }
                 }
@@ -199,6 +224,8 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
                         for(int k=0;k<lpet.size();k++){
                            Chemin chelou = o.f.pg.p.c.trouverChemin(lpet.get(k));
                            chelou.batSerPu.add(pt);
+                           ServicePublic i = (ServicePublic) o.f.pg.p.plateau[pt.getX()][pt.getY()];
+                           chelou.nbEmployMax += i.getNb_employe_MAX();
                         }
                     }
                 }
@@ -209,6 +236,8 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
                         for(int k=0;k<lpet.size();k++){
                            Chemin chelou = o.f.pg.p.c.trouverChemin(lpet.get(k));
                            chelou.batSerPu.add(pt);
+                           ServicePublic i = (ServicePublic) o.f.pg.p.plateau[pt.getX()][pt.getY()];
+                           chelou.nbEmployMax += i.getNb_employe_MAX();
                         }
                     }
                 }
@@ -219,6 +248,8 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
                         for(int k=0;k<lpet.size();k++){
                            Chemin chelou = o.f.pg.p.c.trouverChemin(lpet.get(k));
                            chelou.batSerPu.add(pt);
+                           ServicePublic i = (ServicePublic) o.f.pg.p.plateau[pt.getX()][pt.getY()];
+                           chelou.nbEmployMax += i.getNb_employe_MAX();
                         }
                     }
                 }

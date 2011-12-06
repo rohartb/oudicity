@@ -5,6 +5,7 @@ import java.util.*;
 
 public class Ferme extends BatimentArgent implements Observer{
     private int subvention;
+    private int subvention_MAX;
     private int production;
     private int stock_nourriture;
     private int stock_nourriture_MAX;
@@ -27,6 +28,7 @@ public class Ferme extends BatimentArgent implements Observer{
         this.groupe="batimentargent";        
         this.stock_nourriture=0;
         this.subvention=100;
+        this.subvention_MAX=300;
         this.production=0;
         this.stock_nourriture_MAX=4000;  
         
@@ -92,5 +94,15 @@ public class Ferme extends BatimentArgent implements Observer{
             }
         }
     }
+    public void augmenterSubvention(){
+        if(this.subvention+10<=this.subvention_MAX){
+            setSubvention(10);
+        }
+    }
     
+    public void diminuerSubvention(){
+        if(this.subvention-10>=0){
+            setSubvention(-10);
+        }
+    }
 }

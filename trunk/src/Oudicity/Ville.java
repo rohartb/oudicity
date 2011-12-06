@@ -51,11 +51,13 @@ public class Ville extends Observable implements Observer{
             	if((annee==1970 && mois>2) || annee>1970){
                 	int consomme = p.h.consommer();
                 	if(consomme>0){
-                    	//System.out.println("Les habitants n'ont pas assez de bien");
+                            //System.out.println("Les habitants n'ont pas assez de bien");
+                            //System.out.println("  ->ajouter des commerces");
                 	}
                 	int nou = p.h.nourrir();
                 	if(nou>0){
-                    	//System.out.println("La population a faim!");
+                            //System.out.println("La population a faim!")
+                            //System.out.println("  ->ajouter des commerces");
                 	}
                 }
                 if(c.jour > jourDebut && jourAtt == 2){
@@ -65,7 +67,8 @@ public class Ville extends Observable implements Observer{
                         if(indiceAttraction >= 50){
                             nbHabitant += p.h.augmentetHabitant();
                             for(int i=0;i<p.c.lc.size();i++){
-                               // p.e.AugmenterEmploye(p.c.lc.get(i));
+                                System.out.println("ville");
+                                p.e.AugmenterEmploye(p.c.lc.get(i));
                                 setChanged();
                                 notifyObservers();
                             }

@@ -64,129 +64,162 @@ public final class Employe {
         return n;
     }
     
-    public LinkedList<Points> plateauContientTravail(){
+    public LinkedList<Points> listeContientTravail(LinkedList<Points> li){
+        LinkedList<Points> liste = li;
         LinkedList<Points> l = new LinkedList<Points>();
         int nb_travail;
-        for(int i=0; i<p.getTaille(); i++){
-            for(int j=0; j<p.getTaille(); j++){
-                if(p.plateau[i][j].getPersBat().equals("employe")){
-                    if(p.plateau[i][j].getGroupe().equals("batimentargent")){
-                        BatimentArgent b = (BatimentArgent) p.plateau[i][j];
-                        nb_travail = b.getAugmenter_employe();
-                        if( nb_travail > 0){
-                            l.add(new Points(i,j));
-                        }
-                    }
-                    else if(p.plateau[i][j].getGroupe().equals("loisir")){
-                        Loisir b = (Loisir) p.plateau[i][j];
-                        nb_travail = b.getAugmenter_employe();
-                        if( nb_travail > 0){
-                            l.add(new Points(i,j));
-                        }
-                    }
-                    else if(p.plateau[i][j].getGroupe().equals("servicepublic")){
-                        ServicePublic b = (ServicePublic) p.plateau[i][j];
-                        nb_travail = b.getAugmenter_employe();
-                        if( nb_travail > 0){
-                            l.add(new Points(i,j));
-                        }
-                    }
+        int taille=liste.size();
+        int i=0;
+        Points pt;
+        while(i<taille){
+            pt = liste.get(i);
+            if(p.plateau[pt.getX()][pt.getY()].getGroupe().equals("batimentargent")){
+                BatimentArgent b = (BatimentArgent) p.plateau[pt.getX()][pt.getY()];
+                nb_travail = b.getAugmenter_employe();
+                if( nb_travail > 0){
+                    l.add(new Points(pt.getX(),pt.getY()));
                 }
             }
+            else if(p.plateau[pt.getX()][pt.getY()].getGroupe().equals("loisir")){
+                Loisir b = (Loisir) p.plateau[pt.getX()][pt.getY()];
+                nb_travail = b.getAugmenter_employe();
+                if( nb_travail > 0){
+                    l.add(new Points(pt.getX(),pt.getY()));
+                }
+            }
+            else if(p.plateau[pt.getX()][pt.getY()].getGroupe().equals("servicepublic")){
+                ServicePublic b = (ServicePublic) p.plateau[pt.getX()][pt.getY()];
+                nb_travail = b.getAugmenter_employe();
+                if( nb_travail > 0){
+                    l.add(new Points(pt.getX(),pt.getY()));
+                }
+            }
+            i++;
         }
         return l;
     }
     
-    public LinkedList<Points> plateauContientEmploye(){
-        LinkedList<Points> l = new LinkedList<Points>();
+    public LinkedList<Points> listeContientEmploye(LinkedList<Points> li){
+        LinkedList<Points> liste = li;
+        LinkedList<Points> l= new LinkedList<Points>();
         int nb_employe;
-        for(int i=0; i<p.getTaille(); i++){
-            for(int j=0; j<p.getTaille(); j++){
-                if(p.plateau[i][j].getPersBat().equals("employe")){
-                    if(p.plateau[i][j].getGroupe().equals("batimentargent")){
-                        BatimentArgent b = (BatimentArgent) p.plateau[i][j];
-                        nb_employe = b.getNb_employe();
-                        if( nb_employe > 0){
-                            l.add(new Points(i,j));
-                        }
-                    }
-                    else if(p.plateau[i][j].getGroupe().equals("loisir")){
-                        Loisir b = (Loisir) p.plateau[i][j];
-                        nb_employe = b.getNb_employe();
-                        if( nb_employe > 0){
-                            l.add(new Points(i,j));
-                        }
-                    }
-                    else if(p.plateau[i][j].getGroupe().equals("servicepublic")){
-                        ServicePublic b = (ServicePublic) p.plateau[i][j];
-                        nb_employe = b.getNb_employe();
-                        if( nb_employe > 0){
-                            l.add(new Points(i,j));
-                        }
-                    }
+        int taille = liste.size();
+        int i =0;
+        Points pt;
+        
+        while(i<taille){
+            pt = liste.get(i);
+            if(p.plateau[pt.getX()][pt.getY()].getGroupe().equals("batimentargent")){
+                BatimentArgent b = (BatimentArgent) p.plateau[pt.getX()][pt.getY()];
+                nb_employe = b.getNb_employe();
+                if( nb_employe > 0){
+                    l.add(new Points(pt.getX(),pt.getY()));
                 }
             }
+            else if(p.plateau[pt.getX()][pt.getY()].getGroupe().equals("loisir")){
+                Loisir b = (Loisir) p.plateau[pt.getX()][pt.getY()];
+                nb_employe = b.getNb_employe();
+                if( nb_employe > 0){
+                    l.add(new Points(pt.getX(),pt.getY()));
+                }
+            }
+            else if(p.plateau[pt.getX()][pt.getY()].getGroupe().equals("servicepublic")){
+                ServicePublic b = (ServicePublic) p.plateau[pt.getX()][pt.getY()];
+                nb_employe = b.getNb_employe();
+                if( nb_employe > 0){
+                    l.add(new Points(pt.getX(),pt.getY()));
+                }
+            }
+            i++;
         }
         return l;
     }
     
     
     
-    void AugmenterEmploye(){
+    void AugmenterEmploye(Chemin ch){
+        Chemin c = ch;        
+        
+        LinkedList<Points> commerce =  c.batCom; 
+        LinkedList<Points> loisir =  c.batLoi; 
+        LinkedList<Points> serPu =  c.batSerPu;
+        LinkedList<Points> ind =  c.batInd; 
+        LinkedList<Points> ferme =  c.batFerm;
+        LinkedList<Points> conca =  listeConcatene(commerce,loisir);
+        conca = listeConcatene(conca,serPu);
+        conca = listeConcatene(conca,ind);
+        conca = listeConcatene(conca,ferme);
+        
+        
         Random rand = new Random();
-        LinkedList<Points> l;
-        int nb_chomeur = o.v.nbHabitant - nbTotEmploy();
-        int nb_travail = nbTotEmployMax() - nbTotEmploy();
+        int nb_chomeur = c.nbHabi - c.nbEmploy;
+        int nb_travail = c.nbEmployMax - c.nbEmploy;
+        System.out.println("emax = "+c.nbEmployMax);
+        System.out.println("e = "+c.nbEmploy);
         int i=0;
         int travail;
-        Points pt; 
-                    
-        if(nb_travail!=0){
+        Points pt;   
+            
+        if(nb_travail != 0){
             if (nb_travail<nb_chomeur){
                 i = rand.nextInt(nb_travail);
             }
             else{
                 i = rand.nextInt(nb_chomeur);
             }
+            System.out.println("i = "+i);
 
             for(int j=0; j<i; j++){
-                l = plateauContientTravail();
-                travail=rand.nextInt(l.size());
-                pt = l.get(travail);
+                conca = listeContientTravail(conca);
+                travail=rand.nextInt(conca.size());
+                pt = conca.get(travail);
                 if(p.plateau[pt.getX()][pt.getY()].getGroupe().equals("batimentargent")){
                     BatimentArgent b = (BatimentArgent) p.plateau[pt.getX()][pt.getY()];
                     b.setNb_employe(1);
+                    System.out.println("employe ajoute bat argent");
+
                 }
                 else if(p.plateau[pt.getX()][pt.getY()].getGroupe().equals("loisir")){
                     Loisir b = (Loisir) p.plateau[pt.getX()][pt.getY()];
                     b.setNb_employe(1);
+                    System.out.println("employe ajoute loisir");
                 }
                 else if(p.plateau[pt.getX()][pt.getY()].getGroupe().equals("servicepublic")){
                     ServicePublic b = (ServicePublic) p.plateau[pt.getX()][pt.getY()];
                     b.setNb_employe(1);
-                }    
+                    System.out.println("employe ajoute serPu");
+                }
             }
-        }
-        if(((nb_chomeur-i)/o.v.nbHabitant)*10>1){
-        	//System.out.println("trop de chomeurs!");
         }
     }
     
-    void diminuerEmploye(){
+    void diminuerEmploye(Chemin ch){
+        Chemin c = ch;        
+        
+        LinkedList<Points> commerce =  c.batCom; 
+        LinkedList<Points> loisir =  c.batLoi; 
+        LinkedList<Points> serPu =  c.batSerPu;
+        LinkedList<Points> ind =  c.batInd; 
+        LinkedList<Points> ferme =  c.batFerm;
+        LinkedList<Points> conca =  listeConcatene(commerce,loisir);
+        conca = listeConcatene(conca,serPu);
+        conca = listeConcatene(conca,ind);
+        conca = listeConcatene(conca,ferme);
+        conca = listeContientEmploye(conca);
+        
         Random rand = new Random();
-        LinkedList<Points> l;
-        int nb_habitant = o.v.nbHabitant;
-        int nb_travailleur = nbTotEmploy();
+        int i=0;
+        Points pt;
+        int nb_habitant = c.nbHabi;
+        int nb_travailleur = c.nbEmploy;
         int diff = nb_travailleur-nb_habitant;
         int enlever_employe;
-        int i;
-        Points pt;
         
         if(diff>0){ //plus de travailleur que d'habitant!!
             for(i=0;i<diff;i++){
-                l = plateauContientEmploye();
-                enlever_employe=rand.nextInt(l.size());
-                pt = l.get(enlever_employe);
+                conca = listeContientEmploye(conca);
+                enlever_employe=rand.nextInt(conca.size());
+                pt = conca.get(enlever_employe);
                 if(p.plateau[pt.getX()][pt.getY()].getGroupe().equals("batimentargent")){
                     BatimentArgent b = (BatimentArgent) p.plateau[pt.getX()][pt.getY()];
                     b.setNb_employe(-1);
@@ -220,5 +253,18 @@ public final class Employe {
                 }
             }
         }
+    }
+
+    //fonction qui concatene 2 listes! 
+    private LinkedList<Points> listeConcatene(LinkedList<Points> l1, LinkedList<Points> l2) {
+        int i =0;
+        int taille = l2.size();
+        Points pt;
+        while(i<taille){
+            pt=l2.get(i);
+            l1.add(pt);
+            i++;
+        }
+        return l1;
     }
 }
