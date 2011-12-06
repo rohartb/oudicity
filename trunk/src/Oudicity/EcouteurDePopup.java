@@ -75,9 +75,26 @@ class EcouteurDePopup implements ActionListener{
                  o.f.setClick(false);
             }
             o.f.barreL.popupInfra.setVisible(false);
+        }else if (e.getActionCommand().equals("destroy")) {
+            if(o.f.getClick() == false || !o.f.getNomBat().equals("destroy")){
+                o.f.setClick(true);
+                o.f.setNomBat("destroy");
+            }else{
+                 o.f.setClick(false);
+            }
+            o.f.barreL.popupInfra.setVisible(false);
+        }else if (e.getActionCommand().equals("deplace")) {
+            if(o.f.getClick() == false || !o.f.getNomBat().equals("deplace")){
+                o.f.setClick(true);
+                o.f.setNomBat("deplace");
+            }else{
+                 o.f.setClick(false);
+            }
+            o.f.barreL.popupInfra.setVisible(false);
+        }
 
             //Popup des loisirs
-        }else if (e.getActionCommand().equals("bar")){
+        else if (e.getActionCommand().equals("bar")){
             if(o.f.getClick() == false || !o.f.getNomBat().equals("bar")){
                 o.f.setClick(true);
                 o.f.setNomBat("bar");
