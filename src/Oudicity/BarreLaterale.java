@@ -179,6 +179,7 @@ public class BarreLaterale extends JPanel implements Observer {
         //      Bouton et Popup pour les batiments      //
         //                    argent                    //
         //////////////////////////////////////////////////
+        
         bBatimentArgent = new JButton("Entreprise");
         bBatimentArgent.setPreferredSize(new Dimension(150,30));
         bBatimentArgent.addActionListener(new EcouteurDeBarreLateral(o));
