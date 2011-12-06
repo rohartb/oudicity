@@ -1,6 +1,6 @@
 package Oudicity;
 import java.awt.*;
-import java.awt.geom.Line2D;
+import java.awt.geom.*;
 import java.awt.image.*;
 import javax.swing.*;
 
@@ -90,8 +90,8 @@ public class PlateauGraphique extends JComponent {
             for(int j=0; j<N; j++){
                 if (this.p.plateau[i][j].getType().equals("herbe")){
                     drawable.setPaint(new Color(153,204,102));
-                    drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
-                                     (int)height/N);
+                    drawable.draw(new Rectangle2D.Float(i*(width/N), j*(height/N),
+                           width/N, height/N));
                 }
 
                 //paint pour les logements
