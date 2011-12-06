@@ -16,6 +16,11 @@ public class Fenetre extends JFrame implements Runnable{
     JPanel panelBouton;
     BarreLaterale barreL;
     JPanel aireDeJeu;
+    JMenuBar bar;
+    JMenu menu;
+    JMenuItem nouv;
+    JMenuItem statistique;
+    JMenuItem quit;
     
     JLabel bienvenue;
    
@@ -112,7 +117,6 @@ public class Fenetre extends JFrame implements Runnable{
     }
     
     public void init_partie(){
-        System.out.println("init Partie");
         souris = new EcouteurDeGraphique(s);
 
         pg = new PlateauGraphique(s);
@@ -121,9 +125,26 @@ public class Fenetre extends JFrame implements Runnable{
         s.v = new Ville(s.nomVille,s.nomMaire,s);
         s.thTemps.start();
         barreL = new BarreLaterale(s);
+        bar = new JMenuBar();
+        menu = new JMenu("Fichier");
+        nouv = new JMenuItem("Nouveau");
+        nouv.addActionListener(new EcouteurMenu(s));
+        nouv.setActionCommand("nouveau");
+        statistique = new JMenuItem("Statistiques");
+        statistique.addActionListener(new EcouteurMenu(s));
+        statistique.setActionCommand("stats");
+        quit = new JMenuItem("Quitter");
+        quit.addActionListener(new EcouteurMenu(s));
+        quit.setActionCommand("quitter");
+
+        bar.add(menu);
+        menu.add(nouv);
+        menu.add(statistique);
+        menu.add(quit);
 
         this.accueil.setVisible(false);
         this.setLayout(new BorderLayout());
+        this.add(bar, BorderLayout.NORTH);
         this.add(barreL, BorderLayout.WEST);
         this.add(pg, BorderLayout.CENTER);
         
