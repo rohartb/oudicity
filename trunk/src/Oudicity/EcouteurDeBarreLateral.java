@@ -1,12 +1,12 @@
 package Oudicity;
 
 
+import Batiments.*;
 import java.awt.event.*;
 
 class EcouteurDeBarreLateral implements ActionListener{
-    
+    Points p;
     OudiCity o;
-    int xSouris, ySouris, xcase, ycase;
 
     public EcouteurDeBarreLateral(OudiCity o){
         this.o = o;
@@ -25,6 +25,24 @@ class EcouteurDeBarreLateral implements ActionListener{
             o.f.barreL.popupLoisir.show(o.f.barreL.bLoisir, 50, 50);
         }else if (e.getActionCommand().equals("publique")){
             o.f.barreL.popupPublique.show(o.f.barreL.bPublique, 50, 50);
+        }else if (e.getActionCommand().equals("moins")){
+            String s = o.f.pg.p.plateau[p.getX()][p.getY()].getType();
+            if(s.equals("industrie")){
+                Industrie ind = (Industrie) o.f.pg.p.plateau[p.getX()][p.getY()];
+                ind.diminuerSubvention();
+            }else if(s.equals("ferme")){
+                Ferme fer = (Ferme) o.f.pg.p.plateau[p.getX()][p.getY()];
+                fer.diminuerSubvention();
+            }
+        }else if (e.getActionCommand().equals("plus")){
+            String s = o.f.pg.p.plateau[p.getX()][p.getY()].getType();
+            if(s.equals("industrie")){
+                Industrie ind = (Industrie) o.f.pg.p.plateau[p.getX()][p.getY()];
+                ind.augmenterSubvention();
+            }else if(s.equals("ferme")){
+                Ferme fer = (Ferme) o.f.pg.p.plateau[p.getX()][p.getY()];
+                fer.augmenterSubvention();
+            }
         }else{
             o.f.setNomBat("herbe");
         }

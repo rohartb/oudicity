@@ -9,6 +9,7 @@ public class Industrie extends BatimentArgent implements Observer{
     private int stock_bien;
     private int stock_bien_MAX;
     private int subvention_MAX;
+    OudiCity o;
     
     int annee = 1970;
     int mois = 1;
@@ -17,6 +18,7 @@ public class Industrie extends BatimentArgent implements Observer{
     
     public Industrie(OudiCity o){
         super(o);
+        this.o = o;
         this.coutEntretien=150;
         this.nb_employe_MAX=70;
         this.nb_employe=0;          
@@ -54,7 +56,7 @@ public class Industrie extends BatimentArgent implements Observer{
 
     /*SETTERS*/
     public void setSubvention(int subvention) {
-        this.subvention = subvention;
+        this.subvention += subvention;
         this.production = (subvention/40)*this.getNb_employe();
     }
     
@@ -98,12 +100,14 @@ public class Industrie extends BatimentArgent implements Observer{
     public void augmenterSubvention(){
         if(this.subvention+40<=this.subvention_MAX){
             setSubvention(40);
-        }
+            o.getFenetre().getBarreL().changeSub(this.subvention);
+        }     
     }
     
     public void diminuerSubvention(){
         if(this.subvention-40>=0){
             setSubvention(-40);
-        }
+            o.getFenetre().getBarreL().changeSub(this.subvention);
+        }        
     }   
 }

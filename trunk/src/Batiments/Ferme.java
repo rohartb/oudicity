@@ -9,6 +9,8 @@ public class Ferme extends BatimentArgent implements Observer{
     private int production;
     private int stock_nourriture;
     private int stock_nourriture_MAX;
+    OudiCity o;
+
     
     int annee = 1970;
     int mois = 1;
@@ -17,6 +19,7 @@ public class Ferme extends BatimentArgent implements Observer{
     
     public Ferme(OudiCity o){
         super(o);
+        this.o = o;
         this.coutEntretien=50;
         this.nb_employe_MAX=10;
         this.nb_employe=0;          
@@ -54,7 +57,7 @@ public class Ferme extends BatimentArgent implements Observer{
 
     /*SETTERS*/
     public void setSubvention(int subvention) {
-        this.subvention = subvention;
+        this.subvention += subvention;
         this.production=(this.subvention/5)*this.getNb_employe();
     }
     
@@ -97,12 +100,14 @@ public class Ferme extends BatimentArgent implements Observer{
     public void augmenterSubvention(){
         if(this.subvention+10<=this.subvention_MAX){
             setSubvention(10);
-        }
+            o.getFenetre().getBarreL().changeSub(this.subvention);
+        }        
     }
     
     public void diminuerSubvention(){
         if(this.subvention-10>=0){
             setSubvention(-10);
-        }
+             o.getFenetre().getBarreL().changeSub(this.subvention);
+        }       
     }
 }
