@@ -158,7 +158,7 @@ public final class Employe {
         int travail;
         Points pt;   
             
-        if(nb_travail != 0){
+        if(nb_travail != 0 && nb_chomeur!= 0){
             if (nb_travail<nb_chomeur){
                 i = rand.nextInt(nb_travail);
             }
