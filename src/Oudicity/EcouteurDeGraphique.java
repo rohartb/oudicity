@@ -5,19 +5,24 @@ import java.awt.event.*;
 class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
     OudiCity o;
     String s = "herbe";
+    String courant = "";
 
     public EcouteurDeGraphique(OudiCity o){
         this.o = o;
-
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
         Points pt;
         pt = o.f.pg.p.cases(e.getX(), e.getY());
-         if((o.f.pg.p.plateau[pt.getX()][pt.getY()].getType().equals("herbe"))){
+         if(o.f.pg.p.plateau[pt.getX()][pt.getY()].getType().equals("herbe")){
+            if(o.f.pg.fin == true){
+                System.out.println("deplace "+ courant + "point à détruire: "+o.f.pg.deplacer);
+                o.f.pg.p.nouveauBatiment(pt, courant);
+                o.f.pg.p.destroy(o.f.pg.deplacer);
+                o.f.pg.fin = false;
+            }
             if(o.f.getClick()){
-
                 //quand on click sur un logement
                 if(o.f.getNomBat().equals("pavillon")){
                     o.f.pg.p.nouveauBatiment(pt, "pavillon");
@@ -111,7 +116,13 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
             if(o.f.getNomBat().equals("destroy")){
                 o.v.rembourserBatiment(pt);
                 o.f.pg.p.destroy(pt);
-            }else{
+            }else if(o.f.getNomBat().equals("deplace") && o.f.pg.fin == false){
+                o.f.pg.deplace = true;
+                o.f.pg.deplacer = pt;
+                courant = o.f.pg.p.plateau[pt.getX()][pt.getY()].getType();
+                o.f.pg.fin = true;
+                
+            }else {
                 o.f.barreL.initConseil(pt);
             }
         }

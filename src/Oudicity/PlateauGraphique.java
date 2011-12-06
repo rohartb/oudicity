@@ -6,6 +6,8 @@ import javax.swing.*;
 public class PlateauGraphique extends JComponent {
     OudiCity o;
     Plateau p;
+    boolean deplace = false, fin = false;
+    Points deplacer;
     int N;
 
     Image herbe, pavillon, hlm, building, industrie, ferme, commerce,
@@ -175,6 +177,14 @@ public class PlateauGraphique extends JComponent {
             drawable.draw(new Line2D.Float(i*xCase, 0, i*xCase, height));
             drawable.draw(new Line2D.Float(0, i*(height/N), width,
                     i*(height/N)));
+        }
+
+        if(deplace == true){
+            drawable.setPaint(new Color(255,0,0));
+            drawable.drawRect((int)(deplacer.getX()*(width/N)),
+                    (int) (deplacer.getY()*(height/N)), (int)width/N,
+                    (int)height/N);
+            deplace = false;
         }
     }
 }  
