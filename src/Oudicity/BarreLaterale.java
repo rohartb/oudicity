@@ -19,14 +19,16 @@ public class BarreLaterale extends JPanel implements Observer {
     JPanel conseils;
     JPanel conseil = new JPanel();
     
+    // Panel affichage
+    JPanel maire;
+    JPanel hab;
+    JPanel datel;
+    JPanel argentl;
+    
     // Jlabel du panel info
     JLabel nomMaire;
-    JLabel maire;
-    JLabel nbHab;
-    JLabel hab;
-    JLabel datel;
-    JLabel date;
-    JLabel argentl;
+    JLabel nbHab;   
+    JLabel date;   
     JLabel argenta;
     
     // Boutons du panel batiments
@@ -94,51 +96,58 @@ public class BarreLaterale extends JPanel implements Observer {
         
         //Panel au NORD contenant les informations
         info = new JPanel();
-        info.setBackground(new Color(153,204,255));
-        info.setPreferredSize(new Dimension(200,150));
+        info.setPreferredSize(new Dimension(200,250));
         info.setLayout(new BoxLayout(info,BoxLayout.Y_AXIS));
         
         // Ajout des Labels
-        nomMaire = new JLabel("Maire");
+        
+       
+        nomMaire = new JLabel(v.nomMaire);
         nomMaire.setAlignmentX(CENTER_ALIGNMENT);
-        nomMaire.setFont(new Font("lala",Font.TYPE1_FONT,20));
+        nomMaire.setFont(new Font("lala",Font.TYPE1_FONT,15));
         
-        maire = new JLabel(v.nomMaire);
-        maire.setAlignmentX(CENTER_ALIGNMENT);
-        maire.setFont(new Font("lala",Font.TYPE1_FONT,15));
-        
-        hab = new JLabel("Nombre Habitants");
-        hab.setAlignmentX(CENTER_ALIGNMENT);
+        maire = new JPanel();
+        maire.setBorder(BorderFactory.createTitledBorder("Maire"));
+        maire.setBackground(new Color(153,204,255));
+        maire.add(nomMaire);	
         
         nbHab = new JLabel("0");
         nbHab.setAlignmentX(CENTER_ALIGNMENT);
+        nbHab.setFont(new Font("lala",Font.TYPE1_FONT,15));
         
-        datel = new JLabel("Date");
-        datel.setAlignmentX(CENTER_ALIGNMENT);
+        hab = new JPanel();
+        hab.setBorder(BorderFactory.createTitledBorder("Nombre d'habitant"));
+        hab.setBackground(new Color(153,204,255));
+        hab.add(nbHab);
         
+
         date = new JLabel("1/1/1970");
         date.setAlignmentX(CENTER_ALIGNMENT);
+        date.setFont(new Font("lala",Font.TYPE1_FONT,15));
         
-        argentl = new JLabel("OudiZ");
-        argentl.setAlignmentX(CENTER_ALIGNMENT);
+        datel = new JPanel();
+        datel.setBorder(BorderFactory.createTitledBorder("Date"));
+        datel.setBackground(new Color(153,204,255));
+        datel.add(date);
         
         argenta = new JLabel("20000 Ƶ");
         argenta.setAlignmentX(CENTER_ALIGNMENT);
+        argenta.setFont(new Font("lala",Font.TYPE1_FONT,15));
+        
+        argentl = new JPanel();
+        argentl.setBorder(BorderFactory.createTitledBorder("Budget"));
+        argentl.setBackground(new Color(153,204,255));
+        argentl.add(argenta);
        
-        info.add(nomMaire);
         info.add(maire);
         info.add(hab);
-        info.add(nbHab);
-        info.add(datel);
-        info.add(date); 
+        info.add(datel); 
         info.add(argentl);
-        info.add(argenta); 
         
         //Panel des batiments
         batiments = new JPanel();
-        batiments.setLayout(new GridLayout(3,2));
-        batiments.setBackground(new Color(204,255,102));
-        batiments.setPreferredSize(new Dimension(100,200));
+        batiments.setBackground(new Color(153,204,255));
+        batiments.setPreferredSize(new Dimension(100,100));
 
         
         //Ajout des bouton qui symbolisent les batiments
@@ -147,21 +156,21 @@ public class BarreLaterale extends JPanel implements Observer {
         //      Bouton et Popup pour les logements      //
         //                                              //
         //////////////////////////////////////////////////
-        bLog = new JButton(new ImageIcon("Image/maisonSF.png"));
-        bLog.setPreferredSize(new Dimension(30,30));
+        bLog = new JButton("Logement");
+        bLog.setPreferredSize(new Dimension(150,30));
         bLog.addActionListener(new EcouteurDeBarreLateral(o));
         bLog.setActionCommand("logement");
 
-        bPavillon = new JButton(new ImageIcon("Image/pavillon.png"));
+        bPavillon = new JButton(new ImageIcon("Image/maison.png"));
         bPavillon.addActionListener(new EcouteurDePopup(o));
         bPavillon.setActionCommand("pavillon");
 
 
-        bHLM = new JButton(new ImageIcon("Image/immeu ble.png"));
+        bHLM = new JButton(new ImageIcon("Image/hlm.png"));
         bHLM.addActionListener(new EcouteurDePopup(o));
         bHLM.setActionCommand("HLM");
 
-        bBuilding = new JButton(new ImageIcon("Image/build ing.png"));
+        bBuilding = new JButton(new ImageIcon("Image/building.png"));
         bBuilding.addActionListener(new EcouteurDePopup(o));
         bBuilding.setActionCommand("building");
 
@@ -170,11 +179,12 @@ public class BarreLaterale extends JPanel implements Observer {
         //      Bouton et Popup pour les batiments      //
         //                    argent                    //
         //////////////////////////////////////////////////
-        bBatimentArgent = new JButton(new ImageIcon("Image/usine.png"));
+        bBatimentArgent = new JButton("Entreprise");
+        bBatimentArgent.setPreferredSize(new Dimension(150,30));
         bBatimentArgent.addActionListener(new EcouteurDeBarreLateral(o));
         bBatimentArgent.setActionCommand("BatimentArgent");
 
-        bIndus = new JButton(new ImageIcon("Image/usine.png"));
+        bIndus = new JButton(new ImageIcon("Image/industrie.png"));
         bIndus.addActionListener(new EcouteurDePopup(o));
         bIndus.setActionCommand("industrie");
         
@@ -191,31 +201,32 @@ public class BarreLaterale extends JPanel implements Observer {
         //      Bouton et Popup pour les Loisirs        //
         //                                              //
         //////////////////////////////////////////////////
-        bLoisir = new JButton(new ImageIcon("Image/loisir.png"));
+        bLoisir = new JButton("Loisir");
         bLoisir.addActionListener(new EcouteurDeBarreLateral(o));
+        bLoisir.setPreferredSize(new Dimension(150,30));
         bLoisir.setActionCommand("loisir");
 
-        bBar = new JButton("Bar");
+        bBar = new JButton(new ImageIcon("Image/bar.png"));
         bBar.addActionListener(new EcouteurDePopup(o));
         bBar.setActionCommand("bar");
 
-        bCine = new JButton("Cinema");
+        bCine = new JButton(new ImageIcon("Image/cinema.png"));
         bCine.addActionListener(new EcouteurDePopup(o));
         bCine.setActionCommand("cinema");
 
-        bParc = new JButton("Parc");
+        bParc = new JButton(new ImageIcon("Image/parc.png"));
         bParc.addActionListener(new EcouteurDePopup(o));
         bParc.setActionCommand("parc");
 
-        bResto = new JButton("Restaurant");
+        bResto = new JButton(new ImageIcon("Image/restaurent.png"));
         bResto.addActionListener(new EcouteurDePopup(o));
         bResto.setActionCommand("restaurant");
 
-        bStade = new JButton("Stade");
+        bStade = new JButton(new ImageIcon("Image/stade.png"));
         bStade.addActionListener(new EcouteurDePopup(o));
         bStade.setActionCommand("stade");
 
-        bZoo = new JButton("Zoo");
+        bZoo = new JButton(new ImageIcon("Image/zoo.png"));
         bZoo.addActionListener(new EcouteurDePopup(o));
         bZoo.setActionCommand("zoo");
 
@@ -224,62 +235,57 @@ public class BarreLaterale extends JPanel implements Observer {
         //   Bouton et Popup pour les infrastrcutures   //
         //                                              //
         //////////////////////////////////////////////////
-        bInfra = new JButton(new ImageIcon("Image/route.png"));
+        bInfra = new JButton("Infrastructure");
         bInfra.addActionListener(new EcouteurDeBarreLateral(o));
+        bInfra.setPreferredSize(new Dimension(150,30));
         bInfra.setActionCommand("infra");
 
         bRoute = new JButton(new ImageIcon("Image/route.png"));
         bRoute.addActionListener(new EcouteurDePopup(o));
         bRoute.setActionCommand("route");
+        
+        bDestroy = new JButton(new ImageIcon("Image/buldozer.png"));
+        bDestroy.addActionListener(new EcouteurDePopup(o));
+        bDestroy.setActionCommand("destroy");
+        
+        bDeplace = new JButton(new ImageIcon("Image/grue.png"));
+        bDeplace.addActionListener(new EcouteurDePopup(o));
+        bDeplace.setActionCommand("deplace");
 
         //////////////////////////////////////////////////
         //                                              //
         //      Bouton et Popup pour les services       //
         //                  Publiques                   //
         //////////////////////////////////////////////////
-        bPublique = new JButton("Publique");
+        bPublique = new JButton("Service Publique");
+        bPublique.setPreferredSize(new Dimension(150,30));
         bPublique.addActionListener(new EcouteurDeBarreLateral(o));
         bPublique.setActionCommand("publique");
         
 
-        bCommissariat = new JButton("Commissariat");
+        bCommissariat = new JButton(new ImageIcon("Image/police.png"));
         bCommissariat.addActionListener(new EcouteurDePopup(o));
         bCommissariat.setActionCommand("commissariat");
 
-        bDecheterie = new JButton("Decheterie");
+        bDecheterie = new JButton(new ImageIcon("Image/decheterie.png"));
         bDecheterie.addActionListener(new EcouteurDePopup(o));
         bDecheterie.setActionCommand("decheterie");
 
-        bEcole = new JButton("Ecole");
+        bEcole = new JButton(new ImageIcon("Image/ecole.png"));
         bEcole.addActionListener(new EcouteurDePopup(o));
         bEcole.setActionCommand("ecole");
 
-        bHopital = new JButton(new ImageIcon("Image/hopitalSF.png"));
+        bHopital = new JButton(new ImageIcon("Image/hopital.png"));
         bHopital.addActionListener(new EcouteurDePopup(o));
         bHopital.setActionCommand("hopital");
 
-        bHotelDeVille = new JButton("Hotel de Ville");
+        bHotelDeVille = new JButton(new ImageIcon("Image/hoteldeville.png"));
         bHotelDeVille.addActionListener(new EcouteurDePopup(o));
         bHotelDeVille.setActionCommand("hotel");
 
-        bPompier = new JButton("Pompier");
+        bPompier = new JButton(new ImageIcon("Image/pompier.png"));
         bPompier.addActionListener(new EcouteurDePopup(o));
         bPompier.setActionCommand("pompier");
-
-        //////////////////////////////////////////////////
-        //                                              //
-        //          Bouton pour la destruction          //
-        //                                              //
-        //////////////////////////////////////////////////
-        bDestroy = new JButton(new ImageIcon("Image/bulldozer.png"));
-        bDestroy.addActionListener(new EcouteurDeBarreLateral(o));
-        bDestroy.setActionCommand("destroy");
-
-        bDeplace = new JButton(new ImageIcon("Image/b ulldozer.png"));
-        bDeplace.addActionListener(new EcouteurDeBarreLateral(o));
-        bDeplace.setActionCommand("deplace");
-
-        
 
         
         batiments.add(bLog);
@@ -287,9 +293,7 @@ public class BarreLaterale extends JPanel implements Observer {
         batiments.add(bLoisir);
         batiments.add(bInfra);
         batiments.add(bPublique);
-        batiments.add(bDestroy);
-        batiments.add(bDeplace);
-
+        
         popupLog.setLayout(new GridLayout(1,3));
         popupLog.add(bPavillon);
         popupLog.add(bHLM);
@@ -300,8 +304,10 @@ public class BarreLaterale extends JPanel implements Observer {
         popupBatArg.add(bFerme);
         popupBatArg.add(bCommerce);
 
-        popupInfra.setLayout(new GridLayout(1,1));
+        popupInfra.setLayout(new GridLayout(1,3));
         popupInfra.add(bRoute);
+        popupInfra.add(bDestroy);
+        popupInfra.add(bDeplace);
 
         popupLoisir.setLayout(new GridLayout(2,3));
         popupLoisir.add(bBar);
@@ -322,7 +328,7 @@ public class BarreLaterale extends JPanel implements Observer {
         
         //Panel des conseils
         conseils = new JPanel();
-        conseils.setBackground(new Color(255,153,51));
+        conseils.setBackground(new Color(153,204,255));
         conseils.setPreferredSize(new Dimension(200,200));
         
         
