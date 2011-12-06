@@ -3,7 +3,7 @@ import Batiments.*;
 
 public final class Plateau {
     OudiCity o;
-    private int N = 10;
+    private int N = 40;
     Habitant h;
     Ressources r;
     Employe e;
