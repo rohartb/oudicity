@@ -366,7 +366,7 @@ public class BarreLaterale extends JPanel implements Observer {
         this.remove(conseils);
         this.remove(conseil);
         conseil = new JPanel();
-        conseil.setBackground(new Color(255,153,51));
+        conseils.setBackground(new Color(153,204,255));
         conseil.setPreferredSize(new Dimension(200,200));
         String scourant = pg.getPlateau().plateau[points.getX()][points.getY()]
                 .getGroupe();
@@ -423,7 +423,7 @@ public class BarreLaterale extends JPanel implements Observer {
     public void reInit(){
         this.remove(conseil);
         conseils = new JPanel();
-        conseils.setBackground(new Color(255,153,51));
+        conseils.setBackground(new Color(153,204,255));
         conseils.setPreferredSize(new Dimension(200,200));
         this.add(conseils, BorderLayout.SOUTH);
     }
