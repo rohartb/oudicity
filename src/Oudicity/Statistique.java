@@ -117,7 +117,7 @@ class Statistique extends JFrame{
 
     private int chercheChomeurs() {
         int hab = o.v.nbHabitant;
-        int employe = o.v.p.e.nb_EmployTot;
+        int employe = o.v.p.e.nbTotEmploy();
         int nb;
         if (hab == 0){
             nb = 1;

@@ -16,7 +16,6 @@ public class Impot{
 
     public int preleverImpot() {
        int n = 2*o.v.nbHabitant;
-       
        return n;
     }
 
