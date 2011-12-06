@@ -44,18 +44,20 @@ public class Ville extends Observable implements Observer{
         if(o.getClass()==c.getClass()){
             c = (Calendrier) o;
             
-            // On chnage de jour
+            // On change de jour
             if(jour < c.jour ){
-                /*int consomme = p.h.consommer();
-                if(consomme>0){
-                    System.out.println("Pas assez de bien pour les hab!");
+            	if((annee==1970 && mois>2) || annee>1970){
+                	int consomme = p.h.consommer();
+                	if(consomme>0){
+                    	//System.out.println("Les habitants n'ont pas assez de bien");
+                	}
+                	int nou = p.h.nourrir();
+                	if(nou>0){
+                    	//System.out.println("La population a faim!");
+                	}
                 }
-                int nou = p.h.nourrir();
-                if(nou>0){
-                    System.out.println("Pas assez de nourriture pour les hab!");
-                }*/
                 if(c.jour > jourDebut && jourAtt == 2){
-                    // Augmenter le nombre d'habitant si il ya des palces 
+                    // Augmenter le nombre d'habitant si il ya des places 
                     //dans des logements
                     if(s.f.pg.p.h.logementLibre()){
                         if(indiceAttraction >= 50){

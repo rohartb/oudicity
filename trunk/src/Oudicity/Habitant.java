@@ -93,14 +93,11 @@ public class Habitant {
         if(taille!=0){
             while(i<taille && nb!=0){
                 c=l.get(i);
-                if(c.getStock_bien()<nb){
-                    System.out.println("if");
-                    int stock = c.getStock_bien();
-                    nb -= stock;
-                    c.setStock_bien(-stock);
+                if(c.getReserv_bien()<nb){
+                    nb -= c.getReserv_bien();
+                    c.setReserv_bien(-c.getReserv_bien());
                 }else{
-                    System.out.println("else");
-                    c.setStock_bien(-nb);
+                    c.setReserv_bien(-nb);
                     nb=0;
                 }
                 i++;
@@ -118,11 +115,11 @@ public class Habitant {
         if(taille!=0){
             while(i<taille &&  nb!=0){
                 c=l.get(i);
-                if(c.getStock_nourriture()<nb){
-                    nb -= c.getStock_nourriture();
-                    c.setStock_bien(-c.getStock_nourriture());
+                if(c.getReserv_nourriture()<nb){
+                    nb -= c.getReserv_nourriture();
+                    c.setReserv_nourriture(-c.getReserv_nourriture());
                 }else{
-                    c.setStock_nourriture(-nb);
+                    c.setReserv_nourriture(-nb);
                     nb=0;
                 }
                 i++;

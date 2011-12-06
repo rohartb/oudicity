@@ -4,8 +4,8 @@ import Oudicity.*;
 import java.util.*;
 
 public class Commerce extends BatimentArgent implements Observer{
-    private int stock_nourriture;
-    private int stock_bien;
+    private int reserv_nourriture;
+    private int reserv_bien;
     
     int annee = 1970;
     int mois = 1;
@@ -23,28 +23,28 @@ public class Commerce extends BatimentArgent implements Observer{
         this.type="commerce";
         this.persBat="employe";
         this.groupe="batimentargent";        
-        this.stock_bien=0;
-        this.stock_nourriture=0;
+        this.reserv_bien=0;
+        this.reserv_nourriture=0;
         
         s.t.c.addObserver(this);
     }
 
     /*GETTERS*/
-    public int getStock_bien() {
-        return stock_bien;
+    public int getReserv_bien() {
+        return reserv_bien;
     }
 
-    public int getStock_nourriture() {
-        return stock_nourriture;
+    public int getReserv_nourriture() {
+        return reserv_nourriture;
     }
 
     /*SETTERS*/
-    public void setStock_nourriture(int stock_nourriture) {
-        this.stock_nourriture += stock_nourriture;
+    public void setReserv_nourriture(int nourriture) {
+        this.reserv_nourriture += nourriture;
     }
 
-    public void setStock_bien(int stock_bien) {
-        this.stock_bien += stock_bien;
+    public void setReserv_bien(int bien) {
+        this.reserv_bien += bien;
     }
     
 
@@ -57,31 +57,21 @@ public class Commerce extends BatimentArgent implements Observer{
             if(jour != c.jour){
                 jour = c.jour;
                 if(jour > jourDebut){
-                    if(this.stock_bien < 100){
-                        int a = s.getFenetre().getGraphique().getPlateau().getSC().augmenterStockBien(100);
-                        if(a!=0){
-                            //System.out.println("!pas de bien disponible pour commerce!");
+                    if(this.reserv_bien < 50){
+                        int a = s.getFenetre().getGraphique().getPlateau().getSC().augmenterReservBien(100);
+                        if(a!=0 && this.reserv_nourriture==0){
+                            //System.out.println("Certains commerces n'ont plus de bien dans leur reserve!");
+                            //System.out.println("  ->faire plus d'industries, ou augmenter leur subvention!");
                         }
-                        else{
-                           // System.out.println("assez de bien disponible pour commerce!");
-                        }
-                        //System.out.println("stock bien"+this.stock_bien);
-                        //System.out.println("a"+a);
-                        this.stock_bien += 100-a;
-                        //System.out.println("sb"+this.stock_bien);
-                        
-                        
+                        this.reserv_bien += 100-a;
                     }
-                    if(this.stock_nourriture<100){
-                        int a = s.getFenetre().getGraphique().getPlateau().getSC().augmenterStockNourriture(200);
-                        if(a!=0){
-                           // System.out.println("!pas de nourriture disponible pour commerce!");
+                    if(this.reserv_nourriture<100){
+                        int a = s.getFenetre().getGraphique().getPlateau().getSC().augmenterReservNourriture(200);
+                        if(a!=0 && this.reserv_nourriture==0){
+                           //System.out.println("Certains commerces n'ont plus de nourriture dans leur reserve!");
+                           //System.out.println("  ->faire plus de fermes, ou augmenter leur subvention!");
                         }
-                        else{
-                            //System.out.println("assez de nourriture disponible pour commerce!");
-                        }
-                        this.stock_nourriture += 200-a;
-                        //System.out.println(this.stock_nourriture);
+                        this.reserv_nourriture += 200-a;
                     }
                 }
             }
