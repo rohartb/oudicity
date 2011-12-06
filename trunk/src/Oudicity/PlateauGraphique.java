@@ -25,24 +25,24 @@ public class PlateauGraphique extends JComponent {
         N = p.getTaille();
         herbe = this.getToolkit().getImage("Image/herbe.png");
         pavillon = this.getToolkit().getImage("Image/maison.png");
-        hlm = this.getToolkit().getImage("Image/hlm.gif");
+        hlm = this.getToolkit().getImage("Image/hlm.png");
         building = this.getToolkit().getImage("Image/building.png");
-        industrie = this.getToolkit().getImage("Image/industrie.gif");
+        industrie = this.getToolkit().getImage("Image/industrie.png");
         ferme = this.getToolkit().getImage("Image/ferme.png");
-        commerce = this.getToolkit().getImage("Image/commerce.gif");
-        route = this.getToolkit().getImage("Image/maison.png");
-        bar = this.getToolkit().getImage("Image/herbe.gif");
-        cinema = this.getToolkit().getImage("Image/maison.png");
-        parc = this.getToolkit().getImage("Image/herbe.gif");
-        restaurant = this.getToolkit().getImage("Image/maison.png");
-        stade = this.getToolkit().getImage("Image/herbe.gif");
-        zoo = this.getToolkit().getImage("Image/maison.png");
-        commissariat = this.getToolkit().getImage("Image/herbe.gif");
-        decheterie = this.getToolkit().getImage("Image/maison.png");
-        ecole = this.getToolkit().getImage("Image/herbe.gif");
+        commerce = this.getToolkit().getImage("Image/commerce.png");
+        route = this.getToolkit().getImage("Image/route.png");
+        bar = this.getToolkit().getImage("Image/bar.png");
+        cinema = this.getToolkit().getImage("Image/cinema.png");
+        parc = this.getToolkit().getImage("Image/parc.png");
+        restaurant = this.getToolkit().getImage("Image/restaurant.png");
+        stade = this.getToolkit().getImage("Image/stade.png");
+        zoo = this.getToolkit().getImage("Image/zoo.png");
+        commissariat = this.getToolkit().getImage("Image/commissariat.png");
+        decheterie = this.getToolkit().getImage("Image/decheterie.png");
+        ecole = this.getToolkit().getImage("Image/ecole.png");
         hopital = this.getToolkit().getImage("Image/hopital.png");
-        hotel = this.getToolkit().getImage("Image/herbe.gif");
-        pompier = this.getToolkit().getImage("Image/maison.png");
+        hotel = this.getToolkit().getImage("Image/hotel.png");
+        pompier = this.getToolkit().getImage("Image/pompier.png");
 
     }
 
@@ -100,29 +100,29 @@ public class PlateauGraphique extends JComponent {
                             (int) (j*(height/N)),(int)width/N,
                             (int)height/N, null);
                 }else if(this.p.plateau[i][j].getType().equals("HLM")){
-                    drawable.setPaint(new Color(255,51,51));
-                    drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
-                                     (int)height/N);
+                    drawable.drawImage(hlm,(int)(i*(width/N)),
+                            (int) (j*(height/N)),(int)width/N,
+                            (int)height/N, null);
                 }else if(this.p.plateau[i][j].getType().equals("building")){
-                    drawable.setPaint(new Color(204,0,51));
-                    drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
-                                     (int)height/N);
+                    drawable.drawImage(building,(int)(i*(width/N)),
+                            (int) (j*(height/N)),(int)width/N,
+                            (int)height/N, null);
                 }
 
 
                 // paint pour les batiments argents
                 else if(this.p.plateau[i][j].getType().equals("industrie")){
-                    drawable.setPaint(new Color(255,255,102));
-                    drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
-                                     (int)height/N);
+                    drawable.drawImage(industrie,(int)(i*(width/N)),
+                            (int) (j*(height/N)),(int)width/N,
+                            (int)height/N, null);
                 }else if(this.p.plateau[i][j].getType().equals("ferme")){
-                    drawable.setPaint(new Color(255,255,153));
-                    drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
-                                     (int)height/N);
+                    drawable.drawImage(ferme,(int)(i*(width/N)),
+                            (int) (j*(height/N)),(int)width/N,
+                            (int)height/N, null);
                 }else if(this.p.plateau[i][j].getType().equals("commerce")){
-                    drawable.setPaint(new Color(255,255,204));
-                    drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
-                                     (int)height/N);
+                    drawable.drawImage(commerce,(int)(i*(width/N)),
+                            (int) (j*(height/N)),(int)width/N,
+                            (int)height/N, null);
                 }
 
                 // paint pour les infrastructures
@@ -135,29 +135,29 @@ public class PlateauGraphique extends JComponent {
 
                 // paint pour les loisirs
                 else if(this.p.plateau[i][j].getType().equals("bar")){
-                    drawable.setPaint(new Color( 153,204,255));
-                    drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
-                                     (int)height/N);
+                    drawable.drawImage(bar,(int)(i*(width/N)),
+                            (int) (j*(height/N)),(int)width/N,
+                            (int)height/N, null);
                 }else if(this.p.plateau[i][j].getType().equals("cinema")){
-                    drawable.setPaint(new Color(102,153,255));
-                    drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
-                                     (int)height/N);
+                    drawable.drawImage(cinema,(int)(i*(width/N)),
+                            (int) (j*(height/N)),(int)width/N,
+                            (int)height/N, null);
                 }else if(this.p.plateau[i][j].getType().equals("parc")){
-                    drawable.setPaint(new Color(102,153,204));
-                    drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
-                                     (int)height/N);
+                    drawable.drawImage(parc,(int)(i*(width/N)),
+                            (int) (j*(height/N)),(int)width/N,
+                            (int)height/N, null);
                 }else if(this.p.plateau[i][j].getType().equals("restaurant")){
-                    drawable.setPaint(new Color(51,102,153));
-                    drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
-                                     (int)height/N);
+                    drawable.drawImage(restaurant,(int)(i*(width/N)),
+                            (int) (j*(height/N)),(int)width/N,
+                            (int)height/N, null);
                 }else if(this.p.plateau[i][j].getType().equals("stade")){
-                    drawable.setPaint(new Color(51,102,255));
-                    drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
-                                     (int)height/N);
+                    drawable.drawImage(stade,(int)(i*(width/N)),
+                            (int) (j*(height/N)),(int)width/N,
+                            (int)height/N, null);
                 }else if(this.p.plateau[i][j].getType().equals("zoo")){
-                    drawable.setPaint(new Color(17,68,170));
-                    drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
-                                     (int)height/N);
+                    drawable.drawImage(zoo,(int)(i*(width/N)),
+                            (int) (j*(height/N)),(int)width/N,
+                            (int)height/N, null);
                 }
 
 
