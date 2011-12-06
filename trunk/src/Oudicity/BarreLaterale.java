@@ -16,7 +16,9 @@ public class BarreLaterale extends JPanel implements Observer {
     // panels 
     JPanel info;
     JPanel batiments;
+    JPanel south;
     JPanel conseils;
+    JPanel infoBat;
     JPanel conseil = new JPanel();
     
     // Panel affichage
@@ -329,13 +331,24 @@ public class BarreLaterale extends JPanel implements Observer {
         
         //Panel des conseils
         conseils = new JPanel();
+        conseils.setBorder(BorderFactory.createTitledBorder("Conseils"));
         conseils.setBackground(new Color(153,204,255));
         conseils.setPreferredSize(new Dimension(200,200));
+
+        //Panel des infos sur les batiments
+        infoBat = new JPanel();
+        infoBat.setBorder(BorderFactory.createTitledBorder("Information bâtiment"));
+        infoBat.setBackground(new Color(153,204,255));
+        infoBat.setPreferredSize(new Dimension(200,200));
+
+        south = new JPanel(new BorderLayout());
+        south.add(conseils, BorderLayout.NORTH);
+        south.add(infoBat, BorderLayout.SOUTH);
         
         
         this.add(info,BorderLayout.NORTH);
         this.add(batiments,BorderLayout.CENTER);
-        this.add(conseils,BorderLayout.SOUTH);
+        this.add(south,BorderLayout.SOUTH);
     }
     
     @Override
@@ -364,29 +377,27 @@ public class BarreLaterale extends JPanel implements Observer {
 
     //Initialisation de la barre des conseils
     void initConseil(Points points){
-        this.remove(conseils);
-        this.remove(conseil);
-        conseil = new JPanel();
-        conseils.setBackground(new Color(153,204,255));
-        conseil.setPreferredSize(new Dimension(200,200));
+        south.remove(infoBat);
+        infoBat = new JPanel(new GridLayout(4,1));
+        infoBat.setBorder(BorderFactory.createTitledBorder("Information bâtiment"));
+        infoBat.setBackground(new Color(153,204,255));
+        infoBat.setPreferredSize(new Dimension(200,200));
         String scourant = pg.getPlateau().plateau[points.getX()][points.getY()]
                 .getGroupe();
         String nbs= "", inter;
         int nb = 0, cout = 0;
         if (scourant.equals("logement")){
-            nbs = "Nombre Habitants = ";
             Logement log = (Logement)o.f.pg.getPlateau().
                     plateau[points.getX()][points.getY()];
             nb = log.getNb_habitant();
             cout = log.getPrixDestr();
-
+            nbs = "Nombre Habitants = "+nb;            
         }else if (scourant.equals("batimentargent")){
-            nbs = "Nombre d'Employés = ";
             BatimentArgent arg = (BatimentArgent) o.f.pg.getPlateau().
                     plateau[points.getX()][points.getY()];
             nb = arg.getNb_employe();
             cout = arg.getPrixDestr();
-
+            nbs = "Nombre d'Employés = "+nb;
         }else if (scourant.equals("infrastructure")){
             nbs = "";
             Infrastructure infra = (Infrastructure) o.f.pg.getPlateau().
@@ -396,37 +407,33 @@ public class BarreLaterale extends JPanel implements Observer {
 
         }
 
-        JLabel snb = new JLabel(nbs);
-        snb.setAlignmentX(LEFT_ALIGNMENT);
-
+        
         if(nb >= 0){
-            inter = ""+nb;
+            JLabel snb = new JLabel(nbs);
+            snb.setAlignmentX(LEFT_ALIGNMENT);
+            infoBat.add(snb);
         }else{
             inter = "";
         }
-        JLabel nbPers = new JLabel(inter);
-        nbPers.setAlignmentX(RIGHT_ALIGNMENT);
 
-        JLabel sCout = new JLabel("Coût de destruction");
+        JLabel sCout = new JLabel("Coût de destruction = "+cout);
         sCout.setAlignmentX(LEFT_ALIGNMENT);
 
-        JLabel Cout = new JLabel(""+cout);
-        Cout.setAlignmentX(RIGHT_ALIGNMENT);
+       
 
-        conseil.add(snb);
-        conseil.add(nbPers);
-        conseil.add(sCout);
-        conseil.add(Cout);
+        
+        infoBat.add(sCout);
 
-        this.add(conseil,BorderLayout.SOUTH);
+        south.add(infoBat,BorderLayout.SOUTH);
     }
 
     public void reInit(){
-        this.remove(conseil);
-        conseils = new JPanel();
-        conseils.setBackground(new Color(153,204,255));
-        conseils.setPreferredSize(new Dimension(200,200));
-        this.add(conseils, BorderLayout.SOUTH);
+        south.remove(infoBat);
+        infoBat = new JPanel();
+        infoBat.setBorder(BorderFactory.createTitledBorder("Information bâtiment"));
+        infoBat.setBackground(new Color(153,204,255));
+        infoBat.setPreferredSize(new Dimension(200,200));
+        south.add(infoBat, BorderLayout.SOUTH);
     }
     
 }

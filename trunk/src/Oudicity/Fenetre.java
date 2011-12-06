@@ -9,7 +9,7 @@ public class Fenetre extends JFrame implements Runnable{
     PlateauGraphique pg;
     EcouteurDeGraphique souris;
     private boolean click = false;
-    private String nomBat; 
+    private String nomBat= "";
     
     // Panel page d'accueil
     JPanel accueil;
