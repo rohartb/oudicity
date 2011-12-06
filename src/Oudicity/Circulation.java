@@ -61,27 +61,10 @@ public final class Circulation {
         
         if(reseauRoutier[x][y] == 1){
             lc.add(ch);
-            
-            System.out.println(" lc " + lc.size());
-            
-            System.out.println("com " + ch.batCom.size());
-            System.out.println(" ferm " + ch.batFerm.size());
-            System.out.println("hab " + ch.batHab.size());
-            System.out.println(" ind " + ch.batInd.size());
-            System.out.println(" bat" + ch.batSerPu.size());
-            System.out.println(" loi" + ch.batLoi.size());
         } else {
             Chemin li = new Chemin(p);
             li = fusionner(ch,pchemin);
             lc.add(li);
-            System.out.println(" lc " + lc.size());
-            
-            System.out.println("com " + li.batCom.size());
-            System.out.println(" ferm " + li.batFerm.size());
-            System.out.println("hab " + li.batHab.size());
-            System.out.println(" ind " + li.batInd.size());
-            System.out.println(" bat" + li.batSerPu.size());
-            System.out.println(" loi" + li.batLoi.size());
         }
     }
     
@@ -102,10 +85,8 @@ public final class Circulation {
         
         for(int j=0;j<lp.size();j++){
             lala =lp.get(j);
-            System.out.println(" point lala" + lala.getX() + " " + lala.getY());
             for(int i=0;i<lc.size();i++){
                 chem = lc.get(i);
-                System.out.println("chem points ; " + chem.pc);
                 if(contientPoint(lala,chem)){
                     lc.remove(i);
                     lchem.add(chem);
@@ -210,13 +191,11 @@ public final class Circulation {
          //liste pc
         for(int i=0;i<ch1.pc.size();i++){
             if(ch1.pc.size()>0){
-                System.out.println("ch1 pc " + ch1.pc.size());
                 cheminf.pc.add(ch1.pc.get(i));
             }
         }
         for(int i=0;i<ch2.pc.size();i++){
             if(ch2.pc.size()>0){
-                System.out.println("ch2 pc " + ch2.pc.size());
                 cheminf.pc.add(ch2.pc.get(i));
             }
         }
@@ -224,7 +203,6 @@ public final class Circulation {
         cheminf.nbEmploy = ch1.nbEmploy + ch2.nbEmploy;
         cheminf.nbHabi = ch1.nbHabi + ch2.nbHabi;
         
-        System.out.println("cheminf pc " + cheminf.pc.size());
         return cheminf;
     }
 
@@ -418,4 +396,119 @@ public final class Circulation {
         }
     return n;
     }
+
+   public Chemin trouverChemin(Points lol) {
+        Chemin chemf = new Chemin(p);
+
+        for(int i=0;i<lc.size();i++){
+            chemf = lc.get(i);
+            for(int j=0;j<chemf.pc.size();j++){
+                if(chemf.pc.get(j).getX() == lol.getX() && chemf.pc.get(j).getY() == lol.getY()){
+                    return chemf;
+                }
+            }
+        }
+        return chemf;
+    }
+
+    public LinkedList<Points> routeACote(Points pt) {
+        LinkedList<Points> led = new LinkedList<Points>();
+        LinkedList<Points> ledFinal = new LinkedList<Points>();
+        int x  = pt.getX();
+        int y = pt.getY();
+        Points pf;
+
+        if(x >0 && p.plateau[x-1][y].getType().equals("route")){
+            pf = new Points(x-1,y);
+            led.add(pf);
+        }
+        if(x < p.getTaille()-1 && p.plateau[x+1][y].getType().equals("route")){
+            pf = new Points(x+1,y);
+            led.add(pf);
+        }
+        if(y > 0 && p.plateau[x][y-1].getType().equals("route")){
+            led.add(new Points(x,y-1));
+        }
+        if( y < p.getTaille()-1 && p.plateau[x][y+1].getType().equals("route")){
+            led.add(new Points(y+1,x));
+        }
+
+        if(led.size() == 1){
+            ledFinal.add(led.get(0));
+        }
+        
+        if(led.size()==2){
+            Points p1 = led.get(0);
+            Points p2 = led.get(1);
+
+            ledFinal.add(p1);
+            if(!memeChem(p1,p2)){
+                ledFinal.add(p2);
+            }
+        } else {
+            if(led.size() == 3){
+                Points p1 = led.get(0);
+                Points p2 = led.get(1);
+                Points p3 = led.get(2);
+
+                ledFinal.add(p1);
+                if(!memeChem(p1,p2)){
+                    ledFinal.add(p2);
+                }
+                if(!memeChem(p1,p3) && !memeChem(p2,p3)){
+                     ledFinal.add(p3);
+                }
+            } else {
+                if(led.size() == 4){
+                    Points po1 = led.get(0);
+                    Points po2 = led.get(1);
+                    Points po3 = led.get(2);
+                    Points po4 = led.get(3);
+
+                    ledFinal.add(po1);
+                    if(!memeChem(po1,po2)){
+                        ledFinal.add(po2);
+                    }
+                    if(!memeChem(po1,po3) && !memeChem(po2,po3)){
+                        ledFinal.add(po3);
+                    }
+                    if(!memeChem(po1,po4) && !memeChem(po2,po4) &&
+                                !memeChem(po3,po4)){
+                        ledFinal.add(po4);
+                    }
+                }
+            }
+        }
+
+        return ledFinal;
+    }
+
+    public boolean memeChem(Points p1, Points p2) {
+        boolean estDansMemChemin = false;
+        Chemin chom;
+        boolean estEgalP1 = false;
+        boolean estEgalP2 = false;
+        Points lala;
+
+        for(int i=0;i<lc.size();i++){
+            chom = lc.get(i);
+            for(int j=0;j<chom.pc.size();j++){
+                lala = chom.pc.get(j);
+                if(lala.getX() == p1.getX() && lala.getY() == p1.getY()){
+                    estEgalP1 = true;
+                }
+                if(lala.getX() == p2.getX() && lala.getY() == p2.getY()){
+                    estEgalP2 = true;
+                }
+            }
+            if(estEgalP1 && estEgalP2){
+                estDansMemChemin = true;
+            } else {
+                estEgalP1 = false;
+                estEgalP2 = false;
+            }
+        }
+
+        return estDansMemChemin;
+    } 
 }
