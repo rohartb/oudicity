@@ -19,7 +19,12 @@ public class BarreLaterale extends JPanel implements Observer {
     JPanel south;
     JPanel conseils;
     JPanel infoBat;
-    JPanel conseil = new JPanel();
+    JLabel subvention;
+    JPanel sub;
+    JButton moins;
+    JButton plus;
+    EcouteurDeBarreLateral ec;
+     JLabel labSub;
     
     // Panel affichage
     JPanel maire;
@@ -191,7 +196,7 @@ public class BarreLaterale extends JPanel implements Observer {
 
         bIndus = new JButton(new ImageIcon("Image/industrie.png"));
         bIndus.addActionListener(new EcouteurDePopup(o));
-        bIndus.setActionCommand("industrine");
+        bIndus.setActionCommand("industrie");
         bIndus.setToolTipText("industrie");
         
         bCommerce = new JButton(new ImageIcon("Image/commerce.png"));
@@ -395,8 +400,10 @@ public class BarreLaterale extends JPanel implements Observer {
         infoBat.setPreferredSize(new Dimension(200,200));
         String scourant = pg.getPlateau().plateau[points.getX()][points.getY()]
                 .getGroupe();
-        String nbs= "", inter;
+        String nbs= "";
         int nb = 0, cout = 0;
+        sub = new JPanel(new GridLayout(1,4));
+
         if (scourant.equals("logement")){
             Logement log = (Logement)o.f.pg.getPlateau().
                     plateau[points.getX()][points.getY()];
@@ -406,6 +413,30 @@ public class BarreLaterale extends JPanel implements Observer {
         }else if (scourant.equals("batimentargent")){
             BatimentArgent arg = (BatimentArgent) o.f.pg.getPlateau().
                     plateau[points.getX()][points.getY()];
+            if(!arg.getType().equals("commerce")){
+               labSub = new JLabel("Subventions");
+                moins = new JButton("-");
+                ec = new EcouteurDeBarreLateral(o);
+                moins.addActionListener(ec);
+                moins.setActionCommand("moins");
+                plus = new JButton("+");
+                plus.addActionListener(ec);
+                plus.setActionCommand("plus");
+                ec.p = points;
+                
+                if (arg.getType().equals("industrie")){
+                    Industrie ind = (Industrie) arg;
+                    subvention = new JLabel(""+ind.getSubvention());
+                }else if (arg.getType().equals("ferme")){
+                    Ferme fer = (Ferme) arg;
+                    subvention = new JLabel("  "+fer.getSubvention());
+                    
+                }
+                sub.add(moins);
+                sub.add(subvention);
+                sub.add(plus);
+                sub.setBackground(new Color(153,204,255));
+            }
             nb = arg.getNb_employe();
             cout = arg.getPrixDestr();
             nbs = "Nombre d'Employés = "+nb;
@@ -423,17 +454,15 @@ public class BarreLaterale extends JPanel implements Observer {
             JLabel snb = new JLabel(nbs);
             snb.setAlignmentX(LEFT_ALIGNMENT);
             infoBat.add(snb);
-        }else{
-            inter = "";
         }
 
         JLabel sCout = new JLabel("Coût de destruction = "+cout);
         sCout.setAlignmentX(LEFT_ALIGNMENT);
-
-       
-
+      
         
         infoBat.add(sCout);
+        infoBat.add(labSub);
+        infoBat.add(sub);
 
         south.add(infoBat,BorderLayout.SOUTH);
     }
@@ -445,6 +474,17 @@ public class BarreLaterale extends JPanel implements Observer {
         infoBat.setBackground(new Color(153,204,255));
         infoBat.setPreferredSize(new Dimension(200,200));
         south.add(infoBat, BorderLayout.SOUTH);
+    }
+
+    public void changeSub(int n){
+        sub.remove(subvention);
+        sub.remove(plus);
+        subvention = new JLabel("  "+n);
+        plus = new JButton("+");
+        plus.addActionListener(ec);
+        plus.setActionCommand("plus");
+        sub.add(subvention);
+        sub.add(plus);
     }
     
 }

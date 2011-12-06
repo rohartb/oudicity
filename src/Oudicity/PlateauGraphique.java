@@ -16,7 +16,7 @@ public class PlateauGraphique extends JComponent {
           decheterie, ecole, hopital, hotel, pompier;
 
     
-    private float width, height;
+    private int width, height;
     float xM, xCase;
 
     PlateauGraphique(OudiCity o){
@@ -128,8 +128,10 @@ public class PlateauGraphique extends JComponent {
                 // paint pour les infrastructures
                 else if(this.p.plateau[i][j].getType().equals("route")){
                     drawable.setPaint(new Color(51,51,51));
-                    drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
-                                     (int)height/N);
+                    drawable.draw(new Rectangle2D.Float(i*(width/N), j*(height/N),
+                           width/N, height/N));
+                    /*drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
+                                     (int)height/N);*/
                 }
 
 

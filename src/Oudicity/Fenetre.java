@@ -36,6 +36,10 @@ public class Fenetre extends JFrame implements Runnable{
         return pg;
     }
 
+    public BarreLaterale getBarreL(){
+        return barreL;
+    }
+
     public boolean getClick(){
         return click;
     }
@@ -126,6 +130,7 @@ public class Fenetre extends JFrame implements Runnable{
         s.v = new Ville(s.nomVille,s.nomMaire,s);
         s.thTemps.start();
         barreL = new BarreLaterale(s);
+        barreL.setPreferredSize(new Dimension(200,900));
         bar = new JMenuBar();
         menu = new JMenu("Fichier");
         nouv = new JMenuItem("Nouveau");

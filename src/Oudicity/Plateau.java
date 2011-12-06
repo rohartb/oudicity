@@ -50,6 +50,7 @@ public final class Plateau {
             xc = x/((o.f.pg.getWidth())/N);
             yc = y/(o.f.pg.getHeight()/N);
             p = new Points(xc, yc);
+            System.out.println("xc : "+xc+"  yc : "+yc);
             return p;
     }
 
@@ -62,8 +63,8 @@ public final class Plateau {
         }else if (this.plateau[p.getX()][p.getY()].getGroupe().
                 equals("loisir")){
 
-        }else if (this.plateau[p.getX()][p.getY()].getGroupe().
-                equals("infrastructure")){
+        }else if (this.plateau[p.getX()][p.getY()].getType().
+                equals("route")){
 
         }
         nouveauBatiment(p, "herbe");
