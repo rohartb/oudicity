@@ -1,5 +1,6 @@
 package Oudicity;
 import java.awt.event.*;
+import java.util.*;
 
 
 class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
@@ -23,32 +24,72 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
                 o.f.pg.setFin(false);
             }
             if(o.f.getClick()){
+                LinkedList<Points> lpet = new LinkedList<Points>();
+                lpet = o.f.pg.p.c.routeACote(pt);
+
                 //quand on click sur un logement
                 if(o.f.getNomBat().equals("pavillon")){
                     o.f.pg.p.nouveauBatiment(pt, "pavillon");
                     o.v.payerBatiment(pt);
+                    if(lpet.size()>0){
+                        for(int k=0;k<lpet.size();k++){
+                           Chemin chelou = o.f.pg.p.c.trouverChemin(lpet.get(k));
+                           chelou.batHab.add(pt);
+                        }
+                    }
                 }
+
                 if(o.f.getNomBat().equals("HLM")){
                     o.f.pg.p.nouveauBatiment(pt, "hlm");
                     o.v.payerBatiment(pt);
+                    if(lpet.size()>0){
+                        for(int k=0;k<lpet.size();k++){
+                           Chemin chelou = o.f.pg.p.c.trouverChemin(lpet.get(k));
+                           chelou.batHab.add(pt);
+                        }
+                    }
                 }
                 if(o.f.getNomBat().equals("building")){
                     o.f.pg.p.nouveauBatiment(pt, "building");
                     o.v.payerBatiment(pt);
+                    if(lpet.size()>0){
+                        for(int k=0;k<lpet.size();k++){
+                           Chemin chelou = o.f.pg.p.c.trouverChemin(lpet.get(k));
+                           chelou.batHab.add(pt);
+                        }
+                    }
                 }
 
                 //quand on click sur un batiment argent
                 if(o.f.getNomBat().equals("industrie")){
                     o.f.pg.p.nouveauBatiment(pt, "industrie");
                     o.v.payerBatiment(pt);
+                    if(lpet.size()>0){
+                        for(int k=0;k<lpet.size();k++){
+                           Chemin chelou = o.f.pg.p.c.trouverChemin(lpet.get(k));
+                           chelou.batInd.add(pt);
+                        }
+                    }
                 }
                 if(o.f.getNomBat().equals("ferme")){
                     o.f.pg.p.nouveauBatiment(pt, "ferme");
                     o.v.payerBatiment(pt);
+                    if(lpet.size()>0){
+                        for(int k=0;k<lpet.size();k++){
+                           Chemin chelou = o.f.pg.p.c.trouverChemin(lpet.get(k));
+                           chelou.batFerm.add(pt);
+                        }
+                    }
                 }
                 if(o.f.getNomBat().equals("commerce")){
                     o.f.pg.p.nouveauBatiment(pt, "commerce");
                     o.v.payerBatiment(pt);
+                    if(lpet.size()>0){
+                        for(int k=0;k<lpet.size();k++){
+                           Chemin chelou = o.f.pg.p.c.trouverChemin(lpet.get(k));
+                           chelou.batCom.add(pt);
+                        }
+                    }
                 }
 
                 //quand on click sur une infrastructure
@@ -62,52 +103,124 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
                 if(o.f.getNomBat().equals("bar")){
                     o.f.pg.p.nouveauBatiment(pt, "bar");
                     o.v.payerBatiment(pt);
+                    if(lpet.size()>0){
+                        for(int k=0;k<lpet.size();k++){
+                           Chemin chelou = o.f.pg.p.c.trouverChemin(lpet.get(k));
+                           chelou.batLoi.add(pt);
+                        }
+                    }
                 }
                 if(o.f.getNomBat().equals("cinema")){
                     o.f.pg.p.nouveauBatiment(pt, "cinema");
                     o.v.payerBatiment(pt);
+                    if(lpet.size()>0){
+                        for(int k=0;k<lpet.size();k++){
+                           Chemin chelou = o.f.pg.p.c.trouverChemin(lpet.get(k));
+                           chelou.batLoi.add(pt);
+                        }
+                    }
                 }
                 if(o.f.getNomBat().equals("parc")){
                     o.f.pg.p.nouveauBatiment(pt, "parc");
                     o.v.payerBatiment(pt);
+                    if(lpet.size()>0){
+                        for(int k=0;k<lpet.size();k++){
+                           Chemin chelou = o.f.pg.p.c.trouverChemin(lpet.get(k));
+                           chelou.batLoi.add(pt);
+                        }
+                    }
                 }
                 if(o.f.getNomBat().equals("restaurant")){
                     o.f.pg.p.nouveauBatiment(pt, "restaurant");
                     o.v.payerBatiment(pt);
+                    if(lpet.size()>0){
+                        for(int k=0;k<lpet.size();k++){
+                           Chemin chelou = o.f.pg.p.c.trouverChemin(lpet.get(k));
+                           chelou.batLoi.add(pt);
+                        }
+                    }
                 }
                 if(o.f.getNomBat().equals("stade")){
                     o.f.pg.p.nouveauBatiment(pt, "stade");
                     o.v.payerBatiment(pt);
+                    if(lpet.size()>0){
+                        for(int k=0;k<lpet.size();k++){
+                           Chemin chelou = o.f.pg.p.c.trouverChemin(lpet.get(k));
+                           chelou.batLoi.add(pt);
+                        }
+                    }
                 }
                 if(o.f.getNomBat().equals("zoo")){
                     o.f.pg.p.nouveauBatiment(pt, "zoo");
                     o.v.payerBatiment(pt);
+                    if(lpet.size()>0){
+                        for(int k=0;k<lpet.size();k++){
+                           Chemin chelou = o.f.pg.p.c.trouverChemin(lpet.get(k));
+                           chelou.batLoi.add(pt);
+                        }
+                    }
                 }
 
                 //quand on click sur un service publique
                 if(o.f.getNomBat().equals("commissariat")){
                     o.f.pg.p.nouveauBatiment(pt, "commissariat");
                     o.v.payerBatiment(pt);
+                    if(lpet.size()>0){
+                        for(int k=0;k<lpet.size();k++){
+                           Chemin chelou = o.f.pg.p.c.trouverChemin(lpet.get(k));
+                           chelou.batSerPu.add(pt);
+                        }
+                    }
                 }
                 if(o.f.getNomBat().equals("decheterie")){
                     o.f.pg.p.nouveauBatiment(pt, "decheterie");
                     o.v.payerBatiment(pt);
+                    if(lpet.size()>0){
+                        for(int k=0;k<lpet.size();k++){
+                           Chemin chelou = o.f.pg.p.c.trouverChemin(lpet.get(k));
+                           chelou.batSerPu.add(pt);
+                        }
+                    }
                 }
                 if(o.f.getNomBat().equals("ecole")){
                     o.f.pg.p.nouveauBatiment(pt, "ecole");
                     o.v.payerBatiment(pt);
+                    if(lpet.size()>0){
+                        for(int k=0;k<lpet.size();k++){
+                           Chemin chelou = o.f.pg.p.c.trouverChemin(lpet.get(k));
+                           chelou.batSerPu.add(pt);
+                        }
+                    }
                 }
                 if(o.f.getNomBat().equals("hopital")){
                     o.f.pg.p.nouveauBatiment(pt, "hopital");
                     o.v.payerBatiment(pt);
+                    if(lpet.size()>0){
+                        for(int k=0;k<lpet.size();k++){
+                           Chemin chelou = o.f.pg.p.c.trouverChemin(lpet.get(k));
+                           chelou.batSerPu.add(pt);
+                        }
+                    }
                 }
                 if(o.f.getNomBat().equals("hotel")){
                     o.f.pg.p.nouveauBatiment(pt, "hotel");
                     o.v.payerBatiment(pt);
+                    if(lpet.size()>0){
+                        for(int k=0;k<lpet.size();k++){
+                           Chemin chelou = o.f.pg.p.c.trouverChemin(lpet.get(k));
+                           chelou.batSerPu.add(pt);
+                        }
+                    }
                 }
                 if(o.f.getNomBat().equals("pompier")){
                     o.f.pg.p.nouveauBatiment(pt, "pompier");
                     o.v.payerBatiment(pt);
+                    if(lpet.size()>0){
+                        for(int k=0;k<lpet.size();k++){
+                           Chemin chelou = o.f.pg.p.c.trouverChemin(lpet.get(k));
+                           chelou.batSerPu.add(pt);
+                        }
+                    }
                 }
                 
             }

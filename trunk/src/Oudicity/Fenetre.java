@@ -66,7 +66,7 @@ public class Fenetre extends JFrame implements Runnable{
         
         accueil = new JPanel(new GridLayout(2,1));
         accueil.setSize(800,700);
-        accueil.setBackground(Color.WHITE);
+        accueil.setBackground(Color.white);
 
         bienvenue = new JLabel(new ImageIcon("Image/Bienvenue.png"));
         

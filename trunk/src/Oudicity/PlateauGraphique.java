@@ -38,7 +38,7 @@ public class PlateauGraphique extends JComponent {
         commissariat = this.getToolkit().getImage("Image/herbe.gif");
         decheterie = this.getToolkit().getImage("Image/maison.png");
         ecole = this.getToolkit().getImage("Image/herbe.gif");
-        hopital = this.getToolkit().getImage("Image/maison.png");
+        hopital = this.getToolkit().getImage("Image/hopital.png");
         hotel = this.getToolkit().getImage("Image/herbe.gif");
         pompier = this.getToolkit().getImage("Image/maison.png");
 
@@ -173,9 +173,9 @@ public class PlateauGraphique extends JComponent {
                     drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
                                      (int)height/N);
                 }else if(this.p.plateau[i][j].getType().equals("hopital")){
-                    drawable.setPaint(new Color(255,102,255));
-                    drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
-                                     (int)height/N);
+                    drawable.drawImage(hopital,(int)(i*(width/N)),
+                            (int) (j*(height/N)),(int)width/N,
+                            (int)height/N, null);
                 }else if(this.p.plateau[i][j].getType().equals("hoteldeville")){
                     drawable.setPaint(new Color(153,51,204));
                     drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,

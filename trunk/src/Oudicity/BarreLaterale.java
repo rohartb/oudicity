@@ -147,7 +147,7 @@ public class BarreLaterale extends JPanel implements Observer {
         //      Bouton et Popup pour les logements      //
         //                                              //
         //////////////////////////////////////////////////
-        bLog = new JButton(new ImageIcon("Image/maison.png"));
+        bLog = new JButton(new ImageIcon("Image/maisonSF.png"));
         bLog.setPreferredSize(new Dimension(30,30));
         bLog.addActionListener(new EcouteurDeBarreLateral(o));
         bLog.setActionCommand("logement");
@@ -254,7 +254,7 @@ public class BarreLaterale extends JPanel implements Observer {
         bEcole.addActionListener(new EcouteurDePopup(o));
         bEcole.setActionCommand("ecole");
 
-        bHopital = new JButton("Hopital");
+        bHopital = new JButton(new ImageIcon("Image/hopitalSF.png"));
         bHopital.addActionListener(new EcouteurDePopup(o));
         bHopital.setActionCommand("hopital");
 
