@@ -50,11 +50,14 @@ public class Ville extends Observable implements Observer{
             if(jour < c.jour ){
             	if((annee==1970 && mois>2) || annee>1970){
                 	int consomme = p.h.consommer();
+                        argent += (nbHabitant/2)-consomme;
+                        
                 	if(consomme>0){
                             //System.out.println("Les habitants n'ont pas assez de bien");
                             //System.out.println("  ->ajouter des commerces");
                 	}
                 	int nou = p.h.nourrir();
+                        argent += (2*nbHabitant/5)-nou;
                 	if(nou>0){
                             //System.out.println("La population a faim!")
                             //System.out.println("  ->ajouter des commerces");
@@ -82,6 +85,15 @@ public class Ville extends Observable implements Observer{
              if(c.mois > mois){
                  mois = c.mois;
                  jour = 1;
+                 int cout_entretien=0;
+                 for(int i=0; i<p.getTaille();i++){
+                     for(int j=0; j<p.getTaille();j++){
+                         if(!p.plateau[i][j].getType().equals("herbe")){
+                             cout_entretien += p.plateau[i][j].getCoutEntretien();
+                         }
+                     }
+                 }
+                 argent -= cout_entretien;                 
              }
              
              if(c.annee > annee){
