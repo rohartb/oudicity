@@ -202,6 +202,7 @@ public final class Circulation {
         
         cheminf.nbEmploy = ch1.nbEmploy + ch2.nbEmploy;
         cheminf.nbHabi = ch1.nbHabi + ch2.nbHabi;
+        cheminf.nbEmployMax = ch1.nbEmployMax + ch2.nbEmployMax;
         
         return cheminf;
     }
@@ -333,6 +334,7 @@ public final class Circulation {
         
         ch.nbHabi = calculerHab(ch);
         ch.nbEmploy = calulerEmploy(ch);
+        ch.nbEmployMax = calulerEmployMax(ch);
         
         return ch;
     }
@@ -392,6 +394,52 @@ public final class Circulation {
                 pop = ch.batSerPu.get(i);
                 ServicePublic batman = (ServicePublic) p.plateau[pop.getX()][pop.getY()];
                 n += batman.getNb_employe();   
+            }
+        }
+    return n;
+    }
+    
+    private int calulerEmployMax(Chemin ch) {
+        int n = 0;
+        Points pop = null;
+        
+        if(ch.batCom != null){
+            for(int i=0; i<ch.batCom.size(); i++){
+                pop = ch.batCom.get(i);
+                Commerce batman = (Commerce) p.plateau[pop.getX()][pop.getY()];
+                n += batman.getNb_employe_MAX();   
+            }
+        }
+        
+        if(ch.batInd != null){
+            for(int i=0; i<ch.batInd.size(); i++){
+                pop = ch.batInd.get(i);
+                Industrie batman = (Industrie) p.plateau[pop.getX()][pop.getY()];
+                n += batman.getNb_employe_MAX();   
+            }
+        }
+        
+        if(ch.batFerm != null){
+            for(int i=0; i<ch.batFerm.size(); i++){
+                pop = ch.batFerm.get(i);
+                Ferme batman = (Ferme) p.plateau[pop.getX()][pop.getY()];
+                n += batman.getNb_employe_MAX();   
+            }
+        }
+        
+        if(ch.batLoi != null){
+            for(int i=0; i<ch.batLoi.size(); i++){
+                pop = ch.batLoi.get(i);
+                Loisir batman = (Loisir) p.plateau[pop.getX()][pop.getY()];
+                n += batman.getNb_employe_MAX();   
+            }
+        }
+        
+        if(ch.batSerPu != null){
+            for(int i=0; i<ch.batSerPu.size(); i++){
+                pop = ch.batSerPu.get(i);
+                ServicePublic batman = (ServicePublic) p.plateau[pop.getX()][pop.getY()];
+                n += batman.getNb_employe_MAX();   
             }
         }
     return n;
