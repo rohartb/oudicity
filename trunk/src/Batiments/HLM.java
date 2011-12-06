@@ -13,7 +13,7 @@ public class HLM extends Logement {
         this.type="HLM";
         this.persBat="habitant";
         this.groupe="logement";
-        this.nb_habitant_MAX=10;
+        this.nb_habitant_MAX=50;
         this.nb_habitant=0;
     }
     

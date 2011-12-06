@@ -63,8 +63,9 @@ public class BarreLaterale extends JPanel implements Observer {
     JButton bHotelDeVille;
     JButton bPompier;
 
-    //boutons pour la destruction
+    //boutons pour la destruction et le déplacement
     JButton bDestroy;
+    JButton bDeplace;
 
     //Différents popup
     JPopupMenu popupLog = new JPopupMenu("Logements");
@@ -274,6 +275,10 @@ public class BarreLaterale extends JPanel implements Observer {
         bDestroy.addActionListener(new EcouteurDeBarreLateral(o));
         bDestroy.setActionCommand("destroy");
 
+        bDeplace = new JButton(new ImageIcon("Image/b ulldozer.png"));
+        bDeplace.addActionListener(new EcouteurDeBarreLateral(o));
+        bDeplace.setActionCommand("deplace");
+
         
 
         
@@ -283,6 +288,7 @@ public class BarreLaterale extends JPanel implements Observer {
         batiments.add(bInfra);
         batiments.add(bPublique);
         batiments.add(bDestroy);
+        batiments.add(bDeplace);
 
         popupLog.setLayout(new GridLayout(1,3));
         popupLog.add(bPavillon);

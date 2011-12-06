@@ -14,6 +14,7 @@ class EcouteurDeBarreLateral implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
+        o.f.pg.fin = false;
         if(e.getActionCommand().equals("logement")){
             o.f.barreL.popupLog.show(o.f.barreL.bLog, 50, 50);
         }else if (e.getActionCommand().equals("BatimentArgent")){
@@ -28,6 +29,13 @@ class EcouteurDeBarreLateral implements ActionListener{
             if(o.f.getClick() == false || !o.f.getNomBat().equals("destroy")){
                 o.f.setClick(true);
                 o.f.setNomBat("destroy");
+            }else{
+                 o.f.setClick(false);
+            }
+        }else if (e.getActionCommand().equals("deplace")){
+            if(o.f.getClick() == false || !o.f.getNomBat().equals("deplace")){
+                o.f.setClick(true);
+                o.f.setNomBat("deplace");
             }else{
                  o.f.setClick(false);
             }
