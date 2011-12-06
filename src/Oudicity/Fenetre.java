@@ -65,7 +65,7 @@ public class Fenetre extends JFrame implements Runnable{
         //////////////////////////////////////
         
         accueil = new JPanel(new GridLayout(2,1));
-        accueil.setSize(800,700);
+        accueil.setSize(1000,900);
         accueil.setBackground(Color.white);
 
         bienvenue = new JLabel(new ImageIcon("Image/Bienvenue.png"));
@@ -106,7 +106,7 @@ public class Fenetre extends JFrame implements Runnable{
         
         
         //Fenetre du jeu
-        this.setSize(800,700);
+        this.setSize(1000,900);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
     }
