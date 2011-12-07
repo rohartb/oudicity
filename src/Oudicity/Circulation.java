@@ -261,7 +261,7 @@ public final class Circulation {
                 else if(a.getGroupe().equals("loisir")){
                     ch.batLoi.add(new Points(x-1,y));
                 }
-                else if(a.getGroupe().equals("servicepublique")){
+                else if(a.getGroupe().equals("servicepublic")){
                     ch.batSerPu.add(new Points(x-1,y));
                 } else {
                     if(a.getGroupe().equals("logement")){
@@ -288,7 +288,7 @@ public final class Circulation {
                 else if(a.getGroupe().equals("loisir")){
                     ch.batLoi.add(new Points(x+1,y));
                 }
-                else if(a.getGroupe().equals("servicepublique")){
+                else if(a.getGroupe().equals("servicepublic")){
                     ch.batSerPu.add(new Points(x+1,y));
                 } else {
                     if(a.getGroupe().equals("logement")){
@@ -317,7 +317,7 @@ public final class Circulation {
                 else if(a.getGroupe().equals("loisir")){
                     ch.batLoi.add(new Points(x,y-1));
                 }
-                else if(a.getGroupe().equals("servicepublique")){
+                else if(a.getGroupe().equals("servicepublic")){
                     ch.batSerPu.add(new Points(x,y-1));
                 } else {
                     if(a.getGroupe().equals("logement")){
@@ -344,7 +344,7 @@ public final class Circulation {
                 else if(a.getGroupe().equals("loisir")){
                     ch.batLoi.add(new Points(x,y+1));
                 }
-                else if(a.getGroupe().equals("servicepublique")){
+                else if(a.getGroupe().equals("servicepublic")){
                     ch.batSerPu.add(new Points(x,y+1));
                 } else {
                     if(a.getGroupe().equals("logement")){
@@ -684,7 +684,7 @@ public final class Circulation {
                     cheminee.nbEmploy -= pwin.getX();
                     cheminee.nbEmployMax -= pwin.getY();
                 }
-                else if(batt.getGroupe().equals("servicepublique")){
+                else if(batt.getGroupe().equals("servicepublic")){
                     pwin = supprimerBatListe(cheminee.batSerPu,pete);
                     cheminee.nbEmploy -= pwin.getX();
                     cheminee.nbEmployMax -= pwin.getY();
@@ -745,7 +745,7 @@ public final class Circulation {
                     pNombre = new Points(bobet.getNb_employe(),bobet.getNb_employe_MAX());
                     batList.remove(i);
                 }
-                else if(blatte.getGroupe().equals("servicepublique")){
+                else if(blatte.getGroupe().equals("servicepublic")){
                     ServicePublic bobet = (ServicePublic) p.plateau[poing.getX()][poing.getX()];
                     pNombre = new Points(bobet.getNb_employe(),bobet.getNb_employe_MAX());
                     batList.remove(i);
