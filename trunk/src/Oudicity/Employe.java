@@ -265,12 +265,13 @@ public final class Employe {
     private LinkedList<Points> listeConcatene(LinkedList<Points> l1, LinkedList<Points> l2) {
         int i = 0;
         int taille = l2.size();
+        LinkedList<Points> l = l1;
         Points pt;
         while(i<taille){
             pt=l2.get(i);
-            l1.add(pt);
+            l.add(pt);
             i++;
         }
-        return l1;
+        return l;
     }
 }

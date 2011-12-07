@@ -106,7 +106,7 @@ public class BarreLaterale extends JPanel implements Observer {
         o.v.addObserver(this);
         
         this.setLayout(new BorderLayout());
-        this.setPreferredSize(new Dimension(200,700));
+        this.setPreferredSize(new Dimension(200,800));
         this.setLayout(new BorderLayout());
         
         //Panel au NORD contenant les informations
@@ -162,7 +162,7 @@ public class BarreLaterale extends JPanel implements Observer {
         //Panel des batiments
         batiments = new JPanel();
         batiments.setBackground(new Color(153,204,255));
-        batiments.setPreferredSize(new Dimension(100,100));
+        batiments.setPreferredSize(new Dimension(100,200));
 
         
         //Ajout des bouton qui symbolisent les batiments
@@ -357,13 +357,13 @@ public class BarreLaterale extends JPanel implements Observer {
         conseils = new JPanel(new GridLayout(4,1));
         conseils.setBorder(BorderFactory.createTitledBorder("Conseils"));
         conseils.setBackground(new Color(153,204,255));
-        conseils.setPreferredSize(new Dimension(200,200));
+        conseils.setPreferredSize(new Dimension(200,150));
 
         //Panel des infos sur les batiments
         infoBat = new JPanel();
         infoBat.setBorder(BorderFactory.createTitledBorder("Information bâtiment"));
         infoBat.setBackground(new Color(153,204,255));
-        infoBat.setPreferredSize(new Dimension(200,200));
+        infoBat.setPreferredSize(new Dimension(200,150));
 
         south = new JPanel(new BorderLayout());
         south.add(conseils, BorderLayout.NORTH);
@@ -405,12 +405,15 @@ public class BarreLaterale extends JPanel implements Observer {
         infoBat = new JPanel(new GridLayout(4,1));
         infoBat.setBorder(BorderFactory.createTitledBorder("Information bâtiment"));
         infoBat.setBackground(new Color(153,204,255));
-        infoBat.setPreferredSize(new Dimension(200,200));
+        infoBat.setPreferredSize(new Dimension(200,150));
         String scourant = pg.getPlateau().plateau[points.getX()][points.getY()]
                 .getGroupe();
         String nbs= "";
         int nb = 0, cout = 0;
+        boolean b =false;
+        
         sub = new JPanel(new GridLayout(1,4));
+        sub.setBackground(new Color(153,204,255));
 
         if (scourant.equals("logement")){
             Logement log = (Logement)o.f.pg.getPlateau().
@@ -422,7 +425,9 @@ public class BarreLaterale extends JPanel implements Observer {
             BatimentArgent arg = (BatimentArgent) o.f.pg.getPlateau().
                     plateau[points.getX()][points.getY()];
             if(!arg.getType().equals("commerce")){
-               labSub = new JLabel("Subventions");
+                b = true;
+                labSub = new JLabel("Subventions");
+                labSub.setBackground(new Color(153,204,255));
                 moins = new JButton("-");
                 ec = new EcouteurDeBarreLateral(o);
                 moins.addActionListener(ec);
@@ -435,9 +440,11 @@ public class BarreLaterale extends JPanel implements Observer {
                 if (arg.getType().equals("industrie")){
                     Industrie ind = (Industrie) arg;
                     subvention = new JLabel(""+ind.getSubvention());
+                    subvention.setBackground(new Color(153,204,255));
                 }else if (arg.getType().equals("ferme")){
                     Ferme fer = (Ferme) arg;
                     subvention = new JLabel("  "+fer.getSubvention());
+                    subvention.setBackground(new Color(153,204,255));
                     
                 }
                 sub.add(moins);
@@ -461,6 +468,7 @@ public class BarreLaterale extends JPanel implements Observer {
         if(nb >= 0){
             JLabel snb = new JLabel(nbs);
             snb.setAlignmentX(LEFT_ALIGNMENT);
+            snb.setBackground(new Color(153,204,255));
             infoBat.add(snb);
         }
 
@@ -469,7 +477,10 @@ public class BarreLaterale extends JPanel implements Observer {
       
         
         infoBat.add(sCout);
-        infoBat.add(labSub);
+        if(b){
+            infoBat.add(labSub);
+            b=false;
+        }
         infoBat.add(sub);
 
         south.add(infoBat,BorderLayout.SOUTH);
@@ -480,7 +491,7 @@ public class BarreLaterale extends JPanel implements Observer {
         infoBat = new JPanel();
         infoBat.setBorder(BorderFactory.createTitledBorder("Information bâtiment"));
         infoBat.setBackground(new Color(153,204,255));
-        infoBat.setPreferredSize(new Dimension(200,200));
+        infoBat.setPreferredSize(new Dimension(200,150));
         south.add(infoBat, BorderLayout.SOUTH);
     }
 
@@ -488,6 +499,7 @@ public class BarreLaterale extends JPanel implements Observer {
         sub.remove(subvention);
         sub.remove(plus);
         subvention = new JLabel("  "+n);
+        subvention.setBackground(new Color(153,204,255));
         plus = new JButton("+");
         plus.addActionListener(ec);
         plus.setActionCommand("plus");

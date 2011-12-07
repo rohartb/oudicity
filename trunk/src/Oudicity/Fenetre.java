@@ -74,7 +74,8 @@ public class Fenetre extends JFrame implements Runnable{
         //////////////////////////////////////
         
         accueil = new JPanel(new GridLayout(2,1));
-        accueil.setSize(900,900);
+
+        accueil.setSize(1000,800);
         accueil.setBackground(Color.white); 
 
         bienvenue = new JLabel(new ImageIcon("Image/Bienvenue.png"));
@@ -115,7 +116,7 @@ public class Fenetre extends JFrame implements Runnable{
         
         
         //Fenetre du jeu
-        this.setSize(1000,900);
+        this.setSize(1000,800);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
     }
@@ -129,7 +130,7 @@ public class Fenetre extends JFrame implements Runnable{
         s.v = new Ville(s.nomVille,s.nomMaire,s);
         s.thTemps.start();
         barreL = new BarreLaterale(s);
-        barreL.setPreferredSize(new Dimension(200,900));
+        barreL.setPreferredSize(new Dimension(200,800));
         bar = new JMenuBar();
         menu = new JMenu("Fichier");
         nouv = new JMenuItem("Nouveau");
