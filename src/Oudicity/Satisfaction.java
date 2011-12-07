@@ -37,7 +37,14 @@ public final class Satisfaction {
                 }
             }
         }
-        attirance = attirance/nb;
+        if(nb == 0){
+            attirance = 0;
+        } else {
+            attirance = attirance/nb;
+            if(attirance > 1000){
+                attirance = 1000;
+            }
+        }
 
         return attirance;
     }
