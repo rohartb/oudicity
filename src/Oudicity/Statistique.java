@@ -41,7 +41,8 @@ class Statistique extends JFrame{
         argent.setBorder(BorderFactory.createTitledBorder("Argent"));
         argent.add(arg);
 
-        int attract = 0;
+        Satisfaction sat = new Satisfaction(o.f.pg.getPlateau());
+        int attract = sat.calculContentement();
         attraction = new JPanel();
         attraction.setBackground(Color.WHITE);
         JLabel att = new JLabel(""+attract);
