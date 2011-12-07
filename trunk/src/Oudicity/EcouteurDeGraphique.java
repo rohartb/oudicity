@@ -94,6 +94,7 @@ class EcouteurDeGraphique implements MouseListener, MouseMotionListener{
                             for(int k=0;k<lpet.size();k++){
                                Chemin chelou = o.f.pg.p.c.trouverChemin(lpet.get(k));
                                chelou.batCom.add(pt);
+                               System.out.println("liste commerce " + chelou.batCom.size());
                                BatimentArgent i = (BatimentArgent) o.f.pg.p.plateau[pt.getX()][pt.getY()];
                                chelou.nbEmployMax += i.getNb_employe_MAX();
                             }

@@ -62,16 +62,20 @@ public class Habitant {
         int nbMax;
         Points pt;
         Logement log;
+        Chemin ch;
        
         LinkedList<Points> l = plateauContientLogementLibre();
         i = rand.nextInt(l.size());
         pt = l.get(i);
         log = (Logement) p.plateau[pt.getX()][pt.getY()];
         nbMax = log.getAugmenter_habitant();
+        ch = p.c.trouverChemin(pt);
         
+                
         if(nbMax <5){
             nb = nbMax;
             log.setNb_habitant(nb);
+            ch.nbHabi+=nb;
         } else {
             r = rand.nextInt(nbMax);
             while(r == 0){
@@ -79,6 +83,7 @@ public class Habitant {
             }
             nb = r;
             log.setNb_habitant(r);
+            ch.nbHabi+=r;
         }
         p.plateau[pt.getX()][pt.getY()] = (Batiment) log;
         return nb;

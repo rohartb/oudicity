@@ -61,6 +61,7 @@ public class Commerce extends BatimentArgent implements Observer{
                         if(this.reserv_bien < 50){
                             int a = s.getFenetre().getGraphique().getPlateau().getSC().augmenterReservBien(100);
                             if(a!=0 && this.reserv_nourriture==0){
+                                s.getFenetre().getBarreL().afficheConseil("Manque d'industries (ou de subvention)");
                                 //System.out.println("Certains commerces n'ont plus de bien dans leur reserve!");
                                 //System.out.println("  ->faire plus d'industries, ou augmenter leur subvention!");
                             }
@@ -69,6 +70,7 @@ public class Commerce extends BatimentArgent implements Observer{
                         if(this.reserv_nourriture<100){
                             int a = s.getFenetre().getGraphique().getPlateau().getSC().augmenterReservNourriture(200);
                             if(a!=0 && this.reserv_nourriture==0){
+                                s.getFenetre().getBarreL().afficheConseil("Manque de fermes (ou de subvention)");
                                //System.out.println("Certains commerces n'ont plus de nourriture dans leur reserve!");
                                //System.out.println("  ->faire plus de fermes, ou augmenter leur subvention!");
                             }
