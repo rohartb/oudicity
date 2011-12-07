@@ -8,8 +8,8 @@ public class OudiCity{
     Thread thTemps;
     Fenetre f;
     
-    String nomVille = "grenoble" ;
-    String nomMaire = "josé";
+    String nomVille = "Grenoble" ;
+    String nomMaire = "José";
    
     public static void main(String[] args){
         OudiCity oudiCity = new OudiCity();

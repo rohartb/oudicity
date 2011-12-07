@@ -274,8 +274,10 @@ public final class Circulation {
                             ch.batInd.add(new Points(x-1,y));
                             System.out.println("indus");
                         } else {
-                            ch.batFerm.add(new Points(x-1,y));
-                            System.out.println("ferme");
+                            if(b.getType().equals("ferme")){
+                                ch.batFerm.add(new Points(x-1,y));
+                                System.out.println("ferme");
+                            }
                         }
                     }
                     
@@ -302,7 +304,9 @@ public final class Circulation {
                         if(b.getType().equals("industrie")){
                             ch.batInd.add(new Points(x+1,y));
                         } else {
-                            ch.batFerm.add(new Points(x+1,y));
+                            if(b.getType().equals("ferme")){
+                                ch.batFerm.add(new Points(x+1,y));
+                            }
                         }
                     }
                     
@@ -329,7 +333,7 @@ public final class Circulation {
                         if(b.getType().equals("industrie")){
                             ch.batInd.add(new Points(x,y-1));
                         } else {
-                            if(a.getGroupe().equals("logement")){
+                            if(a.getType().equals("ferme")){
                                 ch.batFerm.add(new Points(x,y-1));
                             }
                         }
@@ -358,7 +362,9 @@ public final class Circulation {
                         if(b.getType().equals("industrie")){
                             ch.batInd.add(new Points(x,y+1));
                         } else {
-                            ch.batFerm.add(new Points(x,y+1));
+                            if(b.getType().equals("ferme")){
+                                ch.batFerm.add(new Points(x,y+1));
+                            }
                         }
                     }
                     

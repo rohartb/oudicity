@@ -19,6 +19,7 @@ public class StockCommerce {
                 l.add(new Points(pt.getX(),pt.getY()));
             }
         }
+        System.out.println("contien ferm  "+l.size());
         return l;
     }
 

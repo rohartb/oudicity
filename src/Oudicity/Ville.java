@@ -46,8 +46,6 @@ public class Ville extends Observable implements Observer{
         Calendrier c = new Calendrier();
         if(o.getClass()==c.getClass()){
             c = (Calendrier) o;
-
-            Chemin ch = new Chemin(p);
             // On change de jour
             if(jour != c.jour ){
                 jour = c.jour;
@@ -59,7 +57,7 @@ public class Ville extends Observable implements Observer{
                         if(commerce.getReserv_bien()<50){
                             int a = p.sc.augmenterReservBien(100,p.c.lc.get(j));
                             if(a!=0 && commerce.getReserv_bien()==0){
-                                s.getFenetre().getBarreL().afficheConseil("Manque d'industries (ou de subvention)");
+                                s.getFenetre().getBarreL().afficheConseil("Manque prod bien");
                                 //System.out.println("Certains commerces n'ont plus de bien dans leur reserve!");
                                 //System.out.println("  ->faire plus d'industries, ou augmenter leur subvention!");
                             }
@@ -68,9 +66,7 @@ public class Ville extends Observable implements Observer{
                         if(commerce.getReserv_nourriture()<100){
                             int a = p.sc.augmenterReservNourriture(200,p.c.lc.get(j));
                             if(a!=0 && commerce.getReserv_nourriture()==0){
-                                s.getFenetre().getBarreL().afficheConseil("Manque dde fermes (ou de subvention)");
-                                //System.out.println("Certains commerces n'ont plus de bien dans leur reserve!");
-                                //System.out.println("  ->faire plus d'industries, ou augmenter leur subvention!");
+                                s.getFenetre().getBarreL().afficheConseil("Manque prod nourriture");
                             }
                             commerce.setReserv_nourriture(200-a);
                         }
@@ -97,7 +93,7 @@ public class Ville extends Observable implements Observer{
                         //System.out.println("  ->ajouter des commerces");
                     }
                 }
-                if(c.jour != jourDebut && jourAtt == 2){
+                if(/*c.jour != jourDebut &&*/ jourAtt == 2){
                     // Augmenter le nombre d'habitant si il ya des places 
                     //dans des logements
                     if(s.f.pg.p.h.logementLibre()){
@@ -114,6 +110,7 @@ public class Ville extends Observable implements Observer{
                     if(c.annee != 1970){
                         calculer_attraction();                        
                     }
+                    s.f.barreL.afficheConseil("  ");
                     
                     jourAtt = 0;
                 } else {
