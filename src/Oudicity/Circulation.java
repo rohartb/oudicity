@@ -61,17 +61,38 @@ public final class Circulation {
         
         if(reseauRoutier[x][y] == 1){
             lc.add(ch);
+            System.out.println("liste points " + ch.pc.size());
+            System.out.println("liste com " + ch.batCom.size());
+            System.out.println("liste hab " + ch.batHab.size());
+            System.out.println("liste ferm " + ch.batFerm.size());
+            System.out.println("liste ind " + ch.batInd.size());
+            System.out.println("liste loi " + ch.batLoi.size());
+            System.out.println("liste servicpu " + ch.batSerPu.size());
+            System.out.println("nbemploy " + ch.nbEmploy);
+            System.out.println("nbemax " + ch.nbEmployMax);
+            System.out.println("nbhab " + ch.nbHabi);
+            
         } else {
             Chemin li = new Chemin(p);
             li = fusionner(ch,pchemin);
             lc.add(li);
+            System.out.println("liste points " + li.pc.size());
+            System.out.println("liste com " + li.batCom.size());
+            System.out.println("liste hab " + li.batHab.size());
+            System.out.println("liste ferm " + li.batFerm.size());
+            System.out.println("liste ind " + li.batInd.size());
+            System.out.println("liste loi " + li.batLoi.size());
+            System.out.println("liste servicpu " + li.batSerPu.size());
+            System.out.println("nbemploy " + li.nbEmploy);
+            System.out.println("nbemax " + li.nbEmployMax);
+            System.out.println("nbhab " + li.nbHabi);
         }
     }
     
     public void afficher(){
         for (int a=0; a<p.getTaille(); a++){
             for (int b=0; b<p.getTaille(); b++){
-                System.out.print("" + reseauRoutier[b][a] + " ");
+                System.out.print("" + reseauRoutier[a][b] + " ");
             }
             System.out.println("");
         }
@@ -252,7 +273,7 @@ public final class Circulation {
                 || !p.plateau[x+1][y].getGroupe().equals("batiment"))){
                 a = p.plateau[x+1][y];
                 if(a.getGroupe().equals("batimentargent")){
-                    BatimentArgent b = (BatimentArgent) p.plateau[x-1][y];
+                    BatimentArgent b = (BatimentArgent) p.plateau[x+1][y];
                     if(b.getType().equals("commerce")){
                         ch.batCom.add(new Points(x+1,y));
                     } else {
@@ -558,5 +579,185 @@ public final class Circulation {
         }
 
         return estDansMemChemin;
-    } 
+    }
+
+    void supprimerRoute(Points pt) {
+        int x = pt.getY();
+        int y = pt.getX();
+        Chemin che = new Chemin(p);
+        LinkedList<Points> lip = new LinkedList<Points>();
+        
+        che = trouverChemin(pt);
+        
+        if(che.pc.size() == 1){
+            supprimerChemin(pt);
+            System.out.println("taille liste chemin " + lc.size());
+        }
+        
+        if(x >0 && reseauRoutier[x-1][y] == 0){
+            lip.add(new Points(y,x-1));
+        }
+        if(x < p.getTaille()-1 && reseauRoutier[x+1][y] == 0){ 
+            lip.add(new Points(y,x+1));
+        }
+        if(y > 0 && reseauRoutier[x][y-1] == 0){
+            lip.add(new Points(y-1,x));
+        }
+        if( y < p.getTaille()-1 && reseauRoutier[x][y+1] == 0){
+            lip.add(new Points(y+1,x));
+        }
+        
+        if((x==0 && y==0) || (x==p.getTaille()-1 && y==p.getTaille()-1)){
+            if(lip.size()==1){
+                //fin de chemin
+                supprimerFinChemin(lip,pt);
+            } else {
+                //chemin scindé
+                scinderChemin(pt);
+            }
+        } else {
+            if(x==0 || y==0 || x==p.getTaille()-1 || y==p.getTaille()-1){
+                if(lip.size() == 2){
+                    //fin de chemin
+                    supprimerFinChemin(lip,pt);
+                } else {
+                    //chemin scindé
+                    scinderChemin(pt);
+                }
+            } else {
+                if(lip.size() == 1){
+                    //fin du chemin
+                    supprimerFinChemin(lip,pt);
+                } else {
+                    // chemin scindé 
+                    scinderChemin(pt);
+                }
+            }
+        }
+        reseauRoutier[pt.getY()][pt.getX()] = 0;
+    
+    }
+    
+    public void supprimerChemin(Points pt) {
+        Chemin chemf = new Chemin(p);
+
+        for(int i=0;i<lc.size();i++){
+            chemf = lc.get(i);
+            for(int j=0;j<chemf.pc.size();j++){
+                if(chemf.pc.get(j).getX() == pt.getX() && chemf.pc.get(j).getY() == pt.getY()){
+                    lc.remove(i);
+                }
+            }
+        }
+    }
+
+    private void supprimerFinChemin(LinkedList<Points> lip, Points pt) {
+        Points pete;
+        Points pwin;
+        Batiment batt;
+        Chemin cheminee = trouverChemin(pt);
+        
+        for(int i = 0;i<lip.size();i++){
+            pete = lip.get(i);
+            batt = p.plateau[pete.getX()][pete.getY()];
+            if(batt.getGroupe().equals("batimentargent")){
+                    BatimentArgent b = (BatimentArgent) p.plateau[pete.getX()][pete.getY()];
+                    if(b.getType().equals("commerce")){
+                        pwin = supprimerBatListe(cheminee.batCom,pete);
+                        cheminee.nbEmploy -= pwin.getX();
+                        cheminee.nbEmployMax -= pwin.getY();
+                    } else {
+                        if(b.getType().equals("industrie")){
+                            pwin = supprimerBatListe(cheminee.batInd,pete);
+                            cheminee.nbEmploy -= pwin.getX();
+                            cheminee.nbEmployMax -= pwin.getY();
+                        } else {
+                            pwin = supprimerBatListe(cheminee.batFerm,pete);
+                            cheminee.nbEmploy -= pwin.getX();
+                            cheminee.nbEmployMax -= pwin.getY();
+                        }
+                    }
+                    
+                }
+                else if(batt.getGroupe().equals("loisir")){
+                    pwin = supprimerBatListe(cheminee.batLoi,pete);
+                    cheminee.nbEmploy -= pwin.getX();
+                    cheminee.nbEmployMax -= pwin.getY();
+                }
+                else if(batt.getGroupe().equals("servicepublique")){
+                    pwin = supprimerBatListe(cheminee.batSerPu,pete);
+                    cheminee.nbEmploy -= pwin.getX();
+                    cheminee.nbEmployMax -= pwin.getY();
+                } else {
+                    if(batt.getGroupe().equals("logement")){
+                        pwin = supprimerBatListe(cheminee.batHab,pete);
+                        cheminee.nbHabi -= pwin.getX();
+                    }
+                
+                }
+        }
+
+    }
+
+    private void scinderChemin(Points pt) {
+        Chemin koala;
+        Points panda;
+        
+        // je recupere le chemin ou la route va etre coupée
+        koala = trouverChemin(pt);
+        // je supprime le chemin de ma liste de chemin
+        supprimerChemin(pt);
+        //je parours mon tableau reseau et je supprime tout les points de ce chemin
+        for(int i=0; i<koala.pc.size(); i++){
+            panda = koala.pc.get(i);
+            if(pt.getX() == panda.getX() && pt.getY() == panda.getY()){
+                koala.pc.remove(i);
+                System.out.println("taille liste" + koala.pc.size());
+            } else {
+                reseauRoutier[panda.getY()][panda.getX()] = 0;
+            }
+        }
+        afficher();
+        // On reactualise tout les points du chemin
+        for(int i=0; i<koala.pc.size(); i++){
+            panda = koala.pc.get(i);
+            System.out.println("panda x et y " + panda.getX() + panda.getY());
+            actualiserReseauRoutier(panda);
+        }
+    }
+
+    private Points supprimerBatListe(LinkedList<Points> batList, Points pwinPwin) {
+        Points pNombre = null;
+        Points poing;
+        Batiment blatte;
+        
+        for(int i=0;i<batList.size();i++){
+            poing = batList.get(i);
+            if(poing.getX()== pwinPwin.getX() && poing.getY() == pwinPwin.getX()){
+                blatte = p.plateau[poing.getX()][poing.getY()]; 
+                if(blatte.getGroupe().equals("batimentargent")){
+                    BatimentArgent bobet = (BatimentArgent) p.plateau[poing.getX()][poing.getX()];
+                    pNombre = new Points(bobet.getNb_employe(),bobet.getNb_employe_MAX());
+                    batList.remove(i);
+                }
+                else if(blatte.getGroupe().equals("loisir")){
+                    Loisir bobet = (Loisir) p.plateau[poing.getX()][poing.getX()];
+                    pNombre = new Points(bobet.getNb_employe(),bobet.getNb_employe_MAX());
+                    batList.remove(i);
+                }
+                else if(blatte.getGroupe().equals("servicepublique")){
+                    ServicePublic bobet = (ServicePublic) p.plateau[poing.getX()][poing.getX()];
+                    pNombre = new Points(bobet.getNb_employe(),bobet.getNb_employe_MAX());
+                    batList.remove(i);
+                } else {
+                    if(blatte.getGroupe().equals("logement")){
+                        Logement bobet = (Logement) p.plateau[poing.getX()][poing.getX()];
+                        pNombre = new Points(bobet.getNb_habitant(),0);
+                        batList.remove(i);
+                    }
+                }
+            }
+        }
+        return pNombre;
+    }
 }
