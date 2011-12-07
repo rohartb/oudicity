@@ -38,7 +38,9 @@ public class StockCommerce {
         }
         return l;
     }
-    
+
+    //retourne b qui est soit nul quand on a réussit à puiser tous les biens
+    //dans les industries, soit positive
     public int augmenterReservBien(int a){//a est ce qu'on veut prendre
         LinkedList<Points> l = plateauContientIndustrie();
         Industrie ind;

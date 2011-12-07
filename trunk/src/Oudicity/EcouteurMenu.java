@@ -20,13 +20,13 @@ class EcouteurMenu implements ActionListener{
 
             
         }else if(e.getActionCommand().equals("stats")){
-            Statistique s = new Statistique(o);
             try {
+                Statistique s = new Statistique(o);
                 s.AfficherStats();
             } catch (InterruptedException ex) {
-                Logger.getLogger(EcouteurMenu.class.getName())
-                        .log(Level.SEVERE, null, ex);
+                Logger.getLogger(EcouteurMenu.class.getName()).log(Level.SEVERE, null, ex);
             }
+               
         }else if(e.getActionCommand().equals("quitter")){
             System.exit(0);
         }
