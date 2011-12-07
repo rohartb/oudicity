@@ -196,27 +196,39 @@ public final class Employe {
         }
     }
     
-    void diminuerEmploye(Chemin ch){
-        Chemin c = ch;        
+    void diminuerEmploye(LinkedList<Chemin> lch){
+       /* LinkedList<Chemin> lc = lch;
+        LinkedList<Points> commerce =  new LinkedList<Points>(); 
+        LinkedList<Points> loisir =  new LinkedList<Points>(); 
+        LinkedList<Points> serPu =  new LinkedList<Points>();
+        LinkedList<Points> ind =  new LinkedList<Points>();
+        LinkedList<Points> ferme =  new LinkedList<Points>();
+        LinkedList<Points> conca =  new LinkedList<Points>();
         
-        LinkedList<Points> commerce =  c.batCom; 
-        LinkedList<Points> loisir =  c.batLoi; 
-        LinkedList<Points> serPu =  c.batSerPu;
-        LinkedList<Points> ind =  c.batInd; 
-        LinkedList<Points> ferme =  c.batFerm;
-        LinkedList<Points> conca =  listeConcatene(commerce,loisir);
-        conca = listeConcatene(conca,serPu);
-        conca = listeConcatene(conca,ind);
-        conca = listeConcatene(conca,ferme);
-        conca = listeContientEmploye(conca);
+        for(int i=0;i<lc.size();i++){
+            Chemin ch = lc.get(i);
+            commerce = ch.batCom;
+            loisir = ch .batLoi;
+            serPu = ch.batSerPu;
+            ind = ch.batInd;
+            ferme = ch.batFerm;
+            int nb_hab = ch.nbHabi;
+            int nb_empl = ch.nbEmploy;
+            if(nb_hab<nb_empl){
+                conca = listeConcatene(conca,commerce);
+                conca = listeConcatene(conca,loisir);
+                conca = listeConcatene(conca,serPu);
+                conca = listeConcatene(conca,ind);
+                conca = listeConcatene(conca,ferme);
+                conca = listeContientEmploye(conca);
+                for(int j=0;j<conca.size();j++)
+                    
+                    
+                }
+            }
         
-        Random rand = new Random();
-        int i=0;
-        Points pt;
-        int nb_habitant = c.nbHabi;
-        int nb_travailleur = c.nbEmploy;
-        int diff = nb_travailleur-nb_habitant;
-        int enlever_employe;
+        
+        
         
         if(diff>0){ //plus de travailleur que d'habitant!!
             for(i=0;i<diff;i++){
@@ -239,7 +251,7 @@ public final class Employe {
                     b.setNb_employe(-1);
                 }
             }
-        }
+        }*/
     }
     
     void afficherEmployer(){
