@@ -1,6 +1,9 @@
 package Oudicity;
 
-public class Objectifs {
+import java.awt.*;
+import javax.swing.*;
+
+public class Objectifs extends JFrame{
     private Ville v;
     Objectifs(Ville v){
         this.v = v;
@@ -144,5 +147,45 @@ public class Objectifs {
         }
         
         return score;
+    }
+
+    void gagnerPartie() {
+        int rich = this.obj_maire_riche();
+        int attract =this.obj_maire_attracrif();
+        int coo = this.obj_maire_cool();
+        JFrame gagne = new JFrame("Fin de Partie");
+        gagne.setLayout(new GridLayout(3,1));
+        JPanel riche, attractif, cool;
+
+        riche = new JPanel();
+        riche.setBackground(Color.WHITE);
+        JLabel labRiche = new JLabel("Score = "+rich);
+        riche.setBorder(BorderFactory.createTitledBorder("Objectifs Maire riche"));
+        riche.add(labRiche);
+        riche.setBackground(new Color(153,204,255));
+        
+        attractif = new JPanel();
+        attractif.setBackground(Color.WHITE);
+        JLabel labAttract = new JLabel("Score = "+attract);
+        attractif.setBorder(BorderFactory.createTitledBorder("Objectifs Maire attractif"));
+        attractif.add(labAttract);
+        attractif.setBackground(new Color(153,204,255));
+        
+        cool = new JPanel();
+        cool.setBackground(Color.WHITE);
+        JLabel labCool = new JLabel("Score = "+coo);
+        cool.setBorder(BorderFactory.createTitledBorder("Objectifs Maire cool"));
+        cool.add(labCool);
+        cool.setBackground(new Color(153,204,255));
+
+
+
+        gagne.add(riche);
+        gagne.add(attractif);
+        gagne.add(cool);
+
+        gagne.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        gagne.setSize(new Dimension(500,400));
+        gagne.setVisible(true);
     }
 }
