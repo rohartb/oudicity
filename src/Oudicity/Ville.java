@@ -51,6 +51,32 @@ public class Ville extends Observable implements Observer{
             // On change de jour
             if(jour != c.jour ){
                 jour = c.jour;
+                for(int j=0;j<p.c.lc.size();j++){
+                    LinkedList<Points> com =  p.c.lc.get(j).batCom;
+                    for(int k=0;k<com.size();k++){ 
+                        Points pt=com.get(k);
+                        Commerce commerce = (Commerce) p.plateau[pt.getX()][pt.getY()];
+                        if(commerce.getReserv_bien()<50){
+                            int a = p.sc.augmenterReservBien(100,p.c.lc.get(j));
+                            if(a!=0 && commerce.getReserv_bien()==0){
+                                s.getFenetre().getBarreL().afficheConseil("Manque d'industries (ou de subvention)");
+                                //System.out.println("Certains commerces n'ont plus de bien dans leur reserve!");
+                                //System.out.println("  ->faire plus d'industries, ou augmenter leur subvention!");
+                            }
+                            commerce.setReserv_bien(100-a);
+                        }
+                        if(commerce.getReserv_nourriture()<100){
+                            int a = p.sc.augmenterReservNourriture(200,p.c.lc.get(j));
+                            if(a!=0 && commerce.getReserv_nourriture()==0){
+                                s.getFenetre().getBarreL().afficheConseil("Manque dde fermes (ou de subvention)");
+                                //System.out.println("Certains commerces n'ont plus de bien dans leur reserve!");
+                                //System.out.println("  ->faire plus d'industries, ou augmenter leur subvention!");
+                            }
+                            commerce.setReserv_nourriture(200-a);
+                        }
+                    }
+                }
+                
                 if((c.annee==1970 && c.mois>2) || c.annee>1970){
                     int consomme = p.h.consommer();
 
