@@ -70,7 +70,6 @@ public class Ville extends Observable implements Observer{
                         if(indiceAttraction >= 50){
                             nbHabitant += p.h.augmentetHabitant();
                             for(int i=0;i<p.c.lc.size();i++){
-                                System.out.println("ville");
                                 p.e.AugmenterEmploye(p.c.lc.get(i));
                                 setChanged();
                                 notifyObservers();

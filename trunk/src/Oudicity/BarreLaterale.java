@@ -19,12 +19,16 @@ public class BarreLaterale extends JPanel implements Observer {
     JPanel south;
     JPanel conseils;
     JPanel infoBat;
+
+    //Tous les composants servant à l'affichage des conseils
     JLabel subvention;
     JPanel sub;
     JButton moins;
     JButton plus;
     EcouteurDeBarreLateral ec;
-     JLabel labSub = new JLabel();
+    JLabel labSub = new JLabel();
+    int cons = 0;
+    JLabel cons1, cons2, cons3, cons4;
      
     
     // Panel affichage
@@ -347,7 +351,7 @@ public class BarreLaterale extends JPanel implements Observer {
 
         
         //Panel des conseils
-        conseils = new JPanel();
+        conseils = new JPanel(new GridLayout(4,1));
         conseils.setBorder(BorderFactory.createTitledBorder("Conseils"));
         conseils.setBackground(new Color(153,204,255));
         conseils.setPreferredSize(new Dimension(200,200));
@@ -489,6 +493,38 @@ public class BarreLaterale extends JPanel implements Observer {
     }
 
     public void afficheConseil(String s){
+        if (cons == 0){
+            cons1 = new JLabel(s);
+            conseils.add(cons1);
+        }else if(cons == 1){
+            cons2 = new JLabel(s);
+            conseils.add(cons2);
+        }else if(cons == 2){
+            cons3 = new JLabel(s);
+            conseils.add(cons3);
+        }else if(cons == 3){
+            cons4 = new JLabel(s);
+            conseils.add(cons4);
+        }else{
+            s="4";
+            conseils.remove(cons1);
+            cons1 = new JLabel();
+            cons1 = cons2;
+            conseils.remove(cons2);
+            cons2 = new JLabel();
+            cons2 = cons3;
+            conseils.remove(cons3);
+            cons3 = new JLabel();
+            cons3 = cons4;
+            conseils.remove(cons4);
+            cons4 = new JLabel(s);
+            conseils.add(cons1);
+            conseils.add(cons2);
+            conseils.add(cons3);
+            conseils.add(cons4);
+            cons = 3;
+        }
+        cons++;
         
     }
     
