@@ -164,8 +164,10 @@ public class Ville extends Observable implements Observer{
                 while(w<taille2){
                     pt2 = loisir.get(w);
                     loi = (Loisir) p.plateau[pt1.getX()][pt1.getY()];
-                    log.setAttirance(log.getAttirance()+loi.getAttraction()); 
+                    log.setAttirance(log.getAttirance()+loi.getAttraction());
+                    w++;
                 }
+                k++;
             }
         }
     }
