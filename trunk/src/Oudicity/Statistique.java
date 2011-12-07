@@ -85,9 +85,8 @@ class Statistique extends JFrame{
         
         f.add(panel);
         f.setDefaultCloseOperation(f.HIDE_ON_CLOSE);
-        f.setSize(500, 400);
+        f.setSize(400, 200);
         f.setVisible(true);
-
     }
 
     private int chercheLoisirs() {
