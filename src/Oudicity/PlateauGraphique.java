@@ -3,7 +3,6 @@
 package Oudicity;
 import java.awt.*;
 import java.awt.geom.*;
-import java.awt.image.*;
 import javax.swing.*;
 
 public class PlateauGraphique extends JComponent {
@@ -165,29 +164,29 @@ public class PlateauGraphique extends JComponent {
 
                 // paint pour les services publiques
                 else if(this.p.plateau[i][j].getType().equals("commissariat")){
-                    drawable.setPaint(new Color(0,0,204));
-                    drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
-                                     (int)height/N);
+                    drawable.drawImage(commissariat,(int)(i*(width/N)),
+                            (int) (j*(height/N)),(int)width/N,
+                            (int)height/N, null);
                 }else if(this.p.plateau[i][j].getType().equals("decheterie")){
-                    drawable.setPaint(new Color(51,153,0));
-                    drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
-                                     (int)height/N);
+                    drawable.drawImage(decheterie,(int)(i*(width/N)),
+                            (int) (j*(height/N)),(int)width/N,
+                            (int)height/N, null);
                 }else if(this.p.plateau[i][j].getType().equals("ecole")){
-                    drawable.setPaint(new Color(255,204,153));
-                    drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
-                                     (int)height/N);
+                    drawable.drawImage(ecole,(int)(i*(width/N)),
+                            (int) (j*(height/N)),(int)width/N,
+                            (int)height/N, null);
                 }else if(this.p.plateau[i][j].getType().equals("hopital")){
                     drawable.drawImage(hopital,(int)(i*(width/N)),
                             (int) (j*(height/N)),(int)width/N,
                             (int)height/N, null);
                 }else if(this.p.plateau[i][j].getType().equals("hoteldeville")){
-                    drawable.setPaint(new Color(153,51,204));
-                    drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
-                                     (int)height/N);
+                    drawable.drawImage(hotel,(int)(i*(width/N)),
+                            (int) (j*(height/N)),(int)width/N,
+                            (int)height/N, null);
                 }else if(this.p.plateau[i][j].getType().equals("pompier")){
-                    drawable.setPaint(new Color(255,0,0));
-                    drawable.fillRect((int)(i*(width/N)),(int) (j*(height/N)), (int)width/N,
-                                     (int)height/N);
+                    drawable.drawImage(pompier,(int)(i*(width/N)),
+                            (int) (j*(height/N)),(int)width/N,
+                            (int)height/N, null);
                 }
             }
         }
