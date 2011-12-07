@@ -140,17 +140,18 @@ public final class Employe {
     void AugmenterEmploye(Chemin ch){
         Chemin c = ch;        
         
-        LinkedList<Points> commerce =  c.batCom; 
-        LinkedList<Points> loisir =  c.batLoi; 
+        LinkedList<Points> conca = new LinkedList<Points>();
+        LinkedList<Points> commerce =  c.batCom;
+        LinkedList<Points> loisir =  c.batLoi;
         LinkedList<Points> serPu =  c.batSerPu;
         LinkedList<Points> ind =  c.batInd; 
         LinkedList<Points> ferme =  c.batFerm;
-        LinkedList<Points> conca =  listeConcatene(commerce,loisir);
+        conca =  listeConcatene(conca,loisir);
+        conca = listeConcatene(conca,commerce);
         conca = listeConcatene(conca,serPu);
         conca = listeConcatene(conca,ind);
-        conca = listeConcatene(conca,ferme);
-        
-        
+        conca = listeConcatene(conca,ferme);      
+                
         Random rand = new Random();
         int nb_chomeur = c.nbHabi - c.nbEmploy;
         int nb_travail = c.nbEmployMax - c.nbEmploy;
@@ -165,7 +166,6 @@ public final class Employe {
             else{
                 i = rand.nextInt(nb_chomeur);
             }
-
             for(int j=0; j<i; j++){
                 conca = listeContientTravail(conca);
                 if(conca.size()==0){
@@ -176,14 +176,17 @@ public final class Employe {
                 if(p.plateau[pt.getX()][pt.getY()].getGroupe().equals("batimentargent")){
                     BatimentArgent b = (BatimentArgent) p.plateau[pt.getX()][pt.getY()];
                     b.setNb_employe(1);
+                    c.nbEmploy++;                    
                 }
                 else if(p.plateau[pt.getX()][pt.getY()].getGroupe().equals("loisir")){
                     Loisir b = (Loisir) p.plateau[pt.getX()][pt.getY()];
                     b.setNb_employe(1);
+                    c.nbEmploy++;
                 }
                 else if(p.plateau[pt.getX()][pt.getY()].getGroupe().equals("servicepublic")){
                     ServicePublic b = (ServicePublic) p.plateau[pt.getX()][pt.getY()];
                     b.setNb_employe(1);
+                    c.nbEmploy++;
                 }
             }
         }
@@ -256,7 +259,7 @@ public final class Employe {
 
     //fonction qui concatene 2 listes! 
     private LinkedList<Points> listeConcatene(LinkedList<Points> l1, LinkedList<Points> l2) {
-        int i =0;
+        int i = 0;
         int taille = l2.size();
         Points pt;
         while(i<taille){
