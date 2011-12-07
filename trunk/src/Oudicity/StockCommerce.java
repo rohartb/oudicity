@@ -9,31 +9,27 @@ public class StockCommerce {
         this.p = p;
     }
     
-    public LinkedList<Points> plateauContientFerme(){
+    public LinkedList<Points> plateauContientFerme(Chemin ch){
+        LinkedList<Points> ferme = ch.batFerm;
         LinkedList<Points> l = new LinkedList<Points>();
-        for(int i=0; i<p.getTaille(); i++){
-            for(int j=0; j<p.getTaille(); j++){
-                if(p.plateau[i][j].getType().equals("ferme")){
-                    Ferme f = (Ferme) p.plateau[i][j];
-                    if (f.getStock_nourriture()>0){
-                        l.add(new Points(i,j));
-                    }
-                }
+        for(int i=0; i<ferme.size(); i++){
+            Points pt = ferme.get(i);
+            Ferme f = (Ferme) p.plateau[pt.getX()][pt.getY()];
+            if (f.getStock_nourriture()>0){
+                l.add(new Points(pt.getX(),pt.getY()));
             }
         }
         return l;
     }
 
-    public LinkedList<Points> plateauContientIndustrie(){
+    public LinkedList<Points> plateauContientIndustrie(Chemin ch){
+        LinkedList<Points> ind = ch.batInd;
         LinkedList<Points> l = new LinkedList<Points>();
-        for(int i=0; i<p.getTaille(); i++){
-            for(int j=0; j<p.getTaille(); j++){
-                if(p.plateau[i][j].getType().equals("industrie")){
-                    Industrie ind = (Industrie) p.plateau[i][j];
-                    if(ind.getStock_Bien()>0){
-                        l.add(new Points(i,j));  
-                    }
-                }
+        for(int i=0; i<ind.size(); i++){
+            Points pt = ind.get(i);
+            Industrie indus = (Industrie) p.plateau[pt.getX()][pt.getY()];
+            if (indus.getStock_Bien()>0){
+                l.add(new Points(pt.getX(),pt.getY()));
             }
         }
         return l;
@@ -41,8 +37,8 @@ public class StockCommerce {
 
     //retourne b qui est soit nul quand on a réussit à puiser tous les biens
     //dans les industries, soit positive
-    public int augmenterReservBien(int a){//a est ce qu'on veut prendre
-        LinkedList<Points> l = plateauContientIndustrie();
+    public int augmenterReservBien(int a,Chemin ch){//a est ce qu'on veut prendre
+        LinkedList<Points> l = plateauContientIndustrie(ch);
         Industrie ind;
         int i =0;
         int b=a;
@@ -70,8 +66,8 @@ public class StockCommerce {
         }
     }
     
-    public int augmenterReservNourriture(int a){//a est ce qu'on veut prendre
-        LinkedList<Points> l = plateauContientFerme();
+    public int augmenterReservNourriture(int a, Chemin ch){//a est ce qu'on veut prendre
+        LinkedList<Points> l = plateauContientFerme(ch);
         Ferme f;
         int i =0;
         int b=a;

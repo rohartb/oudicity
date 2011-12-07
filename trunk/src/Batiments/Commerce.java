@@ -1,9 +1,8 @@
 package Batiments;
 
 import Oudicity.*;
-import java.util.*;
 
-public class Commerce extends BatimentArgent implements Observer{
+public class Commerce extends BatimentArgent /*implements Observer*/{
     private int reserv_nourriture;
     private int reserv_bien;
     
@@ -26,7 +25,7 @@ public class Commerce extends BatimentArgent implements Observer{
         this.reserv_bien=0;
         this.reserv_nourriture=0;
         
-        s.t.c.addObserver(this);
+        //s.t.c.addObserver(this);
     }
 
     /*GETTERS*/
@@ -49,7 +48,7 @@ public class Commerce extends BatimentArgent implements Observer{
     
 
     
-    @Override
+    /*@Override
     public void update(Observable o, Object arg) {
         Calendrier c = new Calendrier();
         if(this.nb_employe>0){
@@ -80,5 +79,5 @@ public class Commerce extends BatimentArgent implements Observer{
                 }
             }
         }
-    }
+    }*/
 }
