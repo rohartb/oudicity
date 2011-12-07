@@ -136,6 +136,7 @@ public final class Circulation {
 
     public Chemin ajouter(Chemin ch1, Chemin ch2) {
         Chemin cheminf = new Chemin(p);
+        Points fuuu;
         
         //liste batCom
         for(int i=0;i<ch1.batCom.size();i++){
@@ -145,7 +146,10 @@ public final class Circulation {
         }
         for(int i=0;i<ch2.batCom.size();i++){
             if(ch2.batCom.size()>0){
-                cheminf.batCom.add(ch2.batCom.get(i));
+                fuuu = ch2.batCom.get(i);
+                if(!estDansListe(cheminf.batCom,fuuu)){
+                    cheminf.batCom.add(ch2.batCom.get(i));
+                }
             }
         }
         
@@ -157,7 +161,10 @@ public final class Circulation {
         }
         for(int i=0;i<ch2.batFerm.size();i++){
             if(ch2.batFerm.size()>0){
-                cheminf.batFerm.add(ch2.batFerm.get(i));
+                fuuu = ch2.batFerm.get(i);
+                if(!estDansListe(cheminf.batFerm,fuuu)){
+                    cheminf.batFerm.add(ch2.batFerm.get(i));
+                }
             }
         }
         
@@ -169,7 +176,10 @@ public final class Circulation {
         }
         for(int i=0;i<ch2.batHab.size();i++){
             if(ch2.batHab.size()>0){
-                cheminf.batHab.add(ch2.batHab.get(i));
+                fuuu = ch2.batHab.get(i);
+                if(!estDansListe(cheminf.batHab,fuuu)){
+                    cheminf.batHab.add(ch2.batHab.get(i));
+                }
             }
         }
         
@@ -181,7 +191,10 @@ public final class Circulation {
         }
         for(int i=0;i<ch2.batLoi.size();i++){
             if(ch2.batLoi.size()>0){
-                cheminf.batLoi.add(ch2.batLoi.get(i));
+                fuuu = ch2.batLoi.get(i);
+                if(!estDansListe(cheminf.batLoi,fuuu)){
+                    cheminf.batLoi.add(ch2.batLoi.get(i));
+                }
             }
         }
         
@@ -193,7 +206,10 @@ public final class Circulation {
         }
         for(int i=0;i<ch2.batInd.size();i++){
             if(ch2.batInd.size()>0){
-                cheminf.batInd.add(ch2.batInd.get(i));
+                fuuu = ch2.batInd.get(i);
+                if(!estDansListe(cheminf.batInd,fuuu)){
+                    cheminf.batInd.add(ch2.batInd.get(i));
+                }
             }
         }
         
@@ -205,7 +221,10 @@ public final class Circulation {
         }
         for(int i=0;i<ch2.batSerPu.size();i++){
             if(ch2.batSerPu.size()>0){
-                cheminf.batSerPu.add(ch2.batSerPu.get(i));
+                fuuu = ch2.batSerPu.get(i);
+                if(!estDansListe(cheminf.batSerPu,fuuu)){
+                    cheminf.batSerPu.add(ch2.batSerPu.get(i));
+                }
             }
         }
         
@@ -217,7 +236,10 @@ public final class Circulation {
         }
         for(int i=0;i<ch2.pc.size();i++){
             if(ch2.pc.size()>0){
-                cheminf.pc.add(ch2.pc.get(i));
+                fuuu = ch2.pc.get(i);
+                if(!estDansListe(cheminf.pc,fuuu)){
+                    cheminf.pc.add(ch2.pc.get(i));
+                }
             }
         }
         
@@ -759,5 +781,19 @@ public final class Circulation {
             }
         }
         return pNombre;
+    }
+
+    private boolean estDansListe(LinkedList<Points> lb,Points cool) {
+       boolean estDans = false;
+       Points la;
+       
+       for(int i=0;i<lb.size();i++){
+           la = lb.get(i);
+           if(la.getX() == cool.getX() && la.getY() == cool.getY()){
+               estDans = true;
+           }
+       }
+       
+       return estDans;
     }
 }
