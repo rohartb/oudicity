@@ -74,7 +74,7 @@ public class Fenetre extends JFrame implements Runnable{
         //////////////////////////////////////
         
         accueil = new JPanel(new GridLayout(2,1));
-        accueil.setSize(1000,900);
+        accueil.setSize(900,900);
         accueil.setBackground(Color.white); 
 
         bienvenue = new JLabel(new ImageIcon("Image/Bienvenue.png"));
@@ -82,11 +82,11 @@ public class Fenetre extends JFrame implements Runnable{
         // Boutons de l'ecran d'accueil
         panelBouton = new JPanel();
         panelBouton.setBackground(Color.WHITE);
-        panelBouton.setLayout(new BoxLayout(panelBouton,BoxLayout.Y_AXIS));
         
         // Nouvelle Partie
         nouveau = new JButton("nouvelle partie");
         nouveau.setAlignmentX(CENTER_ALIGNMENT);
+        nouveau.setPreferredSize(new Dimension(200,50));
         nouveau.addActionListener(new EcouteurPageAccueil(s));
         nouveau.setActionCommand("nouveau");
         
@@ -97,12 +97,12 @@ public class Fenetre extends JFrame implements Runnable{
         // Quitter Partie
         quitter = new JButton("quitter");
         quitter.setAlignmentX(CENTER_ALIGNMENT);
+        quitter.setPreferredSize(new Dimension(200,50));
         quitter.addActionListener(new EcouteurPageAccueil(s));
         quitter.setActionCommand("quitter");
 
         // Ajout des boutons au panel
         panelBouton.add(nouveau);
-        panelBouton.add(continuer);
         panelBouton.add(quitter);
         
         accueil.add(bienvenue);
