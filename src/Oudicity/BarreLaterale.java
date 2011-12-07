@@ -506,7 +506,6 @@ public class BarreLaterale extends JPanel implements Observer {
             cons4 = new JLabel(s);
             conseils.add(cons4);
         }else{
-            s="4";
             conseils.remove(cons1);
             cons1 = new JLabel();
             cons1 = cons2;
