@@ -66,6 +66,8 @@ public final class Plateau {
                 equals("route")){
             if(this.plateau[pt.getX()][pt.getY()].getType().equals("route")){
                 c.supprimerRoute(pt);
+                this.e.diminuerEmploye(this.c.lc);
+                
             }
 
         }
