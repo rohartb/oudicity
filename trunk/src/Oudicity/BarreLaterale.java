@@ -410,7 +410,8 @@ public class BarreLaterale extends JPanel implements Observer {
                 .getGroupe();
         String nbs= "";
         int nb = 0, cout = 0;
-        boolean b =false;
+        JLabel contentement = new JLabel();
+        boolean b =false, c  =false;
         
         sub = new JPanel(new GridLayout(1,4));
         sub.setBackground(new Color(153,204,255));
@@ -420,7 +421,11 @@ public class BarreLaterale extends JPanel implements Observer {
                     plateau[points.getX()][points.getY()];
             nb = log.getNb_habitant();
             cout = log.getPrixDestr();
-            nbs = "Nombre Habitants = "+nb;            
+            nbs = "Nombre Habitants = "+nb;
+            int content = this.calculHabContentement(points);
+            contentement = new JLabel("Satisfait à "+content+"%");
+            contentement.setBackground(new Color(153,204,255));
+            c = true;
         }else if (scourant.equals("batimentargent")){
             BatimentArgent arg = (BatimentArgent) o.f.pg.getPlateau().
                     plateau[points.getX()][points.getY()];
@@ -480,6 +485,9 @@ public class BarreLaterale extends JPanel implements Observer {
         if(b){
             infoBat.add(labSub);
             b=false;
+        }else if(c){
+            infoBat.add(contentement);
+            c = false;
         }
         infoBat.add(sub);
 
@@ -545,6 +553,15 @@ public class BarreLaterale extends JPanel implements Observer {
             cons++;
         }
         
+    }
+
+    public int calculHabContentement(Points point){
+        int attirance = 0;
+                
+        Logement log = (Logement) o.f.pg.p.plateau[point.getX()][point.getY()];
+        attirance =log.getAttirance()/10;
+
+        return attirance;
     }
     
 }
