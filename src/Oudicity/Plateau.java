@@ -50,7 +50,6 @@ public final class Plateau {
             xc = x/((o.f.pg.getWidth())/N);
             yc = y/(o.f.pg.getHeight()/N);
             p = new Points(xc, yc);
-            System.out.println("xc : "+xc+"  yc : "+yc);
             return p;
     }
 

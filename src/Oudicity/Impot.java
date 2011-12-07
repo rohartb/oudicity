@@ -21,7 +21,7 @@ public class Impot{
 
     public int preleverTaxes() {
        int taxe=0;
-       LinkedList<Batiment> bat = null;
+       LinkedList<Batiment> bat = new LinkedList<Batiment>();
        for(int i=0; i<o.f.pg.p.getTaille(); i++){
            for(int j=0; j<o.f.pg.p.getTaille(); j++){
                if(o.f.pg.p.plateau[i][j].getGroupe().equals("batimentargent")
@@ -33,11 +33,12 @@ public class Impot{
            }
        }
 
+       Batiment batiment;
        Iterator iterator = bat.iterator();
 
        while(iterator.hasNext()){
-           taxe+=5;
-           iterator.next();
+           batiment = (Batiment) iterator.next();
+           taxe += batiment.getCoutEntretien();
        }
 
        return taxe;
