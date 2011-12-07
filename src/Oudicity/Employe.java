@@ -158,7 +158,9 @@ public final class Employe {
         int i=0;
         int travail;
         Points pt;   
-            
+        if((nb_chomeur/o.v.nbHabitant)*100>10 ){
+            o.getFenetre().getBarreL().afficheConseil("trop de chomage");
+        }
         if(nb_travail != 0 && nb_chomeur!= 0){
             if (nb_travail<nb_chomeur){
                 i = rand.nextInt(nb_travail);

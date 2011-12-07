@@ -13,6 +13,24 @@ public class Habitant {
     
     public LinkedList<Points> plateauContientLogementLibre(){
         LinkedList<Points> l = new LinkedList<Points>();
+        LinkedList<Points> hab =  new LinkedList<Points>();
+        int i;
+        Logement log;
+        Points pt;
+        for(i=0;i<p.c.lc.size();i++){
+            hab = p.c.lc.get(i).batHab;
+            for(int k=0;k<hab.size();k++){
+                pt = hab.get(k);
+                log = (Logement) p.plateau[pt.getX()][pt.getY()];
+                if(log.getAugmenter_habitant()>0){
+                    l.add(pt);
+                }
+            }
+        }
+        return l;
+  
+        
+        /*LinkedList<Points> l = new LinkedList<Points>();
         int b;
         
         Logement log;
@@ -27,7 +45,7 @@ public class Habitant {
                 }
             }
         }
-        return l;
+        return l;*/
     }
     
         public LinkedList<Commerce> plateauCommerce(){
