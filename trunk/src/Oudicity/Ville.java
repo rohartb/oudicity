@@ -136,6 +136,10 @@ public class Ville extends Observable implements Observer{
             }
             if(c.annee != annee){
                 System.out.println("Bonne année");
+                if (c.annee != 2000){
+                    Objectifs obj = new Objectifs(this);
+                    obj.gagnerPartie();
+                }
                 payerImpot();
                 annee = c.annee;
                 mois = 1;
