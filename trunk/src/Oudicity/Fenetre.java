@@ -144,7 +144,6 @@ public class Fenetre extends JFrame implements Runnable{
         quit.setActionCommand("quitter");
 
         bar.add(menu);
-        menu.add(nouv);
         menu.add(statistique);
         menu.add(quit);
 

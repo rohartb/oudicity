@@ -61,31 +61,11 @@ public final class Circulation {
         
         if(reseauRoutier[x][y] == 1){
             lc.add(ch);
-            System.out.println("liste points " + ch.pc.size());
-            System.out.println("liste com " + ch.batCom.size());
-            System.out.println("liste hab " + ch.batHab.size());
-            System.out.println("liste ferm " + ch.batFerm.size());
-            System.out.println("liste ind " + ch.batInd.size());
-            System.out.println("liste loi " + ch.batLoi.size());
-            System.out.println("liste servicpu " + ch.batSerPu.size());
-            System.out.println("nbemploy " + ch.nbEmploy);
-            System.out.println("nbemax " + ch.nbEmployMax);
-            System.out.println("nbhab " + ch.nbHabi);
             
         } else {
             Chemin li = new Chemin(p);
             li = fusionner(ch,pchemin);
             lc.add(li);
-            System.out.println("liste points " + li.pc.size());
-            System.out.println("liste com " + li.batCom.size());
-            System.out.println("liste hab " + li.batHab.size());
-            System.out.println("liste ferm " + li.batFerm.size());
-            System.out.println("liste ind " + li.batInd.size());
-            System.out.println("liste loi " + li.batLoi.size());
-            System.out.println("liste servicpu " + li.batSerPu.size());
-            System.out.println("nbemploy " + li.nbEmploy);
-            System.out.println("nbemax " + li.nbEmployMax);
-            System.out.println("nbhab " + li.nbHabi);
         }
     }
     
@@ -264,19 +244,15 @@ public final class Circulation {
                     || !p.plateau[x-1][y].getGroupe().equals("batiment"))){
                 a = p.plateau[x-1][y];
                 if(a.getGroupe().equals("batimentargent")){
-                    System.out.println("batArgent");
                     BatimentArgent b = (BatimentArgent) p.plateau[x-1][y];
                     if(b.getType().equals("commerce")){
                         ch.batCom.add(new Points(x-1,y));
-                        System.out.println("commmerc");
                     } else {
                         if(b.getType().equals("industrie")){
                             ch.batInd.add(new Points(x-1,y));
-                            System.out.println("indus");
                         } else {
                             if(b.getType().equals("ferme")){
                                 ch.batFerm.add(new Points(x-1,y));
-                                System.out.println("ferme");
                             }
                         }
                     }
@@ -619,7 +595,6 @@ public final class Circulation {
         
         if(che.pc.size() == 1){
             supprimerChemin(pt);
-            System.out.println("taille liste chemin " + lc.size());
         }
         
         if(x >0 && reseauRoutier[x-1][y] == 0){
@@ -740,7 +715,6 @@ public final class Circulation {
             panda = koala.pc.get(i);
             if(pt.getX() == panda.getX() && pt.getY() == panda.getY()){
                 koala.pc.remove(i);
-                System.out.println("taille liste" + koala.pc.size());
             } else {
                 reseauRoutier[panda.getY()][panda.getX()] = 0;
             }
@@ -749,7 +723,6 @@ public final class Circulation {
         // On reactualise tout les points du chemin
         for(int i=0; i<koala.pc.size(); i++){
             panda = koala.pc.get(i);
-            System.out.println("panda x et y " + panda.getX() + panda.getY());
             actualiserReseauRoutier(panda);
         }
     }
