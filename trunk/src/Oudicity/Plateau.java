@@ -53,20 +53,23 @@ public final class Plateau {
             return p;
     }
 
-    public void destroy(Points p){
-        if (this.plateau[p.getX()][p.getY()].getGroupe().equals("logement")){
+    public void destroy(Points pt){
+        if (this.plateau[pt.getX()][pt.getY()].getGroupe().equals("logement")){
             
-        }else if (this.plateau[p.getX()][p.getY()].getGroupe().
+        }else if (this.plateau[pt.getX()][pt.getY()].getGroupe().
                 equals("batimentargent")){
 
-        }else if (this.plateau[p.getX()][p.getY()].getGroupe().
+        }else if (this.plateau[pt.getX()][pt.getY()].getGroupe().
                 equals("loisir")){
 
-        }else if (this.plateau[p.getX()][p.getY()].getType().
+        }else if (this.plateau[pt.getX()][pt.getY()].getType().
                 equals("route")){
+            if(this.plateau[pt.getX()][pt.getY()].getType().equals("route")){
+                c.supprimerRoute(pt);
+            }
 
         }
-        nouveauBatiment(p, "herbe");
+        nouveauBatiment(pt, "herbe");
     }
 
 
